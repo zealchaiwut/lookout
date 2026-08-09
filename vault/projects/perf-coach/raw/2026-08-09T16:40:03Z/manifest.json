@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-08-09T16:40:03Z",
+  "target": "perf-coach",
+  "health": {},
+  "sources": {
+    "brief": {
+      "status": "ok",
+      "error": ""
+    },
+    "sprints_history": {
+      "status": "ok",
+      "error": ""
+    }
+  }
+}
