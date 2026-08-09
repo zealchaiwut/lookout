@@ -87,6 +87,9 @@ def _parse_project_names(index_path: Path) -> set[str]:
                 if name:
                     names.add(name)
         else:
+            # Skip GFM table rows (header, separator, data)
+            if stripped.startswith("|"):
+                continue
             # Plain bullet or bare text
             name = re.sub(r"^[-*+]\s+", "", stripped).strip()
             if name:
