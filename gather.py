@@ -260,34 +260,17 @@ def _collect_docs_manifest(
         return {"status": "absent", "error": str(exc)}
 
 
-def _collect_notion(notion_db: str, out_dir: Path) -> dict:
-    """Query Notion todos database. Returns {"status", "count", "error"}."""
+def _collect_notion(notion_db: str) -> dict:
+    """Check Notion configuration. Returns {"status", "count", "error"}.
+
+    HTTP connection is deferred to a future ticket; this check is presence-only.
+    """
     if not notion_db or notion_db == "<placeholder>":
         return {"status": "absent", "count": 0, "error": "not configured"}
-
     api_key = os.environ.get("NOTION_API_KEY", "")
     if not api_key:
         return {"status": "absent", "count": 0, "error": "NOTION_API_KEY not set"}
-
-    try:
-        resp = requests.post(
-            f"https://api.notion.com/v1/databases/{notion_db}/query",
-            headers={
-                "Authorization": f"Bearer {api_key}",
-                "Notion-Version": "2022-06-28",
-                "Content-Type": "application/json",
-            },
-            json={},
-            timeout=_TIMEOUT,
-        )
-        if not resp.ok:
-            return {"status": "absent", "count": 0, "error": f"HTTP {resp.status_code}"}
-        results = resp.json().get("results", [])
-        with open(out_dir / "notion_todos.json", "w") as fh:
-            json.dump({"todos": results}, fh, indent=2)
-        return {"status": "ok", "count": len(results), "error": ""}
-    except Exception as exc:
-        return {"status": "absent", "count": 0, "error": str(exc)}
+    return {"status": "absent", "count": 0, "error": "integration not yet implemented"}
 
 
 def _collect_journal_summary(entries_path_str: str) -> dict:
@@ -394,7 +377,7 @@ def gather(target_name):
         _collect_docs_manifest(local_path, out_dir, vault_project_dir)
 
     # Notion and journal collectors
-    notion_result = _collect_notion(notion_db, out_dir)
+    notion_result = _collect_notion(notion_db)
     journal_result = _collect_journal_summary(journal_entries_str)
 
     manifest = {
