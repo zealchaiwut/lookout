@@ -36,7 +36,6 @@ Exit codes
 0 — always (absence is not an error)
 """
 import json
-import sys
 from pathlib import Path
 
 import yaml

@@ -4,10 +4,8 @@ Each test maps to a specific AC item from the issue.
 """
 import importlib.util
 import json
-import time
 from pathlib import Path
 
-import pytest
 import yaml
 
 REPO_ROOT = Path(__file__).parent.parent
