@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+"""Entry point for a lookout run against a named target."""
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+import yaml
+
+REPO_ROOT = Path(subprocess.check_output(
+    ["git", "rev-parse", "--show-toplevel"],
+    cwd=Path(__file__).parent,
+    text=True,
+).strip())
+
+TARGETS_YAML = REPO_ROOT / "targets.yaml"
+LINT_SCRIPT = REPO_ROOT / ".claude" / "skills" / "lookout" / "scripts" / "lint.py"
+
+
+def load_targets():
+    with open(TARGETS_YAML) as f:
+        data = yaml.safe_load(f)
+    return list(data.get("targets", {}).keys())
+
+
+def has_changes():
+    result = subprocess.run(
+        ["git", "status", "--porcelain"],
+        capture_output=True,
+        text=True,
+        cwd=REPO_ROOT,
+    )
+    return bool(result.stdout.strip())
+
+
+def commit_run(target):
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    subprocess.run(["git", "add", "-A"], cwd=REPO_ROOT, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", f"lookout({target}): scaffold run {timestamp}"],
+        cwd=REPO_ROOT,
+        check=True,
+    )
+
+
+def main():
+    valid_targets = load_targets()
+
+    if len(sys.argv) < 2 or not sys.argv[1]:
+        print("Usage: bin/lookout <target>", file=sys.stderr)
+        print(f"Valid targets: {', '.join(valid_targets)}", file=sys.stderr)
+        sys.exit(1)
+
+    target = sys.argv[1]
+
+    if target not in valid_targets:
+        print(f"Error: unknown target '{target}'", file=sys.stderr)
+        print("Valid targets:", file=sys.stderr)
+        for t in valid_targets:
+            print(f"  {t}", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"lookout: gather for '{target}' is not yet built — stub run only.")
+
+    lint_result = subprocess.run([sys.executable, str(LINT_SCRIPT)], cwd=REPO_ROOT)
+    lint_exit = lint_result.returncode
+
+    if lint_exit != 0:
+        print(f"lookout: lint failed (exit {lint_exit})", file=sys.stderr)
+
+    if has_changes():
+        commit_run(target)
+
+    sys.exit(lint_exit)
+
+
+if __name__ == "__main__":
+    main()
