@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Vault integrity linter: wikilink and index/folder checks."""
+"""Vault integrity linter: wikilink, index/folder, and staleness checks."""
 import argparse
 import re
 import sys
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -104,6 +105,44 @@ def _get_project_dirs(vault_path: Path) -> set[str]:
     return {d.name for d in projects_dir.iterdir() if d.is_dir()}
 
 
+_STALENESS_DAYS = 7
+
+
+def check_staleness(vault_path: Path) -> list[str]:
+    """Return warning strings for project snapshots older than _STALENESS_DAYS days."""
+    projects_dir = vault_path / "projects"
+    if not projects_dir.exists():
+        return []
+
+    cutoff = datetime.now(timezone.utc) - timedelta(days=_STALENESS_DAYS)
+    warnings = []
+
+    for project_dir in sorted(projects_dir.iterdir()):
+        if not project_dir.is_dir():
+            continue
+        raw_dir = project_dir / "raw"
+        if not raw_dir.exists():
+            continue
+        snapshots = [d for d in raw_dir.iterdir() if d.is_dir()]
+        if not snapshots:
+            continue
+        newest = max(snapshots, key=lambda d: d.name)
+        try:
+            ts = datetime.strptime(newest.name, "%Y-%m-%dT%H:%M:%SZ").replace(
+                tzinfo=timezone.utc
+            )
+        except ValueError:
+            continue
+        if ts < cutoff:
+            age_days = (datetime.now(timezone.utc) - ts).days
+            warnings.append(
+                f"  {project_dir.name}: newest snapshot is {age_days} days old"
+                f" (threshold: {_STALENESS_DAYS} days)"
+            )
+
+    return warnings
+
+
 # ---------------------------------------------------------------------------
 # Check registry — add new checks here without touching the runner
 # ---------------------------------------------------------------------------
@@ -111,6 +150,10 @@ def _get_project_dirs(vault_path: Path) -> set[str]:
 CHECKS: list[tuple[str, object]] = [
     ("Wikilink check", check_wikilinks),
     ("Index/folder check", check_index_folders),
+]
+
+WARNINGS: list[tuple[str, object]] = [
+    ("Staleness check", check_staleness),
 ]
 
 
@@ -129,6 +172,14 @@ def run_all_checks(vault_path: Path) -> bool:
                 print(line)
         else:
             print(f"[PASS] {name}")
+
+    for name, warn_fn in WARNINGS:
+        warnings = warn_fn(vault_path)
+        if warnings:
+            print(f"[WARN] {name}:")
+            for line in warnings:
+                print(line)
+
     return all_passed
 
 

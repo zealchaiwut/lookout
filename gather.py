@@ -38,6 +38,7 @@ Exit codes
 """
 import hashlib
 import json
+import os
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -259,8 +260,39 @@ def _collect_docs_manifest(
         return {"status": "absent", "error": str(exc)}
 
 
+def _collect_notion(notion_db: str) -> dict:
+    """Check Notion configuration. Returns {"status", "count", "error"}.
+
+    HTTP connection is deferred to a future ticket; this check is presence-only.
+    """
+    if not notion_db or notion_db == "<placeholder>":
+        return {"status": "absent", "count": 0, "error": "not configured"}
+    api_key = os.environ.get("NOTION_API_KEY", "")
+    if not api_key:
+        return {"status": "absent", "count": 0, "error": "NOTION_API_KEY not set"}
+    return {"status": "absent", "count": 0, "error": "integration not yet implemented"}
+
+
+def _collect_journal_summary(entries_path_str: str) -> dict:
+    """Check journal entries path and count entries. Returns {"status", "count", "error"}."""
+    if not entries_path_str:
+        return {"status": "absent", "count": 0, "error": "not configured"}
+    entries_path = Path(entries_path_str).expanduser()
+    if not entries_path.exists():
+        return {"status": "absent", "count": 0, "error": f"path not found: {entries_path}"}
+    try:
+        count = sum(1 for p in entries_path.iterdir() if p.suffix == ".md" and p.is_file())
+        return {"status": "ok", "count": count, "error": ""}
+    except Exception as exc:
+        return {"status": "absent", "count": 0, "error": str(exc)}
+
+
 def gather(target_name):
-    """Run a snapshot for *target_name* and write the vault artifact."""
+    """Run a snapshot for *target_name* and return a summary dict.
+
+    Returns:
+        {"commander": {"status", "count"}, "notion": {"status", "count"}, "journal": {"status", "count"}}
+    """
     data = _load_targets()
     targets = data.get("targets", {})
 
@@ -274,9 +306,10 @@ def gather(target_name):
         sys.exit(1)
 
     target = targets[target_name]
-    commander_api = data.get("sources", {}).get(
-        "commander_api", "http://localhost:8000"
-    )
+    sources_cfg = data.get("sources", {})
+    commander_api = sources_cfg.get("commander_api", "http://localhost:8000")
+    notion_db = sources_cfg.get("notion_todos_db", "")
+    journal_entries_str = sources_cfg.get("journal_entries", "")
     slug = target.get("commander_slug", target_name)
     github_slug = target.get("github", "")
 
@@ -343,6 +376,10 @@ def gather(target_name):
         _collect_git(local_path, out_dir)
         _collect_docs_manifest(local_path, out_dir, vault_project_dir)
 
+    # Notion and journal collectors
+    notion_result = _collect_notion(notion_db)
+    journal_result = _collect_journal_summary(journal_entries_str)
+
     manifest = {
         "timestamp": timestamp,
         "target": target_name,
@@ -353,6 +390,23 @@ def gather(target_name):
         json.dump(manifest, fh, indent=2)
 
     print(f"gather: snapshot written to {out_dir}")
+
+    # Build commander summary from brief + sprints_history
+    commander_ok = brief_err == "" or history_err == ""
+    commander_count = (
+        (1 if brief_err == "" and brief_data is not None else 0)
+        + len(filtered_history)
+    )
+    commander_result = {
+        "status": "ok" if commander_ok else "absent",
+        "count": commander_count,
+    }
+
+    return {
+        "commander": commander_result,
+        "notion": {"status": notion_result["status"], "count": notion_result["count"]},
+        "journal": {"status": journal_result["status"], "count": journal_result["count"]},
+    }
 
 
 def main():
