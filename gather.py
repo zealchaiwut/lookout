@@ -29,6 +29,10 @@ gitlog.txt         — git log --oneline -30, branch name, and porcelain
                      status
 docs_manifest.json — path/sha256/heading/mtime for each tracked doc file;
                      includes "changed_files" key when a prior snapshot exists
+notion_todos.json  — todos from the configured Notion database, normalized to
+                     {id, title, status, project, url, last_edited}; written
+                     only when notion_todos_db is configured in sources and
+                     NOTION_TOKEN is set in .env
 
 Exit codes
 ----------
@@ -46,6 +50,9 @@ from pathlib import Path
 
 import requests
 import yaml
+from dotenv import load_dotenv
+
+from collectors.notion import collect_notion_todos as _collect_notion_todos
 
 REPO_ROOT = Path(__file__).parent
 TARGETS_YAML = REPO_ROOT / "targets.yaml"
@@ -260,17 +267,17 @@ def _collect_docs_manifest(
         return {"status": "absent", "error": str(exc)}
 
 
-def _collect_notion(notion_db: str) -> dict:
-    """Check Notion configuration. Returns {"status", "count", "error"}.
+def _collect_notion(notion_db: str, notion_token: str, target_name: str, out_dir: Path) -> dict:
+    """Query Notion todos database or return absent when not configured.
 
-    HTTP connection is deferred to a future ticket; this check is presence-only.
+    Returns {"status", "count", "error"} for the summary table.
+    Also writes notion_todos.json to out_dir when successful.
     """
     if not notion_db or notion_db == "<placeholder>":
         return {"status": "absent", "count": 0, "error": "not configured"}
-    api_key = os.environ.get("NOTION_API_KEY", "")
-    if not api_key:
-        return {"status": "absent", "count": 0, "error": "NOTION_API_KEY not set"}
-    return {"status": "absent", "count": 0, "error": "integration not yet implemented"}
+    result = _collect_notion_todos(target_name, notion_token, notion_db, out_dir)
+    count = result.get("count", 0)
+    return {"status": result["status"], "count": count, "error": result.get("error", "")}
 
 
 def _collect_journal_summary(entries_path_str: str) -> dict:
@@ -377,7 +384,14 @@ def gather(target_name):
         _collect_docs_manifest(local_path, out_dir, vault_project_dir)
 
     # Notion and journal collectors
-    notion_result = _collect_notion(notion_db)
+    load_dotenv(REPO_ROOT / ".env", override=False)
+    notion_token = os.environ.get("NOTION_TOKEN", "")
+    notion_result = _collect_notion(notion_db, notion_token, target_name, out_dir)
+    if notion_db and notion_db != "<placeholder>":
+        sources["notion_todos"] = {
+            "status": notion_result["status"],
+            "error": notion_result["error"],
+        }
     journal_result = _collect_journal_summary(journal_entries_str)
 
     manifest = {
