@@ -1,4 +1,4 @@
-"""Tests for issue #6: gh, git, and docs-manifest local collectors in gather.py.
+"""Tests for issue #6: gh, git, and docs-manifest collectors.
 
 Each test maps to a specific AC item.
 """
@@ -45,7 +45,7 @@ def _load_gather_module(tmp_path, module_name="gather_test"):
 
 
 def _ok_http_mock():
-    """Minimal HTTP mock — Commander responses don't matter for local collectors."""
+    """Minimal HTTP mock — Commander responses irrelevant here."""
     resp = MagicMock()
     resp.ok = True
     resp.json.return_value = {}
@@ -109,7 +109,9 @@ def test_missing_target_path_aborts_nonzero(tmp_path):
 def test_missing_target_path_no_output_files(tmp_path):
     """When local path is missing, no output files are written to vault."""
     missing = tmp_path / "does-not-exist-abc123"
-    mod = _load_gather_with_local(tmp_path, missing, "gather_missing_no_output")
+    mod = _load_gather_with_local(
+        tmp_path, missing, "gather_missing_no_output"
+    )
 
     try:
         with patch("requests.get", side_effect=_ok_http_mock()):
@@ -118,14 +120,16 @@ def test_missing_target_path_no_output_files(tmp_path):
         pass
 
     vault_base = tmp_path / "vault" / "projects"
-    assert not vault_base.exists() or not any(vault_base.rglob("issues.json")) and \
-        not any(vault_base.rglob("gitlog.txt")) and \
-        not any(vault_base.rglob("docs_manifest.json")), \
-        "No output files should be written when target path is missing"
+    assert (
+        not vault_base.exists()
+        or not any(vault_base.rglob("issues.json"))
+        and not any(vault_base.rglob("gitlog.txt"))
+        and not any(vault_base.rglob("docs_manifest.json"))
+    ), "No output files should be written when target path is missing"
 
 
 def test_missing_target_path_clear_error_message(tmp_path, capsys):
-    """When local path is missing, the error message identifies the missing path."""
+    """When local path is missing, the error message identifies the path."""
     missing = tmp_path / "does-not-exist-abc123"
     mod = _load_gather_with_local(tmp_path, missing, "gather_missing_msg")
 
@@ -137,8 +141,9 @@ def test_missing_target_path_clear_error_message(tmp_path, capsys):
 
     captured = capsys.readouterr()
     combined = captured.out + captured.err
-    assert str(missing) in combined or "does-not-exist" in combined, \
+    assert str(missing) in combined or "does-not-exist" in combined, (
         f"Error message should identify missing path. Got: {combined!r}"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -157,8 +162,9 @@ def test_no_write_git_gh_commands():
         capture_output=True,
         text=True,
     )
-    assert result.returncode != 0 or result.stdout.strip() == "", \
+    assert result.returncode != 0 or result.stdout.strip() == "", (
         f"Forbidden write commands found in gather.py:\n{result.stdout}"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -189,12 +195,19 @@ def test_gh_collector_writes_issues_json(tmp_path):
          patch("subprocess.run", side_effect=mock_run):
         mod.gather("perf-coach")
 
-    latest = sorted((tmp_path / "vault" / "projects" / "perf-coach" / "raw").iterdir())[-1]
-    assert (latest / "issues.json").exists(), "issues.json must be written by gh collector"
+    raw_dir = tmp_path / "vault" / "projects" / "perf-coach" / "raw"
+    latest = sorted(raw_dir.iterdir())[-1]
+    assert (latest / "issues.json").exists(), (
+        "issues.json must be written by gh collector"
+    )
 
     data = json.loads((latest / "issues.json").read_text())
-    assert "issues" in data or "prs" in data or isinstance(data, list) or isinstance(data, dict), \
-        "issues.json must contain gh data"
+    assert (
+        "issues" in data
+        or "prs" in data
+        or isinstance(data, list)
+        or isinstance(data, dict)
+    ), "issues.json must contain gh data"
 
 
 def test_gh_collector_only_read_subcommands(tmp_path):
@@ -217,15 +230,14 @@ def test_gh_collector_only_read_subcommands(tmp_path):
          patch("subprocess.run", side_effect=mock_run):
         mod.gather("perf-coach")
 
-    # Check the subcommand (positional arg after "gh <resource>"), not JSON field names
     write_subcommands = {"create", "edit", "delete", "close", "merge"}
     for cmd in gh_calls:
-        # cmd is like: ["gh", "issue", "list", ...]
-        # The subcommand is at index 2
         if len(cmd) >= 3:
             subcommand = str(cmd[2])
-            assert subcommand not in write_subcommands, \
-                f"gh collector must not use write subcommand '{subcommand}': {cmd!r}"
+            assert subcommand not in write_subcommands, (
+                f"gh collector must not use write subcommand"
+                f" '{subcommand}': {cmd!r}"
+            )
 
 
 def test_gh_collector_degrades_when_gh_unavailable(tmp_path):
@@ -242,18 +254,20 @@ def test_gh_collector_degrades_when_gh_unavailable(tmp_path):
         result.stderr = ""
         return result
 
-    # Should complete without raising
     with patch("requests.get", side_effect=_ok_http_mock()), \
          patch("subprocess.run", side_effect=mock_run):
         mod.gather("perf-coach")
 
-    latest = sorted((tmp_path / "vault" / "projects" / "perf-coach" / "raw").iterdir())[-1]
-    # issues.json should either be absent or indicate degraded state
+    raw_dir = tmp_path / "vault" / "projects" / "perf-coach" / "raw"
+    latest = sorted(raw_dir.iterdir())[-1]
     if (latest / "issues.json").exists():
         data = json.loads((latest / "issues.json").read_text())
-        # If present, it should indicate an error/absent state
-        assert "error" in data or "status" in data or data == {} or data == [], \
-            "issues.json when degraded must indicate error or be empty"
+        assert (
+            "error" in data
+            or "status" in data
+            or data == {}
+            or data == []
+        ), "issues.json when degraded must indicate error or be empty"
 
 
 # ---------------------------------------------------------------------------
@@ -291,13 +305,18 @@ def test_git_collector_writes_gitlog_txt(tmp_path):
          patch("subprocess.run", side_effect=mock_run):
         mod.gather("perf-coach")
 
-    latest = sorted((tmp_path / "vault" / "projects" / "perf-coach" / "raw").iterdir())[-1]
-    assert (latest / "gitlog.txt").exists(), "gitlog.txt must be written by git collector"
+    raw_dir = tmp_path / "vault" / "projects" / "perf-coach" / "raw"
+    latest = sorted(raw_dir.iterdir())[-1]
+    assert (latest / "gitlog.txt").exists(), (
+        "gitlog.txt must be written by git collector"
+    )
 
     content = (latest / "gitlog.txt").read_text()
     assert "abc1234" in content, "gitlog.txt must contain commit log output"
     assert "main" in content, "gitlog.txt must contain branch name"
-    assert "README" in content, "gitlog.txt must contain porcelain status output"
+    assert "README" in content, (
+        "gitlog.txt must contain porcelain status output"
+    )
 
 
 def test_git_collector_uses_target_path(tmp_path):
@@ -323,7 +342,6 @@ def test_git_collector_uses_target_path(tmp_path):
     assert len(git_calls) > 0, "git collector must make at least one git call"
     for cmd in git_calls:
         cmd_str = " ".join(str(c) for c in cmd)
-        # Each git call must use -C with the target path
         assert "-C" in cmd, f"git call must use -C flag: {cmd_str!r}"
 
 
@@ -345,7 +363,6 @@ def test_git_collector_degrades_when_not_git_repo(tmp_path):
         result.stderr = ""
         return result
 
-    # Should complete without raising
     with patch("requests.get", side_effect=_ok_http_mock()), \
          patch("subprocess.run", side_effect=mock_run):
         mod.gather("perf-coach")
@@ -371,13 +388,15 @@ def test_docs_manifest_written(tmp_path):
          patch("subprocess.run", side_effect=mock_run):
         mod.gather("perf-coach")
 
-    latest = sorted((tmp_path / "vault" / "projects" / "perf-coach" / "raw").iterdir())[-1]
-    assert (latest / "docs_manifest.json").exists(), \
+    raw_dir = tmp_path / "vault" / "projects" / "perf-coach" / "raw"
+    latest = sorted(raw_dir.iterdir())[-1]
+    assert (latest / "docs_manifest.json").exists(), (
         "docs_manifest.json must be written by docs-manifest collector"
+    )
 
 
 def test_docs_manifest_has_required_fields(tmp_path):
-    """Each entry in docs_manifest.json has path, sha256, heading, and mtime."""
+    """Each entry in docs_manifest.json has path, sha256, heading, mtime."""
     local = _make_fake_local(tmp_path)
     mod = _load_gather_with_local(tmp_path, local, "gather_docs_fields")
 
@@ -392,17 +411,23 @@ def test_docs_manifest_has_required_fields(tmp_path):
          patch("subprocess.run", side_effect=mock_run):
         mod.gather("perf-coach")
 
-    latest = sorted((tmp_path / "vault" / "projects" / "perf-coach" / "raw").iterdir())[-1]
+    raw_dir = tmp_path / "vault" / "projects" / "perf-coach" / "raw"
+    latest = sorted(raw_dir.iterdir())[-1]
     manifest_data = json.loads((latest / "docs_manifest.json").read_text())
-    files = manifest_data.get("files", manifest_data) if isinstance(manifest_data, dict) else manifest_data
     if isinstance(manifest_data, dict) and "files" in manifest_data:
         files = manifest_data["files"]
     elif isinstance(manifest_data, list):
         files = manifest_data
     else:
-        files = list(manifest_data.values()) if isinstance(manifest_data, dict) else []
+        files = (
+            list(manifest_data.values())
+            if isinstance(manifest_data, dict)
+            else []
+        )
 
-    assert len(files) > 0, "docs_manifest.json must have at least one file entry"
+    assert len(files) > 0, (
+        "docs_manifest.json must have at least one file entry"
+    )
     for entry in files:
         assert "path" in entry, f"Entry missing 'path': {entry}"
         assert "sha256" in entry, f"Entry missing 'sha256': {entry}"
@@ -411,9 +436,8 @@ def test_docs_manifest_has_required_fields(tmp_path):
 
 
 def test_docs_manifest_scans_standard_files_and_docs_dir(tmp_path):
-    """docs-manifest collector scans standard doc files and docs/ directory."""
+    """docs-manifest collector scans standard doc files and docs/ dir."""
     local = _make_fake_local(tmp_path)
-    # Add PRODUCT.md to the fake local
     (local / "PRODUCT.md").write_text("# Product\nDetails.")
     mod = _load_gather_with_local(tmp_path, local, "gather_docs_scan")
 
@@ -428,7 +452,8 @@ def test_docs_manifest_scans_standard_files_and_docs_dir(tmp_path):
          patch("subprocess.run", side_effect=mock_run):
         mod.gather("perf-coach")
 
-    latest = sorted((tmp_path / "vault" / "projects" / "perf-coach" / "raw").iterdir())[-1]
+    raw_dir = tmp_path / "vault" / "projects" / "perf-coach" / "raw"
+    latest = sorted(raw_dir.iterdir())[-1]
     manifest_data = json.loads((latest / "docs_manifest.json").read_text())
 
     if isinstance(manifest_data, dict) and "files" in manifest_data:
@@ -439,14 +464,16 @@ def test_docs_manifest_scans_standard_files_and_docs_dir(tmp_path):
         files = []
 
     paths = [e["path"] for e in files]
-    # Must include README.md (created in _make_fake_local)
-    assert any("README.md" in p for p in paths), f"README.md must be in manifest. Paths: {paths}"
-    # Must include docs/guide.md (created in _make_fake_local)
-    assert any("guide.md" in p for p in paths), f"docs/guide.md must be in manifest. Paths: {paths}"
+    assert any("README.md" in p for p in paths), (
+        f"README.md must be in manifest. Paths: {paths}"
+    )
+    assert any("guide.md" in p for p in paths), (
+        f"docs/guide.md must be in manifest. Paths: {paths}"
+    )
 
 
 def test_docs_manifest_degrades_when_no_doc_files(tmp_path):
-    """docs-manifest collector produces empty manifest when no doc files exist."""
+    """docs-manifest collector produces empty manifest when no doc files."""
     local = tmp_path / "empty_repo"
     local.mkdir()
     mod = _load_gather_with_local(tmp_path, local, "gather_docs_empty")
@@ -458,7 +485,6 @@ def test_docs_manifest_degrades_when_no_doc_files(tmp_path):
         result.stderr = ""
         return result
 
-    # Should not raise
     with patch("requests.get", side_effect=_ok_http_mock()), \
          patch("subprocess.run", side_effect=mock_run):
         mod.gather("perf-coach")
@@ -468,8 +494,10 @@ def test_docs_manifest_degrades_when_no_doc_files(tmp_path):
 # AC: changed_files diff logic — unit tests with two fixture manifests
 # ---------------------------------------------------------------------------
 
-def _two_run_gather(tmp_path, local, mod_name_1, mod_name_2, between_runs_fn):
-    """Helper: run gather twice, ensuring distinct timestamps, then return latest snapshot dir."""
+def _two_run_gather(
+    tmp_path, local, mod_name_1, mod_name_2, between_runs_fn
+):
+    """Run gather twice with distinct timestamps; return latest dir."""
     timestamps = iter(["2099-01-01T00:00:00Z", "2099-01-02T00:00:00Z"])
 
     class _FakeDatetime:
@@ -501,8 +529,11 @@ def _two_run_gather(tmp_path, local, mod_name_1, mod_name_2, between_runs_fn):
         mod2.datetime = _FakeDatetime
         mod2.gather("perf-coach")
 
-    runs = sorted((tmp_path / "vault" / "projects" / "perf-coach" / "raw").iterdir())
-    assert len(runs) >= 2, f"Expected 2 snapshot runs, got {[r.name for r in runs]}"
+    raw_dir = tmp_path / "vault" / "projects" / "perf-coach" / "raw"
+    runs = sorted(raw_dir.iterdir())
+    assert len(runs) >= 2, (
+        f"Expected 2 snapshot runs, got {[r.name for r in runs]}"
+    )
     return runs[-1]
 
 
@@ -519,8 +550,10 @@ def test_changed_files_detects_modified_file(tmp_path):
 
     manifest_data = json.loads((latest / "docs_manifest.json").read_text())
     changed = manifest_data.get("changed_files", [])
-    assert any("README" in p for p in changed), \
-        f"changed_files should include README.md after modification. Got: {changed}"
+    assert any("README" in p for p in changed), (
+        f"changed_files should include README.md after modification."
+        f" Got: {changed}"
+    )
 
 
 def test_changed_files_detects_added_file(tmp_path):
@@ -535,8 +568,9 @@ def test_changed_files_detects_added_file(tmp_path):
 
     manifest_data = json.loads((latest / "docs_manifest.json").read_text())
     changed = manifest_data.get("changed_files", [])
-    assert any("DESIGN" in p for p in changed), \
+    assert any("DESIGN" in p for p in changed), (
         f"changed_files should include newly added DESIGN.md. Got: {changed}"
+    )
 
 
 def test_changed_files_detects_removed_file(tmp_path):
@@ -553,59 +587,87 @@ def test_changed_files_detects_removed_file(tmp_path):
 
     manifest_data = json.loads((latest / "docs_manifest.json").read_text())
     changed = manifest_data.get("changed_files", [])
-    assert any("PRODUCT" in p for p in changed), \
+    assert any("PRODUCT" in p for p in changed), (
         f"changed_files should include removed PRODUCT.md. Got: {changed}"
+    )
 
 
 def test_changed_files_using_fixture_manifests(tmp_path):
     """AC8: unit test changed_files diff logic with two fixture manifests."""
-    # Build two fixture manifests directly
     prior_manifest = {
         "files": [
-            {"path": "README.md", "sha256": "aaa", "heading": "# Old", "mtime": 1000},
-            {"path": "PRODUCT.md", "sha256": "bbb", "heading": "# Product", "mtime": 1000},
-            {"path": "docs/guide.md", "sha256": "ccc", "heading": "# Guide", "mtime": 1000},
+            {
+                "path": "README.md", "sha256": "aaa",
+                "heading": "# Old", "mtime": 1000,
+            },
+            {
+                "path": "PRODUCT.md", "sha256": "bbb",
+                "heading": "# Product", "mtime": 1000,
+            },
+            {
+                "path": "docs/guide.md", "sha256": "ccc",
+                "heading": "# Guide", "mtime": 1000,
+            },
         ]
     }
-    # Updated: README changed, PRODUCT removed, DESIGN added
     updated_manifest = {
         "files": [
-            {"path": "README.md", "sha256": "aaa_changed", "heading": "# New", "mtime": 2000},
-            {"path": "DESIGN.md", "sha256": "ddd", "heading": "# Design", "mtime": 2000},
-            {"path": "docs/guide.md", "sha256": "ccc", "heading": "# Guide", "mtime": 1000},
+            {
+                "path": "README.md", "sha256": "aaa_changed",
+                "heading": "# New", "mtime": 2000,
+            },
+            {
+                "path": "DESIGN.md", "sha256": "ddd",
+                "heading": "# Design", "mtime": 2000,
+            },
+            {
+                "path": "docs/guide.md", "sha256": "ccc",
+                "heading": "# Guide", "mtime": 1000,
+            },
         ]
     }
 
-    # Write prior manifest to a "previous snapshot" dir
     prev_dir = tmp_path / "prev"
     prev_dir.mkdir()
     (prev_dir / "docs_manifest.json").write_text(json.dumps(prior_manifest))
 
-    # Import the gather module to call _compute_changed_files or equivalent
-    spec = importlib.util.spec_from_file_location("gather_fixture", str(GATHER))
+    spec = importlib.util.spec_from_file_location(
+        "gather_fixture", str(GATHER)
+    )
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
 
-    # The module should expose a function to compute changed_files, OR
-    # we verify via gather() with manipulated vault state
     if hasattr(mod, "_compute_changed_files"):
         changed = mod._compute_changed_files(prior_manifest, updated_manifest)
-        assert "README.md" in changed, f"README.md should be in changed. Got: {changed}"
-        assert "DESIGN.md" in changed, f"DESIGN.md (added) should be in changed. Got: {changed}"
-        assert "PRODUCT.md" in changed, f"PRODUCT.md (removed) should be in changed. Got: {changed}"
-        assert "docs/guide.md" not in changed, f"Unchanged guide.md should not be in changed. Got: {changed}"
+        assert "README.md" in changed, (
+            f"README.md should be in changed. Got: {changed}"
+        )
+        assert "DESIGN.md" in changed, (
+            f"DESIGN.md (added) should be in changed. Got: {changed}"
+        )
+        assert "PRODUCT.md" in changed, (
+            f"PRODUCT.md (removed) should be in changed. Got: {changed}"
+        )
+        assert "docs/guide.md" not in changed, (
+            f"Unchanged guide.md should not be in changed. Got: {changed}"
+        )
     else:
-        # No direct function — test via the full gather flow with fixture vault
-        # Set up a prior snapshot in the vault
         local = _make_fake_local(tmp_path)
         (local / "README.md").write_text("# Old\nOriginal.")
 
-        vault_prior = tmp_path / "vault" / "projects" / "perf-coach" / "raw" / "2099-01-01T00:00:00Z"
+        vault_prior = (
+            tmp_path / "vault" / "projects"
+            / "perf-coach" / "raw" / "2099-01-01T00:00:00Z"
+        )
         vault_prior.mkdir(parents=True)
-        (vault_prior / "docs_manifest.json").write_text(json.dumps(prior_manifest))
+        (vault_prior / "docs_manifest.json").write_text(
+            json.dumps(prior_manifest)
+        )
 
         targets_path = _targets_yaml_with_local(tmp_path, local)
-        spec2 = importlib.util.spec_from_file_location("gather_fixture2", str(GATHER))
+        spec2 = importlib.util.spec_from_file_location(
+            "gather_fixture2", str(GATHER)
+        )
         mod2 = importlib.util.module_from_spec(spec2)
         spec2.loader.exec_module(mod2)
         mod2.REPO_ROOT = tmp_path
@@ -624,10 +686,14 @@ def test_changed_files_using_fixture_manifests(tmp_path):
              patch("subprocess.run", side_effect=mock_run):
             mod2.gather("perf-coach")
 
-        runs = sorted((tmp_path / "vault" / "projects" / "perf-coach" / "raw").iterdir())
+        raw_dir = tmp_path / "vault" / "projects" / "perf-coach" / "raw"
+        runs = sorted(raw_dir.iterdir())
         latest = [r for r in runs if r.name != "2099-01-01T00:00:00Z"]
         assert latest, "Should have a new snapshot run"
-        manifest_data = json.loads((latest[-1] / "docs_manifest.json").read_text())
+        manifest_data = json.loads(
+            (latest[-1] / "docs_manifest.json").read_text()
+        )
         changed = manifest_data.get("changed_files", [])
-        assert any("README" in p for p in changed), \
+        assert any("README" in p for p in changed), (
             f"README.md should appear in changed_files. Got: {changed}"
+        )

@@ -17,7 +17,7 @@ Manifest JSON shape
     "sources": {
         "<source_name>": {  # e.g. "brief", "sprints_history"
             "status": str,  # "ok" or "absent"
-            "error": str    # empty string when ok; error description when absent
+            "error": str    # empty string when ok; error desc when absent
         }
     }
 }
@@ -25,7 +25,8 @@ Manifest JSON shape
 Local collector outputs (written alongside manifest.json)
 ----------------------------------------------------------
 issues.json        — gh issue list + gh pr list for the target's GitHub slug
-gitlog.txt         — git log --oneline -30, branch name, and porcelain status
+gitlog.txt         — git log --oneline -30, branch name, and porcelain
+                     status
 docs_manifest.json — path/sha256/heading/mtime for each tracked doc file;
                      includes "changed_files" key when a prior snapshot exists
 
@@ -93,19 +94,28 @@ def _collect_gh(slug: str, out_dir: Path) -> dict:
     Returns a sources entry dict.
     """
     try:
+        _fields = "number,title,state,labels,assignees,createdAt,updatedAt"
         issue_result = subprocess.run(
             ["gh", "issue", "list", "--repo", slug, "--json",
-             "number,title,state,labels,assignees,createdAt,updatedAt", "--limit", "100"],
+             _fields, "--limit", "100"],
             capture_output=True, text=True,
         )
         pr_result = subprocess.run(
             ["gh", "pr", "list", "--repo", slug, "--json",
-             "number,title,state,labels,assignees,createdAt,updatedAt", "--limit", "100"],
+             _fields, "--limit", "100"],
             capture_output=True, text=True,
         )
 
-        issues = json.loads(issue_result.stdout) if issue_result.returncode == 0 and issue_result.stdout.strip() else []
-        prs = json.loads(pr_result.stdout) if pr_result.returncode == 0 and pr_result.stdout.strip() else []
+        issues = (
+            json.loads(issue_result.stdout)
+            if issue_result.returncode == 0 and issue_result.stdout.strip()
+            else []
+        )
+        prs = (
+            json.loads(pr_result.stdout)
+            if pr_result.returncode == 0 and pr_result.stdout.strip()
+            else []
+        )
 
         payload = {"issues": issues, "prs": prs}
         with open(out_dir / "issues.json", "w") as fh:
@@ -161,9 +171,13 @@ def _collect_git(local_path: Path, out_dir: Path) -> dict:
 
 
 def _compute_changed_files(prior: dict, current: dict) -> list:
-    """Return paths that differ (added, removed, or sha256-changed) between two manifests."""
-    prior_files = prior.get("files", prior) if isinstance(prior, dict) else prior
-    current_files = current.get("files", current) if isinstance(current, dict) else current
+    """Return paths that differ (added, removed, or sha256-changed)."""
+    prior_files = (
+        prior.get("files", prior) if isinstance(prior, dict) else prior
+    )
+    current_files = (
+        current.get("files", current) if isinstance(current, dict) else current
+    )
 
     if isinstance(prior_files, list):
         prior_map = {e["path"]: e["sha256"] for e in prior_files}
@@ -183,7 +197,9 @@ def _compute_changed_files(prior: dict, current: dict) -> list:
     return changed
 
 
-def _collect_docs_manifest(local_path: Path, out_dir: Path, vault_project_dir: Path) -> dict:
+def _collect_docs_manifest(
+    local_path: Path, out_dir: Path, vault_project_dir: Path
+) -> dict:
     """Scan doc files and write docs_manifest.json.
 
     Returns a sources entry dict.
@@ -222,12 +238,18 @@ def _collect_docs_manifest(local_path: Path, out_dir: Path, vault_project_dir: P
         raw_dir = vault_project_dir / "raw"
         if raw_dir.exists():
             prior_snapshots = sorted(
-                (d for d in raw_dir.iterdir() if d.is_dir() and (d / "docs_manifest.json").exists()),
+                (
+                    d for d in raw_dir.iterdir()
+                    if d.is_dir() and (d / "docs_manifest.json").exists()
+                ),
                 key=lambda d: d.name,
             )
             if prior_snapshots:
-                prior_data = json.loads((prior_snapshots[-1] / "docs_manifest.json").read_text())
-                manifest["changed_files"] = _compute_changed_files(prior_data, manifest)
+                prior_json = prior_snapshots[-1] / "docs_manifest.json"
+                prior_data = json.loads(prior_json.read_text())
+                manifest["changed_files"] = _compute_changed_files(
+                    prior_data, manifest
+                )
 
         with open(out_dir / "docs_manifest.json", "w") as fh:
             json.dump(manifest, fh, indent=2)
@@ -252,7 +274,9 @@ def gather(target_name):
         sys.exit(1)
 
     target = targets[target_name]
-    commander_api = data.get("sources", {}).get("commander_api", "http://localhost:8000")
+    commander_api = data.get("sources", {}).get(
+        "commander_api", "http://localhost:8000"
+    )
     slug = target.get("commander_slug", target_name)
     github_slug = target.get("github", "")
 
@@ -262,7 +286,8 @@ def gather(target_name):
     if local_path is not None and not local_path.exists():
         print(
             f"Error: target local path does not exist: {local_path}\n"
-            f"Check the 'local' field for target '{target_name}' in targets.yaml.",
+            f"Check the 'local' field for target"
+            f" '{target_name}' in targets.yaml.",
             file=sys.stderr,
         )
         sys.exit(1)
@@ -275,8 +300,12 @@ def gather(target_name):
     health_data, _ = _safe_get(f"{commander_api}/api/health")
     health = health_data if isinstance(health_data, dict) else {}
 
-    brief_data, brief_err = _safe_get(f"{commander_api}/api/projects/{slug}/brief")
-    history_data, history_err = _safe_get(f"{commander_api}/api/sprints/history")
+    brief_data, brief_err = _safe_get(
+        f"{commander_api}/api/projects/{slug}/brief"
+    )
+    history_data, history_err = _safe_get(
+        f"{commander_api}/api/sprints/history"
+    )
 
     if isinstance(history_data, list):
         filtered_history = [
@@ -288,7 +317,9 @@ def gather(target_name):
 
     brief_json = {
         "brief": brief_data,
-        "sprints_history": filtered_history if history_data is not None else [],
+        "sprints_history": (
+            filtered_history if history_data is not None else []
+        ),
     }
     with open(out_dir / "brief.json", "w") as fh:
         json.dump(brief_json, fh, indent=2)
@@ -304,7 +335,7 @@ def gather(target_name):
         },
     }
 
-    # Local collectors — results tracked separately; output files absent on failure
+    # Local collectors — output files absent on failure
     if github_slug:
         _collect_gh(github_slug, out_dir)
 
