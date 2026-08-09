@@ -1,0 +1,34 @@
+# Agents
+
+## Read-Only Invariant
+
+No tool run from this repo may write to any target project, GitHub, Notion, or the journal repo. The agent pipeline is strictly read-only with respect to all external systems. Any operation that would mutate a target project's files, open or close GitHub issues or PRs, modify Notion pages, or commit to the journal repo is forbidden.
+
+## Source of Truth
+
+`raw/` snapshots are the sole source of truth for machine notes. Agents must read from `raw/` and write derived outputs only within this repo. No machine note may be regenerated from a source other than its corresponding `raw/` snapshot.
+
+## Machine-Owned File Types
+
+The following file types are owned and written by the agent pipeline. Human contributors must not manually edit these files.
+
+- **situation** — current-state summary for a target project
+- **capability body** — structured capability assessment content
+- **drift** — delta between last snapshot and current state
+- **todo-view** — filtered, ranked view of open todos for a target
+- **atlas** — cross-target structural map
+- **index** — vault master registry (e.g. `vault/index.md`)
+- **journal index** — chronological index of journal entries
+- **ideas ledger** — aggregated idea entries across targets
+- **assessment blocks** — scored evaluation blocks for capabilities
+- **packs** — bundled export sets for downstream consumption
+
+## Human-Owned File Types
+
+The following file types are owned by human contributors. The agent pipeline must not overwrite or modify these files.
+
+- **notes** — freeform personal or project notes
+- **learning** — learning logs and retrospectives
+- **decisions** — architectural and product decision records
+- **agents.md** — this control note (human-maintained)
+- **idea freeform tops** — top-of-mind idea entries written by humans

@@ -1,0 +1,14 @@
+targets:
+  perf-coach:
+    local: ~/dev/perf-coach/uat
+    github: zealchaiwut/perf-coach
+    commander_slug: perf-coach
+  commander:
+    local: ~/dev/commander/uat
+    github: zealchaiwut/commander
+    commander_slug: commander
+
+sources:
+  commander_api: http://localhost:8000
+  notion_todos_db: <placeholder>
+  journal_entries: ~/dev/journal/entries
