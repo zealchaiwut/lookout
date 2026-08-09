@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-08-09T16:47:03Z",
+  "target": "perf-coach",
+  "health": {},
+  "sources": {
+    "brief": {
+      "status": "absent",
+      "error": "Connection refused"
+    },
+    "sprints_history": {
+      "status": "absent",
+      "error": "Connection refused"
+    }
+  }
+}
