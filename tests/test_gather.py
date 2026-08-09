@@ -40,13 +40,32 @@ def _valid_target_slug():
 
 
 def _load_gather_module(tmp_path, module_name="gather_test"):
-    """Load gather.py as an isolated module pointing its vault at tmp_path."""
-    shutil.copy(str(TARGETS_YAML), str(tmp_path / "targets.yaml"))
+    """Load gather.py as an isolated module pointing its vault at tmp_path.
+
+    Also rewrites the copied targets.yaml so every target's 'local' field
+    points to an existing stub directory inside tmp_path.  This is necessary
+    because gather.py now validates that the configured local path exists
+    before running any local collectors (AC6 of issue #6).
+    """
+    with open(TARGETS_YAML) as f:
+        data = yaml.safe_load(f)
+
+    # Create stub local directories for each target so the path-existence
+    # check inside gather.py doesn't abort the run.
+    for target_name, target_cfg in data.get("targets", {}).items():
+        stub = tmp_path / "local_stubs" / target_name
+        stub.mkdir(parents=True, exist_ok=True)
+        target_cfg["local"] = str(stub)
+
+    patched_yaml = tmp_path / "targets.yaml"
+    with open(patched_yaml, "w") as f:
+        yaml.dump(data, f)
+
     spec = importlib.util.spec_from_file_location(module_name, str(GATHER))
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     mod.REPO_ROOT = tmp_path
-    mod.TARGETS_YAML = tmp_path / "targets.yaml"
+    mod.TARGETS_YAML = patched_yaml
     return mod
 
 
