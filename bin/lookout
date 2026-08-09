@@ -44,12 +44,14 @@ def _print_summary_table(summary: dict) -> None:
 
 
 def commit_run(target, timestamp):
-    subprocess.run(["git", "add", "-A"], cwd=REPO_ROOT, check=True)
-    subprocess.run(
+    # vault/projects/*/raw/ is in .gitignore; -f force-adds snapshot files
+    vault_path = f"vault/projects/{target}/raw"
+    subprocess.run(["git", "add", "-f", vault_path], cwd=REPO_ROOT, check=True)
+    result = subprocess.run(
         ["git", "commit", "-m", f"lookout({target}): snapshot {timestamp}"],
         cwd=REPO_ROOT,
-        check=True,
     )
+    return result.returncode
 
 
 def main():
