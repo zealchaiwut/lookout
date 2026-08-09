@@ -1,14 +1,17 @@
-targets:
-  perf-coach:
-    local: ~/dev/perf-coach/uat
-    github: zealchaiwut/perf-coach
-    commander_slug: perf-coach
-  commander:
-    local: ~/dev/commander/uat
-    github: zealchaiwut/commander
-    commander_slug: commander
-
 sources:
   commander_api: http://localhost:8000
-  notion_todos_db: <placeholder>
   journal_entries: ~/dev/journal/entries
+  notion_todos_db: <placeholder>
+targets:
+  commander:
+    commander_slug: commander
+    github: zealchaiwut/commander
+    local: ~/dev/commander/uat
+  perf-coach:
+    commander_slug: perf-coach
+    github: zealchaiwut/perf-coach
+    local: ~/dev/perf-coach/uat
+  test-target:
+    commander_slug: test
+    github: test/test
+    local: /private/var/folders/ps/zn9ql67j1mncxwv1s9xt6k7h0000gn/T/pytest-of-zeal-server/pytest-46/test_git_collector__gitlog_con0/test_target

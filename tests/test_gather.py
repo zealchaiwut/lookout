@@ -7,7 +7,6 @@ the real vault, keeping the scaffolded vault clean for the lint checks.
 """
 import importlib.util
 import json
-import shutil
 import subprocess
 import sys
 from pathlib import Path

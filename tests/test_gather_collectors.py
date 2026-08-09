@@ -2,14 +2,12 @@
 
 Each test maps to a specific AC item.
 """
-import hashlib
 import importlib.util
 import json
 import shutil
 import subprocess
-import sys
 from pathlib import Path
-from unittest.mock import MagicMock, call, patch
+from unittest.mock import MagicMock, patch
 
 import pytest
 import yaml
