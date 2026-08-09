@@ -304,15 +304,13 @@ def gather(target_name):
         },
     }
 
-    # Local collectors
-    if github_slug and local_path is not None:
-        sources["gh"] = _collect_gh(github_slug, out_dir)
-    elif github_slug:
-        sources["gh"] = _collect_gh(github_slug, out_dir)
+    # Local collectors — results tracked separately; output files absent on failure
+    if github_slug:
+        _collect_gh(github_slug, out_dir)
 
     if local_path is not None:
-        sources["git"] = _collect_git(local_path, out_dir)
-        sources["docs_manifest"] = _collect_docs_manifest(local_path, out_dir, vault_project_dir)
+        _collect_git(local_path, out_dir)
+        _collect_docs_manifest(local_path, out_dir, vault_project_dir)
 
     manifest = {
         "timestamp": timestamp,
