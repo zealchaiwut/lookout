@@ -8,7 +8,6 @@ import os
 import re
 from pathlib import Path
 
-import pytest
 
 REPO_ROOT = Path(__file__).parent.parent
 ASSESSMENT_PASS_PY = REPO_ROOT / "assessment_pass.py"
