@@ -6,11 +6,11 @@
 
 | feature | files | traced | stale |
 | ------- | ----- | ------ | ----- |
-| Weight plans | pending | null | true |
-| Weight tracking | pending | null | true |
-| Daily bodyweight upsert | pending | null | true |
-| Bodyweight EWMA trend | pending | null | true |
-| Energy-availability proxy | pending | null | true |
+| Weight plans | weight_plan.py | 2026-08-10 |  false |
+| Weight tracking | weight_stats.py, weight_ewma.py, weight_trend_rate.py | 2026-08-10 |  false |
+| Daily bodyweight upsert | main.py, weight_ewma.py | 2026-08-10 |  false |
+| Bodyweight EWMA trend | weight_ewma.py | 2026-08-10 |  false |
+| Energy-availability proxy | body_modifier.py | 2026-08-10 |  false |
 | Body-composition modifier | pending | null | true |
 | Power-to-weight trend | pending | null | true |
 | Weekly cut review | pending | null | true |
