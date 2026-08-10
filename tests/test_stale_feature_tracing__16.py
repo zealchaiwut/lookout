@@ -9,10 +9,8 @@ Tests verify that:
 6. Unresolved handlers produce open questions, not speculative edges
 """
 import importlib.util
-import json
 import re
 import subprocess
-import sys
 from pathlib import Path
 
 
