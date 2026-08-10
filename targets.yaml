@@ -3,10 +3,18 @@ sources:
   journal_entries: ~/dev/journal/entries
   notion_todos_db: <placeholder>
 targets:
+  asset-studio:
+    commander_slug: asset-studio
+    github: zealchaiwut/asset-studio
+    local: ~/dev/asset-studio/uat
   commander:
     commander_slug: commander
     github: zealchaiwut/commander
     local: ~/dev/commander/uat
+  crux:
+    commander_slug: crux
+    github: zealchaiwut/crux
+    local: ~/dev/crux/uat
   full-run-test:
     commander_slug: test
     github: zealchaiwut/perf-coach
@@ -15,6 +23,10 @@ targets:
     commander_slug: perf-coach
     github: zealchaiwut/perf-coach
     local: ~/dev/perf-coach/uat
+  viral-radar:
+    commander_slug: viral-radar
+    github: zealchaiwut/viral-radar
+    local: ~/dev/viral-radar/uat
   test-bad-path:
     commander_slug: test
     github: test/test

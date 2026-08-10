@@ -216,7 +216,7 @@ def _collect_docs_manifest(
     try:
         files = []
 
-        # Standard doc filenames at root
+        # Standard doc filenames at root — always recorded; absent files get null fields
         for name in _DOC_FILENAMES:
             p = local_path / name
             if p.exists() and p.is_file():
@@ -225,6 +225,14 @@ def _collect_docs_manifest(
                     "sha256": _sha256(p),
                     "heading": _first_heading(p),
                     "mtime": p.stat().st_mtime,
+                })
+            else:
+                files.append({
+                    "path": name,
+                    "sha256": None,
+                    "heading": None,
+                    "mtime": None,
+                    "absent": True,
                 })
 
         # Everything under docs/
