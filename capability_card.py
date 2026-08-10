@@ -89,6 +89,20 @@ def _load_target_config(target: str, targets_yaml: Path) -> dict:
         return {}
 
 
+def extract_read_surface_paths(card_content: str) -> list:
+    """Extract API paths from the Read surfaces section of a capability.md.
+
+    Returns a list of path strings (e.g. ['/api/health', '/api/sprints']).
+    Used by UAT validation to confirm every surfaced endpoint is reachable.
+    """
+    m = re.search(r"## Read surfaces\s+(.*?)(?=\n## |\Z)", card_content, re.DOTALL)
+    if not m:
+        return []
+    section = m.group(1)
+    paths = re.findall(r"`GET (/[^`]+)`", section)
+    return paths
+
+
 def _extract_notes_for_ai(existing_content: str) -> str:
     """Extract the Notes for AI section from an existing capability.md.
 
