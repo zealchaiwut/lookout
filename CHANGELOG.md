@@ -3,6 +3,14 @@
 Per-sprint changelog for lookout. Entries are written by the documentor when a
 sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/changelog/).
 
+## sprint-5
+
+- #19: Register three repos and harden collectors for missing files
+- #20: Generate cross-project capability map in SKILL.md
+- #21: Implement pack.py for lookout pack command
+- #22: Add discuss pack command to pack.py
+- #23: M5: Full vault lint pass and UAT sign-off
+
 ## sprint-4
 
 - #15: Add atlas seeding bootstrap step to SKILL.md
