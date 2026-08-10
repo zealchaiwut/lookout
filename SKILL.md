@@ -354,11 +354,84 @@ from question_registry import (
 
 ---
 
+## `atlas-seed` — Atlas Seeding Bootstrap
+
+**Module:** `atlas_seed.py`  
+**Public API:** `extract_features(readme_text, docs_features_text)` → `list[dict]`  
+**Seeder:** `seed(target, vault_dir, readme_text, docs_features_text)` → `None`
+
+### What it does
+
+Derives the initial feature list for a named target from two source texts and
+bootstraps the atlas directory so tracing can begin from a single command
+rather than a blank page:
+
+| Source | How parsed |
+|--------|-----------|
+| README `## Features` section | Bold `**Feature name**` bullet lines |
+| `docs/features/` headings | `## Heading` lines (skips generic titles like "Overview") |
+
+Features appearing in both sources are deduplicated by their kebab-case slug.
+
+### Output
+
+**`vault/projects/<target>/atlas/index.md`** — two clearly delimited sections:
+
+1. **Machine-managed table** (fenced between sentinel comments) with columns:
+
+   | column | meaning |
+   |--------|---------|
+   | `feature` | display name |
+   | `files` | `pending` when unknown |
+   | `traced` | ISO date or `null` |
+   | `stale` | boolean flag (`true` for new features) |
+
+2. **Human section** (fenced between sentinel comments) where maintainers add
+   or remove features by hand. Features listed here are picked up on the next
+   seed run and added to the machine table + a stub file.
+
+**`vault/projects/<target>/atlas/<feature-slug>.md`** — per-feature stub with
+YAML frontmatter:
+
+```yaml
+---
+feature: <name>
+files: []
+traced: null
+stale: true
+---
+```
+
+### Idempotency rules
+
+- Re-running never duplicates machine-table rows.
+- Human-section content is never overwritten.
+- A feature **added** to the human section gets a new stub file on the next run.
+- A feature **removed** from the human section is dropped from the machine table;
+  its stub file stays on disk (no automated deletion).
+
+### CLI
+
+```
+python atlas_seed.py <target-name> [--vault <vault_dir>]
+```
+
+Fetches the target's README and `docs/features/` index via `gh api`, then
+seeds `vault/projects/<target>/atlas/`.
+
+**Example — seed perf-coach:**
+
+```
+python atlas_seed.py perf-coach
+```
+
+---
+
 ## Notes
 
 All skill modules are pure Python with no external dependencies beyond the
 standard library. Test coverage lives in `tests/test_drift.py`,
 `tests/test_todo_view.py`, `tests/test_journal_crosslink.py`,
-`tests/test_capability_card.py`, and `tests/test_questions.py`. The fixture
-for end-to-end testing of drift detection is committed under
-`tests/fixtures/drift/`.
+`tests/test_capability_card.py`, `tests/test_questions.py`, and
+`tests/test_atlas_seed.py`. The fixture for end-to-end testing of drift
+detection is committed under `tests/fixtures/drift/`.
