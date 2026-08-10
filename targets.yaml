@@ -2,6 +2,7 @@ sources:
   commander_api: http://localhost:8000
   journal_entries: ~/dev/journal/entries
   notion_todos_db: <placeholder>
+  notion_digest_page_id: <placeholder>
 targets:
   asset-studio:
     commander_slug: asset-studio
