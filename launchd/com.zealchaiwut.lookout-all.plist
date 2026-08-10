@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.zealchaiwut.lookout-all</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <string>source /Users/zeal-server/dev/lookout/.env 2>/dev/null || true; /Users/zeal-server/dev/lookout/.commander/runtime/worktree-pool/slot-0/venv/bin/python /Users/zeal-server/dev/lookout/.commander/runtime/worktree-pool/slot-0/bin/lookout --all</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/zeal-server/dev/lookout/.commander/runtime/worktree-pool/slot-0</string>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>6</integer>
+        <key>Minute</key>
+        <integer>15</integer>
+    </dict>
+
+    <!-- Run on next load if the scheduled window was missed (e.g. machine asleep) -->
+    <key>RunAtLoad</key>
+    <false/>
+
+    <!-- Wake catch-up: mount/login triggers a run if the window was missed -->
+    <key>StartOnMount</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/zeal-server/dev/lookout/logs/lookout-all.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/zeal-server/dev/lookout/logs/lookout-all.log</string>
+</dict>
+</plist>
