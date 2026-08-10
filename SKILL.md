@@ -612,12 +612,160 @@ Reads capability cards from `vault/projects/*/capability.md` and writes
 
 ---
 
+## `ideas-ledger` — Idea Note Conventions and Ledger Regeneration
+
+**Module:** `ideas_ledger.py`  
+**Public API:** `validate_note(path)` → `list[str]`, `regenerate_ledger(ideas_dir, today)` → `Path`
+
+### Idea note format
+
+One file per idea, located at `vault/ideas/<YYYY-MM-DD>-<slug>.md`.
+
+**Required frontmatter fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `slug` | string | Kebab-case identifier |
+| `created` | ISO date | When the idea was first captured |
+| `status` | enum | One of: `idea` \| `assessed` \| `promoted` \| `shipped` \| `parked` |
+| `targets` | list | Target project names this idea touches |
+| `issues` | list | Linked GitHub issue numbers |
+| `assessed` | ISO date or null | When the idea was last assessed |
+
+**IMPORTANT:** The frontmatter and the `## Assessment` section below the
+delimiter are **machine-owned and must not be hand-edited**. Only the
+freeform top section (everything above the delimiter) is human territory.
+
+### Body structure
+
+Each idea note has exactly two sections separated by a clearly marked delimiter:
+
+```
+---
+<frontmatter>
+---
+
+<freeform top — human-written, never machine-edited>
+
+<!-- BEGIN MACHINE ASSESSMENT -->
+## Assessment
+
+<machine-owned — do not hand-edit>
+<!-- END MACHINE ASSESSMENT -->
+```
+
+The freeform top section is preserved byte-for-byte across every
+regeneration run. The agent pipeline only writes `vault/ideas/index.md`
+and the `## Assessment` block; it never modifies the freeform top.
+
+### Output — `vault/ideas/index.md`
+
+Regenerated on every run as a Markdown table:
+
+| Column | Source |
+|--------|--------|
+| Idea | `slug` frontmatter field |
+| Status | `status` frontmatter field |
+| Effort | `effort` frontmatter field (optional, defaults to `—`) |
+| Blocked-by | `blocked_by` frontmatter field (optional, defaults to `—`) |
+| Age | Days since `created` |
+
+### Validation
+
+An idea note with an unrecognised `status` value causes the linter to exit
+non-zero and print a human-readable error naming the file and the invalid
+value. Valid statuses are: `idea`, `assessed`, `promoted`, `shipped`, `parked`.
+
+### CLI
+
+```
+python ideas_ledger.py [--ideas-dir <vault/ideas>]
+```
+
+Validates all idea notes in the directory, then regenerates `index.md`.
+Exits 0 on success, 1 if any note has an invalid status or missing field.
+
+---
+
+## `assessment-pass` — Idea Assessment Pass
+
+**Module:** `assessment_pass.py`  
+**Public API:**  
+- `select_ideas_for_assessment(ideas_dir, vault_dir, today)` → `list[Path]`  
+- `build_assessment(idea_path, vault_dir, today)` → `str`  
+- `run_assessment_pass(ideas_dir, vault_dir, today)` → `list[Path]`
+
+### What it does
+
+Scans `vault/ideas/` for ideas that need assessment — those with `assessed: null`
+(never assessed) or whose file was modified after their `assessed` date (human-edited).
+At most three ideas are assessed per run; the cap is enforced in `select_ideas_for_assessment`
+before any content-generation begins.
+
+For each selected idea, `build_assessment` generates an `## Assessment` section
+following the DESIGN.md §9 five-field template, grounded exclusively in atlas notes
+and capability cards found in the vault:
+
+| Field | Content |
+|-------|---------|
+| **Already exists** | Wikilinked atlas notes and capability cards that already cover the idea |
+| **Must be built** | What is new and has no existing vault implementation |
+| **Effort** | One of **S** / **M** / **L** |
+| **Dependencies** | Concrete named blockers (wikilinked projects), not generic categories |
+| **Suggested first slice** | One small, independently testable first step |
+
+### Grounding rule (DESIGN.md §9)
+
+Every claim cites a source by wikilink (e.g. `[[projects/perf-coach/atlas/today-recommendation]]`).
+Anything unknown — an unregistered project, an empty atlas, an unresolvable claim — is recorded
+as a numbered open question (`Q1: …`) rather than a guess. No capabilities or relationships
+are fabricated.
+
+### Skip logic
+
+An idea is skipped if its `assessed` frontmatter field is not `null` and the file's
+modification time falls on or before the end of the assessed date (i.e. no human edits
+have occurred since assessment).
+
+### Atomicity guarantee
+
+No new fields are written to an idea's frontmatter — and the Assessment block is not
+updated — until `build_assessment` completes without errors. A failed assessment leaves
+the idea file byte-for-byte unchanged.
+
+### Frontmatter fields written on success
+
+| Field | Value written |
+|-------|--------------|
+| `assessed` | Today's ISO date |
+| `status` | Changed from `idea` to `assessed` (only if currently `idea`) |
+
+The `## Assessment` block (between `<!-- BEGIN MACHINE ASSESSMENT -->` and
+`<!-- END MACHINE ASSESSMENT -->`) is fully regenerated. The freeform top section
+(everything above the machine delimiter) is never touched.
+
+### Project registry
+
+A project is considered **registered** if `vault/projects/<target>/` exists as a
+directory. An unregistered project causes the assessment to explicitly state
+"not registered in vault/projects/" and to raise a numbered open question.
+
+### CLI
+
+```
+python assessment_pass.py [--ideas-dir <vault/ideas>] [--vault <vault>]
+```
+
+Runs the pass against the specified ideas directory. Exits 0 on completion.
+
+---
+
 ## Notes
 
 All skill modules are pure Python with no external dependencies beyond the
 standard library. Test coverage lives in `tests/test_drift.py`,
 `tests/test_todo_view.py`, `tests/test_journal_crosslink.py`,
 `tests/test_capability_card.py`, `tests/test_questions.py`,
-`tests/test_atlas_seed.py`, and `tests/test_capability_map__20.py`. The
-fixture for end-to-end testing of drift detection is committed under
-`tests/fixtures/drift/`.
+`tests/test_atlas_seed.py`, `tests/test_capability_map__20.py`, and
+`tests/test_assessment_pass__25.py`. The fixture for end-to-end testing of
+drift detection is committed under `tests/fixtures/drift/`.

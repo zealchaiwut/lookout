@@ -25,6 +25,30 @@ python discuss_pack.py <target-or-idea>
 Generates a discussion pack for a target or idea note. Bundles open questions, capability card, situation snapshot, and cited drift/atlas excerpts into `vault/packs/<YYYY-MM-DD>-discuss-<slug>.md`.
 
 ```
+python ideas_ledger.py [--ideas-dir <path>]
+```
+
+Validates all idea notes in `vault/ideas/` against the convention (required frontmatter fields: `slug`, `created`, `status`, `targets`, `issues`, `assessed`) and regenerates `vault/ideas/index.md`. Exits non-zero if any note is malformed.
+
+```
+python assessment_pass.py [--ideas-dir <path>] [--vault <path>]
+```
+
+Scans `vault/ideas/` for ideas that need assessment (status `idea`, or human-edited since `assessed` date), generates a structured Assessment section grounded in atlas notes and capability cards, and writes results back to the idea note. At most 3 ideas are assessed per run.
+
+```
+python ship_pass.py [--ideas-dir <path>] [--vault <path>]
+```
+
+For each idea with `status=promoted` and a non-empty `issues` list, reads linked issue states from the latest vault snapshots and advances `status` to `shipped` once all linked issues are closed.
+
+```
+python todo_view_assessment.py [--todo-view <path>] [--vault <path>] [--output <path>]
+```
+
+Enriches `todo-view.md` with `<!-- lookout: effort: S/M/L -->` and `<!-- lookout: blocked-by: ... -->` annotation comments derived from atlas feature files. No Notion API writes are made.
+
+```
 python capability_map.py [--vault <vault_dir>]
 ```
 
@@ -53,3 +77,4 @@ Source availability is non-fatal: if Commander is unreachable or GitHub CLI is a
 | sprint-3 | Synthesis pipeline — situation.md generation, drift detection, todo-view, journal cross-linking, capability cards, question registry, and E2E UAT |
 | sprint-4 | Atlas pipeline — atlas seeding bootstrap (atlas_seed.py), stale-feature tracing (atlas_trace.py), atlas staleness detection and trace-cap in gather.py, atlas lint path check, and UAT M4 tracing top five perf-coach features |
 | sprint-5 | Fleet expansion, capability map, pack commands, and lint hardening — registered crux/viral-radar/asset-studio targets, cross-project capability map generator (capability_map.py), pack.py context packs (`lookout pack`), discuss_pack.py discussion packs (`lookout discuss`), and M5 lint UAT with ownership warnings, card token budget checks, and summary table |
+| sprint-6 | Idea pipeline — idea note conventions and ledger (ideas_ledger.py), assessment pass (assessment_pass.py), ship tracking via linked GitHub issue closure (ship_pass.py), and todo-view effort/blocked-by annotation (todo_view_assessment.py) |
