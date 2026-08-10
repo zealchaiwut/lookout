@@ -15,3 +15,7 @@
 - [[crux]]
 - [[viral-radar]]
 - [[asset-studio]]
+
+## Cross-project
+
+- [map.md](map.md) — machine-generated capability map (producer→consumer edges)

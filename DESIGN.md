@@ -29,3 +29,19 @@ _Body plus optional display/mono families; hierarchy via scale + weight contrast
 > Starter system stamped by scaffold_project so sprints can run (the design-docs
 > guard requires this file). Refine with `/impeccable init`, then
 > `/impeccable critique` on the first real screen.
+
+## §7 Capability Map
+
+The capability map (`vault/map.md`) surfaces producer→consumer relationships
+across registered projects automatically. It separates machine-generated content
+(the Edges section, rebuilt on every run) from human-curated content (the
+Pipelines section, never overwritten by machines).
+
+**Why two sections?** Machines can derive which project exposes a given surface
+from capability cards, but higher-level pipeline semantics (ordering, retry
+policies, business purpose) require human judgment. Separating them lets the map
+stay current without destroying human annotations.
+
+**Guard rule:** No edge is emitted for a surface that does not appear verbatim in
+at least one capability card. This prevents stale or hallucinated surface names
+from reaching the map.
