@@ -354,11 +354,219 @@ from question_registry import (
 
 ---
 
+## `atlas-trace` — Stale Feature Tracing
+
+**Module:** `atlas_trace.py`  
+**Public API:** `generate_note(feature_name, source_dir, entry_point_file, issues)` → `str`  
+**Helpers:** `extract_mermaid_block(note_text)` → `str | None`, `get_node_names(mermaid_text)` → `list[str]`
+
+### When to run
+
+Run this step only for features where the atlas stub has `stale: true`. Features
+traced recently (`stale: false`) do not need re-tracing unless their source has
+changed.
+
+### What it does
+
+Traces a stale feature end-to-end through real source code before writing any
+diagram or description. The step prevents hallucinated edges and invented file
+paths from reaching atlas notes by grounding every node in an artifact that
+exists in the repository.
+
+**Phase 1 — discover entry points.**  
+Read `docs/features.md` (or equivalent documentation) to find the entry point
+file named for the feature. Never prompt for file names not present in docs or
+observed imports.
+
+**Phase 2 — traverse imports.**  
+Starting from the entry point file, follow each `import` and `from … import`
+statement recursively. For each local module name encountered:
+
+- If the corresponding `.py` file exists in `source_dir`, read it and continue
+  traversal.
+- If the file does not exist, record an `OPEN QUESTION` for that unresolved
+  handler — do **not** invent a node connecting the two endpoints.
+
+**Phase 3 — collect routes and tables.**  
+While reading each file, extract:
+- Route decorators (e.g. `@router.get('/api/…')`) → route nodes
+- Table name assignments (`table = 'name'`, `__tablename__ = 'name'`) → table
+  nodes
+
+**Phase 4 — write the atlas note.**  
+Produce a note whose structure matches the six-section template below.
+
+### Note template (six required sections)
+
+```
+---
+feature: <name>
+files_read:
+  - <file1.py>
+  - <file2.py>
+traced: null
+stale: true
+---
+
+## What
+
+<one-sentence description of what the feature does>
+
+## Entry Points
+
+- `<entry_point_file>` (tracing origin)
+- Route: `<route_path>`
+
+## Related Issues
+
+- #<N> — <title>  (pulled from snapshot issues.json)
+
+## Flowchart
+
+```mermaid
+flowchart LR
+  <node definitions — every label is a real filename, route, or table>
+  <edge definitions>
+```
+
+## Key Files
+
+- `<file.py>` — <one-line description of role in the feature>
+
+## Open Questions
+
+<!-- OPEN QUESTION: <module> imported in <file> but <module>.py not found — handler unresolved -->
+```
+
+The `## Open Questions` section (and its `<!-- OPEN QUESTION: … -->` callouts)
+must appear whenever any import cannot be resolved to a real source file.
+
+### Invariants
+
+- **No fabricated edges.** A node may only appear in the Mermaid diagram if it
+  names a file read during tracing, a route string extracted from source, or a
+  table name found in source. Inferred or guessed nodes are forbidden.
+- **Unresolved handlers → OPEN QUESTION, not a node.** When a flow cannot be
+  fully resolved, the note records an explicit
+  `<!-- OPEN QUESTION: … -->` callout in the `## Open Questions` section
+  instead of connecting the two endpoints with a speculative edge.
+- **Every node is independently verifiable.** Reviewers can `grep` or `find`
+  each named file, route, or table in the repository and get a hit.
+- **Frontmatter lists every file read.** The `files_read:` key in the YAML
+  frontmatter must enumerate every `.py` file traversed during import tracing.
+
+### CLI
+
+```
+python atlas_trace.py <target-name> <feature-slug> [--vault <vault_dir>] [--source-dir <path>]
+```
+
+Reads the atlas stub from `vault/projects/<target>/atlas/<feature-slug>.md`,
+traces imports starting from the entry point discovered in docs, and writes the
+completed note back to the same path.
+
+**Example — trace perf-coach today-recommendation:**
+
+```
+python atlas_trace.py perf-coach today-recommendation --source-dir /path/to/perf-coach
+```
+
+### Fixture
+
+Tracing fixtures live at `tests/fixtures/trace-src/`:
+
+| File | Purpose |
+|------|---------|
+| `app.py` | Entry point importing `routes` and `db` |
+| `routes.py` | Route definitions importing `db` and `models` |
+| `db.py` | Database class with table name |
+| `models.py` | Domain model |
+| `docs/features.md` | Entry point documentation stub |
+
+Running tracing against this fixture with `entry_point_file="app.py"` produces
+a four-node diagram (`app.py → routes.py → /api/recommendations → coaching_sessions`)
+with no open questions, used by tests to verify end-to-end tracing correctness.
+
+---
+
+## `atlas-seed` — Atlas Seeding Bootstrap
+
+**Module:** `atlas_seed.py`  
+**Public API:** `extract_features(readme_text, docs_features_text)` → `list[dict]`  
+**Seeder:** `seed(target, vault_dir, readme_text, docs_features_text)` → `None`
+
+### What it does
+
+Derives the initial feature list for a named target from two source texts and
+bootstraps the atlas directory so tracing can begin from a single command
+rather than a blank page:
+
+| Source | How parsed |
+|--------|-----------|
+| README `## Features` section | Bold `**Feature name**` bullet lines |
+| `docs/features/` headings | `## Heading` lines (skips generic titles like "Overview") |
+
+Features appearing in both sources are deduplicated by their kebab-case slug.
+
+### Output
+
+**`vault/projects/<target>/atlas/index.md`** — two clearly delimited sections:
+
+1. **Machine-managed table** (fenced between sentinel comments) with columns:
+
+   | column | meaning |
+   |--------|---------|
+   | `feature` | display name |
+   | `files` | `pending` when unknown |
+   | `traced` | ISO date or `null` |
+   | `stale` | boolean flag (`true` for new features) |
+
+2. **Human section** (fenced between sentinel comments) where maintainers add
+   or remove features by hand. Features listed here are picked up on the next
+   seed run and added to the machine table + a stub file.
+
+**`vault/projects/<target>/atlas/<feature-slug>.md`** — per-feature stub with
+YAML frontmatter:
+
+```yaml
+---
+feature: <name>
+files: []
+traced: null
+stale: true
+---
+```
+
+### Idempotency rules
+
+- Re-running never duplicates machine-table rows.
+- Human-section content is never overwritten.
+- A feature **added** to the human section gets a new stub file on the next run.
+- A feature **removed** from the human section is dropped from the machine table;
+  its stub file stays on disk (no automated deletion).
+
+### CLI
+
+```
+python atlas_seed.py <target-name> [--vault <vault_dir>]
+```
+
+Fetches the target's README and `docs/features/` index via `gh api`, then
+seeds `vault/projects/<target>/atlas/`.
+
+**Example — seed perf-coach:**
+
+```
+python atlas_seed.py perf-coach
+```
+
+---
+
 ## Notes
 
 All skill modules are pure Python with no external dependencies beyond the
 standard library. Test coverage lives in `tests/test_drift.py`,
 `tests/test_todo_view.py`, `tests/test_journal_crosslink.py`,
-`tests/test_capability_card.py`, and `tests/test_questions.py`. The fixture
-for end-to-end testing of drift detection is committed under
-`tests/fixtures/drift/`.
+`tests/test_capability_card.py`, `tests/test_questions.py`, and
+`tests/test_atlas_seed.py`. The fixture for end-to-end testing of drift
+detection is committed under `tests/fixtures/drift/`.

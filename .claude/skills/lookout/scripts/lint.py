@@ -239,6 +239,102 @@ def check_stale_questions(vault_path: Path) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
+# Atlas path check (issue #17)
+# ---------------------------------------------------------------------------
+
+_ATLAS_FILES_BLOCK_RE = re.compile(r"^files:\s*\n((?:[ \t]+-\s*.+\n?)*)", re.MULTILINE)
+_ATLAS_FILES_INLINE_RE = re.compile(r"^files:\s*(.+)$", re.MULTILINE)
+_ATLAS_FM_RE = re.compile(r"^---\n(.*?)\n---", re.DOTALL)
+
+
+def _parse_atlas_note_files(text: str) -> list[str]:
+    """Return the files list from an atlas note's YAML frontmatter."""
+    fm_m = _ATLAS_FM_RE.match(text)
+    if not fm_m:
+        return []
+    fm = fm_m.group(1)
+
+    block = _ATLAS_FILES_BLOCK_RE.search(fm)
+    if block:
+        items = re.findall(r"^[ \t]+-\s*(.+)$", block.group(1), re.MULTILINE)
+        return [x.strip() for x in items if x.strip()]
+
+    inline = _ATLAS_FILES_INLINE_RE.search(fm)
+    if inline:
+        val = inline.group(1).strip()
+        if val in ("[]", "null", "pending", ""):
+            return []
+        m2 = re.match(r"\[([^\]]+)\]", val)
+        if m2:
+            return [x.strip() for x in m2.group(1).split(",") if x.strip()]
+    return []
+
+
+def _load_targets_yaml(targets_yaml: Path) -> dict:
+    """Load targets.yaml and return the targets mapping."""
+    if not targets_yaml.exists():
+        return {}
+    try:
+        import yaml  # noqa: PLC0415
+        with open(targets_yaml, encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+        return data.get("targets", {})
+    except Exception:
+        return {}
+
+
+def check_atlas_paths(vault_path: Path, targets_yaml: Path | None = None) -> list[str]:
+    """Warn for atlas notes whose files list contains paths absent from the target repo.
+
+    Uses targets_yaml (default: vault_path.parent/targets.yaml) to look up the
+    local path for each project. Non-fatal: returns warning strings only.
+    """
+    if targets_yaml is None:
+        targets_yaml = vault_path.parent / "targets.yaml"
+
+    targets = _load_targets_yaml(targets_yaml)
+    projects_dir = vault_path / "projects"
+    if not projects_dir.exists():
+        return []
+
+    warnings: list[str] = []
+    for proj_dir in sorted(projects_dir.iterdir()):
+        if not proj_dir.is_dir():
+            continue
+        target_name = proj_dir.name
+        target_cfg = targets.get(target_name, {})
+        local_str = target_cfg.get("local", "")
+        if not local_str:
+            continue
+        local_path = Path(local_str).expanduser()
+        if not local_path.exists():
+            continue
+
+        atlas_dir = proj_dir / "atlas"
+        if not atlas_dir.exists():
+            continue
+
+        for note_path in sorted(atlas_dir.glob("*.md")):
+            if note_path.name == "index.md":
+                continue
+            try:
+                text = note_path.read_text(encoding="utf-8")
+            except Exception:
+                continue
+            for fpath in _parse_atlas_note_files(text):
+                if not (local_path / fpath).exists():
+                    try:
+                        rel = note_path.relative_to(vault_path)
+                    except ValueError:
+                        rel = note_path
+                    warnings.append(
+                        f"  {rel}: files list contains path absent from repo: {fpath}"
+                    )
+
+    return warnings
+
+
+# ---------------------------------------------------------------------------
 # Check registry — add new checks here without touching the runner
 # ---------------------------------------------------------------------------
 
@@ -250,6 +346,7 @@ CHECKS: list[tuple[str, object]] = [
 WARNINGS: list[tuple[str, object]] = [
     ("Staleness check", check_staleness),
     ("Decision question refs", check_decision_question_refs),
+    ("Atlas path check", check_atlas_paths),
 ]
 
 NOTICES: list[tuple[str, object]] = [
@@ -261,7 +358,7 @@ NOTICES: list[tuple[str, object]] = [
 # Runner
 # ---------------------------------------------------------------------------
 
-def run_all_checks(vault_path: Path) -> bool:
+def run_all_checks(vault_path: Path, targets_yaml: Path | None = None) -> bool:
     all_passed = True
     for name, check_fn in CHECKS:
         failures = check_fn(vault_path)
@@ -274,7 +371,10 @@ def run_all_checks(vault_path: Path) -> bool:
             print(f"[PASS] {name}")
 
     for name, warn_fn in WARNINGS:
-        warnings = warn_fn(vault_path)
+        if name == "Atlas path check":
+            warnings = warn_fn(vault_path, targets_yaml)
+        else:
+            warnings = warn_fn(vault_path)
         if warnings:
             print(f"[WARN] {name}:")
             for line in warnings:
@@ -298,6 +398,12 @@ def main() -> int:
         default=_DEFAULT_VAULT,
         help="Path to the vault directory (default: auto-detected from script location)",
     )
+    parser.add_argument(
+        "--targets-yaml",
+        type=Path,
+        default=None,
+        help="Path to targets.yaml (default: vault parent directory)",
+    )
     args = parser.parse_args()
 
     vault_path = args.vault.resolve()
@@ -305,7 +411,7 @@ def main() -> int:
         print(f"ERROR: vault directory not found: {vault_path}", file=sys.stderr)
         return 1
 
-    passed = run_all_checks(vault_path)
+    passed = run_all_checks(vault_path, targets_yaml=args.targets_yaml)
     return 0 if passed else 1
 
 
