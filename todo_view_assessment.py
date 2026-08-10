@@ -223,7 +223,6 @@ def annotate_todo_view(content: str, vault_dir: Path) -> str:
     atlas_index = _build_atlas_index(vault_dir)
 
     def _replace_todo(m: re.Match) -> str:
-        prefix = m.group(1)
         title = m.group(2).strip()
         annotations = _build_annotations(title, atlas_index)
         result = m.group(0)
