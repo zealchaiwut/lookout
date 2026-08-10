@@ -18,6 +18,7 @@ LINT_SCRIPT = REPO_ROOT / ".claude" / "skills" / "lookout" / "scripts" / "lint.p
 
 sys.path.insert(0, str(REPO_ROOT))
 import gather as gather_module
+import pack as pack_module
 
 
 def load_targets():
@@ -55,6 +56,22 @@ def commit_run(target, timestamp):
 
 
 def main():
+    # Dispatch pack subcommand before any other processing
+    if len(sys.argv) >= 2 and sys.argv[1] == "pack":
+        if len(sys.argv) < 3:
+            print("Usage: bin/lookout pack <target...>", file=sys.stderr)
+            sys.exit(1)
+        targets = sys.argv[2:]
+        try:
+            pack_path = pack_module.generate_pack(
+                targets=list(targets),
+                vault_dir=REPO_ROOT / "vault",
+            )
+            print(f"Pack written: {pack_path}")
+        except pack_module.UnknownTargetError:
+            sys.exit(1)
+        sys.exit(0)
+
     valid_targets = load_targets()
 
     if len(sys.argv) < 2 or not sys.argv[1]:

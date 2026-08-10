@@ -1,1 +1,7 @@
-# Map
+# Capability Map
+
+<!-- BEGIN MACHINE EDGES -->
+<!-- END MACHINE EDGES -->
+
+<!-- BEGIN HUMAN PIPELINES -->
+<!-- END HUMAN PIPELINES -->
