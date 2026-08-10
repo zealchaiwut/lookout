@@ -10,6 +10,19 @@ bin/lookout <target>
 
 Where `<target>` is a key defined in `targets.yaml` (e.g. `perf-coach` or `commander`).
 
+### Hermes reader contract
+
+The schema for every file Hermes reads is documented in
+[`docs/hermes-contract.md`](docs/hermes-contract.md). To validate the live
+vault against that contract run:
+
+```bash
+python scripts/smoke_contract.py
+```
+
+The smoke script exits `0` when all checks pass and prints a `VIOLATION:` line
+for each failure, then exits `1`.
+
 ### Additional commands
 
 ```
