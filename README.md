@@ -10,6 +10,19 @@ bin/lookout <target>
 
 Where `<target>` is a key defined in `targets.yaml` (e.g. `perf-coach` or `commander`).
 
+### Hermes reader contract
+
+The schema for every file Hermes reads is documented in
+[`docs/hermes-contract.md`](docs/hermes-contract.md). To validate the live
+vault against that contract run:
+
+```bash
+python scripts/smoke_contract.py
+```
+
+The smoke script exits `0` when all checks pass and prints a `VIOLATION:` line
+for each failure, then exits `1`.
+
 ### Additional commands
 
 ```
@@ -61,6 +74,52 @@ Each run:
 4. **Commits** the snapshot to the repository with the message `lookout(<target>): snapshot <ISO-8601-timestamp>`.
 
 Source availability is non-fatal: if Commander is unreachable or GitHub CLI is absent, the run still exits 0 and records an `"absent"` status in `manifest.json`.
+
+## Nightly runner (`lookout --all`)
+
+`lookout --all` iterates every target registered in `targets.yaml` through the full pipeline (gather → lint → commit), tolerates per-target failures, and prints a summary showing each target's status at the end. Exit code is non-zero if any target failed.
+
+### How to install the launchd plist (zeal-server)
+
+The plist fires at **06:15 local time** each night (just after the journal pipeline at 05:45) and uses `StartOnMount` for wake catch-up.
+
+```bash
+scripts/install.sh
+```
+
+The script is idempotent — safe to run on re-installs. It copies `launchd/com.zealchaiwut.lookout-all.plist` into `~/Library/LaunchAgents/` and loads it via `launchctl bootstrap`.
+
+Verify the job is loaded:
+
+```bash
+launchctl list | grep lookout
+```
+
+### How to trigger a manual run
+
+```bash
+bin/lookout --all
+```
+
+### How to release a stuck lock
+
+If a run is interrupted while holding the lock at `/tmp/lookout-all.lock`, remove it manually:
+
+```bash
+rmdir /tmp/lookout-all.lock
+```
+
+A second invocation attempted while the lock is held exits immediately with a message identifying the lock path.
+
+### Environment tokens
+
+The launchd plist sources `~/dev/lookout/.env` before invoking the runner. Create this file with any tokens needed by collectors:
+
+```bash
+# ~/dev/lookout/.env
+GITHUB_TOKEN=...
+NOTION_TOKEN=...
+```
 
 ## Design and product context
 

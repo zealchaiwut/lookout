@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.zealchaiwut.lookout-digest</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <string>source /Users/zeal-server/dev/lookout/.env 2>/dev/null || true; /usr/local/bin/python3 /Users/zeal-server/dev/lookout/.commander/runtime/worktree-pool/slot-0/scripts/publish_digest.py</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/zeal-server/dev/lookout/.commander/runtime/worktree-pool/slot-0</string>
+
+    <!-- Run weekly on Monday at 07:00 -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>1</integer>
+        <key>Hour</key>
+        <integer>7</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <!-- Wake catch-up: run on next mount if the scheduled window was missed -->
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StartOnMount</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/zeal-server/dev/lookout/logs/lookout-digest.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/zeal-server/dev/lookout/logs/lookout-digest.log</string>
+</dict>
+</plist>
