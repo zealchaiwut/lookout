@@ -8,7 +8,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-import pytest
 
 REPO_ROOT = Path(__file__).parent.parent
 SHIP_PASS_PY = REPO_ROOT / "ship_pass.py"
@@ -44,11 +43,11 @@ def _make_idea_note(
     fm = "\n".join([
         "---",
         f"slug: {slug}",
-        f"created: 2026-01-10",
+        "created: 2026-01-10",
         f"status: {status}",
         f"targets: {t!r}",
         f"issues: {i!r}",
-        f"assessed: 2026-08-01",
+        "assessed: 2026-08-01",
         "---",
     ]) + "\n\n"
     body = (
