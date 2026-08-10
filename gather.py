@@ -43,6 +43,7 @@ Exit codes
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -265,6 +266,193 @@ def _collect_docs_manifest(
 
     except Exception as exc:
         return {"status": "absent", "error": str(exc)}
+
+
+# ---------------------------------------------------------------------------
+# Atlas staleness detection and trace-cap selection (issue #17)
+# ---------------------------------------------------------------------------
+
+def _parse_atlas_files(text: str) -> list:
+    """Extract the files list from atlas note YAML frontmatter."""
+    m = re.match(r"^---\n(.*?)\n---", text, re.DOTALL)
+    if not m:
+        return []
+    fm = m.group(1)
+    # Multi-line files: block
+    block = re.search(r"^files:\s*\n((?:[ \t]+-\s*.+\n?)*)", fm, re.MULTILINE)
+    if block:
+        items = re.findall(r"^[ \t]+-\s*(.+)$", block.group(1), re.MULTILINE)
+        return [x.strip() for x in items if x.strip()]
+    # Inline: files: [] or files: [a, b]
+    inline = re.search(r"^files:\s*(.+)$", fm, re.MULTILINE)
+    if inline:
+        val = inline.group(1).strip()
+        if val in ("[]", "null", "pending", ""):
+            return []
+        m2 = re.match(r"\[([^\]]+)\]", val)
+        if m2:
+            return [x.strip() for x in m2.group(1).split(",") if x.strip()]
+    return []
+
+
+def _set_frontmatter_stale(text: str, stale: bool) -> str:
+    """Update the stale field in YAML frontmatter, preserving all other content."""
+    val = "true" if stale else "false"
+    if re.search(r"^stale:.*$", text, re.MULTILINE):
+        return re.sub(r"^stale:.*$", f"stale: {val}", text, flags=re.MULTILINE, count=1)
+    return re.sub(r"\n---\n$", f"\nstale: {val}\n---\n", text, count=1)
+
+
+def _get_git_changed_files(local_path: Path) -> set:
+    """Return set of file paths that appear in recent git log commits."""
+    result = subprocess.run(
+        ["git", "-C", str(local_path), "log", "--name-only", "--format=", "-20"],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        return set()
+    changed = set()
+    for line in result.stdout.splitlines():
+        line = line.strip()
+        if line:
+            changed.add(line)
+    return changed
+
+
+def _get_traced_date(text: str):
+    """Return the traced date string from atlas note frontmatter, or None."""
+    m = re.search(r"^traced:\s*(.+)$", text, re.MULTILINE)
+    if not m:
+        return None
+    val = m.group(1).strip()
+    return None if val in ("null", "", "None") else val
+
+
+def _is_note_needs_trace(text: str) -> bool:
+    """Return True when note is stale or has never been traced."""
+    stale_m = re.search(r"^stale:\s*(.+)$", text, re.MULTILINE)
+    is_stale = bool(stale_m and stale_m.group(1).strip().lower() == "true")
+    return is_stale or _get_traced_date(text) is None
+
+
+def _update_atlas_index_stale(atlas_dir: Path, stale_slugs: list) -> None:
+    """Update atlas index.md rows to reflect stale: true for the given note slugs."""
+    index_path = atlas_dir / "index.md"
+    if not index_path.exists():
+        return
+
+    slug_to_feature = {}
+    for slug in stale_slugs:
+        note_path = atlas_dir / f"{slug}.md"
+        if note_path.exists():
+            text = note_path.read_text()
+            fm = re.search(r"^feature:\s*(.+)$", text, re.MULTILINE)
+            if fm:
+                slug_to_feature[slug] = fm.group(1).strip()
+
+    index_text = index_path.read_text()
+    for feature_name in slug_to_feature.values():
+        escaped = re.escape(feature_name)
+        index_text = re.sub(
+            r"(\| " + escaped + r" \|[^|]+\|[^|]+\|)\s*false\s*(\|)",
+            r"\1 true \2",
+            index_text,
+        )
+    index_path.write_text(index_text)
+
+
+def mark_stale_atlas_notes(local_path: Path, atlas_dir: Path) -> list:
+    """Mark atlas notes stale when their files appear in git log changed files.
+
+    Writes stale: true into each matching note's frontmatter and updates the
+    atlas index.md. Returns list of note slugs that were marked stale.
+    """
+    atlas_dir = Path(atlas_dir)
+    if not atlas_dir.exists():
+        return []
+    changed_files = _get_git_changed_files(Path(local_path))
+    if not changed_files:
+        return []
+
+    marked = []
+    for note_path in sorted(atlas_dir.glob("*.md")):
+        if note_path.name == "index.md":
+            continue
+        text = note_path.read_text()
+        files = _parse_atlas_files(text)
+        if files and any(f in changed_files for f in files):
+            note_path.write_text(_set_frontmatter_stale(text, True))
+            marked.append(note_path.stem)
+
+    if marked:
+        _update_atlas_index_stale(atlas_dir, marked)
+
+    return marked
+
+
+def _write_atlas_pending_queue(atlas_dir: Path, pending_slugs: list) -> None:
+    """Append or replace a pending queue section in atlas/index.md."""
+    index_path = atlas_dir / "index.md"
+
+    pending_lines = ["", "## Pending Queue", ""]
+    for slug in pending_slugs:
+        note_path = atlas_dir / f"{slug}.md"
+        feature_name = slug
+        if note_path.exists():
+            text = note_path.read_text()
+            fm = re.search(r"^feature:\s*(.+)$", text, re.MULTILINE)
+            if fm:
+                feature_name = fm.group(1).strip()
+        pending_lines.append(f"- {feature_name} (`{slug}`)")
+    pending_lines.append("")
+
+    pending_block = "\n".join(pending_lines)
+
+    if index_path.exists():
+        index_text = index_path.read_text()
+        # Remove any existing pending queue section before rewriting
+        index_text = re.sub(
+            r"\n## Pending Queue\n.*?(?=\n##|\Z)",
+            "",
+            index_text,
+            flags=re.DOTALL,
+        )
+        index_path.write_text(index_text.rstrip() + "\n" + pending_block)
+    else:
+        index_path.write_text("# Atlas Index\n" + pending_block)
+
+
+def select_trace_batch(atlas_dir: Path, max_batch: int = 3) -> list:
+    """Return slugs of at most max_batch notes to trace next (oldest-traced first).
+
+    Candidates are notes with stale: true or traced: null. After selecting the
+    batch, the remaining candidates are written into a pending queue section of
+    atlas/index.md. Notes not in either group are untouched.
+    """
+    atlas_dir = Path(atlas_dir)
+    if not atlas_dir.exists():
+        return []
+
+    candidates = []
+    for note_path in sorted(atlas_dir.glob("*.md")):
+        if note_path.name == "index.md":
+            continue
+        text = note_path.read_text()
+        if _is_note_needs_trace(text):
+            traced = _get_traced_date(text)
+            candidates.append((traced, note_path.stem))
+
+    # None (untraced) sorts before any ISO date string
+    candidates.sort(key=lambda item: ("0000" if item[0] is None else item[0], item[1]))
+
+    batch_slugs = [slug for _, slug in candidates[:max_batch]]
+    pending_slugs = [slug for _, slug in candidates[max_batch:]]
+
+    if pending_slugs:
+        _write_atlas_pending_queue(atlas_dir, pending_slugs)
+
+    return batch_slugs
 
 
 def _collect_notion(notion_db: str, notion_token: str, target_name: str, out_dir: Path) -> dict:
