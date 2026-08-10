@@ -16,6 +16,9 @@ WIKILINK_RE = re.compile(r'\[\[([^\]|]+)(?:\|[^\]]*)?\]\]')
 _MD_LINK_RE = re.compile(r'^\[([^\]]+)\]\([^)]*\)')  # [text](url) — not a wikilink
 _TOKEN_LIMIT = 1500
 
+_FM_RE = re.compile(r"^---\n(.*?)---\n", re.DOTALL)
+_KV_RE = re.compile(r"^(\w+):\s*(.*)\s*$", re.MULTILINE)
+
 
 # ---------------------------------------------------------------------------
 # Check implementations
@@ -387,6 +390,131 @@ def _load_targets_yaml(targets_yaml: Path) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Idea issue-tracking checks (issue #26)
+# ---------------------------------------------------------------------------
+
+def _parse_idea_frontmatter(text: str) -> dict | None:
+    m = _FM_RE.match(text)
+    if not m:
+        return None
+    fm_body = m.group(1)
+    result: dict = {}
+    for kv in _KV_RE.finditer(fm_body):
+        key = kv.group(1)
+        val = kv.group(2).strip()
+        if val.startswith("[") and val.endswith("]"):
+            inner = val[1:-1].strip()
+            if not inner:
+                result[key] = []
+            else:
+                result[key] = [
+                    x.strip().strip("'\"") for x in inner.split(",") if x.strip()
+                ]
+        else:
+            result[key] = val if val not in ("null", "~", "") else None
+    return result
+
+
+def _load_snapshot_issue_states(vault_path: Path) -> dict:
+    """Return {issue_number: state_str} from all target snapshots."""
+    states: dict = {}
+    projects_dir = vault_path / "projects"
+    if not projects_dir.exists():
+        return states
+    for proj_dir in sorted(projects_dir.iterdir()):
+        if not proj_dir.is_dir():
+            continue
+        raw_dir = proj_dir / "raw"
+        if not raw_dir.exists():
+            continue
+        snapshots = [d for d in raw_dir.iterdir() if d.is_dir()]
+        if not snapshots:
+            continue
+        latest = max(snapshots, key=lambda d: d.name)
+        issues_json = latest / "issues.json"
+        if not issues_json.exists():
+            continue
+        try:
+            data = json.loads(issues_json.read_text(encoding="utf-8"))
+            for issue in data.get("issues", []):
+                num = issue.get("number")
+                if num is not None:
+                    states[int(num)] = issue.get("state", "OPEN").upper()
+        except Exception:
+            continue
+    return states
+
+
+def check_promoted_missing_issues(vault_path: Path) -> tuple[list[str], int]:
+    """Warn when an idea has status=promoted but an empty issues list.
+
+    A promoted idea with no linked issues has no automated ship trigger.
+    Non-fatal: returns warning strings only.
+    """
+    ideas_dir = vault_path / "ideas"
+    if not ideas_dir.exists():
+        return [], 0
+
+    idea_files = [f for f in ideas_dir.glob("*.md") if f.name != "index.md"]
+    files_scanned = len(idea_files)
+    warnings: list[str] = []
+    for idea_path in sorted(idea_files):
+        try:
+            text = idea_path.read_text(encoding="utf-8")
+        except Exception:
+            continue
+        fm = _parse_idea_frontmatter(text)
+        if fm is None:
+            continue
+        if fm.get("status") == "promoted" and not fm.get("issues"):
+            warnings.append(
+                f"  {idea_path.name}: status=promoted but issues list is empty"
+                " (no ship trigger)"
+            )
+    return warnings, files_scanned
+
+
+def check_shipped_with_open_issues(vault_path: Path) -> tuple[list[str], int]:
+    """Error when an idea has status=shipped but a linked issue is still open.
+
+    Reads issue states from the most recent target snapshots. If no snapshot
+    data is available for a given issue number, the check is skipped for that
+    issue (cannot confirm it is open).
+    Fatal: returns error strings that cause a non-zero exit.
+    """
+    ideas_dir = vault_path / "ideas"
+    if not ideas_dir.exists():
+        return [], 0
+
+    issue_states = _load_snapshot_issue_states(vault_path)
+    idea_files = [f for f in ideas_dir.glob("*.md") if f.name != "index.md"]
+    files_scanned = len(idea_files)
+    errors: list[str] = []
+    for idea_path in sorted(idea_files):
+        try:
+            text = idea_path.read_text(encoding="utf-8")
+        except Exception:
+            continue
+        fm = _parse_idea_frontmatter(text)
+        if fm is None or fm.get("status") != "shipped":
+            continue
+        for item in (fm.get("issues") or []):
+            try:
+                num = int(item)
+            except (ValueError, TypeError):
+                continue
+            state = issue_states.get(num)
+            if state is None:
+                continue  # No snapshot data — skip this issue
+            if state == "OPEN":
+                errors.append(
+                    f"  {idea_path.name}: status=shipped but issue #{num} is still open"
+                    " (contradictory state)"
+                )
+    return errors, files_scanned
+
+
+# ---------------------------------------------------------------------------
 # Check registry
 # Six canonical families + atlas path (bonus warning)
 # ---------------------------------------------------------------------------
@@ -394,6 +522,7 @@ def _load_targets_yaml(targets_yaml: Path) -> dict:
 CHECKS: list[tuple[str, object]] = [
     ("Wikilink check", check_wikilinks),
     ("Index/folder check", check_index_folders),
+    ("Shipped with open issues", check_shipped_with_open_issues),
 ]
 
 WARNINGS: list[tuple[str, object]] = [
@@ -402,6 +531,7 @@ WARNINGS: list[tuple[str, object]] = [
     ("Card token budget", check_card_token_budget),
     ("Decision question refs", check_decision_question_refs),
     ("Atlas path check", check_atlas_paths),
+    ("Promoted missing issues", check_promoted_missing_issues),
 ]
 
 NOTICES: list[tuple[str, object]] = [
@@ -468,7 +598,6 @@ def run_all_checks(vault_path: Path, targets_yaml: Path | None = None) -> bool:
 
     _print_summary_table(summary_rows)
 
-    total_errors = sum(r[3] for r in summary_rows)
     result_label = "PASS" if all_passed else "FAIL"
     exit_code = 0 if all_passed else 1
     print(f"\nResult: {result_label} (exit {exit_code})")
