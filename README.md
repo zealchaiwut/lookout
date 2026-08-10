@@ -10,6 +10,14 @@ bin/lookout <target>
 
 Where `<target>` is a key defined in `targets.yaml` (e.g. `perf-coach` or `commander`).
 
+Each run:
+1. **Gathers** a point-in-time snapshot into `vault/projects/<target>/raw/<timestamp>/`, collecting from the Commander API, GitHub issues/PRs, local git log, and tracked doc files.
+2. **Prints a summary table** showing per-source status (`ok` / `absent`) and item counts for commander, notion, and journal sources.
+3. **Runs vault lint** — wikilink, index/folder, and staleness checks. A `[WARN]` is printed for project snapshots older than 7 days.
+4. **Commits** the snapshot to the repository with the message `lookout(<target>): snapshot <ISO-8601-timestamp>`.
+
+Source availability is non-fatal: if Commander is unreachable or GitHub CLI is absent, the run still exits 0 and records an `"absent"` status in `manifest.json`.
+
 ## Design and product context
 
 - **[PRODUCT.md](PRODUCT.md)** — what lookout is, who it is for, and the core user flows.
@@ -20,5 +28,5 @@ Where `<target>` is a key defined in `targets.yaml` (e.g. `perf-coach` or `comma
 | Sprint | Scope |
 |--------|-------|
 | sprint-1 | Repo scaffold, vault linter, run wrapper (this sprint) |
-| sprint-2 | Collectors arrive — gathering from GitHub, local files, and Notion |
+| sprint-2 | Collectors shipped — gather.py (Commander, GitHub, git, docs), journal delta collector, wired into run wrapper with staleness lint |
 | sprint-3 | Synthesis pipeline — summarisation, diff digests, and report generation |

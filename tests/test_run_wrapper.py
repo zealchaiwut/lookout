@@ -1,11 +1,14 @@
 """Tests for issue #4: bin/lookout run wrapper script and README."""
 import os
 import re
+import shutil
 import subprocess
 import tempfile
 from pathlib import Path
 
 import yaml
+
+LINT_SCRIPT = Path(__file__).parent.parent / ".claude" / "skills" / "lookout" / "scripts" / "lint.py"
 
 REPO_ROOT = Path(__file__).parent.parent
 BIN_LOOKOUT = REPO_ROOT / "bin" / "lookout"
@@ -46,28 +49,33 @@ def test_reads_valid_targets_from_yaml():
         )
 
 
-# AC: valid target prints stub message about gather not yet implemented
-def test_valid_target_prints_stub_message():
+# AC: valid target invokes gather and prints a summary (gather is now real, not a stub)
+def test_valid_target_gather_invoked():
     target = _valid_target()
-    result = run_script([target])
-    combined = result.stdout + result.stderr
-    assert "gather" in combined.lower(), "Expected 'gather' in output"
-    assert (
-        "not yet" in combined.lower()
-        or "not yet built" in combined.lower()
-        or "stub" in combined.lower()
-    ), "Expected stub/not-yet message in output"
+    with tempfile.TemporaryDirectory() as tmpdir:
+        script = _setup_clone(tmpdir)
+        result = subprocess.run(
+            [str(script), target], capture_output=True, text=True, cwd=tmpdir,
+        )
+        combined = result.stdout + result.stderr
+        assert "gather" in combined.lower(), "Expected 'gather' in output"
+        # gather now prints a summary table; snapshot written message confirms gather ran
+        assert "snapshot" in combined.lower(), "Expected 'snapshot' in output after gather runs"
 
 
 # AC: valid target executes lint.py and surfaces its exit code
 def test_valid_target_runs_lint():
     target = _valid_target()
-    result = run_script([target])
-    combined = result.stdout + result.stderr
-    # lint.py prints [PASS] or [FAIL] lines
-    assert "[PASS]" in combined or "[FAIL]" in combined, (
-        "Expected lint output ([PASS] or [FAIL]) in script output"
-    )
+    with tempfile.TemporaryDirectory() as tmpdir:
+        script = _setup_clone(tmpdir)
+        result = subprocess.run(
+            [str(script), target], capture_output=True, text=True, cwd=tmpdir,
+        )
+        combined = result.stdout + result.stderr
+        # lint.py prints [PASS] or [FAIL] lines
+        assert "[PASS]" in combined or "[FAIL]" in combined, (
+            "Expected lint output ([PASS] or [FAIL]) in script output"
+        )
 
 
 # AC: unknown target exits non-zero and prints valid targets to stderr
@@ -87,18 +95,21 @@ def test_unknown_target_prints_valid_targets_to_stderr():
 
 
 def _setup_clone(tmpdir):
-    """Clone the repo and inject the current (possibly uncommitted) bin/lookout."""
+    """Clone the repo and inject the current (possibly uncommitted) bin/lookout and scripts."""
     subprocess.run(["git", "clone", str(REPO_ROOT), tmpdir], capture_output=True, check=True)
-    subprocess.run(["git", "config", "user.email", "test@test.com"], cwd=tmpdir)
-    subprocess.run(["git", "config", "user.name", "Test"], cwd=tmpdir)
-    # Inject the current bin/lookout in case it hasn't been committed yet
-    import shutil
-    clone_bin = Path(tmpdir) / "bin"
-    clone_bin.mkdir(exist_ok=True)
-    dest = clone_bin / "lookout"
-    shutil.copy(str(BIN_LOOKOUT), str(dest))
-    dest.chmod(0o755)
-    return clone_bin / "lookout"
+    subprocess.run(["git", "config", "user.email", "test@test.com"], cwd=tmpdir, check=True)
+    subprocess.run(["git", "config", "user.name", "Test"], cwd=tmpdir, check=True)
+    for rel in ["bin/lookout", "gather.py", "journal_delta.py"]:
+        src = REPO_ROOT / rel
+        dst = Path(tmpdir) / rel
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy(str(src), str(dst))
+        if rel.startswith("bin/"):
+            dst.chmod(0o755)
+    lint_dst = Path(tmpdir) / ".claude" / "skills" / "lookout" / "scripts" / "lint.py"
+    lint_dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy(str(LINT_SCRIPT), str(lint_dst))
+    return Path(tmpdir) / "bin" / "lookout"
 
 
 # AC: when invoked with valid target and files have changed, creates exactly one commit
@@ -142,13 +153,13 @@ def test_valid_target_creates_commit_when_files_changed():
         assert latest_msg.startswith(f"lookout({target}):"), (
             f"Commit message must start with 'lookout({target}):'; got: {latest_msg}"
         )
-        assert "scaffold run" in latest_msg, (
-            f"Commit message must contain 'scaffold run'; got: {latest_msg}"
+        assert "snapshot" in latest_msg, (
+            f"Commit message must contain 'snapshot'; got: {latest_msg}"
         )
 
 
-# AC: when nothing has changed, script makes zero git commits
-def test_no_commit_when_nothing_changed():
+# AC: each invocation produces exactly one commit (gather always creates a new snapshot)
+def test_always_produces_exactly_one_commit():
     target = _valid_target()
     with tempfile.TemporaryDirectory() as tmpdir:
         script = _setup_clone(tmpdir)
@@ -157,6 +168,7 @@ def test_no_commit_when_nothing_changed():
             ["git", "log", "--oneline"],
             capture_output=True, text=True, cwd=tmpdir,
         ).stdout.strip()
+        before_count = len(log_before.splitlines()) if log_before else 0
 
         subprocess.run(
             [str(script), target],
@@ -167,9 +179,10 @@ def test_no_commit_when_nothing_changed():
             ["git", "log", "--oneline"],
             capture_output=True, text=True, cwd=tmpdir,
         ).stdout.strip()
+        after_count = len(log_after.splitlines()) if log_after else 0
 
-        assert log_before == log_after, (
-            "Expected no new commits when working tree is clean"
+        assert after_count == before_count + 1, (
+            "Expected exactly one new commit per invocation (gather always writes a snapshot)"
         )
 
 

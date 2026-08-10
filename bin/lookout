@@ -16,6 +16,9 @@ REPO_ROOT = Path(subprocess.check_output(
 TARGETS_YAML = REPO_ROOT / "targets.yaml"
 LINT_SCRIPT = REPO_ROOT / ".claude" / "skills" / "lookout" / "scripts" / "lint.py"
 
+sys.path.insert(0, str(REPO_ROOT))
+import gather as gather_module
+
 
 def load_targets():
     with open(TARGETS_YAML) as f:
@@ -23,24 +26,32 @@ def load_targets():
     return list(data.get("targets", {}).keys())
 
 
-def has_changes():
+def _print_summary_table(summary: dict) -> None:
+    col_w = 12
+    count_w = 6
+    header = f"{'source':<{col_w}}  {'status':<{col_w}}  {'count':>{count_w}}"
+    sep = "-" * len(header)
+    print()
+    print("--- Gather Summary ---")
+    print(header)
+    print(sep)
+    for source in ("commander", "notion", "journal"):
+        entry = summary.get(source, {"status": "absent", "count": 0})
+        status = entry.get("status", "absent")
+        count = entry.get("count", 0)
+        print(f"{source:<{col_w}}  {status:<{col_w}}  {count:>{count_w}}")
+    print()
+
+
+def commit_run(target, timestamp):
+    # vault/projects/*/raw/ is in .gitignore; -f force-adds snapshot files
+    vault_path = f"vault/projects/{target}/raw"
+    subprocess.run(["git", "add", "-f", vault_path], cwd=REPO_ROOT, check=True)
     result = subprocess.run(
-        ["git", "status", "--porcelain"],
-        capture_output=True,
-        text=True,
+        ["git", "commit", "-m", f"lookout({target}): snapshot {timestamp}"],
         cwd=REPO_ROOT,
     )
-    return bool(result.stdout.strip())
-
-
-def commit_run(target):
-    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    subprocess.run(["git", "add", "-A"], cwd=REPO_ROOT, check=True)
-    subprocess.run(
-        ["git", "commit", "-m", f"lookout({target}): scaffold run {timestamp}"],
-        cwd=REPO_ROOT,
-        check=True,
-    )
+    return result.returncode
 
 
 def main():
@@ -60,18 +71,29 @@ def main():
             print(f"  {t}", file=sys.stderr)
         sys.exit(1)
 
-    print(f"lookout: gather for '{target}' is not yet built — stub run only.")
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    lint_result = subprocess.run([sys.executable, str(LINT_SCRIPT)], cwd=REPO_ROOT)
+    # Run gather — always exits 0 on source unavailability
+    gather_module.REPO_ROOT = REPO_ROOT
+    gather_module.TARGETS_YAML = TARGETS_YAML
+    try:
+        summary = gather_module.gather(target)
+    except SystemExit as exc:
+        sys.exit(exc.code)
+
+    _print_summary_table(summary)
+
+    lint_result = subprocess.run(
+        [sys.executable, str(LINT_SCRIPT)], cwd=REPO_ROOT,
+    )
     lint_exit = lint_result.returncode
 
     if lint_exit != 0:
         print(f"lookout: lint failed (exit {lint_exit})", file=sys.stderr)
 
-    if has_changes():
-        commit_run(target)
+    commit_run(target, timestamp)
 
-    sys.exit(lint_exit)
+    sys.exit(0)
 
 
 if __name__ == "__main__":
