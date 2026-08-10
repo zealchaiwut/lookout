@@ -472,7 +472,11 @@ def test_real_fixtures_validate_cleanly():
 
 
 def test_real_ledger_regeneration_produces_two_rows():
-    """AC5: Running regeneration against real fixtures produces a two-row ledger."""
+    """AC5: Running regeneration includes both original fixtures in the ledger.
+
+    The ledger may contain more than 2 rows as ideas are added in subsequent
+    issues (e.g. #28), but the two original fixtures must always appear.
+    """
     ledger = _load_ledger()
     ledger.regenerate_ledger(IDEAS_DIR, today=date(2026, 8, 10))
     content = (IDEAS_DIR / "index.md").read_text(encoding="utf-8")
@@ -482,6 +486,8 @@ def test_real_ledger_regeneration_produces_two_rows():
         and not re.match(r"\|\s*-+", ln)
         and "Idea" not in ln and "Status" not in ln
     ]
-    assert len(data_rows) == 2, (
-        f"Expected 2 data rows from real fixtures, got {len(data_rows)}:\n{content}"
+    assert len(data_rows) >= 2, (
+        f"Expected at least 2 data rows (both original fixtures), got {len(data_rows)}:\n{content}"
     )
+    assert "dark-mode" in content, "Original dark-mode fixture must appear in the ledger"
+    assert "offline-sync" in content, "Original offline-sync fixture must appear in the ledger"
