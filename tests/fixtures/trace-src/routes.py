@@ -1,7 +1,7 @@
 from db import CoachingSession
 from models import Recommendation
 
-coaching_router = Router()
+coaching_router = Router()  # noqa: F821
 
 
 @coaching_router.get('/api/recommendations')

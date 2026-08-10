@@ -470,7 +470,7 @@ def test_no_fabricated_edge_when_handler_missing(tmp_path):
 
 def test_open_question_uses_recognized_format():
     """AC5: Open questions must use HTML comment or dedicated section format."""
-    mod = _load_atlas_trace()
+    _load_atlas_trace()
     note_with_oq = "# Note\n\n<!-- OPEN QUESTION: Where does handle() route? -->\n"
     note_with_section = "# Note\n\n## Open Questions\n\n- Where does handle() route?\n"
     note_without = "# Note\n\nNo questions here.\n"
@@ -592,7 +592,7 @@ def test_ambiguous_flow_produces_open_question_not_speculative_edge(tmp_path):
 
 def test_open_question_is_clearly_labeled():
     """AC7: Open question callout must be clearly labeled (not just a generic comment)."""
-    mod = _load_atlas_trace()
+    _load_atlas_trace()
 
     sample_note_good = (
         "# Note\n\n"
