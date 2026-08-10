@@ -6,3 +6,4 @@
 ## Projects
 
 - [[commander]]
+- [[perf-coach]]

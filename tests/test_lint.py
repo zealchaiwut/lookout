@@ -1,5 +1,6 @@
 """Tests for issue #3: lint.py wikilink and index/folder checks.
 Extended for issue #13: decision question refs and stale question notices.
+Extended for issue #17: atlas note path checks.
 """
 import json
 import subprocess
@@ -208,3 +209,86 @@ def test_lint_no_info_for_resolved_old_question(tmp_path):
     # Resolved question must not trigger stale-question info notice
     assert "overdue" not in result.stdout, \
         f"Resolved question must not trigger overdue notice:\n{result.stdout}"
+
+
+# ---------------------------------------------------------------------------
+# AC6, AC7 (issue #17): warn for atlas notes with paths absent from target repo
+# ---------------------------------------------------------------------------
+
+
+def _make_atlas_note_with_files(atlas_dir: Path, slug: str, feature: str, files: list) -> None:
+    atlas_dir.mkdir(parents=True, exist_ok=True)
+    if files:
+        files_yaml = "files:\n" + "\n".join(f"  - {f}" for f in files)
+    else:
+        files_yaml = "files: []"
+    (atlas_dir / f"{slug}.md").write_text(
+        f"---\nfeature: {feature}\n{files_yaml}\ntraced: null\nstale: true\n---\n"
+    )
+
+
+def _make_targets_yaml(parent_dir: Path, project_name: str, local_path: Path) -> None:
+    (parent_dir / "targets.yaml").write_text(
+        f"targets:\n  {project_name}:\n    local: {local_path}\n"
+    )
+
+
+def run_lint_with_targets(vault_path, targets_yaml_path=None):
+    """Run lint.py, optionally passing --targets-yaml."""
+    cmd = [sys.executable, str(LINT_SCRIPT), "--vault", str(vault_path)]
+    if targets_yaml_path:
+        cmd += ["--targets-yaml", str(targets_yaml_path)]
+    return subprocess.run(cmd, capture_output=True, text=True)
+
+
+def test_lint_warns_missing_atlas_file_path(tmp_path):
+    """AC6/AC7: atlas note files list containing absent path triggers a warning."""
+    vault = tmp_path / "vault"
+    vault.mkdir()
+    projects = vault / "projects"
+    projects.mkdir()
+    proj = projects / "my-project"
+    proj.mkdir()
+    (vault / "index.md").write_text("# Vault\n\n- my-project\n")
+
+    # Note referencing a non-existent file
+    atlas_dir = proj / "atlas"
+    _make_atlas_note_with_files(atlas_dir, "my-feature", "My Feature", ["src/does_not_exist.py"])
+
+    # Local repo dir without the referenced file
+    local_dir = tmp_path / "local-repo"
+    local_dir.mkdir()
+    targets_yaml = tmp_path / "targets.yaml"
+    _make_targets_yaml(tmp_path, "my-project", local_dir)
+
+    result = run_lint_with_targets(vault, targets_yaml)
+    combined = result.stdout + result.stderr
+    assert "does_not_exist.py" in combined, (
+        f"Expected missing-path warning in output:\n{combined}"
+    )
+
+
+def test_lint_no_warn_valid_atlas_file_path(tmp_path):
+    """AC7: atlas note files list containing a valid path does not trigger warning."""
+    vault = tmp_path / "vault"
+    vault.mkdir()
+    projects = vault / "projects"
+    projects.mkdir()
+    proj = projects / "my-project"
+    proj.mkdir()
+    (vault / "index.md").write_text("# Vault\n\n- my-project\n")
+
+    atlas_dir = proj / "atlas"
+    _make_atlas_note_with_files(atlas_dir, "my-feature", "My Feature", ["src/real_file.py"])
+
+    # Create the actual file in the local repo
+    local_dir = tmp_path / "local-repo"
+    (local_dir / "src").mkdir(parents=True)
+    (local_dir / "src" / "real_file.py").write_text("# real")
+    _make_targets_yaml(tmp_path, "my-project", local_dir)
+
+    result = run_lint_with_targets(vault, tmp_path / "targets.yaml")
+    combined = result.stdout + result.stderr
+    # Valid path must not generate a missing-path warning
+    assert "does_not_exist" not in combined
+    assert result.returncode == 0, f"Lint should pass with valid path:\n{combined}"
