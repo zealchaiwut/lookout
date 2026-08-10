@@ -562,11 +562,62 @@ python atlas_seed.py perf-coach
 
 ---
 
+## `capability-map` — Cross-Project Capability Map Generator
+
+**Module:** `capability_map.py`  
+**Public API:** `generate_edges(cards)` → `list[str]`  
+**Writer:** `generate_map(vault_dir)` → `Path`
+
+### What it does
+
+Reads all `vault/projects/*/capability.md` files, derives producer→consumer
+relationships, and regenerates the `## Edges` section of `vault/map.md`.
+The human-owned Pipelines section is always preserved byte-for-byte.
+
+Edge detection: a project is a *producer* when a surface (GET path) appears in
+its `## Read surfaces` section; a project is a *consumer* when its card text
+(outside its own `## Read surfaces`) references that same path. Only surfaces
+documented in a real capability card are emitted as edge endpoints. See
+DESIGN.md §7 for the rationale behind this design.
+
+### Output — `vault/map.md`
+
+Always contains exactly two clearly delimited sections:
+
+| Section | Managed by |
+|---------|-----------|
+| `<!-- BEGIN MACHINE EDGES -->` … `<!-- END MACHINE EDGES -->` | Regenerated each run |
+| `<!-- BEGIN HUMAN PIPELINES -->` … `<!-- END HUMAN PIPELINES -->` | Human-owned, never overwritten |
+
+Each edge line follows the format:
+
+```
+- <producer> → <consumer> via GET <path>
+```
+
+### Guards
+
+- No edge is emitted for a surface that does not appear in any capability card.
+- No edge references a project that does not have a capability card.
+- The Human Pipelines section is preserved byte-for-byte across every run.
+
+### CLI
+
+```
+python capability_map.py [--vault <vault_dir>]
+```
+
+Reads capability cards from `vault/projects/*/capability.md` and writes
+`vault/map.md`.
+
+---
+
 ## Notes
 
 All skill modules are pure Python with no external dependencies beyond the
 standard library. Test coverage lives in `tests/test_drift.py`,
 `tests/test_todo_view.py`, `tests/test_journal_crosslink.py`,
-`tests/test_capability_card.py`, `tests/test_questions.py`, and
-`tests/test_atlas_seed.py`. The fixture for end-to-end testing of drift
-detection is committed under `tests/fixtures/drift/`.
+`tests/test_capability_card.py`, `tests/test_questions.py`,
+`tests/test_atlas_seed.py`, and `tests/test_capability_map__20.py`. The
+fixture for end-to-end testing of drift detection is committed under
+`tests/fixtures/drift/`.
