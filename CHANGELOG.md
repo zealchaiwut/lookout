@@ -3,6 +3,13 @@
 Per-sprint changelog for lookout. Entries are written by the documentor when a
 sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/changelog/).
 
+## sprint-6
+
+- #24: Define idea note conventions and regenerate ledger
+- #25: Add assessment pass to SKILL.md idea pipeline
+- #26: Track shipped status via linked GitHub issue closure
+- #27: Enrich todo-view.md with effort and blocked-by annotations
+
 ## sprint-5
 
 - #19: Register three repos and harden collectors for missing files
