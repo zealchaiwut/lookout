@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Entry point for a lookout run against a named target."""
+import os
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -19,6 +20,7 @@ LINT_SCRIPT = REPO_ROOT / ".claude" / "skills" / "lookout" / "scripts" / "lint.p
 sys.path.insert(0, str(REPO_ROOT))
 import gather as gather_module
 import pack as pack_module
+import all_runner as all_runner_module
 
 
 def load_targets():
@@ -56,6 +58,19 @@ def commit_run(target, timestamp):
 
 
 def main():
+    # Dispatch --all flag: run every registered target with failure isolation
+    if len(sys.argv) >= 2 and sys.argv[1] == "--all":
+        lock_path = Path(os.environ.get("LOOKOUT_LOCK_PATH", "/tmp/lookout-all.lock"))
+        targets_yaml = Path(os.environ.get("LOOKOUT_TARGETS_YAML", str(TARGETS_YAML)))
+        lint_script = Path(os.environ.get("LOOKOUT_LINT_SCRIPT", str(LINT_SCRIPT)))
+        _, any_failed = all_runner_module.run_all(
+            targets_yaml=targets_yaml,
+            lint_script=lint_script,
+            lock_path=lock_path,
+            repo_root=REPO_ROOT,
+        )
+        sys.exit(1 if any_failed else 0)
+
     # Dispatch pack subcommand before any other processing
     if len(sys.argv) >= 2 and sys.argv[1] == "pack":
         if len(sys.argv) < 3:
