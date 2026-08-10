@@ -598,7 +598,6 @@ def run_all_checks(vault_path: Path, targets_yaml: Path | None = None) -> bool:
 
     _print_summary_table(summary_rows)
 
-    total_errors = sum(r[3] for r in summary_rows)
     result_label = "PASS" if all_passed else "FAIL"
     exit_code = 0 if all_passed else 1
     print(f"\nResult: {result_label} (exit {exit_code})")
