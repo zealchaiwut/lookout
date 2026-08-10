@@ -612,6 +612,81 @@ Reads capability cards from `vault/projects/*/capability.md` and writes
 
 ---
 
+## `ideas-ledger` — Idea Note Conventions and Ledger Regeneration
+
+**Module:** `ideas_ledger.py`  
+**Public API:** `validate_note(path)` → `list[str]`, `regenerate_ledger(ideas_dir, today)` → `Path`
+
+### Idea note format
+
+One file per idea, located at `vault/ideas/<YYYY-MM-DD>-<slug>.md`.
+
+**Required frontmatter fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `slug` | string | Kebab-case identifier |
+| `created` | ISO date | When the idea was first captured |
+| `status` | enum | One of: `idea` \| `assessed` \| `promoted` \| `shipped` \| `parked` |
+| `targets` | list | Target project names this idea touches |
+| `issues` | list | Linked GitHub issue numbers |
+| `assessed` | ISO date or null | When the idea was last assessed |
+
+**IMPORTANT:** The frontmatter and the `## Assessment` section below the
+delimiter are **machine-owned and must not be hand-edited**. Only the
+freeform top section (everything above the delimiter) is human territory.
+
+### Body structure
+
+Each idea note has exactly two sections separated by a clearly marked delimiter:
+
+```
+---
+<frontmatter>
+---
+
+<freeform top — human-written, never machine-edited>
+
+<!-- BEGIN MACHINE ASSESSMENT -->
+## Assessment
+
+<machine-owned — do not hand-edit>
+<!-- END MACHINE ASSESSMENT -->
+```
+
+The freeform top section is preserved byte-for-byte across every
+regeneration run. The agent pipeline only writes `vault/ideas/index.md`
+and the `## Assessment` block; it never modifies the freeform top.
+
+### Output — `vault/ideas/index.md`
+
+Regenerated on every run as a Markdown table:
+
+| Column | Source |
+|--------|--------|
+| Idea | `slug` frontmatter field |
+| Status | `status` frontmatter field |
+| Effort | `effort` frontmatter field (optional, defaults to `—`) |
+| Blocked-by | `blocked_by` frontmatter field (optional, defaults to `—`) |
+| Age | Days since `created` |
+
+### Validation
+
+An idea note with an unrecognised `status` value causes the linter to exit
+non-zero and print a human-readable error naming the file and the invalid
+value. Valid statuses are: `idea`, `assessed`, `promoted`, `shipped`, `parked`.
+
+### CLI
+
+```
+python ideas_ledger.py [--ideas-dir <vault/ideas>]
+```
+
+Validates all idea notes in the directory, then regenerates `index.md`.
+Exits 0 on success, 1 if any note has an invalid status or missing field.
+
+---
+
 ## Notes
 
 All skill modules are pure Python with no external dependencies beyond the
