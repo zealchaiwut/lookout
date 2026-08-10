@@ -1,0 +1,9 @@
+{
+  "files": [
+    {
+      "path": "tests/fixtures/drift/api-docs.md",
+      "content": "# API Reference\n\nThis document describes the available REST endpoints.\n\n## Endpoints\n\n`GET /v1/widgets` — returns all widgets for the authenticated user.\n\n**Parameters:**\n- `page` (int, optional) — page number for pagination\n- `limit` (int, optional) — number of results per page (default 20)\n\n`GET /v1/users` — returns user profile information.\n\n`POST /v1/widgets` — creates a new widget.\n"
+    }
+  ],
+  "migration_files": []
+}
