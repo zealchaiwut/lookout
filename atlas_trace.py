@@ -328,9 +328,7 @@ def generate_note(
     issues_section = "## Related Issues\n\n" + "\n".join(issue_lines) + "\n"
 
     # --- ## Flowchart ---
-    mermaid_body = _build_mermaid(
-        files_read, unique_routes, unique_tables, open_questions
-    )
+    mermaid_body = _build_mermaid(files_read, unique_routes, unique_tables, open_questions)
     flowchart_section = "## Flowchart\n\n```mermaid\n" + mermaid_body + "\n```\n"
 
     # --- ## Key Files ---
@@ -435,8 +433,7 @@ def main() -> None:
     # Check stale flag
     stale_m = re.search(r"^stale:\s*(.+)$", stub_text, re.MULTILINE)
     if stale_m and stale_m.group(1).strip().lower() == "false":
-        msg = f"Feature '{feature_name}' is not stale — skipping trace."
-        print(msg, file=sys.stderr)
+        print(f"Feature '{feature_name}' is not stale — skipping trace.", file=sys.stderr)
         sys.exit(0)
 
     source_dir = Path(args.source_dir) if args.source_dir else Path(".")
@@ -458,6 +455,7 @@ def main() -> None:
     for docs_file in ([docs_dir / "features.md"] if docs_dir.exists() else []):
         if docs_file.exists():
             text = docs_file.read_text()
+            # Look for "Entry point: `<file>`" pattern
             ep_m = re.search(r"[Ee]ntry\s+point.*?`([^`]+\.py)`", text)
             if ep_m:
                 entry_point = ep_m.group(1)
