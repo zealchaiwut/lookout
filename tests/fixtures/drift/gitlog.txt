@@ -1,0 +1,5 @@
+abc1234 feat: remove GET /v1/widgets endpoint — deprecated in favour of /v2/items
+def5678 fix: patch auth middleware for token expiry
+ghi9012 feat: add GET /v1/users endpoint
+jkl3456 chore: update dependencies
+mno7890 feat: initial API scaffold

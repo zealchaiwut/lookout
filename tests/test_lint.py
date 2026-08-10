@@ -1,6 +1,10 @@
-"""Tests for issue #3: lint.py wikilink and index/folder checks."""
+"""Tests for issue #3: lint.py wikilink and index/folder checks.
+Extended for issue #13: decision question refs and stale question notices.
+"""
+import json
 import subprocess
 import sys
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 LINT_SCRIPT = Path(__file__).parent.parent / ".claude/skills/lookout/scripts/lint.py"
@@ -106,3 +110,101 @@ def test_broken_wikilink_causes_exit_1(tmp_path):
     assert result.returncode == 1
     assert "temp-note.md" in result.stdout
     assert "nonexistent-note" in result.stdout
+
+
+# ---------------------------------------------------------------------------
+# AC7: warn when decision entry references unknown question ID
+# ---------------------------------------------------------------------------
+
+def _make_questions_json(questions: dict, prefix: str = "CM", next_id: int = 2) -> str:
+    return json.dumps({"prefix": prefix, "next_id": next_id, "questions": questions}, indent=2)
+
+
+def _make_clean_vault(tmp_path, project_name: str = "my-project"):
+    """Create a minimal valid vault with one project, no unresolved wikilinks."""
+    vault = tmp_path / "vault"
+    vault.mkdir(exist_ok=True)
+    projects = vault / "projects"
+    projects.mkdir(exist_ok=True)
+    proj = projects / project_name
+    proj.mkdir(exist_ok=True)
+    (vault / "index.md").write_text(f"# Vault\n\n- {project_name}\n")
+    return vault, proj
+
+
+def test_lint_warns_unknown_question_id(tmp_path):
+    """AC7: decision entry references a question ID not in any project registry."""
+    vault, proj = _make_clean_vault(tmp_path)
+
+    # Registry has CMQ1 only
+    known_qs = {"CMQ1": {"id": "CMQ1", "status": "open", "created": "2026-08-01", "text": "Q1"}}
+    (proj / "questions.json").write_text(_make_questions_json(known_qs))
+
+    # decisions.md references CMQ999 which doesn't exist
+    (vault / "decisions.md").write_text("# Decisions\n\n## Fix it (resolves CMQ999)\n\nWe did it.\n")
+
+    result = run_lint(vault)
+    assert "CMQ999" in result.stdout, f"Expected CMQ999 warning in output:\n{result.stdout}"
+    # WARN is non-fatal — exit code must remain 0
+    assert result.returncode == 0, f"Expected exit 0 for WARN, got {result.returncode}"
+
+
+def test_lint_no_warn_when_question_id_exists(tmp_path):
+    """AC7: no warning when decision references a valid question ID."""
+    vault, proj = _make_clean_vault(tmp_path)
+
+    known_qs = {"CMQ1": {"id": "CMQ1", "status": "open", "created": "2026-08-01", "text": "Q1"}}
+    (proj / "questions.json").write_text(_make_questions_json(known_qs))
+    (vault / "decisions.md").write_text("# Decisions\n\n## Fix it (resolves CMQ1)\n\nDone.\n")
+
+    result = run_lint(vault)
+    assert "CMQ999" not in result.stdout
+    assert result.returncode == 0
+
+
+# ---------------------------------------------------------------------------
+# AC8: info notice for open questions > 14 days old
+# ---------------------------------------------------------------------------
+
+def test_lint_info_stale_open_question(tmp_path):
+    """AC8: open question created 15 days ago → info notice."""
+    vault, proj = _make_clean_vault(tmp_path)
+
+    old_date = (datetime.now(timezone.utc) - timedelta(days=15)).strftime("%Y-%m-%d")
+    stale_qs = {"CMQ1": {"id": "CMQ1", "status": "open", "created": old_date, "text": "Old Q"}}
+    (proj / "questions.json").write_text(_make_questions_json(stale_qs))
+
+    result = run_lint(vault)
+    assert "CMQ1" in result.stdout, f"Expected CMQ1 in stale-question notice:\n{result.stdout}"
+    assert result.returncode == 0, "INFO notice must not cause exit code 1"
+
+
+def test_lint_no_info_for_fresh_question(tmp_path):
+    """AC8: question created today is not flagged."""
+    vault, proj = _make_clean_vault(tmp_path)
+
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    fresh_qs = {"CMQ1": {"id": "CMQ1", "status": "open", "created": today, "text": "Fresh Q"}}
+    (proj / "questions.json").write_text(_make_questions_json(fresh_qs))
+
+    result = run_lint(vault)
+    output_lower = result.stdout.lower()
+    assert "overdue" not in output_lower and "stale" not in output_lower, \
+        f"Fresh question must not trigger stale notice:\n{result.stdout}"
+
+
+def test_lint_no_info_for_resolved_old_question(tmp_path):
+    """AC8: resolved question older than 14 days must NOT be flagged."""
+    vault, proj = _make_clean_vault(tmp_path)
+
+    old_date = (datetime.now(timezone.utc) - timedelta(days=20)).strftime("%Y-%m-%d")
+    resolved_qs = {
+        "CMQ1": {"id": "CMQ1", "status": "resolved", "created": old_date,
+                 "text": "Old resolved Q", "resolved_by": "some decision"}
+    }
+    (proj / "questions.json").write_text(_make_questions_json(resolved_qs))
+
+    result = run_lint(vault)
+    # Resolved question must not trigger stale-question info notice
+    assert "overdue" not in result.stdout, \
+        f"Resolved question must not trigger overdue notice:\n{result.stdout}"

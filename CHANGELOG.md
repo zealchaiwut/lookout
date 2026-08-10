@@ -3,6 +3,14 @@
 Per-sprint changelog for lookout. Entries are written by the documentor when a
 sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/changelog/).
 
+## sprint-3
+
+- #10: Implement lookout skill synthesis contract and situation generator
+- #11: Add drift detection and todo view generation to SKILL.md
+- #12: Add journal cross-links and capability card to SKILL.md
+- #13: Add question generation and decision read-back to SKILL.md
+- #14: E2E UAT: validate perf-coach across two consecutive runs
+
 ## sprint-2
 
 - #5: Implement gather.py snapshot core with commander collectors
