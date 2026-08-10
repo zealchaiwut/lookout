@@ -83,7 +83,9 @@ def _set_mtime(path: Path, dt: datetime.datetime) -> None:
 
 def test_assessment_pass_module_exists():
     """AC1: assessment_pass.py exists at repo root."""
-    assert ASSESSMENT_PASS_PY.exists(), f"assessment_pass.py not found at {ASSESSMENT_PASS_PY}"
+    assert ASSESSMENT_PASS_PY.exists(), (
+        f"assessment_pass.py not found at {ASSESSMENT_PASS_PY}"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -300,7 +302,7 @@ def test_build_assessment_effort_is_valid_size(tmp_path):
 # ---------------------------------------------------------------------------
 
 def test_build_assessment_unknown_claim_becomes_open_question(tmp_path):
-    """AC4: Anything unresolvable is recorded as a numbered open question, not a guess."""
+    """AC4: Anything unresolvable becomes a numbered open question."""
     ap = _load_assessment_pass()
     # Use a registered-but-empty project (viral-radar has only .gitkeep)
     note = _make_idea_note(tmp_path, "2026-01-10-test.md",
@@ -310,7 +312,8 @@ def test_build_assessment_unknown_claim_becomes_open_question(tmp_path):
                                      today=datetime.date(2026, 8, 10))
     # Should contain a numbered open question
     assert re.search(r"Q\d+:", assessment), (
-        f"Assessment for empty-atlas target must contain a numbered open question:\n{assessment}"
+        "Assessment for empty-atlas target must contain a "
+        f"numbered open question:\n{assessment}"
     )
 
 
@@ -331,16 +334,20 @@ def test_fixture_perf_coach_viral_radar_cites_atlas_note(tmp_path):
                                      today=datetime.date(2026, 8, 10))
     # perf-coach has real atlas notes — expect at least one wikilink to atlas
     wikilinks = re.findall(r"\[\[([^\]]+)\]\]", assessment)
-    atlas_refs = [w for w in wikilinks if "perf-coach/atlas/" in w or "viral-radar/atlas/" in w
-                  or "perf-coach/capability" in w or "viral-radar/capability" in w]
+    atlas_refs = [
+        w for w in wikilinks
+        if "perf-coach/atlas/" in w or "viral-radar/atlas/" in w
+        or "perf-coach/capability" in w or "viral-radar/capability" in w
+    ]
     assert atlas_refs, (
-        f"Assessment must cite at least one real atlas note or capability card.\n"
+        "Assessment must cite at least one real atlas note or "
+        "capability card.\n"
         f"Wikilinks found: {wikilinks}\nFull assessment:\n{assessment}"
     )
 
 
 def test_fixture_perf_coach_cited_wikilinks_are_real_files(tmp_path):
-    """AC6: Wikilinks in the assessment for perf-coach point to real files in the vault."""
+    """AC6: Assessment wikilinks for perf-coach point to real vault files."""
     ap = _load_assessment_pass()
     note = _make_idea_note(
         tmp_path, "2026-01-10-perf-idea.md",
@@ -371,7 +378,7 @@ def test_fixture_perf_coach_cited_wikilinks_are_real_files(tmp_path):
 # ---------------------------------------------------------------------------
 
 def test_fixture_unregistered_project_states_not_in_registry(tmp_path):
-    """AC7: Assessment for an unregistered project explicitly states it is not in the registry."""
+    """AC7: Assessment for unregistered project states not in registry."""
     ap = _load_assessment_pass()
     note = _make_idea_note(
         tmp_path, "2026-01-10-unknown.md",
@@ -381,13 +388,16 @@ def test_fixture_unregistered_project_states_not_in_registry(tmp_path):
     )
     assessment = ap.build_assessment(note, VAULT_ROOT,
                                      today=datetime.date(2026, 8, 10))
-    assert "not in registry" in assessment.lower() or "not registered" in assessment.lower(), (
-        f"Assessment must explicitly state that project is not in the registry:\n{assessment}"
+    cond = ("not in registry" in assessment.lower() or
+            "not registered" in assessment.lower())
+    assert cond, (
+        "Assessment must state project not in registry:\n"
+        f"{assessment}"
     )
 
 
 def test_fixture_unregistered_project_raises_numbered_open_question(tmp_path):
-    """AC7: Assessment for an unregistered project includes a numbered open question."""
+    """AC7: Assessment for unregistered project includes open question."""
     ap = _load_assessment_pass()
     note = _make_idea_note(
         tmp_path, "2026-01-10-unknown.md",
@@ -397,12 +407,13 @@ def test_fixture_unregistered_project_raises_numbered_open_question(tmp_path):
     assessment = ap.build_assessment(note, VAULT_ROOT,
                                      today=datetime.date(2026, 8, 10))
     assert re.search(r"Q\d+:", assessment), (
-        f"Assessment for unregistered project must include a numbered open question:\n{assessment}"
+        "Assessment for unregistered project must include "
+        f"numbered open question:\n{assessment}"
     )
 
 
 def test_fixture_unregistered_project_no_fabricated_capabilities(tmp_path):
-    """AC7: Assessment for an unregistered project does not fabricate capabilities."""
+    """AC7: Assessment for unregistered project doesn't fabricate capabilities."""
     ap = _load_assessment_pass()
     note = _make_idea_note(
         tmp_path, "2026-01-10-unknown.md",
@@ -412,9 +423,11 @@ def test_fixture_unregistered_project_no_fabricated_capabilities(tmp_path):
     assessment = ap.build_assessment(note, VAULT_ROOT,
                                      today=datetime.date(2026, 8, 10))
     # Should not have atlas wikilinks for the unregistered project
-    fabricated = re.findall(r"\[\[project-not-in-registry-xyz/atlas/[^\]]+\]\]", assessment)
+    pattern = r"\[\[project-not-in-registry-xyz/atlas/[^\]]+\]\]"
+    fabricated = re.findall(pattern, assessment)
     assert not fabricated, (
-        f"Assessment must not fabricate atlas capabilities for unregistered project:\n{assessment}"
+        "Assessment must not fabricate atlas capabilities:\n"
+        f"{assessment}"
     )
 
 
@@ -495,7 +508,7 @@ def test_design_md_section_9_contains_all_five_fields():
 # ---------------------------------------------------------------------------
 
 def test_run_writes_assessed_date_to_frontmatter(tmp_path):
-    """AC10: After a successful assessment, the assessed date is updated in frontmatter."""
+    """AC10: Assessed date is updated in frontmatter after assessment."""
     ap = _load_assessment_pass()
     ideas_dir = tmp_path / "ideas"
     ideas_dir.mkdir()
@@ -505,7 +518,8 @@ def test_run_writes_assessed_date_to_frontmatter(tmp_path):
     ap.run_assessment_pass(ideas_dir, VAULT_ROOT, today=today)
     content = note.read_text(encoding="utf-8")
     assert "assessed: 2026-08-10" in content, (
-        f"Assessed date must be written to frontmatter after successful assessment:\n{content}"
+        "Assessed date must be written to frontmatter "
+        f"after successful assessment:\n{content}"
     )
 
 
@@ -552,6 +566,9 @@ def test_early_exit_when_zero_ideas_to_assess(tmp_path, capsys):
                                       today=datetime.date(2026, 8, 10))
     assert assessed == [], "Must return empty list when 0 ideas to assess"
     captured = capsys.readouterr()
-    assert "0" in captured.out or "zero" in captured.out.lower() or "skip" in captured.out.lower(), (
-        f"Expected log message mentioning 0 ideas to assess:\n{captured.out}"
+    output = captured.out
+    cond = ("0" in output or "zero" in output.lower() or
+            "skip" in output.lower())
+    assert cond, (
+        f"Expected log message mentioning 0 ideas to assess:\n{output}"
     )

@@ -122,7 +122,7 @@ def _get_atlas_note_stems(target: str, vault_dir: Path) -> list[str]:
 # ---------------------------------------------------------------------------
 
 def _idea_needs_assessment(idea_path: Path, fm: dict) -> bool:
-    """True if the idea has never been assessed, or was modified after its assessed date."""
+    """True if idea is new or was edited after its assessed date."""
     assessed = fm.get("assessed")
     if assessed is None:
         return True
@@ -345,7 +345,8 @@ def run_assessment_pass(
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Idea assessment pass — generates Assessment sections for new/edited ideas"
+        description="Idea assessment pass — generates Assessment sections for "
+        "new/edited ideas"
     )
     parser.add_argument(
         "--ideas-dir", type=Path, default=_DEFAULT_IDEAS_DIR,
