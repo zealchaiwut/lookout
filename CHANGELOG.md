@@ -3,6 +3,12 @@
 Per-sprint changelog for lookout. Entries are written by the documentor when a
 sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/changelog/).
 
+## sprint-4
+
+- #15: Add atlas seeding bootstrap step to SKILL.md
+- #17: Add staleness detection, trace cap, and lint path check
+- #18: UAT M4: Seed and verify top five perf-coach feature diagrams
+
 ## sprint-3
 
 - #10: Implement lookout skill synthesis contract and situation generator

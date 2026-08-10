@@ -31,3 +31,4 @@ Source availability is non-fatal: if Commander is unreachable or GitHub CLI is a
 | sprint-1 | Repo scaffold, vault linter, run wrapper (this sprint) |
 | sprint-2 | Collectors shipped — gather.py (Commander, GitHub, git, docs), journal delta collector, wired into run wrapper with staleness lint |
 | sprint-3 | Synthesis pipeline — situation.md generation, drift detection, todo-view, journal cross-linking, capability cards, question registry, and E2E UAT |
+| sprint-4 | Atlas pipeline — atlas seeding bootstrap (atlas_seed.py), stale-feature tracing (atlas_trace.py), atlas staleness detection and trace-cap in gather.py, atlas lint path check, and UAT M4 tracing top five perf-coach features |
