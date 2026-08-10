@@ -430,7 +430,6 @@ def test_frontmatter_unchanged_if_assessment_fails(tmp_path, monkeypatch):
     content_before = note.read_text(encoding="utf-8")
 
     # Monkeypatch build_assessment to raise an error
-    original_build = ap.build_assessment
     def failing_build(*args, **kwargs):
         raise RuntimeError("Simulated assessment failure")
     monkeypatch.setattr(ap, "build_assessment", failing_build)
