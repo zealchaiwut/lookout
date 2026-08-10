@@ -34,6 +34,11 @@ from pathlib import Path
 import yaml
 
 REPO_ROOT = Path(__file__).parent
+
+try:
+    import question_registry as _qreg
+except ImportError:
+    _qreg = None  # type: ignore[assignment]
 TARGETS_YAML = REPO_ROOT / "targets.yaml"
 
 
@@ -253,6 +258,35 @@ def _build_open_questions(issues_data: dict, journal_entries: list) -> list[str]
     return questions
 
 
+def _format_registry_questions(open_qs: list) -> list[str]:
+    """Format open question registry entries as display strings."""
+    lines: list[str] = []
+    for q in open_qs:
+        qid = q.get("id", "?")
+        text = q.get("text", "")
+        evidence = q.get("evidence", "")
+        options = q.get("options", [])
+        lines.append(f"**{qid}**: {text}")
+        if evidence:
+            lines.append(f"  _Evidence: {evidence}_")
+        if options:
+            for opt in options[:3]:
+                lines.append(f"  - {opt}")
+    return lines
+
+
+def _format_resolved_questions(resolved_qs: list) -> list[str]:
+    """Format resolved questions as cross-link entries for situation.md."""
+    if not resolved_qs:
+        return []
+    lines: list[str] = ["", "_Resolved this run:_"]
+    for q in resolved_qs:
+        qid = q.get("id", "?")
+        decision = q.get("resolved_by", "decisions.md")
+        lines.append(f"- ~~{qid}~~ → [[Decisions]] ({decision})")
+    return lines
+
+
 # ---------------------------------------------------------------------------
 # Drift signals
 # ---------------------------------------------------------------------------
@@ -332,6 +366,8 @@ def _render_situation(
     drift: list[str],
     missing_sources: list[str],
     snapshot_name: str,
+    registry_open: list | None = None,
+    registry_resolved: list | None = None,
 ) -> str:
     lines = [
         "---",
@@ -383,12 +419,20 @@ def _render_situation(
 
     lines.append("## Open questions")
     lines.append("")
-    if open_questions:
+    if registry_open or registry_resolved:
+        if registry_open:
+            lines.extend(_format_registry_questions(registry_open))
+        else:
+            lines.append("_No open questions._")
+        if registry_resolved:
+            lines.extend(_format_resolved_questions(registry_resolved))
+    elif open_questions:
         for q in open_questions:
             lines.append(f"- {q}")
     else:
         lines.append("_No open questions._")
-    lines.append("_(source: issues.json)_")
+    lines.append("")
+    lines.append("_(source: issues.json, questions.json)_")
     lines.append("")
 
     lines.append("## Drift")
@@ -503,6 +547,26 @@ def synthesize(target_name: str, vault_dir: Path | None = None) -> Path:
     drift_md_path = project_dir / "drift.md"
     drift = _build_drift_signals(manifest, prev_manifest, docs_manifest, drift_md_path=drift_md_path)
 
+    # Question generation and read-back pass
+    registry_open: list = []
+    registry_resolved: list = []
+    if _qreg is not None:
+        drift_flags = _qreg.parse_drift_md_flags(drift_md_path)
+        stalled_items = _qreg.extract_stalled_items(issues_data)
+        notes_path = project_dir / "notes.md"
+        human_notes = _qreg.extract_human_note_carryovers(notes_path)
+        _qreg.generate_questions(project_dir, target_name, drift_flags, stalled_items, human_notes)
+        _qreg.resolve_questions(project_dir, vault_dir, target_name)
+        registry_open = _qreg.get_open_questions(project_dir)
+        registry_resolved = _qreg.get_resolved_questions(project_dir)
+        # Detect contradictions with logged decisions and extend drift signals
+        contradiction_flags = _qreg.detect_decision_contradictions(project_dir, vault_dir, docs_manifest)
+        if contradiction_flags and len(drift) < 3:
+            for cf in contradiction_flags:
+                if len(drift) >= 3:
+                    break
+                drift.append(cf.get("claim", ""))
+
     content = _render_situation(
         target=target_name,
         run=run_ts,
@@ -516,6 +580,8 @@ def synthesize(target_name: str, vault_dir: Path | None = None) -> Path:
         drift=drift,
         missing_sources=missing_sources,
         snapshot_name=snapshot_dir.name if snapshot_dir else "",
+        registry_open=registry_open,
+        registry_resolved=registry_resolved,
     )
 
     project_dir.mkdir(parents=True, exist_ok=True)
