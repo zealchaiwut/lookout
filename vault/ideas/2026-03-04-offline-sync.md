@@ -4,7 +4,7 @@ created: 2026-03-04
 status: assessed
 targets: []
 issues: []
-assessed: 2026-03-10
+assessed: 2026-08-10
 ---
 
 Allow Lookout to cache the last snapshot locally and surface it when the
@@ -19,9 +19,12 @@ is probably sufficient.
 <!-- BEGIN MACHINE ASSESSMENT -->
 ## Assessment
 
-**Effort:** M  
-**Blocked-by:** —  
-**Summary:** Feasible. The snapshot pipeline already writes raw/ files
-locally; the main work is updating the UI layer to detect missing network
-and fall back to the cached raw/ directory. No external dependencies required.
+**Already exists:** —
+**Must be built:** —
+**Effort:** S
+**Dependencies:** —
+**Suggested first slice:** (Q1: What is the first independently testable step?)
+
+Q1: What is the first independently testable step?
+
 <!-- END MACHINE ASSESSMENT -->
