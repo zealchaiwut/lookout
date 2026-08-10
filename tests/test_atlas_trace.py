@@ -10,7 +10,6 @@ import sys
 import shutil
 from pathlib import Path
 
-import pytest
 
 REPO_ROOT = Path(__file__).parent.parent
 ATLAS_TRACE_PY = REPO_ROOT / "atlas_trace.py"

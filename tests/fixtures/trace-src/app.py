@@ -1,5 +1,4 @@
 from routes import coaching_router
-from db import CoachingSession
 
 
 def create_app():
