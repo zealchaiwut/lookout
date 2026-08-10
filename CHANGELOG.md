@@ -3,6 +3,13 @@
 Per-sprint changelog for lookout. Entries are written by the documentor when a
 sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/changelog/).
 
+## sprint-7
+
+- #29: Add lookout --all nightly runner with launchd scheduling
+- #30: Build Notion weekly digest publisher script
+- #31: Build vault inbox capture and promote command
+- #32: Define and ship the Hermes reader contract
+
 ## sprint-6
 
 - #24: Define idea note conventions and regenerate ledger
