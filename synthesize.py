@@ -257,12 +257,32 @@ def _build_open_questions(issues_data: dict, journal_entries: list) -> list[str]
 # Drift signals
 # ---------------------------------------------------------------------------
 
+def _read_drift_md_signals(drift_md_path: Path) -> list[str]:
+    """Extract flag summaries from drift.md (claim lines) for situation.md."""
+    if not drift_md_path.exists():
+        return []
+    signals: list[str] = []
+    for line in drift_md_path.read_text().splitlines():
+        if line.startswith("**Claim:**"):
+            claim = line.removeprefix("**Claim:**").strip()
+            if claim:
+                signals.append(claim)
+    return signals[:3]
+
+
 def _build_drift_signals(
     current_manifest: dict,
     prev_manifest: dict | None,
     docs_manifest: dict,
+    drift_md_path: Path | None = None,
 ) -> list[str]:
     signals: list[str] = []
+
+    # Prefer drift.md flags when they exist — they are more specific
+    if drift_md_path is not None:
+        drift_flags = _read_drift_md_signals(drift_md_path)
+        if drift_flags:
+            return drift_flags[:3]
 
     if prev_manifest:
         changes = _diff_manifests(current_manifest, prev_manifest)
@@ -480,7 +500,8 @@ def synthesize(target_name: str, vault_dir: Path | None = None) -> Path:
     what_to_do_next = [_to_wikilink(item) for item in next_raw]
     journal = _build_journal_lines(journal_entries)
     open_questions = _build_open_questions(issues_data, journal_entries)
-    drift = _build_drift_signals(manifest, prev_manifest, docs_manifest)
+    drift_md_path = project_dir / "drift.md"
+    drift = _build_drift_signals(manifest, prev_manifest, docs_manifest, drift_md_path=drift_md_path)
 
     content = _render_situation(
         target=target_name,

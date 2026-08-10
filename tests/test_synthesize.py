@@ -696,3 +696,71 @@ def test_all_seven_sections_non_empty(tmp_path):
     for section in _SEVEN_SECTIONS:
         content = _section_content(text, section)
         assert content, f"Section '## {section}' must not be empty"
+
+
+# ---------------------------------------------------------------------------
+# AC (issue #11): drift.md flags appear in situation.md ## Drift section
+# ---------------------------------------------------------------------------
+
+def _write_drift_md(project_dir: Path, flags: list[dict]) -> Path:
+    """Write a drift.md in the project dir using the same format as emit_drift_md."""
+    lines = ["# Drift Report", ""]
+    for i, flag in enumerate(flags, 1):
+        lines.append(f"## Flag {i}: {flag['signal_type'].replace('_', ' ').title()}")
+        lines.append("")
+        lines.append(f"**Claim:** {flag['claim']}")
+        lines.append("")
+        lines.append(f"**Evidence:** {flag['evidence_path']}")
+        lines.append("")
+        lines.append(f"**Suggested fix:** {flag['suggested_fix']}")
+        lines.append("")
+    project_dir.mkdir(parents=True, exist_ok=True)
+    drift_path = project_dir / "drift.md"
+    drift_path.write_text("\n".join(lines))
+    return drift_path
+
+
+def test_drift_flags_from_drift_md_appear_in_situation(tmp_path):
+    """AC3 (issue #11): top 3 drift flags from drift.md are in ## Drift of situation.md."""
+    mod = _load_synthesize(tmp_path)
+    _make_snapshot(tmp_path)
+    project_dir = tmp_path / "vault" / "projects" / "perf-coach"
+    _write_drift_md(
+        project_dir,
+        flags=[
+            {
+                "signal_type": "removed_feature",
+                "claim": "`GET /v1/widgets` is available",
+                "evidence_path": "docs/api.md (doc) + abc1234 (git)",
+                "suggested_fix": "Remove from docs/api.md",
+            }
+        ],
+    )
+    situation = mod.synthesize("perf-coach", vault_dir=tmp_path / "vault")
+    drift_content = _section_content(situation.read_text(), "Drift")
+    assert "GET /v1/widgets" in drift_content or "removed_feature" in drift_content.lower(), (
+        "## Drift in situation.md must include flags from drift.md"
+    )
+
+
+def test_drift_flags_capped_at_three_even_with_drift_md(tmp_path):
+    """AC3 (issue #11): at most 3 drift flags in situation.md even with many in drift.md."""
+    mod = _load_synthesize(tmp_path)
+    _make_snapshot(tmp_path)
+    project_dir = tmp_path / "vault" / "projects" / "perf-coach"
+    _write_drift_md(
+        project_dir,
+        flags=[
+            {"signal_type": "removed_feature", "claim": f"claim {i}",
+             "evidence_path": f"docs/file{i}.md", "suggested_fix": f"fix {i}"}
+            for i in range(5)
+        ],
+    )
+    situation = mod.synthesize("perf-coach", vault_dir=tmp_path / "vault")
+    drift_content = _section_content(situation.read_text(), "Drift")
+    signal_lines = [l.strip() for l in drift_content.splitlines()
+                    if l.strip().startswith("-") and not l.strip().startswith("_(source")]
+    # The section may use bullet points or other formatting — just ensure ≤ 3
+    assert len(signal_lines) <= 3, (
+        f"Drift section must have at most 3 signals, got {len(signal_lines)}"
+    )
