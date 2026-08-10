@@ -7,10 +7,9 @@ import importlib.util
 import re
 import subprocess
 import sys
-from datetime import date, datetime, timezone
+from datetime import date
 from pathlib import Path
 
-import pytest
 
 REPO_ROOT = Path(__file__).parent.parent
 IDEAS_LEDGER_PY = REPO_ROOT / "ideas_ledger.py"
@@ -350,7 +349,7 @@ def test_invalid_status_exits_nonzero(tmp_path):
     note = _make_idea_note(tmp_path, "bad-status.md",
                            slug="test", created="2026-01-10", status="wip")
     errors = ledger.validate_note(note)
-    assert errors, f"Expected validation errors for invalid status 'wip', got none"
+    assert errors, "Expected validation errors for invalid status 'wip', got none"
     combined = " ".join(errors)
     assert "wip" in combined.lower(), (
         f"Error message must name the invalid status value 'wip': {errors}"
