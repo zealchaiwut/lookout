@@ -6,7 +6,6 @@ Tests run against todo_view_assessment.py at repo root.
 import importlib.util
 import re
 import subprocess
-import sys
 from pathlib import Path
 
 
