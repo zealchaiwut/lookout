@@ -4,7 +4,6 @@ Each test maps to a specific AC item from the issue.
 """
 import importlib.util
 import json
-import re
 import subprocess
 import sys
 from datetime import datetime, timezone
