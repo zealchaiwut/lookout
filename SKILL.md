@@ -232,10 +232,133 @@ Reads the latest snapshot and writes `vault/projects/<target>/capability.md`.
 
 ---
 
+## `question-registry` — Question Generation and Decision Read-Back
+
+**Module:** `question_registry.py`  
+**Public API:**  
+- `generate_questions(project_dir, target_name, drift_flags, stalled_items, human_notes)` → `list[dict]`  
+- `resolve_questions(project_dir, vault_dir, target_name)` → `list[dict]`  
+- `get_open_questions(project_dir)` → `list[dict]`  
+- `get_resolved_questions(project_dir)` → `list[dict]`  
+- `detect_decision_contradictions(project_dir, vault_dir, docs_manifest)` → `list[dict]`  
+- `parse_drift_md_flags(drift_md_path)` → `list[dict]`  
+- `extract_human_note_carryovers(notes_path)` → `list[str]`  
+- `extract_stalled_items(issues_data)` → `list[dict]`
+
+### What it does
+
+Implements automatic question generation from snapshot signals and a
+decision read-back pass that marks resolved questions and cross-links
+them to their decision entries.
+
+### Question ID format
+
+Each question receives a stable, never-reused ID:
+
+```
+<PREFIX>Q<n>
+```
+
+Where `PREFIX` is the first two letters of the target name (uppercase)
+and `n` increments monotonically. Example: `SKQ1`, `CMQ3`.
+
+IDs are persisted in `vault/projects/<target>/questions.json` so they
+survive across runs and are never reissued.
+
+### Signal sources
+
+| Signal | Extracted from |
+|--------|---------------|
+| Unresolved drift flags | `drift.md` (via `parse_drift_md_flags`) |
+| Blocked/stalled issues | `issues.json` (labels: blocked, stalled) |
+| Human-note carry-overs | `notes.md` lines ending in `?` or starting with `> ` |
+
+Each question includes:
+- `evidence` — link to the source signal
+- `options` — 2–3 resolution options derived from signal type and context
+
+### Decision read-back
+
+`resolve_questions()` parses both:
+- `vault/decisions.md` (vault-level decisions)
+- `vault/projects/<target>/decisions.md` (project-level decisions)
+
+Any question ID (e.g. `SKQ1`) found in a decision entry is marked
+`resolved` and removed from the open list. The situation note for that
+question gains a cross-link to the decision heading that closed it.
+
+### Decision-contradiction drift detection
+
+`detect_decision_contradictions()` scans decisions.md for lines marked:
+
+```
+**Deprecated:** <item>
+**Removes:** <item>
+**Revokes:** <item>
+```
+
+If any tracked doc file still mentions the deprecated item, a drift flag
+is raised with suggested edit text pointing at the contradiction.
+
+### lint.py integration (AC7 + AC8)
+
+Two new checks are wired into `lint.py`:
+
+| Check | Level | Trigger |
+|-------|-------|---------|
+| Decision question refs | `[WARN]` | Decision entry references a `<PREFIX>Q<n>` ID not in any `questions.json` |
+| Stale open questions | `[INFO]` | Open question with `created` date older than 14 days |
+
+Both checks are non-fatal (exit code remains 0).
+
+### Registry file format
+
+`vault/projects/<target>/questions.json`:
+
+```json
+{
+  "prefix": "SK",
+  "next_id": 3,
+  "questions": {
+    "SKQ1": {
+      "id": "SKQ1",
+      "created": "2026-08-10",
+      "signal_type": "removed_feature",
+      "signal_text": "drift:GET /v1/widgets",
+      "text": "How should we resolve: GET /v1/widgets?",
+      "evidence": "api-docs.md (doc) + abc1234 (git)",
+      "options": ["Remove the stale doc reference", "Re-introduce in a new PR"],
+      "status": "open"
+    },
+    "SKQ2": {
+      "id": "SKQ2",
+      "created": "2026-08-09",
+      "signal_type": "stalled_item",
+      "status": "resolved",
+      "resolved_by": "Migrate to Postgres (SKQ2)"
+    }
+  }
+}
+```
+
+### CLI
+
+Question generation is triggered automatically by `synthesize.py` on
+every run. The registry can also be accessed directly:
+
+```python
+from question_registry import (
+    generate_questions, resolve_questions, get_open_questions
+)
+```
+
+---
+
 ## Notes
 
 All skill modules are pure Python with no external dependencies beyond the
 standard library. Test coverage lives in `tests/test_drift.py`,
-`tests/test_todo_view.py`, `tests/test_journal_crosslink.py`, and
-`tests/test_capability_card.py`. The fixture for end-to-end testing of drift
-detection is committed under `tests/fixtures/drift/`.
+`tests/test_todo_view.py`, `tests/test_journal_crosslink.py`,
+`tests/test_capability_card.py`, and `tests/test_questions.py`. The fixture
+for end-to-end testing of drift detection is committed under
+`tests/fixtures/drift/`.

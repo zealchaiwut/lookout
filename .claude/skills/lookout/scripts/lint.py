@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Vault integrity linter: wikilink, index/folder, and staleness checks."""
+"""Vault integrity linter: wikilink, index/folder, staleness, and question checks."""
 import argparse
+import json
 import re
 import sys
 from datetime import datetime, timedelta, timezone
@@ -106,6 +107,8 @@ def _get_project_dirs(vault_path: Path) -> set[str]:
 
 
 _STALENESS_DAYS = 7
+_QUESTION_ID_RE = re.compile(r'\b([A-Z]{2}Q\d+)\b')
+_STALE_QUESTION_DAYS = 14
 
 
 def check_staleness(vault_path: Path) -> list[str]:
@@ -143,6 +146,98 @@ def check_staleness(vault_path: Path) -> list[str]:
     return warnings
 
 
+def check_decision_question_refs(vault_path: Path) -> list[str]:
+    """Warn when a decision entry references a question ID not in any project registry.
+
+    Scans vault/decisions.md and vault/projects/*/decisions.md for <PREFIX>Q<n>
+    patterns, then verifies each ID exists in the corresponding questions.json.
+    Exit code remains 0 (WARN is non-fatal).
+    """
+    projects_dir = vault_path / "projects"
+
+    # Build the complete set of known question IDs across all registries
+    known_ids: set = set()
+    if projects_dir.exists():
+        for proj_dir in projects_dir.iterdir():
+            if not proj_dir.is_dir():
+                continue
+            qfile = proj_dir / "questions.json"
+            if not qfile.exists():
+                continue
+            try:
+                data = json.loads(qfile.read_text(encoding='utf-8'))
+                known_ids.update(data.get("questions", {}).keys())
+            except Exception:
+                pass
+
+    # Scan decisions files
+    decisions_paths = [vault_path / "decisions.md"]
+    if projects_dir.exists():
+        for proj_dir in projects_dir.iterdir():
+            if proj_dir.is_dir():
+                decisions_paths.append(proj_dir / "decisions.md")
+
+    warnings: list[str] = []
+    seen: set = set()
+    for dpath in decisions_paths:
+        if not dpath.exists():
+            continue
+        try:
+            text = dpath.read_text(encoding='utf-8')
+        except Exception:
+            continue
+        for m in _QUESTION_ID_RE.finditer(text):
+            qid = m.group(1)
+            key = (str(dpath), qid)
+            if key in seen:
+                continue
+            seen.add(key)
+            if qid not in known_ids:
+                try:
+                    rel = dpath.relative_to(vault_path)
+                except ValueError:
+                    rel = dpath
+                warnings.append(
+                    f"  {rel}: references unknown question ID {qid}"
+                )
+
+    return warnings
+
+
+def check_stale_questions(vault_path: Path) -> list[str]:
+    """Emit info notices for open questions whose creation date is more than 14 days ago."""
+    projects_dir = vault_path / "projects"
+    if not projects_dir.exists():
+        return []
+
+    cutoff_date = (
+        datetime.now(timezone.utc) - timedelta(days=_STALE_QUESTION_DAYS)
+    ).strftime("%Y-%m-%d")
+
+    notices: list[str] = []
+    for proj_dir in sorted(projects_dir.iterdir()):
+        if not proj_dir.is_dir():
+            continue
+        qfile = proj_dir / "questions.json"
+        if not qfile.exists():
+            continue
+        try:
+            data = json.loads(qfile.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        for qid, q in data.get("questions", {}).items():
+            if q.get("status") != "open":
+                continue
+            created = q.get("created", "")
+            if created and created < cutoff_date:
+                notices.append(
+                    f"  {proj_dir.name}/{qid}: open question created {created}"
+                    f" is overdue for resolution (>{_STALE_QUESTION_DAYS} days)"
+                )
+
+    return notices
+
+
 # ---------------------------------------------------------------------------
 # Check registry — add new checks here without touching the runner
 # ---------------------------------------------------------------------------
@@ -154,6 +249,11 @@ CHECKS: list[tuple[str, object]] = [
 
 WARNINGS: list[tuple[str, object]] = [
     ("Staleness check", check_staleness),
+    ("Decision question refs", check_decision_question_refs),
+]
+
+NOTICES: list[tuple[str, object]] = [
+    ("Stale open questions", check_stale_questions),
 ]
 
 
@@ -178,6 +278,13 @@ def run_all_checks(vault_path: Path) -> bool:
         if warnings:
             print(f"[WARN] {name}:")
             for line in warnings:
+                print(line)
+
+    for name, notice_fn in NOTICES:
+        notices = notice_fn(vault_path)
+        if notices:
+            print(f"[INFO] {name}:")
+            for line in notices:
                 print(line)
 
     return all_passed
