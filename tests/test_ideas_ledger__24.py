@@ -7,9 +7,10 @@ import importlib.util
 import re
 import subprocess
 import sys
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
+import pytest
 
 REPO_ROOT = Path(__file__).parent.parent
 IDEAS_LEDGER_PY = REPO_ROOT / "ideas_ledger.py"
@@ -349,7 +350,7 @@ def test_invalid_status_exits_nonzero(tmp_path):
     note = _make_idea_note(tmp_path, "bad-status.md",
                            slug="test", created="2026-01-10", status="wip")
     errors = ledger.validate_note(note)
-    assert errors, "Expected validation errors for invalid status 'wip', got none"
+    assert errors, f"Expected validation errors for invalid status 'wip', got none"
     combined = " ".join(errors)
     assert "wip" in combined.lower(), (
         f"Error message must name the invalid status value 'wip': {errors}"
@@ -471,11 +472,7 @@ def test_real_fixtures_validate_cleanly():
 
 
 def test_real_ledger_regeneration_produces_two_rows():
-    """AC5: Running regeneration includes both original fixtures in the ledger.
-
-    The ledger may contain more than 2 rows as ideas are added in subsequent
-    issues (e.g. #28), but the two original fixtures must always appear.
-    """
+    """AC5: Running regeneration against real fixtures produces a two-row ledger."""
     ledger = _load_ledger()
     ledger.regenerate_ledger(IDEAS_DIR, today=date(2026, 8, 10))
     content = (IDEAS_DIR / "index.md").read_text(encoding="utf-8")
@@ -485,8 +482,6 @@ def test_real_ledger_regeneration_produces_two_rows():
         and not re.match(r"\|\s*-+", ln)
         and "Idea" not in ln and "Status" not in ln
     ]
-    assert len(data_rows) >= 2, (
-        f"Expected at least 2 data rows (both original fixtures), got {len(data_rows)}:\n{content}"
+    assert len(data_rows) == 2, (
+        f"Expected 2 data rows from real fixtures, got {len(data_rows)}:\n{content}"
     )
-    assert "dark-mode" in content, "Original dark-mode fixture must appear in the ledger"
-    assert "offline-sync" in content, "Original offline-sync fixture must appear in the ledger"
