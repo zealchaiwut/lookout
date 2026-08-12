@@ -919,6 +919,17 @@ drift detection is committed under `tests/fixtures/drift/`.
 `gh pr list`, so `issues.json` contains **both open and closed issues**.
 Before issue #76 only open issues were collected (gh's default).
 
+**Pinned idea-issue collection (issue #81):** Before writing `issues.json`,
+`gather` reads `vault/ideas/*.md` frontmatter and builds the set of issue
+numbers referenced by ideas whose `targets:` list includes the target being
+gathered. Any number not already present in the bulk open/closed results is
+fetched individually via `gh issue view <N> --repo <slug>` and merged in.
+This allows `ship_pass` to resolve issues regardless of how old or deep in
+the closed history they are. The fetch is non-fatal: a failed lookup is
+silently skipped and `ship_pass` renders `(unknown)`. The manifest's
+`sources.github` entry records `pinned_requested` and `pinned_resolved`
+counts so silent failures are visible.
+
 ## `ship_pass` — Idea Ship Pass notes
 
 `ship_pass.load_issue_states` returns `{project_name: {issue_number: {...}}}` —

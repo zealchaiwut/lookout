@@ -100,6 +100,64 @@ def _first_heading(path: Path) -> str:
 _OPEN_LIMIT = 500   # generous ceiling; open sets are bounded in practice
 _CLOSED_LIMIT = 200  # documented ceiling for closed items
 
+_IDEA_FM_RE = re.compile(r"^---\n(.*?)---\n", re.DOTALL)
+
+
+def _parse_fm_list(fm_body: str, key: str) -> list:
+    """Parse a YAML frontmatter inline list field, e.g. targets: [a, b] or issues: [1, 2]."""
+    m = re.search(rf"^{key}:\s*(.+)$", fm_body, re.MULTILINE)
+    if not m:
+        return []
+    val = m.group(1).strip()
+    if val.startswith("[") and val.endswith("]"):
+        inner = val[1:-1].strip()
+        if not inner:
+            return []
+        return [x.strip().strip("'\"") for x in inner.split(",") if x.strip()]
+    return []
+
+
+def _read_pinned_idea_issues(ideas_dir: Path, target_name: str) -> set:
+    """Return issue numbers referenced by ideas whose targets include target_name.
+
+    Only ideas that name target_name in their targets: list contribute. Ideas
+    with an empty targets: list are excluded. The index.md ledger is skipped.
+    """
+    if not ideas_dir.exists():
+        return set()
+    pinned: set = set()
+    for idea_path in sorted(ideas_dir.glob("*.md")):
+        if idea_path.name == "index.md":
+            continue
+        text = idea_path.read_text(errors="replace")
+        m = _IDEA_FM_RE.match(text)
+        if not m:
+            continue
+        fm_body = m.group(1)
+        targets = _parse_fm_list(fm_body, "targets")
+        if target_name not in targets:
+            continue
+        for raw in _parse_fm_list(fm_body, "issues"):
+            try:
+                pinned.add(int(raw))
+            except (ValueError, TypeError):
+                pass
+    return pinned
+
+
+def _fetch_issue_by_number(slug: str, number: int, fields: str) -> dict | None:
+    """Fetch a single issue by exact number via gh issue view. Returns None on failure."""
+    result = subprocess.run(
+        ["gh", "issue", "view", str(number), "--repo", slug, "--json", fields],
+        capture_output=True, text=True,
+    )
+    if result.returncode == 0 and result.stdout.strip():
+        try:
+            return json.loads(result.stdout)
+        except Exception:
+            return None
+    return None
+
 
 def _gh_list(resource: str, slug: str, state: str, fields: str, limit: int) -> list:
     """Run one gh <resource> list call and return parsed JSON (empty list on failure)."""
@@ -113,14 +171,19 @@ def _gh_list(resource: str, slug: str, state: str, fields: str, limit: int) -> l
     return []
 
 
-def _collect_gh(slug: str, out_dir: Path) -> dict:
+def _collect_gh(slug: str, out_dir: Path, pinned_numbers: set | None = None) -> dict:
     """Write issues.json from gh issue list + gh pr list.
 
     Open and closed items are fetched with independent limits so a large
     closed set cannot crowd out open issues. Closed limit is _CLOSED_LIMIT;
     open limit is _OPEN_LIMIT (effectively unbounded for real repos).
 
-    Returns a sources entry dict.
+    Any issue numbers in pinned_numbers that are absent from the bulk results
+    are fetched individually by exact number and merged in. Pinned fetches are
+    non-fatal: a failed lookup is silently skipped and the issue stays absent.
+
+    Returns a sources entry dict including pinned_requested and pinned_resolved
+    counts so silent lookup failures are visible in manifest.json.
     """
     try:
         _fields = "number,title,state,labels,assignees,createdAt,updatedAt"
@@ -129,6 +192,19 @@ def _collect_gh(slug: str, out_dir: Path) -> dict:
         closed_issues = _gh_list("issue", slug, "closed", _fields, _CLOSED_LIMIT)
         issues = open_issues + closed_issues
 
+        # Fetch pinned issues not already present in bulk results
+        present_numbers = {i["number"] for i in issues}
+        pinned_requested = 0
+        pinned_resolved = 0
+        if pinned_numbers:
+            missing = sorted(pinned_numbers - present_numbers)
+            pinned_requested = len(missing)
+            for num in missing:
+                fetched = _fetch_issue_by_number(slug, num, _fields)
+                if fetched is not None:
+                    issues.append(fetched)
+                    pinned_resolved += 1
+
         open_prs = _gh_list("pr", slug, "open", _fields, _OPEN_LIMIT)
         closed_prs = _gh_list("pr", slug, "closed", _fields, _CLOSED_LIMIT)
         prs = open_prs + closed_prs
@@ -136,12 +212,19 @@ def _collect_gh(slug: str, out_dir: Path) -> dict:
         payload = {"issues": issues, "prs": prs}
         with open(out_dir / "issues.json", "w") as fh:
             json.dump(payload, fh, indent=2)
-        return {"status": "ok", "error": ""}
+        return {
+            "status": "ok",
+            "error": "",
+            "pinned_requested": pinned_requested,
+            "pinned_resolved": pinned_resolved,
+        }
 
     except FileNotFoundError:
-        return {"status": "absent", "error": "gh CLI not found"}
+        return {"status": "absent", "error": "gh CLI not found",
+                "pinned_requested": 0, "pinned_resolved": 0}
     except Exception as exc:
-        return {"status": "absent", "error": str(exc)}
+        return {"status": "absent", "error": str(exc),
+                "pinned_requested": 0, "pinned_resolved": 0}
 
 
 def _collect_git(local_path: Path, out_dir: Path) -> dict:
@@ -667,14 +750,21 @@ def gather(target_name):
 
     # Local collectors — output files absent on failure
     if github_slug:
+        # Read pinned issue numbers from idea notes that target this project.
+        # Ideas with empty targets: or targeting other projects contribute nothing.
+        ideas_dir = REPO_ROOT / "vault" / "ideas"
+        pinned_numbers = _read_pinned_idea_issues(ideas_dir, target_name)
+
         # The result was previously discarded, so a `gh` failure left no trace:
         # no issues.json, no source entry, and a run that still reported success.
         # That is exactly what happens under launchd, whose minimal PATH has no
         # `gh`. Record it so the failure is visible in the manifest.
-        gh_result = _collect_gh(github_slug, out_dir)
+        gh_result = _collect_gh(github_slug, out_dir, pinned_numbers)
         sources["github"] = {
             "status": gh_result.get("status", "absent"),
             "error": gh_result.get("error", ""),
+            "pinned_requested": gh_result.get("pinned_requested", 0),
+            "pinned_resolved": gh_result.get("pinned_resolved", 0),
         }
 
     if local_path is not None:
