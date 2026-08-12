@@ -41,7 +41,7 @@ level up, in `vault/projects/<target>/`.
 
 | # | Stage | Module | Reads | Writes | LLM |
 |---|-------|--------|-------|--------|-----|
-| 0 | gather | `gather.py` | Commander API, `gh issue/pr list`, `git log`, target's `docs/`, Notion, journal | `raw/<ts>/{manifest,brief,issues,endpoints,docs_manifest}.json`, `gitlog.txt` | no |
+| 0 | gather | `gather.py` | Commander API, `gh issue/pr list --state all`, `git log`, target's `docs/`, Notion, journal | `raw/<ts>/{manifest,brief,issues,endpoints,docs_manifest}.json`, `gitlog.txt` | no |
 | 1 | capability_card | `capability_card.py` | `endpoints.json`, `manifest.json`, target's `README.md` | `capability.md` | **yes** — the `## What it is` description |
 | 2 | drift | `drift.py` | `docs_manifest.json`, `gitlog.txt`, `brief.json` | `drift.md` | no |
 | 3 | synthesize | `synthesize.py` | latest + previous snapshot, `drift.md`, `capability.md`, `questions.json`, `notes.md` | `situation.md`, `questions.json` | no (reuses stage 1's description) |
@@ -54,7 +54,7 @@ level up, in `vault/projects/<target>/`.
 | 5 | capability_map | `capability_map.py` | every `projects/*/capability.md` | `vault/map.md` (Edges section only) | no |
 | 6 | ideas_ledger | `ideas_ledger.py` | `vault/ideas/*.md` | `vault/ideas/index.md` | no |
 | 7 | assessment_pass | `assessment_pass.py` | idea notes, atlas notes, capability cards | idea `## Assessment` blocks (max 3/run) | **yes** — atlas-note relevance ranking |
-| 8 | ship_pass | `ship_pass.py` | idea notes, `issues.json` | idea `status:` frontmatter | no |
+| 8 | ship_pass | `ship_pass.py` | idea notes, `issues.json` (per idea's `targets:`) | idea `status:` frontmatter | no |
 
 **Order is load-bearing.** capability.md must exist before synthesize reads its
 description for the one-liner, and drift.md must exist before situation.md cites

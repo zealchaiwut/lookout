@@ -910,3 +910,25 @@ standard library. Test coverage lives in `tests/test_drift.py`,
 `tests/test_atlas_seed.py`, `tests/test_capability_map__20.py`, and
 `tests/test_assessment_pass__25.py`. The fixture for end-to-end testing of
 drift detection is committed under `tests/fixtures/drift/`.
+
+---
+
+## `gather` — Snapshot Collector notes
+
+`gather._collect_gh` passes `--state all` to both `gh issue list` and
+`gh pr list`, so `issues.json` contains **both open and closed issues**.
+Before issue #76 only open issues were collected (gh's default).
+
+## `ship_pass` — Idea Ship Pass notes
+
+`ship_pass.load_issue_states` returns `{project_name: {issue_number: {...}}}` —
+a two-level dict keyed first by project name, then by issue number.  Issue
+numbers are only unique within a repository, so the outer key prevents
+cross-project collisions from overwriting each other.
+
+`ship_pass.check_idea` resolves each linked issue **only against the idea's
+own `targets:` frontmatter**.  An issue present in a different project's
+snapshot (but not in any of the idea's targets) does not satisfy the closed
+check and does not advance the idea to `shipped`.  Issues unresolvable from
+any of the idea's targets render as `(unknown)` / `OPEN` and leave `status`
+unchanged.
