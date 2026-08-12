@@ -1,0 +1,37 @@
+=== branch ===
+fix/carousel-tweaks
+
+=== log ===
+b3ec05f Merge pull request #144 from zealchaiwut/feature/assets-accounts-tabs
+5efba71 Improve carousel editor UX and add a Claude content brief.
+4c269fe Group backgrounds/logos into theme sets and tighten flow lifecycle.
+848dbd3 Style save buttons globally for Asset Creation and Accounts.
+77ad585 Style Light text row in the Design panel.
+361e5b7 Move Light text control into Design under the text slots.
+59849ce Reuse Carousel character studio modal from Asset Creation.
+ac78460 Apply logo preview stage class to Asset Creation and generate results.
+6a7557f Fix logo thumbnails: contain + light stage for transparent marks.
+f784847 Add Magnific generate for backgrounds and logos via shared job core.
+f322d79 Surface library API failures in Asset Creation and Accounts tabs.
+7a92d59 Style primary nav tabs to match the app theme.
+537cec3 Wire Asset Creation and Accounts UI; make Carousel pick-only.
+6aae9a2 Add shared asset library, migration, and account create/bind APIs.
+f412120 Add Asset Creation and Accounts top-level tab shells.
+a23e432 Drop the Editing flow sidebar line; show an 8-char flow id in the header.
+c5c9895 Make posted Character/Background bars expandable for view-only.
+514e8f4 Lock posted flows in the editor and move engagement entry there.
+893c470 Add header → Posted and merge Preview into a Save split button.
+03026ff Clarify Ready→Posted queue action and open the Posted tab.
+5f10f52 Merge pull request #143 from zealchaiwut/feature/139-test-flow-cleanup
+f7c56c0 fix: make the test suite clean up its own artifacts (issue #139)
+885fc59 Merge pull request #142 from zealchaiwut/feature/137-posted-tab-engagement-ui
+02e81f5 Merge pull request #141 from zealchaiwut/feature/136-engagement-report
+46c6d08 Merge pull request #138 from zealchaiwut/feature/135-flow-performance-block
+0144389 feat: Posted tab with engagement entry and tier badges (issue #137)
+2560551 feat: median-relative engagement tiers and performance report (issue #136)
+5d19cbd feat: store manual engagement numbers on a v2 flow (issue #135)
+49ee7f2 Merge pull request #133 from zealchaiwut/feature/bulk-json-import
+0d79295 Hide legacy paste import from the carousel rail.
+
+=== status ===
+M asset_studio.html
