@@ -41,7 +41,7 @@ level up, in `vault/projects/<target>/`.
 
 | # | Stage | Module | Reads | Writes | LLM |
 |---|-------|--------|-------|--------|-----|
-| 0 | gather | `gather.py` | Commander API, `gh issue/pr list --state all`, `git log`, target's `docs/`, Notion, journal | `raw/<ts>/{manifest,brief,issues,endpoints,docs_manifest}.json`, `gitlog.txt` | no |
+| 0 | gather | `gather.py` | Commander API, `gh issue/pr list --state all`, idea frontmatter in `vault/ideas/*.md` (pinned issue numbers → `gh issue view <N>`), `git log`, target's `docs/`, Notion, journal | `raw/<ts>/{manifest,brief,issues,endpoints,docs_manifest}.json`, `gitlog.txt` | no |
 | 1 | capability_card | `capability_card.py` | `endpoints.json`, `manifest.json`, target's `README.md` | `capability.md` | **yes** — the `## What it is` description |
 | 2 | drift | `drift.py` | `docs_manifest.json`, `gitlog.txt`, `brief.json` | `drift.md` | no |
 | 3 | synthesize | `synthesize.py` | latest + previous snapshot, `drift.md`, `capability.md`, `questions.json`, `notes.md` | `situation.md`, `questions.json` | no (reuses stage 1's description) |
