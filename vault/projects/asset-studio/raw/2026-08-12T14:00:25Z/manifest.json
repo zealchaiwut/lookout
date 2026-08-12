@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-08-12T14:00:25Z",
+  "target": "asset-studio",
+  "health": {},
+  "sources": {
+    "brief": {
+      "status": "ok",
+      "error": ""
+    },
+    "sprints_history": {
+      "status": "ok",
+      "error": ""
+    },
+    "github": {
+      "status": "ok",
+      "error": ""
+    },
+    "endpoints": {
+      "status": "ok",
+      "error": "",
+      "count": 17
+    }
+  }
+}

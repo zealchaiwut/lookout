@@ -1,12 +1,12 @@
 ---
 target: asset-studio
-run: "2026-08-12T12:23:30Z"
+run: "2026-08-12T14:00:37Z"
 sources_ok: true
 ---
 
 ## One-liner
 
-`asset-studio` — Asset-studio is a local web app for social media creators to build and export multi-slide carousels using AI image upscaling (Magnific) and generation (Mystic) paired with text compositing and brand templates. (health: degraded)
+`asset-studio` — Asset-studio is a local web app for social media creators to build and export multi-slide carousels using AI image upscaling (Magnific) and generation (Mystic) paired with text compositing and brand templates. (health: unknown)
 _(source: manifest.json, brief.json)_
 
 ## Capacity
