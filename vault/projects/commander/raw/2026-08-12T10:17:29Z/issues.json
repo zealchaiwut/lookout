@@ -1,0 +1,1631 @@
+{
+  "issues": [
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:51:50Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_41Q",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACmtLOMA",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fosg",
+          "name": "sprint-1025",
+          "description": "Sprint 1025",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2264,
+      "state": "OPEN",
+      "title": "Surface buried planning data already computed by the backend",
+      "updatedAt": "2026-08-12T07:51:50Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:51:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_41Q",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACmtLOMA",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fosg",
+          "name": "sprint-1025",
+          "description": "Sprint 1025",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2263,
+      "state": "OPEN",
+      "title": "Make diagnostics.html reachable from the current shell",
+      "updatedAt": "2026-08-12T07:51:45Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:51:40Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_41Q",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClkebqQ",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fosg",
+          "name": "sprint-1025",
+          "description": "Sprint 1025",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2262,
+      "state": "OPEN",
+      "title": "Definition of Ready \u2014 parser, preflight readiness, board gate",
+      "updatedAt": "2026-08-12T07:51:40Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:51:33Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_41Q",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClkebqQ",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACmtLOMA",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fosg",
+          "name": "sprint-1025",
+          "description": "Sprint 1025",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2261,
+      "state": "OPEN",
+      "title": "Live cross-project status view to replace the nightly Dev Report",
+      "updatedAt": "2026-08-12T07:51:33Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:51:27Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkddEMA",
+          "name": "docs",
+          "description": "",
+          "color": "B60205"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fnrw",
+          "name": "sprint-1024",
+          "description": "Sprint 1024",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2260,
+      "state": "OPEN",
+      "title": "Retire the bulk-create prompt library to lookout ideas",
+      "updatedAt": "2026-08-12T07:51:27Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:51:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fnrw",
+          "name": "sprint-1024",
+          "description": "Sprint 1024",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2259,
+      "state": "OPEN",
+      "title": "Delete dead milestone surfaces, keep the selector",
+      "updatedAt": "2026-08-12T07:51:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:51:17Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fnrw",
+          "name": "sprint-1024",
+          "description": "Sprint 1024",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2258,
+      "state": "OPEN",
+      "title": "Delete the unused changelog API",
+      "updatedAt": "2026-08-12T07:51:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:51:10Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fnrw",
+          "name": "sprint-1024",
+          "description": "Sprint 1024",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2257,
+      "state": "OPEN",
+      "title": "Delete brief caching, LLM summary, and the daily-report job",
+      "updatedAt": "2026-08-12T07:51:10Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:51:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fnrw",
+          "name": "sprint-1024",
+          "description": "Sprint 1024",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2256,
+      "state": "OPEN",
+      "title": "Delete the docs-freshness subsystem",
+      "updatedAt": "2026-08-12T07:51:05Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:50:59Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACmtLOMA",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fnrw",
+          "name": "sprint-1024",
+          "description": "Sprint 1024",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2255,
+      "state": "OPEN",
+      "title": "Delete the Todos feature in favour of docs/todo.md",
+      "updatedAt": "2026-08-12T07:50:59Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:50:51Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fnrw",
+          "name": "sprint-1024",
+          "description": "Sprint 1024",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2254,
+      "state": "OPEN",
+      "title": "Lock the lookout read contract with a test",
+      "updatedAt": "2026-08-12T07:50:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:50:46Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyg",
+          "name": "code-review",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FnSQ",
+          "name": "sprint-1023",
+          "description": "Sprint 1023",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2253,
+      "state": "OPEN",
+      "title": "Post-cut verification pass across all retained surfaces",
+      "updatedAt": "2026-08-12T07:50:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:50:39Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACke_lKA",
+          "name": "technical-debt",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FnSQ",
+          "name": "sprint-1023",
+          "description": "Sprint 1023",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2252,
+      "state": "OPEN",
+      "title": "Delete dispatch-pinned tests",
+      "updatedAt": "2026-08-12T07:50:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:50:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClkebqQ",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACmtLOMA",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FnSQ",
+          "name": "sprint-1023",
+          "description": "Sprint 1023",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2251,
+      "state": "OPEN",
+      "title": "Remove dispatch controls from the UI, keep status rendering",
+      "updatedAt": "2026-08-12T07:50:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:50:29Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClkebqQ",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FnSQ",
+          "name": "sprint-1023",
+          "description": "Sprint 1023",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2250,
+      "state": "OPEN",
+      "title": "Delete the launch routes and subprocess spawn paths",
+      "updatedAt": "2026-08-12T07:50:29Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:50:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACllGazg",
+          "name": "size-XL",
+          "description": "Estimated size XL (>30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FnSQ",
+          "name": "sprint-1023",
+          "description": "Sprint 1023",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2249,
+      "state": "OPEN",
+      "title": "Delete the sprint orchestrator",
+      "updatedAt": "2026-08-12T07:50:23Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:50:17Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_41Q",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FnSQ",
+          "name": "sprint-1023",
+          "description": "Sprint 1023",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2248,
+      "state": "OPEN",
+      "title": "Attach sprint-summary generation to the Finish flow",
+      "updatedAt": "2026-08-12T07:50:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:50:12Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_41Q",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FnSQ",
+          "name": "sprint-1023",
+          "description": "Sprint 1023",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2247,
+      "state": "OPEN",
+      "title": "Run and reasoning views tolerate a missing sprint label",
+      "updatedAt": "2026-08-12T07:50:12Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:50:07Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_41Q",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FnSQ",
+          "name": "sprint-1023",
+          "description": "Sprint 1023",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2246,
+      "state": "OPEN",
+      "title": "Manual-run recorder: write agent_runs rows from hooks",
+      "updatedAt": "2026-08-12T07:50:07Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:50:01Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACke_lKA",
+          "name": "technical-debt",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FnSQ",
+          "name": "sprint-1023",
+          "description": "Sprint 1023",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2245,
+      "state": "OPEN",
+      "title": "Extract list_backlog_issues out of the dispatch pipeline",
+      "updatedAt": "2026-08-12T07:50:01Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:49:55Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACke_lKA",
+          "name": "technical-debt",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fm6A",
+          "name": "sprint-1022",
+          "description": "Sprint 1022",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2244,
+      "state": "OPEN",
+      "title": "Delete tests covering the sprint-1022 removals",
+      "updatedAt": "2026-08-12T07:49:55Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:49:50Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACmtLOMA",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fm6A",
+          "name": "sprint-1022",
+          "description": "Sprint 1022",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2243,
+      "state": "OPEN",
+      "title": "Remove standalone live-run viewers",
+      "updatedAt": "2026-08-12T07:49:50Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:49:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fm6A",
+          "name": "sprint-1022",
+          "description": "Sprint 1022",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2242,
+      "state": "OPEN",
+      "title": "Remove dispatch glue modules",
+      "updatedAt": "2026-08-12T07:49:45Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:49:40Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClkebqQ",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fm6A",
+          "name": "sprint-1022",
+          "description": "Sprint 1022",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2241,
+      "state": "OPEN",
+      "title": "Remove autorun babysitting modules",
+      "updatedAt": "2026-08-12T07:49:40Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:49:35Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fm6A",
+          "name": "sprint-1022",
+          "description": "Sprint 1022",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2240,
+      "state": "OPEN",
+      "title": "Remove AI branch-conflict resolution, keep the Finish wizard",
+      "updatedAt": "2026-08-12T07:49:35Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:49:30Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fm6A",
+          "name": "sprint-1022",
+          "description": "Sprint 1022",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2239,
+      "state": "OPEN",
+      "title": "Remove post-sprint auto-dispatched agents",
+      "updatedAt": "2026-08-12T07:49:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:49:25Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fm6A",
+          "name": "sprint-1022",
+          "description": "Sprint 1022",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2238,
+      "state": "OPEN",
+      "title": "Remove the overnight sprint scheduler",
+      "updatedAt": "2026-08-12T07:49:25Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:49:20Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACke_lKA",
+          "name": "technical-debt",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-Fm6A",
+          "name": "sprint-1022",
+          "description": "Sprint 1022",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2237,
+      "state": "OPEN",
+      "title": "Decouple summary.py from modules slated for deletion",
+      "updatedAt": "2026-08-12T07:49:20Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:49:15Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkT5ACQ",
+          "name": "backlog",
+          "description": "Backlog items",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACke_lKA",
+          "name": "technical-debt",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FmfA",
+          "name": "sprint-1021",
+          "description": "Sprint 1021",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2236,
+      "state": "OPEN",
+      "title": "Archive eight completed one-off migration scripts",
+      "updatedAt": "2026-08-12T07:49:15Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:49:11Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_-qw",
+          "name": "in-progress",
+          "description": "",
+          "color": "d93f0b"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkfXc_w",
+          "name": "infra",
+          "description": "Infrastructure and repo-structure changes",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FmfA",
+          "name": "sprint-1021",
+          "description": "Sprint 1021",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2235,
+      "state": "OPEN",
+      "title": "Fix .gitignore patterns and reclaim ~300MB of stale files",
+      "updatedAt": "2026-08-12T10:17:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:49:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_91A",
+          "name": "UAT",
+          "description": "",
+          "color": "bfd4f2"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACke_lKA",
+          "name": "technical-debt",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FmfA",
+          "name": "sprint-1021",
+          "description": "Sprint 1021",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2234,
+      "state": "OPEN",
+      "title": "Delete advisor.py orphan and six zero-caller endpoints",
+      "updatedAt": "2026-08-12T10:07:25Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:49:01Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_91A",
+          "name": "UAT",
+          "description": "",
+          "color": "bfd4f2"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDPLJQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACmtLOMA",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACqwysDA",
+          "name": "cleanup",
+          "description": "Dead code / cleanup work",
+          "color": "bfdadc"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FmfA",
+          "name": "sprint-1021",
+          "description": "Sprint 1021",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2233,
+      "state": "OPEN",
+      "title": "Delete dead Logs/Activity code still executing on every page load",
+      "updatedAt": "2026-08-12T09:45:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:48:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_41Q",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_91A",
+          "name": "UAT",
+          "description": "",
+          "color": "bfd4f2"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkt0qZw",
+          "name": "agents",
+          "description": "Agent-related features",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FmfA",
+          "name": "sprint-1021",
+          "description": "Sprint 1021",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2232,
+      "state": "OPEN",
+      "title": "Export agent role and issue env vars for manual Claude Code sessions",
+      "updatedAt": "2026-08-12T09:04:10Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:48:50Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_4tQ",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_91A",
+          "name": "UAT",
+          "description": "",
+          "color": "bfd4f2"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACke_lKA",
+          "name": "technical-debt",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FmfA",
+          "name": "sprint-1021",
+          "description": "Sprint 1021",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2231,
+      "state": "OPEN",
+      "title": "pytest writes through to the production todo store",
+      "updatedAt": "2026-08-12T08:36:44Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-12T07:48:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_4tQ",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_91A",
+          "name": "UAT",
+          "description": "",
+          "color": "bfd4f2"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACkt0qZw",
+          "name": "agents",
+          "description": "Agent-related features",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClDN-DQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACv-FmfA",
+          "name": "sprint-1021",
+          "description": "Sprint 1021",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 2230,
+      "state": "OPEN",
+      "title": "Manual /tester run never transitions ticket to UAT",
+      "updatedAt": "2026-08-12T08:22:40Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-09T13:49:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_4tQ",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        }
+      ],
+      "number": 2229,
+      "state": "OPEN",
+      "title": "Harden middleware chain against ResponseValidationError crashing the whole worker",
+      "updatedAt": "2026-08-09T13:49:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-07T06:23:48Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_4tQ",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        }
+      ],
+      "number": 2227,
+      "state": "OPEN",
+      "title": "[bug] Sprint rerun silently excludes any ticket carrying the docs AREA label \u2014 conflated with the docs/sprint-summary auto-generated-issue filter",
+      "updatedAt": "2026-08-07T06:23:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-07T05:59:53Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_4tQ",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        }
+      ],
+      "number": 2226,
+      "state": "OPEN",
+      "title": "[bug] coder-no-test-edits gate blocks legitimate mock updates on existing tests, and the resulting cross-cutting regression has no automated path back to a coder",
+      "updatedAt": "2026-08-07T05:59:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-07T05:59:31Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_4tQ",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        }
+      ],
+      "number": 2225,
+      "state": "OPEN",
+      "title": "[bug] Documenter/reviewer hitting a Claude session-limit strands the sprint in needs_rework with no auto-retry, and a later reviewer failure never updates the terminal state at all",
+      "updatedAt": "2026-08-07T05:59:31Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-07T05:59:08Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_4tQ",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        }
+      ],
+      "number": 2224,
+      "state": "OPEN",
+      "title": "[bug] Sprint-level agent failures (documenter/reviewer) write last-failure-0.json to commander's own repo instead of the dispatching project's, colliding across projects and sprints",
+      "updatedAt": "2026-08-07T06:23:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-06T15:33:39Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_41Q",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyA",
+          "name": "follow-up",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyg",
+          "name": "code-review",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAACmtLOMA",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "ededed"
+        }
+      ],
+      "number": 2221,
+      "state": "OPEN",
+      "title": "[follow-up] #2181 unused FBOX_DISPLAY_NONE_PAT const in css-dedup test",
+      "updatedAt": "2026-08-06T15:33:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-06T15:33:36Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_41Q",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyA",
+          "name": "follow-up",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyg",
+          "name": "code-review",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        }
+      ],
+      "number": 2220,
+      "state": "OPEN",
+      "title": "[follow-up] #2189 test module forces live-UAT env but never uses it (unused httpx client fixture)",
+      "updatedAt": "2026-08-06T15:33:36Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-06T07:56:43Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_41Q",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyA",
+          "name": "follow-up",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyg",
+          "name": "code-review",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        }
+      ],
+      "number": 2212,
+      "state": "OPEN",
+      "title": "[follow-up] out-of-scope f-prefix lint fix bundled into #2001 diff (should be its own ticket)",
+      "updatedAt": "2026-08-06T07:56:43Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-06T07:56:36Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSktYxs8AAAACkP_41Q",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyA",
+          "name": "follow-up",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyg",
+          "name": "code-review",
+          "description": "",
+          "color": "ededed"
+        },
+        {
+          "id": "LA_kwDOSktYxs8AAAAClmuQyw",
+          "name": "backend",
+          "description": "",
+          "color": "ededed"
+        }
+      ],
+      "number": 2211,
+      "state": "OPEN",
+      "title": "[follow-up] estimate_issue._parse_ts_for_compare parse-failure sentinel can serve stale mirror data",
+      "updatedAt": "2026-08-06T07:56:36Z"
+    }
+  ],
+  "prs": [
+    {
+      "assignees": [],
+      "createdAt": "2026-08-09T13:48:50Z",
+      "labels": [],
+      "number": 2228,
+      "state": "OPEN",
+      "title": "fix: prevent ResponseValidationError crash on /api/sprints/{label}/live",
+      "updatedAt": "2026-08-09T13:48:54Z"
+    }
+  ]
+}

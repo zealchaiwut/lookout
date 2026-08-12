@@ -1,0 +1,152 @@
+{
+  "brief": {
+    "project": "commander",
+    "date": "2026-08-12",
+    "shipped": [],
+    "in_progress": null,
+    "up_next": null,
+    "blocked": [
+      {
+        "issue_number": 42,
+        "title": "Sprint sprint-test Executive Summary",
+        "type": "rework"
+      },
+      {
+        "issue_number": 55,
+        "title": "feat(dashboard): ttyd-backed terminal panel for launching agent commands (coder, tester, ba, sprint-manager)",
+        "type": "rework"
+      },
+      {
+        "issue_number": 123,
+        "title": "Dashboard UI: per-project running indicators, no global sprint block",
+        "type": "rework"
+      }
+    ],
+    "kpis": {
+      "sprints_shipped": 0,
+      "tickets_done": 0,
+      "in_progress": false,
+      "in_progress_percent": 0,
+      "needs_you": 5
+    },
+    "recent_activity": [
+      {
+        "time": "10:12",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "10:12",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "10:12",
+        "source": "agent",
+        "message": "agent started"
+      },
+      {
+        "time": "09:42",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "09:42",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "09:42",
+        "source": "agent",
+        "message": "agent started"
+      },
+      {
+        "time": "09:12",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "09:12",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "09:12",
+        "source": "agent",
+        "message": "agent started"
+      },
+      {
+        "time": "08:42",
+        "source": "agent",
+        "message": "agent finished"
+      }
+    ],
+    "ran_overnight": [],
+    "waiting_on_you": [
+      {
+        "label": "sprint-1003.2",
+        "ticket_count": 3,
+        "estimated_hours": 0.0,
+        "project": null
+      },
+      {
+        "label": "sprint-107",
+        "ticket_count": 3,
+        "estimated_hours": 2.0,
+        "project": null
+      },
+      {
+        "label": "sprint-107.1",
+        "ticket_count": 1,
+        "estimated_hours": 0.25,
+        "project": null
+      },
+      {
+        "label": "sprint-67.1",
+        "ticket_count": 2,
+        "estimated_hours": 1.0,
+        "project": null
+      },
+      {
+        "label": "sprint-70",
+        "ticket_count": 2,
+        "estimated_hours": 0.17,
+        "project": null
+      },
+      {
+        "label": "sprint-76",
+        "ticket_count": 4,
+        "estimated_hours": 2.25,
+        "project": null
+      }
+    ],
+    "suggested_next": [
+      {
+        "text": "Create PRODUCT.md to define project vision, goals, and non-goals for all agents",
+        "type": "suggestion",
+        "slug": "commander"
+      },
+      {
+        "text": "Investigate and fix the coder failure loop on Issue #1 (sprint-99, 5 consecutive failures)",
+        "type": "suggestion",
+        "slug": "commander"
+      },
+      {
+        "text": "Purge test/junk tickets from backlog (#973\u2013#979, #990, #992) to restore sprint board signal",
+        "type": "suggestion",
+        "slug": "commander"
+      },
+      {
+        "text": "Create first real milestone to anchor upcoming sprint planning",
+        "type": "suggestion",
+        "slug": "commander"
+      },
+      {
+        "text": "Sprint 74: Backlog hygiene \u2014 purge junk tickets #973\u2013#979, #990, #992 and restore board signal",
+        "type": "look_ahead",
+        "slug": "commander"
+      }
+    ]
+  },
+  "sprints_history": []
+}
