@@ -1,12 +1,12 @@
 ---
 target: asset-studio
-run: "2026-08-12T07:13:02Z"
+run: "2026-08-12T07:15:52Z"
 sources_ok: true
 ---
 
 ## One-liner
 
-Target `asset-studio` is unknown: Asset-studio is a local web app for social media creators to build and export multi-slide carousels using AI image upscaling (Magnific) and generation (Mystic) paired with text compositing and brand templates. Batch flows process multiple images with visual consistency locks, and job state persists across server restarts to survive interrupted workflows.
+`asset-studio` — Asset-studio is a local web app for social media creators to build and export multi-slide carousels using AI image upscaling (Magnific) and generation (Mystic) paired with text compositing and brand templates. (health: unknown)
 _(source: manifest.json, brief.json)_
 
 ## Capacity
@@ -21,7 +21,11 @@ _(source: manifest.json)_
 
 ## What to do next
 
-_No items found._
+1. #140 — [follow-up] A leaked Path.stat patch crashes pytest at session finish
+2. #139 — [follow-up] Tests write real flows into flows/ and never clean up
+3. #137 — Manual engagement log — Posted tab, entry form, tier badges
+4. #136 — Manual engagement log — median-relative tier + performance report
+5. #135 — Manual engagement log — store performance on a v2 flow
 _(source: brief.json, notion_todos.json, docs_manifest.json)_
 
 ## From the journal

@@ -14,6 +14,7 @@ from pathlib import Path
 import yaml
 
 import gather as gather_module
+import derive as derive_module
 
 REPO_ROOT = Path(__file__).parent
 TARGETS_YAML = REPO_ROOT / "targets.yaml"
@@ -32,6 +33,8 @@ def _commit_target(target, timestamp, repo_root):
     """Add vault snapshot files and commit. Separated for test patching."""
     vault_path = f"vault/projects/{target}/raw"
     subprocess.run(["git", "add", "-f", vault_path], cwd=repo_root, check=False)
+    # Derived notes are not ignored, but still need staging to be committed.
+    subprocess.run(["git", "add", "vault"], cwd=repo_root, check=False)
     subprocess.run(
         ["git", "commit", "-m", f"lookout({target}): snapshot {timestamp}"],
         cwd=repo_root,
@@ -57,6 +60,14 @@ def run_one(target, targets_yaml, lint_script, repo_root):
             return False, f"gather exited with code {code}"
     except Exception as exc:
         return False, f"gather raised {type(exc).__name__}: {exc}"
+
+    # Derive — per-target notes. Vault-wide stages run once in run_all(), after
+    # every target, so map.md and the ideas ledger see the whole fleet.
+    derive_results = derive_module.derive_target(target, repo_root / "vault")
+    derive_module.print_summary(f"Derive: {target}", derive_results)
+    if derive_module.any_error(derive_results):
+        failed = [r["stage"] for r in derive_results if r["status"] == derive_module.ERROR]
+        return False, f"derive failed: {', '.join(failed)}"
 
     # Lint
     lint_result = subprocess.run(
@@ -111,6 +122,11 @@ def run_all(targets_yaml=None, lint_script=None, lock_path=None, repo_root=None)
             _lock_path.rmdir()
         except Exception:
             pass
+
+    # Vault-wide derive — runs once, after every target, so map.md and the
+    # ideas ledger are built from the complete fleet rather than a partial one.
+    vault_results = derive_module.derive_vault(_repo_root / "vault")
+    derive_module.print_summary("Derive: vault-wide", vault_results)
 
     # Summary
     any_failed = any(not r[1] for r in results)

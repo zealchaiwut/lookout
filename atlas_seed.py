@@ -48,6 +48,13 @@ _README_FEATURE_PATTERN = re.compile(
     re.MULTILINE,
 )
 
+# Some READMEs list each feature as a `### Name` subheading under `## Features`
+# rather than as a bold bullet. asset-studio uses this form.
+_README_SUBHEADING_PATTERN = re.compile(r"^###+\s+(.+?)\s*$")
+
+# Trailing issue references on a feature heading, e.g. "Brand Settings (issue #1)".
+_ISSUE_SUFFIX_PATTERN = re.compile(r"\s*\((?:issue|issues)\s*#[\d,\s#]+\)\s*$", re.IGNORECASE)
+
 _DOCS_HEADING_PATTERN = re.compile(
     r"^## (.+)$",
     re.MULTILINE,
@@ -88,12 +95,21 @@ def extract_features(
             if re.match(r"^## Features", line, re.IGNORECASE):
                 in_features_section = True
                 continue
-            if in_features_section and re.match(r"^##", line):
+            # Only a sibling `## ` heading closes the section. Matching bare `^##`
+            # here would also match `###`, ending the section at the first
+            # subheading-style feature.
+            if in_features_section and re.match(r"^## ", line):
                 in_features_section = False
             if in_features_section:
                 m = _README_FEATURE_PATTERN.match(line)
                 if m:
                     _add(m.group(1).strip())
+                    continue
+                m = _README_SUBHEADING_PATTERN.match(line)
+                if m:
+                    name = _ISSUE_SUFFIX_PATTERN.sub("", m.group(1)).strip()
+                    if name.lower() not in _SKIP_HEADINGS:
+                        _add(name)
 
     if docs_features_text:
         for m in _DOCS_HEADING_PATTERN.finditer(docs_features_text):

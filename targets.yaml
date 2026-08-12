@@ -17,10 +17,6 @@ targets:
     commander_slug: crux
     github: zealchaiwut/crux
     local: ~/dev/crux/uat
-  full-run-test:
-    commander_slug: test
-    github: zealchaiwut/perf-coach
-    local: /private/var/folders/ps/zn9ql67j1mncxwv1s9xt6k7h0000gn/T/pytest-of-zeal-server/pytest-49/test_full_run_on_test_target0/test_target
   perf-coach:
     commander_slug: perf-coach
     github: zealchaiwut/perf-coach
@@ -29,23 +25,3 @@ targets:
     commander_slug: viral-radar
     github: zealchaiwut/viral-radar
     local: ~/dev/viral-radar/uat
-  test-bad-path:
-    commander_slug: test
-    github: test/test
-    local: /tmp/does-not-exist-abc123xyz
-  test-target:
-    commander_slug: test
-    github: test/test
-    local: /private/var/folders/ps/zn9ql67j1mncxwv1s9xt6k7h0000gn/T/pytest-of-zeal-server/pytest-49/test_changed_files_key_added_o0/test_target
-  test-target-gh-fail:
-    commander_slug: test
-    github: invalid/nonexistent-repo-xyz
-    local: /private/var/folders/ps/zn9ql67j1mncxwv1s9xt6k7h0000gn/T/pytest-of-zeal-server/pytest-49/test_graceful_degradation_when0/test_target
-  test-target-minimal:
-    commander_slug: test
-    github: test/test
-    local: /private/var/folders/ps/zn9ql67j1mncxwv1s9xt6k7h0000gn/T/pytest-of-zeal-server/pytest-49/test_graceful_degradation_when2/test_target/minimal
-  test-target-no-git:
-    commander_slug: test
-    github: test/test
-    local: /private/var/folders/ps/zn9ql67j1mncxwv1s9xt6k7h0000gn/T/pytest-of-zeal-server/pytest-49/test_graceful_degradation_when1/test_target/non_git_subdir
