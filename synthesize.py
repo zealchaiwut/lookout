@@ -150,12 +150,32 @@ def _flatten_manifest(d: dict, prefix: str = "") -> dict:
     return items
 
 
+# Manifest fields that move on their own between runs. Two snapshots taken
+# minutes apart differ in all of them, so reporting them as "since last run"
+# changes buries every real signal — and, because the Drift section falls back
+# to these same diffs, poisons drift too. Health is a point-in-time reading of
+# the Commander host, not a fact about the target.
+_VOLATILE_DIFF_PREFIXES = ("health.",)
+_VOLATILE_DIFF_KEYS = {"health"}
+
+
+def _is_volatile_diff_key(key: str) -> bool:
+    return key in _VOLATILE_DIFF_KEYS or key.startswith(_VOLATILE_DIFF_PREFIXES)
+
+
 def _diff_manifests(current: dict, previous: dict) -> list[str]:
-    """Return list of '`field`: old → new' strings for changed fields."""
+    """Return list of '`field`: old → new' strings for changed fields.
+
+    Volatile host-telemetry fields are excluded; see _VOLATILE_DIFF_PREFIXES.
+    A change in overall health status is still surfaced — via the One-liner,
+    which reads `health.status` directly.
+    """
     curr_flat = _flatten_manifest(current)
     prev_flat = _flatten_manifest(previous)
     changes = []
     for key in sorted(set(curr_flat) | set(prev_flat)):
+        if _is_volatile_diff_key(key):
+            continue
         curr_val = curr_flat.get(key, "<absent>")
         prev_val = prev_flat.get(key, "<absent>")
         if curr_val != prev_val:
@@ -167,7 +187,20 @@ def _diff_manifests(current: dict, previous: dict) -> list[str]:
 # What to do next
 # ---------------------------------------------------------------------------
 
+# Marks a next-item that is prose rather than the name of a vault note — a
+# GitHub issue title, a Commander suggestion, a sprint label. Wikilinking those
+# emits a link that can never resolve, and the vault linter fails the run for
+# exactly that. Only items derived from doc paths become wikilinks.
+_PLAIN_ITEM_PREFIX = "\x00plain\x00"
+
+
+def _plain(text: str) -> str:
+    return f"{_PLAIN_ITEM_PREFIX}{text}"
+
+
 def _to_wikilink(title: str) -> str:
+    if title.startswith(_PLAIN_ITEM_PREFIX):
+        return title[len(_PLAIN_ITEM_PREFIX):]
     clean = re.sub(r"[`*_#\[\]]", "", title)
     clean = re.sub(r"\.(md|json|txt|py|yaml|yml)$", "", clean, flags=re.IGNORECASE)
     parts = re.split(r"[/\-_\s]+", clean)
@@ -175,20 +208,69 @@ def _to_wikilink(title: str) -> str:
     return f"[[{page}]]"
 
 
-def _collect_next_items(brief_data, notion_todos: list, docs_manifest: dict) -> list[str]:
+# Keys a Commander brief may carry forward work under. The first five are the
+# generic names this function originally looked for; the rest are the names the
+# live Commander /api/briefs payload actually uses, without which this section
+# was empty for every target.
+_BRIEF_NEXT_KEYS = (
+    "actions", "tasks", "next_steps", "todo", "forward_items",
+    "suggested_next", "waiting_on_you", "up_next", "blocked",
+)
+
+
+# Keys a brief item may carry its human-readable label under, in priority order.
+# Commander suggestions use `text`; sprint lookahead entries use `label`. An item
+# with none of these is skipped rather than stringified — `str(some_dict)` in a
+# "What to do next" list is noise, and it used to reach situation.md verbatim.
+_ITEM_TITLE_KEYS = ("title", "text", "name", "label", "summary")
+
+
+def _item_title(item) -> str:
+    """Return a human-readable label for a brief item, or '' if it has none."""
+    if isinstance(item, str):
+        return item.strip()
+    if isinstance(item, dict):
+        for key in _ITEM_TITLE_KEYS:
+            val = item.get(key)
+            if isinstance(val, str) and val.strip():
+                return val.strip()
+    return ""
+
+
+def _collect_next_items(
+    brief_data,
+    notion_todos: list,
+    docs_manifest: dict,
+    issues_data: dict | None = None,
+) -> list[str]:
     items: list[str] = []
 
     # From brief action fields
     if isinstance(brief_data, dict):
-        for key in ("actions", "tasks", "next_steps", "todo", "forward_items"):
+        for key in _BRIEF_NEXT_KEYS:
             val = brief_data.get(key, [])
-            if isinstance(val, list):
-                for item in val:
-                    title = item if isinstance(item, str) else item.get("title", str(item))
-                    if title:
-                        items.append(title)
-            elif isinstance(val, str) and val:
-                items.append(val)
+            if not isinstance(val, list):
+                val = [val]
+            for item in val:
+                title = _item_title(item)
+                if title:
+                    items.append(_plain(title))
+
+    # From open GitHub issues. A target can have a quiet brief and still have
+    # real queued work; without this the section reads "no items" next to a
+    # backlog of twenty open issues.
+    if isinstance(issues_data, dict):
+        for issue in issues_data.get("issues", []):
+            if not isinstance(issue, dict):
+                continue
+            if str(issue.get("state", "open")).lower() != "open":
+                continue
+            title = issue.get("title", "")
+            number = issue.get("number", "")
+            if title:
+                items.append(
+                    _plain(f"#{number} — {title}" if number else title)
+                )
 
     # From Notion todos (exclude done/completed/archived)
     if isinstance(notion_todos, list):
@@ -335,17 +417,48 @@ def _build_drift_signals(
 # One-liner
 # ---------------------------------------------------------------------------
 
-def _build_one_liner(target: str, manifest: dict, brief_data) -> str:
+def _capability_what_it_is(project_dir: Path) -> str:
+    """Return the '## What it is' body from the target's capability card, or ''.
+
+    Reused rather than regenerated so a target costs at most one description
+    call per run (capability_card.py owns that call). See docs/llm-usage.md.
+    """
+    cap_path = project_dir / "capability.md"
+    if not cap_path.exists():
+        return ""
+    try:
+        text = cap_path.read_text(encoding="utf-8")
+    except OSError:
+        return ""
+    m = re.search(r"## What it is\s*\n+(.*?)(?=\n## |\Z)", text, re.DOTALL)
+    if not m:
+        return ""
+    body = " ".join(m.group(1).split())
+    # The generic fallback card says nothing a reader can use; treat it as absent.
+    if "is a project tracked by Lookout" in body:
+        return ""
+    return body
+
+
+def _build_one_liner(
+    target: str, manifest: dict, brief_data, project_dir: Path | None = None
+) -> str:
     health = manifest.get("health", {})
     health_status = health.get("status", "unknown") if isinstance(health, dict) else "unknown"
 
     description = ""
     if isinstance(brief_data, dict):
         description = brief_data.get("description", brief_data.get("name", ""))
+    if not description and project_dir is not None:
+        description = _capability_what_it_is(project_dir)
 
-    if description:
-        return f"Target `{target}` is {health_status}: {description}."
-    return f"Target `{target}` health is {health_status}."
+    if not description:
+        return f"Target `{target}` health is {health_status}."
+
+    # Lead with what the target is; health is a trailing qualifier. Putting the
+    # health word first produced lines like "asset-studio is unknown: <paragraph>".
+    first_sentence = description.split(". ")[0].rstrip(".")
+    return f"`{target}` — {first_sentence}. (health: {health_status})"
 
 
 # ---------------------------------------------------------------------------
@@ -537,10 +650,10 @@ def synthesize(target_name: str, vault_dir: Path | None = None) -> Path:
     # Build content
     brief_data = brief_json.get("brief", {})
 
-    one_liner = _build_one_liner(target_name, manifest, brief_data)
+    one_liner = _build_one_liner(target_name, manifest, brief_data, project_dir)
     capacity = _capacity_verdict(manifest, brief_json, issues_data)
     since_last_run = _diff_manifests(manifest, prev_manifest) if prev_manifest else []
-    next_raw = _collect_next_items(brief_data, notion_todos, docs_manifest)
+    next_raw = _collect_next_items(brief_data, notion_todos, docs_manifest, issues_data)
     what_to_do_next = [_to_wikilink(item) for item in next_raw]
     journal = _build_journal_lines(journal_entries)
     open_questions = _build_open_questions(issues_data, journal_entries)

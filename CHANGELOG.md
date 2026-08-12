@@ -3,6 +3,52 @@
 Per-sprint changelog for lookout. Entries are written by the documentor when a
 sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/changelog/).
 
+## Unreleased
+
+- Wire the derive pipeline into `bin/lookout` and `lookout --all` (`derive.py`).
+  Previously both ran gather → lint → commit only, so no `situation.md`,
+  `capability.md`, `drift.md`, or `todo-view.md` was ever produced by a run.
+- Add `llm.py`, the single gate for model calls. `claude -p` only
+  (subscription-funded), cached by prompt hash, deterministic fallback on any
+  failure, off unless `LOOKOUT_LLM=1`. See `docs/llm-usage.md`.
+- Collect `endpoints.json` in `gather.py`. It was read by `capability_card.py`
+  but written by nothing, so Read surfaces was always empty and `vault/map.md`
+  could never hold an edge.
+- Fix `atlas_seed.py`: the README Features section ended at the first `###`, and
+  only bold-bullet feature lists were recognised. asset-studio seeded 0 features
+  and now seeds 28.
+- Exclude volatile host telemetry from the `situation.md` manifest diff — every
+  run reported `health.uptime_seconds` and friends as changes.
+- Populate "What to do next" from open GitHub issues and the brief keys the live
+  Commander payload actually uses; it was empty for every target.
+- Preserve an enriched capability description across deterministic runs.
+- Remove six pytest leftover targets from `targets.yaml`; `--all` iterated them
+  nightly against pytest tmp paths. Fix `viral-radar`'s `local:` path — it is a
+  flat-layout project with no `uat/` subclone, so every local collector was
+  recording `absent`.
+- Read brief item labels through a key-priority list. Commander suggestions are
+  dicts keyed `text` and sprint lookahead entries are keyed `label`; the previous
+  `str(item)` fallback wrote Python dict reprs into `situation.md` and failed
+  vault lint on all four non-asset-studio targets.
+- Only wikilink next-items derived from doc paths. Issue titles, suggestions,
+  and sprint labels name no vault page and render as plain text.
+- Recognise the `| **Feature** | … |` README table form in `atlas_seed`;
+  commander seeded 0 features and now seeds 38.
+- Make the launchd plists machine-independent. They hardcoded
+  `/Users/zeal-server/dev/lookout/.commander/runtime/worktree-pool/slot-0` — a
+  specific user and a transient Commander worktree slot — so the nightly job
+  could not run on any other machine. They are now templates rendered by
+  `scripts/install.sh`, which also gained `--with-digest` and `--uninstall`.
+- Set PATH explicitly in the launchd jobs. launchd's default
+  `/usr/bin:/bin:/usr/sbin:/sbin` has no `gh` and no `claude`, so a sweep
+  collected zero GitHub issues and silently skipped every LLM call while still
+  reporting success for all five targets.
+- Record a `github` source entry in `manifest.json`. `gather()` discarded
+  `_collect_gh`'s result, so that failure left no trace anywhere.
+- New docs: `docs/pipeline.md` (stage table and run order), `docs/llm-usage.md`.
+  `PRODUCT.md`, `DESIGN.md`, `docs/architecture.md`, and `README.md` rewritten
+  from scaffold placeholders.
+
 ## sprint-7
 
 - #29: Add lookout --all nightly runner with launchd scheduling

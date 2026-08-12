@@ -277,6 +277,93 @@ def _collect_docs_manifest(
 
 
 # ---------------------------------------------------------------------------
+# Endpoint collection
+# ---------------------------------------------------------------------------
+
+# Matches a Markdown table row of the form:
+#   | `GET` | `/api/jobs` | List all jobs |
+# Method and path may or may not be wrapped in backticks.
+_ENDPOINT_ROW_RE = re.compile(
+    r"^\|\s*`?(?P<method>GET|POST|PUT|PATCH|DELETE)`?\s*"
+    r"\|\s*`?(?P<path>/[^`|]*?)`?\s*"
+    r"\|(?P<description>[^|]*)\|?\s*$",
+    re.IGNORECASE,
+)
+
+
+def _parse_endpoint_tables(text: str) -> list:
+    """Extract GET endpoints from Markdown method/path tables in `text`.
+
+    Only GET rows are returned — capability cards document read surfaces. Rows
+    are deduplicated by path, keeping the first description seen.
+    """
+    seen: set[str] = set()
+    endpoints: list = []
+    for line in text.splitlines():
+        m = _ENDPOINT_ROW_RE.match(line.strip())
+        if not m:
+            continue
+        if m.group("method").upper() != "GET":
+            continue
+        path = m.group("path").strip()
+        if not path.startswith("/") or path in seen:
+            continue
+        seen.add(path)
+        endpoints.append({
+            "path": path,
+            "description": m.group("description").strip().strip("`"),
+            "source": "readme-table",
+        })
+    return endpoints
+
+
+def _collect_endpoints(local_path: Path, out_dir: Path) -> dict:
+    """Scan the target's README and docs/ for API endpoint tables.
+
+    Writes endpoints.json in the schema capability_card.py expects:
+        {"get_endpoints": [{"path", "description", "example"}], "source_files": [...]}
+
+    Doc tables are the evidence source rather than live introspection: Lookout is
+    read-only against targets and must not start or call a target's server.
+    """
+    try:
+        endpoints: list = []
+        source_files: list = []
+        seen: set[str] = set()
+
+        candidates = [local_path / "README.md"]
+        docs_dir = local_path / "docs"
+        if docs_dir.exists() and docs_dir.is_dir():
+            candidates.extend(sorted(docs_dir.rglob("*.md")))
+
+        for p in candidates:
+            if not p.is_file():
+                continue
+            found = _parse_endpoint_tables(p.read_text(encoding="utf-8", errors="replace"))
+            fresh = [e for e in found if e["path"] not in seen]
+            if not fresh:
+                continue
+            rel = str(p.relative_to(local_path))
+            for e in fresh:
+                seen.add(e["path"])
+                e["source"] = rel
+                e["example"] = f"curl http://localhost:8000{e['path']}"
+            endpoints.extend(fresh)
+            source_files.append(rel)
+
+        with open(out_dir / "endpoints.json", "w") as fh:
+            json.dump(
+                {"get_endpoints": endpoints, "source_files": source_files},
+                fh,
+                indent=2,
+            )
+        return {"status": "ok" if endpoints else "absent", "error": "", "count": len(endpoints)}
+
+    except Exception as exc:
+        return {"status": "absent", "error": str(exc), "count": 0}
+
+
+# ---------------------------------------------------------------------------
 # Atlas staleness detection and trace-cap selection (issue #17)
 # ---------------------------------------------------------------------------
 
@@ -573,11 +660,25 @@ def gather(target_name):
 
     # Local collectors — output files absent on failure
     if github_slug:
-        _collect_gh(github_slug, out_dir)
+        # The result was previously discarded, so a `gh` failure left no trace:
+        # no issues.json, no source entry, and a run that still reported success.
+        # That is exactly what happens under launchd, whose minimal PATH has no
+        # `gh`. Record it so the failure is visible in the manifest.
+        gh_result = _collect_gh(github_slug, out_dir)
+        sources["github"] = {
+            "status": gh_result.get("status", "absent"),
+            "error": gh_result.get("error", ""),
+        }
 
     if local_path is not None:
         _collect_git(local_path, out_dir)
         _collect_docs_manifest(local_path, out_dir, vault_project_dir)
+        endpoints_result = _collect_endpoints(local_path, out_dir)
+        sources["endpoints"] = {
+            "status": endpoints_result["status"],
+            "error": endpoints_result["error"],
+            "count": endpoints_result["count"],
+        }
 
     # Notion and journal collectors
     load_dotenv(REPO_ROOT / ".env", override=False)

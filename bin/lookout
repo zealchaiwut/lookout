@@ -22,6 +22,7 @@ import gather as gather_module
 import pack as pack_module
 import all_runner as all_runner_module
 import promote as promote_module
+import derive as derive_module
 
 
 def load_targets():
@@ -51,6 +52,9 @@ def commit_run(target, timestamp):
     # vault/projects/*/raw/ is in .gitignore; -f force-adds snapshot files
     vault_path = f"vault/projects/{target}/raw"
     subprocess.run(["git", "add", "-f", vault_path], cwd=REPO_ROOT, check=True)
+    # Derived notes (situation/capability/drift/todo-view, map.md, ideas index)
+    # are not ignored, but they still have to be staged to land in the commit.
+    subprocess.run(["git", "add", "vault"], cwd=REPO_ROOT, check=False)
     result = subprocess.run(
         ["git", "commit", "-m", f"lookout({target}): snapshot {timestamp}"],
         cwd=REPO_ROOT,
@@ -140,6 +144,14 @@ def main():
         sys.exit(exc.code)
 
     _print_summary_table(summary)
+
+    # Derive — turn the snapshot into the notes a reader actually reads.
+    # Runs before lint so lint validates this run's output, not the last one's.
+    vault_dir = REPO_ROOT / "vault"
+    derive_results = derive_module.derive_target(target, vault_dir)
+    derive_module.print_summary(f"Derive: {target}", derive_results)
+    vault_results = derive_module.derive_vault(vault_dir)
+    derive_module.print_summary("Derive: vault-wide", vault_results)
 
     lint_result = subprocess.run(
         [sys.executable, str(LINT_SCRIPT)], cwd=REPO_ROOT,

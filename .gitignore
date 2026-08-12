@@ -6,3 +6,6 @@ venv/
 venv
 .DS_Store
 vault/projects/*/raw/
+vault/.llm-cache/
+codedb.snapshot
+logs/

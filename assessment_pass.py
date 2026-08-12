@@ -25,6 +25,8 @@ import re
 import sys
 from pathlib import Path
 
+import llm
+
 REPO_ROOT = Path(__file__).parent
 _DEFAULT_IDEAS_DIR = REPO_ROOT / "vault" / "ideas"
 _DEFAULT_VAULT_DIR = REPO_ROOT / "vault"
@@ -117,6 +119,54 @@ def _get_atlas_note_stems(target: str, vault_dir: Path) -> list[str]:
     )
 
 
+def _extract_freeform(text: str) -> str:
+    """Return the human-written portion of an idea note (above the delimiter)."""
+    body = _FM_RE.sub("", text, count=1)
+    return body.split(MACHINE_DELIMITER)[0].strip()
+
+
+def _rank_atlas_notes(
+    idea_text: str, target: str, atlas_notes: list[str], limit: int = 3
+) -> list[str]:
+    """Pick the atlas notes most relevant to `idea_text`, capped at `limit`.
+
+    Without LLM enrichment there is no way to judge relevance, so the first
+    `limit` notes alphabetically are returned — the historical behaviour. With
+    enrichment on, the model chooses instead, and its answer is intersected with
+    the real slug list so a hallucinated note can never reach the assessment
+    (DESIGN.md §9: every wikilink must resolve to a real file).
+    """
+    deterministic = atlas_notes[:limit]
+    if len(atlas_notes) <= limit or not idea_text.strip():
+        return deterministic
+
+    prompt = (
+        "An idea has been proposed for a software project. Below is the idea, "
+        f"then every feature note that exists in the `{target}` atlas.\n\n"
+        f"Choose at most {limit} notes that are genuinely relevant to the idea — "
+        "features the idea would build on, extend, or overlap with. If fewer "
+        f"than {limit} are relevant, return fewer. If none are relevant, return "
+        "nothing at all.\n\n"
+        "Output only the chosen slugs, one per line, copied exactly as written "
+        "below. No numbering, no explanation, no other text.\n\n"
+        f"IDEA:\n{idea_text[:3000]}\n\n"
+        "ATLAS NOTES:\n" + "\n".join(atlas_notes) + "\n"
+    )
+    raw = llm.ask(prompt, fallback="", purpose=f"assessment:{target}")
+    if not raw:
+        return deterministic
+
+    valid = set(atlas_notes)
+    picked: list[str] = []
+    for line in raw.splitlines():
+        slug = line.strip().strip("-*` ").strip()
+        if slug in valid and slug not in picked:
+            picked.append(slug)
+        if len(picked) >= limit:
+            break
+    return picked if picked else deterministic
+
+
 # ---------------------------------------------------------------------------
 # Selection logic (cap + assessed-date skip)
 # ---------------------------------------------------------------------------
@@ -188,6 +238,7 @@ def build_assessment(
         raise ValueError(f"Cannot parse frontmatter: {idea_path}")
 
     targets: list[str] = fm.get("targets") or []
+    idea_text = _extract_freeform(text)
     open_questions: list[str] = []
     q_counter = 0
 
@@ -222,7 +273,8 @@ def build_assessment(
                 dependency_parts.append(f"[[projects/{target}/capability]]")
 
         if atlas_notes:
-            for note_stem in atlas_notes[:3]:
+            relevant = _rank_atlas_notes(idea_text, target, atlas_notes)
+            for note_stem in relevant:
                 link = f"[[projects/{target}/atlas/{note_stem}]]"
                 already_exists_parts.append(link)
                 if first_atlas_ref is None:
@@ -263,7 +315,16 @@ def build_assessment(
     if first_atlas_ref is not None:
         first_slice = f"Verify scope against {first_atlas_ref}."
     elif targets and _is_registered(targets[0], vault_dir):
-        first_slice = f"Add capability card for `{targets[0]}`."
+        # A registered target with no atlas note to check against. If it already
+        # has a capability card, the missing piece is the atlas, not the card —
+        # suggesting "add a capability card" that exists reads as a stale note.
+        if _get_capability_card_path(targets[0], vault_dir) is not None:
+            first_slice = (
+                f"Seed the atlas for `{targets[0]}` "
+                f"(`python atlas_seed.py {targets[0]}`), then re-assess."
+            )
+        else:
+            first_slice = f"Add capability card for `{targets[0]}`."
     elif targets:
         q_text = next_q(f"What is the first testable step for `{targets[0]}`?")
         first_slice = f"({q_text})"

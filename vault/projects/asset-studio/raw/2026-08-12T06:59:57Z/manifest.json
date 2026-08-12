@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-08-12T06:59:57Z",
+  "target": "asset-studio",
+  "health": {
+    "status": "degraded",
+    "uptime_seconds": 6119,
+    "gh_auth_scopes": null,
+    "disk": null,
+    "sprints": null,
+    "orphan_pids": null,
+    "orphans_removed": 0,
+    "recent_dispatches": null,
+    "checked_at": "2026-08-12T06:59:57Z"
+  },
+  "sources": {
+    "brief": {
+      "status": "ok",
+      "error": ""
+    },
+    "sprints_history": {
+      "status": "ok",
+      "error": ""
+    }
+  }
+}

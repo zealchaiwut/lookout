@@ -4,6 +4,115 @@ Agent-facing reference for the routines that Lookout exposes. Each routine is
 a Python module at the repo root that can be called from a snapshot pipeline
 or run directly from the CLI.
 
+> This file documents **each module in isolation**. For how they connect — run
+> order, which stages are wired into `bin/lookout`, and which are deliberately
+> manual — see [docs/pipeline.md](docs/pipeline.md).
+
+---
+
+## `derive` — Derive Stage Runner
+
+**Module:** `derive.py`
+**Public API:**
+- `derive_target(target, vault_dir)` → `list[dict]`
+- `derive_vault(vault_dir)` → `list[dict]`
+- `print_summary(title, results)` → `None`
+- `any_error(results)` → `bool`
+
+### What it does
+
+Sequences the stages that turn a raw snapshot into vault notes. `gather` writes
+evidence; these stages read that evidence and write the notes a human or agent
+actually opens.
+
+**Per target**, in dependency order:
+
+| # | Stage | Writes |
+|---|-------|--------|
+| 1 | `capability_card` | `capability.md` |
+| 2 | `drift` | `drift.md` |
+| 3 | `synthesize` | `situation.md` |
+| 4 | `todo_view` | `todo-view.md` |
+
+**Vault-wide**, once per run after every target:
+
+| # | Stage | Writes |
+|---|-------|--------|
+| 5 | `capability_map` | `vault/map.md` |
+| 6 | `ideas_ledger` | `vault/ideas/index.md` |
+| 7 | `assessment_pass` | idea `## Assessment` blocks |
+| 8 | `ship_pass` | idea `status:` frontmatter |
+
+Order matters: `capability.md` must exist before `synthesize` reads its
+description for the one-liner, and `drift.md` must exist before `situation.md`
+cites it.
+
+### Result records
+
+Each stage returns `{"stage", "status", "detail"}` where status is one of
+`ok` / `skipped` / `error`. A stage that raises is caught, its traceback printed
+to stderr, and the remaining stages still run — the same tolerance `gather`
+applies to an unreachable source.
+
+`derive_target` returns a single `skipped` record when the target has no
+snapshot yet.
+
+### CLI
+
+```
+python derive.py <target> [--vault <dir>] [--skip-vault-wide]
+python derive.py --vault-only
+```
+
+Exits 1 if any stage errored.
+
+---
+
+## `llm` — Model Access Gate
+
+**Module:** `llm.py`
+**Public API:**
+- `ask(prompt, *, fallback, model=None, purpose="", cache_dir=None, timeout=None, use_cache=True)` → `str`
+- `enabled()` → `bool`, `available()` → `bool`, `status()` → `dict`
+
+### What it does
+
+The single point through which any Lookout stage may call a language model.
+The only backend is `claude -p` (subscription-funded). No module imports an SDK
+or reads an API key, and a test enforces that.
+
+| Guarantee | Behaviour |
+|---|---|
+| Subscription only | Always `["claude", "-p", prompt, "--model", model]` |
+| Cached | Keyed by `sha256(model + prompt)` under `vault/.llm-cache/` |
+| Never fatal | Missing binary, non-zero exit, timeout, or empty response → `fallback` |
+| Off by default | Returns `fallback` without spawning anything unless `LOOKOUT_LLM=1` |
+
+| Variable | Default | Meaning |
+|---|---|---|
+| `LOOKOUT_LLM` | unset | `1`/`true`/`yes`/`on` enables calls |
+| `LOOKOUT_LLM_MODEL` | `haiku` | passed to `claude --model` |
+| `LOOKOUT_LLM_TIMEOUT` | `120` | seconds before abandoning a call |
+
+### Callers
+
+Three, each with a deterministic fallback: the capability card description
+(`capability_card._build_what_it_is`), which is preserved across deterministic
+runs; the situation one-liner, which **reuses** that description rather than
+making its own call; and atlas-note relevance ranking in the assessment pass,
+whose picks are intersected with the real slug list so a hallucinated note can
+never reach an assessment.
+
+Full policy and the reasoning behind each choice:
+[docs/llm-usage.md](docs/llm-usage.md).
+
+### CLI
+
+```
+python llm.py --status
+LOOKOUT_LLM=1 python llm.py --ask "prompt" [--model haiku]
+```
+
 ---
 
 ## `drift` — Drift Detection
@@ -221,6 +330,33 @@ GET endpoints are read from `endpoints.json` in the target's latest snapshot
 directory (`vault/projects/<target>/raw/<latest>/`). If no `endpoints.json`
 exists, the Read surfaces section states this explicitly; no fabricated or
 placeholder endpoints are written.
+
+`endpoints.json` is produced by `gather._collect_endpoints`, which parses
+Markdown method/path tables out of the target's `README.md` and `docs/*.md` and
+keeps the GET rows. Documentation is the evidence source rather than live
+introspection because Lookout is read-only against targets and must not start or
+call a target's server. Schema:
+
+```json
+{
+  "get_endpoints": [
+    {"path": "/api/jobs", "description": "List all jobs",
+     "example": "curl http://localhost:8000/api/jobs", "source": "README.md"}
+  ],
+  "source_files": ["README.md"]
+}
+```
+
+### `## What it is` and LLM enrichment
+
+The deterministic description says only that the target is tracked by Lookout,
+which is true of every target. With `LOOKOUT_LLM=1` the target's README plus its
+documented endpoints are summarised into at most two sentences instead.
+
+A real description already on the card **survives a deterministic run**, the
+same way `## Notes for AI` does — otherwise the nightly sweep would overwrite it
+and the next enriched run would have to buy it again. So this costs one call per
+target, not one per run.
 
 ### CLI
 
@@ -503,8 +639,13 @@ rather than a blank page:
 
 | Source | How parsed |
 |--------|-----------|
-| README `## Features` section | Bold `**Feature name**` bullet lines |
+| README `## Features` — bold bullets | `- **Feature name** — …` |
+| README `## Features` — subheadings | `### Feature Name (issue #N)`; the issue suffix is stripped |
+| README `## Features` — table rows | `\| **Feature Name** \| what it does \| docs \|` |
 | `docs/features/` headings | `## Heading` lines (skips generic titles like "Overview") |
+
+The section ends at the next sibling `## ` heading — a `###` inside it is a
+feature, not a terminator.
 
 Features appearing in both sources are deduplicated by their kebab-case slug.
 

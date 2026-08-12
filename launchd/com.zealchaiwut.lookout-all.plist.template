@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Template — not installable as-is. scripts/install.sh substitutes the
+  placeholder tokens below for this machine and writes the result into
+  ~/Library/LaunchAgents/. Do not copy this file there by hand.
+
+    __REPO_ROOT__  absolute path to the lookout clone
+    __PYTHON__     interpreter (the clone's venv if present, else python3)
+    __PATH__       PATH containing gh, git, python and claude
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.zealchaiwut.lookout-all</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <string>set -a; [ -f __REPO_ROOT__/.env ] &amp;&amp; . __REPO_ROOT__/.env; set +a; exec __PYTHON__ __REPO_ROOT__/bin/lookout --all</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>__REPO_ROOT__</string>
+
+    <!--
+      launchd starts jobs with PATH=/usr/bin:/bin:/usr/sbin:/sbin only.
+      `git` survives that (macOS ships a /usr/bin shim) but `gh` and
+      `claude` do not, so a run would collect no GitHub issues and
+      silently skip every LLM call while still reporting success.
+      install.sh renders this from the tools resolved on the installing
+      shell's PATH.
+    -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>__PATH__</string>
+    </dict>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>6</integer>
+        <key>Minute</key>
+        <integer>15</integer>
+    </dict>
+
+    <!-- Run on next load if the scheduled window was missed (e.g. machine asleep) -->
+    <key>RunAtLoad</key>
+    <false/>
+
+    <!-- Wake catch-up: mount/login triggers a run if the window was missed -->
+    <key>StartOnMount</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>__REPO_ROOT__/logs/lookout-all.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>__REPO_ROOT__/logs/lookout-all.log</string>
+</dict>
+</plist>

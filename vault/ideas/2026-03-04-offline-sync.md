@@ -4,7 +4,7 @@ created: 2026-03-04
 status: assessed
 targets: []
 issues: []
-assessed: 2026-08-10
+assessed: 2026-08-12
 ---
 
 Allow Lookout to cache the last snapshot locally and surface it when the

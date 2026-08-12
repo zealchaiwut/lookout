@@ -5,6 +5,7 @@ Each test maps to a specific AC item from the issue.
 import hashlib
 import importlib.util
 import re
+import shutil
 import subprocess
 import sys
 from datetime import date, datetime, timezone
@@ -471,11 +472,21 @@ def test_real_fixtures_validate_cleanly():
         assert errors == [], f"Fixture {fname} has validation errors: {errors}"
 
 
-def test_real_ledger_regeneration_produces_two_rows():
-    """AC5: Running regeneration against real fixtures produces a two-row ledger."""
+def test_real_ledger_regeneration_produces_two_rows(tmp_path):
+    """AC5: Running regeneration against the two real fixtures produces a two-row ledger.
+
+    The fixtures are copied into a scratch directory first: regenerating against
+    the live vault/ideas/ would both mutate it and couple the assertion to however
+    many ideas the vault happens to hold.
+    """
     ledger = _load_ledger()
-    ledger.regenerate_ledger(IDEAS_DIR, today=date(2026, 8, 10))
-    content = (IDEAS_DIR / "index.md").read_text(encoding="utf-8")
+    scratch = tmp_path / "ideas"
+    scratch.mkdir()
+    for fname in ("2026-01-10-dark-mode.md", "2026-03-04-offline-sync.md"):
+        shutil.copy(IDEAS_DIR / fname, scratch / fname)
+
+    ledger.regenerate_ledger(scratch, today=date(2026, 8, 10))
+    content = (scratch / "index.md").read_text(encoding="utf-8")
     data_rows = [
         ln for ln in content.splitlines()
         if ln.strip().startswith("|")

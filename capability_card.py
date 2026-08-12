@@ -30,11 +30,17 @@ from pathlib import Path
 
 import yaml
 
+import llm
+
 REPO_ROOT = Path(__file__).parent
 TARGETS_YAML = REPO_ROOT / "targets.yaml"
 
 _NOTES_HEADER = "## Notes for AI"
 _TOKEN_LIMIT = 1500
+
+# How much of a target's README is sent when summarising it. Enough for the
+# intro and feature list; short enough to keep the call cheap.
+_README_PROMPT_CHARS = 6000
 
 
 def count_tokens(text: str) -> int:
@@ -79,6 +85,18 @@ def _load_manifest(snapshot_dir: Path) -> dict:
         return json.loads(manifest_file.read_text())
     except (OSError, json.JSONDecodeError):
         return {}
+
+
+def _read_target_readme(target_config: dict) -> str:
+    """Read README.md from the target's local clone, or '' if unavailable."""
+    local = target_config.get("local")
+    if not local:
+        return ""
+    readme = Path(local).expanduser() / "README.md"
+    try:
+        return readme.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return ""
 
 
 def _load_target_config(target: str, targets_yaml: Path) -> dict:
@@ -137,23 +155,79 @@ def _build_read_surfaces_section(endpoints: list) -> str:
     return "\n".join(lines)
 
 
+_GENERIC_MARKER = "is a project tracked by Lookout"
+
+
+def _generic_what_it_is(target: str) -> str:
+    return (
+        f"`{target}` is a project tracked by Lookout via Commander. "
+        f"It is monitored for health, open issues, sprint progress, and documentation drift."
+    )
+
+
+def _extract_what_it_is(existing_content: str) -> str:
+    """Return the '## What it is' body of an existing card, or '' if generic.
+
+    The generic sentence carries no information, so it is treated as absent —
+    only a real description is worth preserving.
+    """
+    m = re.search(r"## What it is\s*\n+(.*?)(?=\n## |\Z)", existing_content, re.DOTALL)
+    if not m:
+        return ""
+    body = m.group(1).strip()
+    return "" if _GENERIC_MARKER in body else body
+
+
+def _build_what_it_is(
+    target: str, readme_text: str, endpoints: list, preserved: str = ""
+) -> str:
+    """Describe what the target actually does, in at most two sentences.
+
+    The deterministic answer says only that the target is tracked by Lookout,
+    which is true of every target and therefore tells a reader nothing. When LLM
+    enrichment is enabled (see docs/llm-usage.md) the target's own README is
+    summarised instead.
+
+    A real description already on the card survives a run with enrichment off.
+    Without that, every deterministic run — including the nightly sweep, which
+    is deterministic by design — would overwrite the good description with the
+    generic sentence and the next enriched run would have to buy it again.
+    """
+    fallback = preserved or _generic_what_it_is(target)
+    if not llm.enabled() and preserved:
+        return preserved
+    if not readme_text.strip():
+        return fallback
+
+    paths = ", ".join(e.get("path", "") for e in endpoints[:12])
+    prompt = (
+        "Below is the README of a software project, followed by its documented "
+        "GET endpoints. Write at most two sentences describing what the project "
+        "does and who it is for. Be concrete and specific — name the actual "
+        "domain and capabilities, not generic phrases like 'a software project'. "
+        "Output only the sentences, with no preamble, heading, or quotation marks.\n\n"
+        f"PROJECT NAME: {target}\n\n"
+        f"README (truncated):\n{readme_text[:_README_PROMPT_CHARS]}\n\n"
+        f"GET ENDPOINTS: {paths or '(none documented)'}\n"
+    )
+    return llm.ask(prompt, fallback=fallback, purpose=f"capability:{target}")
+
+
 def _build_card(
     target: str,
     target_config: dict,
     manifest: dict,
     endpoints: list,
     preserved_notes: str,
+    readme_text: str = "",
+    preserved_what_it_is: str = "",
 ) -> str:
     """Build the capability card markdown content."""
     commander_slug = target_config.get("commander_slug", target)
     github = target_config.get("github", f"unknown/{target}")
 
     # --- What it is ---
-    health_status = manifest.get("health", {}).get("status", "unknown")
-    what_it_is = (
-        f"`{target}` is a project tracked by Lookout via Commander. "
-        f"It is monitored for health, open issues, sprint progress, and documentation drift."
-    )
+    what_it_is = _build_what_it_is(target, readme_text, endpoints, preserved_what_it_is)
 
     # --- Data it owns ---
     data_it_owns = (
@@ -222,8 +296,11 @@ def generate_capability_card(
 
     # Preserve Notes for AI from existing file
     preserved_notes = ""
+    preserved_what_it_is = ""
     if cap_md_path.exists():
-        preserved_notes = _extract_notes_for_ai(cap_md_path.read_text())
+        existing = cap_md_path.read_text()
+        preserved_notes = _extract_notes_for_ai(existing)
+        preserved_what_it_is = _extract_what_it_is(existing)
 
     # Load snapshot evidence
     snapshot_dir = _find_latest_snapshot(project_dir)
@@ -232,15 +309,22 @@ def generate_capability_card(
 
     # Load target config
     target_config = _load_target_config(target, targets_yaml)
+    readme_text = _read_target_readme(target_config)
 
-    content = _build_card(target, target_config, manifest, endpoints, preserved_notes)
+    content = _build_card(
+        target, target_config, manifest, endpoints, preserved_notes, readme_text,
+        preserved_what_it_is,
+    )
 
     # Enforce token limit by trimming Read surfaces if needed
     if count_tokens(content) > _TOKEN_LIMIT:
         # Trim endpoint list to fit within budget
         while endpoints and count_tokens(content) > _TOKEN_LIMIT:
             endpoints = endpoints[:-1]
-            content = _build_card(target, target_config, manifest, endpoints, preserved_notes)
+            content = _build_card(
+                target, target_config, manifest, endpoints, preserved_notes, readme_text,
+                preserved_what_it_is,
+            )
 
     cap_md_path.write_text(content)
     return cap_md_path

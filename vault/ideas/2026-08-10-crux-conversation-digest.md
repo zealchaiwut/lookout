@@ -4,7 +4,7 @@ created: 2026-08-10
 status: assessed
 targets: [crux]
 issues: []
-assessed: 2026-08-10
+assessed: 2026-08-12
 ---
 
 Generate a weekly conversation digest for Crux that summarizes active discussion

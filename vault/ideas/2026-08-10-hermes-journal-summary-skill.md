@@ -4,7 +4,7 @@ created: 2026-08-10
 status: assessed
 targets: []
 issues: []
-assessed: 2026-08-10
+assessed: 2026-08-12
 ---
 
 Build a Hermes journal summary skill that reads raw journal entries and produces
