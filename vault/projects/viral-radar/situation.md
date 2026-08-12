@@ -1,22 +1,23 @@
 ---
 target: viral-radar
-run: "2026-08-12T10:02:48Z"
-sources_ok: true
+run: "2026-08-12T10:18:13Z"
+sources_ok: false
 ---
 
 ## One-liner
 
-`viral-radar` — Viral-Radar is a Facebook content analytics service for creators and marketers that ingests posts, classifies engagement tiers per account, and identifies the features distinguishing high-performing content. (health: degraded)
+`viral-radar` — Viral-Radar is a Facebook content analytics service for creators and marketers that ingests posts, classifies engagement tiers per account, and identifies the features distinguishing high-performing content. (health: unknown)
 _(source: manifest.json, brief.json)_
 
 ## Capacity
 
-Clear to start
+commander unreachable — state unverified
 _(source: manifest.json, brief.json, issues.json)_
 
 ## Since last run
 
-_No changes detected._
+- `sources.brief.status`: 'ok' → 'absent'
+- `sources.sprints_history.status`: 'ok' → 'absent'
 _(source: manifest.json)_
 
 ## What to do next
@@ -37,5 +38,13 @@ _(source: issues.json, questions.json)_
 
 ## Drift
 
-_No drift signals._
+- `sources.brief.status`: 'ok' → 'absent'
+- `sources.sprints_history.status`: 'ok' → 'absent'
 _(source: manifest.json, docs_manifest.json)_
+
+---
+
+**Note:** The following expected sources were absent during this run:
+
+- `brief`
+- `sprints_history`

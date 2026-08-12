@@ -1,0 +1,102 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "42fb834d832b94f12aca98f4aa4f8687d9ff181aae9e87469139c3c29e5e22f3",
+      "heading": "# asset-studio",
+      "mtime": 1784270852.4530017
+    },
+    {
+      "path": "PRODUCT.md",
+      "sha256": "b1e9cc130b39db38b70c6dfd45ddafa92ae7b017ecc344fe6ca044e1f7aa1a3b",
+      "heading": "# Product Context",
+      "mtime": 1785753656.702816
+    },
+    {
+      "path": "DESIGN.md",
+      "sha256": "4cc3829869c3278748688c3b0647a19571a04685e18fd164a3ae0f449dc26286",
+      "heading": "# Design System",
+      "mtime": 1784112134.0631003
+    },
+    {
+      "path": "SCHEMA.md",
+      "sha256": null,
+      "heading": null,
+      "mtime": null,
+      "absent": true
+    },
+    {
+      "path": "docs/architecture/code-state.md",
+      "sha256": "2665284fe378d15937b3d89460318f835cf3a16ed51403ee0282cfd597105ac2",
+      "heading": "# Code State \u2014 sprint-8.1",
+      "mtime": 1784112134.0772338
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "3dc5deb1a2213e4b3ad6cf3eff7817836d6530c482a3f3a5a84f52675a0aff44",
+      "heading": "# Architecture",
+      "mtime": 1783649609.5625155
+    },
+    {
+      "path": "docs/bulk-create/README.md",
+      "sha256": "e99fd960fd4059bcc119d0bbb371458938451af7a113da7637a52fbd9bbbf184",
+      "heading": "# Bulk Create \u2014 Prompt & Output Record",
+      "mtime": 1782053344.6793585
+    },
+    {
+      "path": "docs/features/README.md",
+      "sha256": "9399f6785611e6d2fb90f4a442c02d28909bbb7b84cf9cfa9d8a51fe6950fcbc",
+      "heading": "# Features",
+      "mtime": 1785753656.7050035
+    },
+    {
+      "path": "docs/features/carousel-content-brief.md",
+      "sha256": "ed0f12e54bea5309f20982ebbf751fae86216ff45e8cf57964c982c7e6e07d9b",
+      "heading": "# Carousel content brief (for Claude / content planning)",
+      "mtime": 1785753656.7052858
+    },
+    {
+      "path": "docs/features/carousel.md",
+      "sha256": "c2f973625b50b50c55acb65387dfc019762aa339ef20308b65a2367c60b65b2e",
+      "heading": "# Carousel (v2) \u2014 current product surface",
+      "mtime": 1785753656.7060428
+    },
+    {
+      "path": "docs/milestones.md",
+      "sha256": "b543f0da7b17c746759ebb92e849c33d21d600ee8a33661b1762d775f40a1c83",
+      "heading": "# Milestones",
+      "mtime": 1782053344.6795063
+    },
+    {
+      "path": "docs/quickstart.md",
+      "sha256": "ea0d4b31843a99d1a5cfafb59eac3289b3fa10cd897bdef5db7258ab17e5ce65",
+      "heading": "# Quick Start",
+      "mtime": 1782053344.6795645
+    },
+    {
+      "path": "docs/templates.md",
+      "sha256": "5ba200e84664895fa5ae5b70018387bce39c59ee33810b507e90531f40a7d5bb",
+      "heading": "# Template System \u2014 Field Reference",
+      "mtime": 1783649609.5627093
+    },
+    {
+      "path": "docs/todo.md",
+      "sha256": "85d15e2a981fdacbaf551ec8dbcf00cc8f9f13b47b513a4fe0420d4317f95952",
+      "heading": "# TODO",
+      "mtime": 1784291013.7144063
+    },
+    {
+      "path": "docs/tutorial.md",
+      "sha256": "9a83ebbe96e2f73fb29e7df9f00c9d5d2404472b607cd24a20702d452c52c6df",
+      "heading": "# Tutorial",
+      "mtime": 1782053344.6796234
+    },
+    {
+      "path": "docs/workflow.md",
+      "sha256": "b95a7bbf55a21149a08b8c80bfe0bdc45a8d989de0081f2799f34108a3b7de28",
+      "heading": "# Workflow",
+      "mtime": 1782053344.6796844
+    }
+  ],
+  "changed_files": []
+}
