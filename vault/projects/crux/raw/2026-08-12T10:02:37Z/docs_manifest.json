@@ -1,0 +1,154 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "d97a79ee4575f6c77f6053e0690c4deb984d005662b30e2b4f39255dd1e24895",
+      "heading": "# crux",
+      "mtime": 1783331160.6492164
+    },
+    {
+      "path": "PRODUCT.md",
+      "sha256": "c78bc53375f199c55f9efb855d988ba09bd31320433e2049b184265cc28894f1",
+      "heading": "# crux \u2014 PRODUCT.md",
+      "mtime": 1782108407.528687
+    },
+    {
+      "path": "DESIGN.md",
+      "sha256": "09d8f54a26b15a28991212815aebde01f7607e42876a2908ceb4317d827584cf",
+      "heading": "# crux \u2014 DESIGN.md",
+      "mtime": 1781824348.0
+    },
+    {
+      "path": "SCHEMA.md",
+      "sha256": "2253f08a3d08de7aab8a8e92cc6767e41ccaee4ec5a15fc705110db7a615303e",
+      "heading": "# Schema",
+      "mtime": 1783331160.6506073
+    },
+    {
+      "path": "docs/.DS_Store",
+      "sha256": "e44f6996b6687e3dcf7733794676c0b8835026dbf9037929062ff46f552b1376",
+      "heading": "",
+      "mtime": 1783303149.1760707
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "52dd6531fade8646d0d72e2304e09cbb843528240559a4f57fde7694b3445a3a",
+      "heading": "# crux \u2014 Architecture",
+      "mtime": 1782108407.5334725
+    },
+    {
+      "path": "docs/bulk-create/2026-06-19-m0-foundation.md",
+      "sha256": "da0f070ce13f718eda791c2aeadce722624ebe801b846a6fb13ce715c9527c01",
+      "heading": "# M0 \u2014 Foundation",
+      "mtime": 1781855700.0210598
+    },
+    {
+      "path": "docs/bulk-create/2026-06-19-m1-case-spine.md",
+      "sha256": "fc574a2d94409c0b8238f0bea01afd93184737b3bc8ce05e1f14206da2d14a43",
+      "heading": "# M1 \u2014 Case spine (structure-first)",
+      "mtime": 1781855727.2615669
+    },
+    {
+      "path": "docs/bulk-create/2026-06-19-m2-research-loop.md",
+      "sha256": "31b6f9e94261c909bf62053620a3adbbe7036d458ef7ea42bb1e9298067e658c",
+      "heading": "# M2 \u2014 Custom research loop",
+      "mtime": 1781855743.670184
+    },
+    {
+      "path": "docs/bulk-create/2026-06-19-m3-commander-bridge.md",
+      "sha256": "8e16d5d0a3fd818e52fe247f23c1ece433071693af0ae0450189a0a3fe57de08",
+      "heading": "# M3 \u2014 Commander bridge",
+      "mtime": 1781856009.2110276
+    },
+    {
+      "path": "docs/bulk-create/2026-06-19-m4-verdict-memory.md",
+      "sha256": "6cbde888bfb4e9eb7b86bde173bb5b2555c33ad5e0c8a445f57482518e667136",
+      "heading": "# M4 \u2014 Verdict memory",
+      "mtime": 1781856018.9835963
+    },
+    {
+      "path": "docs/bulk-create/2026-06-20-m5-probe-lifecycle.md",
+      "sha256": "b073c675330f7f134f707bb5532597029ec4b4f68baa9dbf31f2e99bc9732838",
+      "heading": "# M5 \u2014 Probe lifecycle",
+      "mtime": 1782108407.5335417
+    },
+    {
+      "path": "docs/bulk-create/2026-06-20-m6-verdicts-screen.md",
+      "sha256": "a0417bba7a05cccbee4549f3b14cfc43614faf296c20f0d902e3a6d306a66ee7",
+      "heading": "# M6 \u2014 Verdicts screen & knowledge base",
+      "mtime": 1782108407.5335984
+    },
+    {
+      "path": "docs/bulk-create/2026-06-20-m7-case-search-and-editing.md",
+      "sha256": "c867cd152407cd935e1c1ecf48e9d7c34aaa919ff7baf370538f94ede7432f75",
+      "heading": "# M7 \u2014 Case search & filtering",
+      "mtime": 1782108407.5336585
+    },
+    {
+      "path": "docs/bulk-create/2026-06-20-m8-embedding-related-cases.md",
+      "sha256": "b8970d75c2da0e380c39dc3dfb99baf185aaa925b6c33534bfb02a3b1bd53508",
+      "heading": "# M8 \u2014 Embedding-based related cases",
+      "mtime": 1782108407.5337167
+    },
+    {
+      "path": "docs/bulk-create/2026-06-22-m9-real-source-suggestions.md",
+      "sha256": "e284ca7cbdee96841ccb56ec5f04b15c460996c89c307871fac8077fa496a725",
+      "heading": "# M9 \u2014 Real web sources with pick-to-attach",
+      "mtime": 1782379757.1192544
+    },
+    {
+      "path": "docs/bulk-create/2026-07-03-1-crux-multi-horizon-probes.md",
+      "sha256": "4d5aa999d985a13e80d3473aeb282d0690f318aae4e279f53199a7e1aa3fc82c",
+      "heading": "# crux \u2014 Batch 1: Multi-horizon probes",
+      "mtime": 1783034372.0
+    },
+    {
+      "path": "docs/bulk-create/2026-07-03-2-crux-source-detail-modal.md",
+      "sha256": "d73a1be1af9078606d5e2c7e576f967846e4aefd7688d8e12e71ee21aee238a7",
+      "heading": "# crux \u2014 Batch 2: Source detail modal",
+      "mtime": 1783034372.0
+    },
+    {
+      "path": "docs/bulk-create/2026-07-03-3-crux-paper-style-summary.md",
+      "sha256": "13ff192f7fdec1ed02067f8ab0657f0428546423a37dd70725c079f82558e97c",
+      "heading": "# crux \u2014 Batch 3: Paper-style summary with linked references",
+      "mtime": 1783034372.0
+    },
+    {
+      "path": "docs/bulk-create/README.md",
+      "sha256": "f2a3650e4b28ab2206858adcfb71097309f437f300a86bf647300be4eff2755a",
+      "heading": "# Bulk Create \u2014 Prompt & Output Record",
+      "mtime": 1781848737.7048228
+    },
+    {
+      "path": "docs/features/README.md",
+      "sha256": "268d8504604982a6f4eac4bf5955cf3dc40c54cb1f49d99b052f6bfa24bc2a3c",
+      "heading": "# Features",
+      "mtime": 1781848737.704957
+    },
+    {
+      "path": "docs/milestones.md",
+      "sha256": "002a39b236d23108db2030b263522a7f8acbcf56bd5f7e906cb506e0c1f21583",
+      "heading": "# Milestones",
+      "mtime": 1782108407.5351665
+    },
+    {
+      "path": "docs/quickstart.md",
+      "sha256": "7abf03b14eb377496d365c6a3c8483832cbff3492a12a7c57b7ad7bc56f1cf9a",
+      "heading": "# Quick Start",
+      "mtime": 1782112114.479756
+    },
+    {
+      "path": "docs/tutorial.md",
+      "sha256": "bb34f48a853c5cc2deac790bb4013b85781ee309c1ab23b250b667b5bb6a0952",
+      "heading": "# Tutorial",
+      "mtime": 1781848737.7051997
+    },
+    {
+      "path": "docs/workflow.md",
+      "sha256": "9438986b75a8b23315bbbb10336ada91a216af69622d37c7b18392356a3f6ee6",
+      "heading": "# Workflow",
+      "mtime": 1781848737.705284
+    }
+  ]
+}
