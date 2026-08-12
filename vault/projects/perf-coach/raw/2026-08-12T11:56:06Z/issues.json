@@ -1,0 +1,939 @@
+{
+  "issues": [
+    {
+      "assignees": [],
+      "createdAt": "2026-08-07T12:13:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACko4rlw",
+          "name": "docs",
+          "description": "",
+          "color": "E99695"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAAClNOhTA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACvQ5pvA",
+          "name": "sprint-132",
+          "description": "Sprint 132 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 1736,
+      "state": "OPEN",
+      "title": "Sprint 132 Executive Summary",
+      "updatedAt": "2026-08-07T12:15:36Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-07T06:38:50Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACko4rlw",
+          "name": "docs",
+          "description": "",
+          "color": "E99695"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAAClNOhTA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACvOCK8Q",
+          "name": "sprint-131.1",
+          "description": "Re-run of sprint-131",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 1731,
+      "state": "OPEN",
+      "title": "Sprint 131.1 Executive Summary",
+      "updatedAt": "2026-08-07T06:38:50Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-06T17:11:14Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACko4rlw",
+          "name": "docs",
+          "description": "",
+          "color": "E99695"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAAClNOhTA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACvF9yRQ",
+          "name": "sprint-131",
+          "description": "Sprint 131 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 1727,
+      "state": "OPEN",
+      "title": "Sprint 131 Executive Summary",
+      "updatedAt": "2026-08-06T17:11:14Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-06T16:49:03Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1725,
+      "state": "OPEN",
+      "title": "[follow-up] get_weight_chart now returns weekly_rate\u00d74 for delta_30d_kg \u2014 unrequested behavior change from #1713",
+      "updatedAt": "2026-08-06T16:49:03Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-06T16:49:01Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkyodrg",
+          "name": "database",
+          "description": "Database schema / migration changes",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1724,
+      "state": "OPEN",
+      "title": "[follow-up] CONCURRENTLY index build can leave an INVALID index that the existence-guard then skips",
+      "updatedAt": "2026-08-06T16:49:01Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-06T16:41:01Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACko4rlw",
+          "name": "docs",
+          "description": "",
+          "color": "E99695"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAAClNOhTA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACvF7jtw",
+          "name": "sprint-130.1",
+          "description": "Re-run of sprint-130",
+          "color": "C5DEF5"
+        }
+      ],
+      "number": 1722,
+      "state": "OPEN",
+      "title": "Sprint 130.1 Executive Summary",
+      "updatedAt": "2026-08-06T16:50:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-06T12:10:31Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACko4rlw",
+          "name": "docs",
+          "description": "",
+          "color": "E99695"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAAClNOhTA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACvB_RUA",
+          "name": "sprint-130",
+          "description": "Sprint 130 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 1721,
+      "state": "OPEN",
+      "title": "Sprint 130 Executive Summary",
+      "updatedAt": "2026-08-06T12:10:31Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-06T07:55:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopMfA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACko4rlw",
+          "name": "docs",
+          "description": "",
+          "color": "E99695"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACvF9yRQ",
+          "name": "sprint-131",
+          "description": "Sprint 131 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 1715,
+      "state": "OPEN",
+      "title": "[pre-prd-review] docs/release-process.md doesn't account for large migration-batch releases (no PITR/snapshot guidance)",
+      "updatedAt": "2026-08-06T17:04:25Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-06T07:35:44Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopMfA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACko4rlw",
+          "name": "docs",
+          "description": "",
+          "color": "E99695"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACvF9yRQ",
+          "name": "sprint-131",
+          "description": "Sprint 131 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 1710,
+      "state": "OPEN",
+      "title": "[pre-prd-review] CLAUDE.md's \"exactly one LLM surface\" claim is contradicted by 4 other live LLM call sites",
+      "updatedAt": "2026-08-06T16:58:07Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-06T07:35:38Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopMfA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACko4rlw",
+          "name": "docs",
+          "description": "",
+          "color": "E99695"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACvF9yRQ",
+          "name": "sprint-131",
+          "description": "Sprint 131 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 1708,
+      "state": "OPEN",
+      "title": "[pre-prd-review] Several integration secrets not declared even as placeholders in render.yaml",
+      "updatedAt": "2026-08-06T16:48:08Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-05T17:38:03Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACko4rlw",
+          "name": "docs",
+          "description": "",
+          "color": "E99695"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAAClNOhTA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACuyPTkA",
+          "name": "sprint-129",
+          "description": "Sprint 129 issues",
+          "color": "E99695"
+        }
+      ],
+      "number": 1687,
+      "state": "OPEN",
+      "title": "Sprint 129 Executive Summary",
+      "updatedAt": "2026-08-05T17:38:03Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-04T16:23:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1676,
+      "state": "OPEN",
+      "title": "[follow-up] Add committed regression test for auto_periodize in PUT /api/fuel/settings response",
+      "updatedAt": "2026-08-04T16:23:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-04T15:27:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1673,
+      "state": "OPEN",
+      "title": "[follow-up] Session-wide glob.glob monkeypatch in conftest has no teardown",
+      "updatedAt": "2026-08-04T15:27:00Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-04T15:26:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1672,
+      "state": "OPEN",
+      "title": "[follow-up] Log instead of silently swallowing malformed sets_json in get_strength_tss_per_set_for_workout",
+      "updatedAt": "2026-08-04T15:26:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-04T11:39:17Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1667,
+      "state": "OPEN",
+      "title": "[follow-up] Reuse module-level datetime aliases in _rolling_mean",
+      "updatedAt": "2026-08-04T11:39:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-04T11:39:14Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwpb9Q",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1666,
+      "state": "OPEN",
+      "title": "[follow-up] Orphaned plan-modal-type select is exposed to screen readers but wired to nothing",
+      "updatedAt": "2026-08-04T11:39:14Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-04T11:34:32Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACko4rlw",
+          "name": "docs",
+          "description": "",
+          "color": "E99695"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAAClNOhTA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACuk-slg",
+          "name": "sprint-126",
+          "description": "Sprint 126 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 1665,
+      "state": "OPEN",
+      "title": "Sprint 126 Executive Summary",
+      "updatedAt": "2026-08-04T11:39:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-04T09:55:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1663,
+      "state": "OPEN",
+      "title": "[follow-up] Reconcile export_brief tests after _build_brief consolidation removed module-level helpers",
+      "updatedAt": "2026-08-04T09:55:02Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-04T04:19:19Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwpb9Q",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1656,
+      "state": "OPEN",
+      "title": "[follow-up] has_strava uses strava_activity_url, not strava_activity_pk, after isStravaWorkout refactor",
+      "updatedAt": "2026-08-04T04:19:19Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-04T02:13:33Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1653,
+      "state": "OPEN",
+      "title": "[follow-up] Document/bound ACWR-ceiling overshoot from TSS floor re-clamp in remove(redistribute)",
+      "updatedAt": "2026-08-04T02:13:33Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-17T17:59:47Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1545,
+      "state": "OPEN",
+      "title": "[follow-up] Remove out-of-sprint test file test_race_time_projection__1503.py",
+      "updatedAt": "2026-08-01T16:24:21Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-05T09:18:27Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1278,
+      "state": "OPEN",
+      "title": "[follow-up] test_default_recent_workout_type__525.py still contains pytest.skip calls",
+      "updatedAt": "2026-07-05T09:18:27Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-27T03:53:39Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1065,
+      "state": "OPEN",
+      "title": "[follow-up] Rename or consolidate duplicate upsert_sleep_records functions",
+      "updatedAt": "2026-06-27T03:53:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T08:14:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwpb9Q",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 1010,
+      "state": "OPEN",
+      "title": "[follow-up] Implement new-target goal-vs-start-weight guard in _saveEditPanel (AC3 of #477)",
+      "updatedAt": "2026-06-26T08:14:00Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-25T11:23:25Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 972,
+      "state": "OPEN",
+      "title": "[follow-up] Fix semantic mismatch in habit_insights._generate_line using praise_line_builder",
+      "updatedAt": "2026-06-25T11:23:25Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T03:27:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwpb9Q",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 848,
+      "state": "OPEN",
+      "title": "[follow-up] weekly_count stepper not pre-populated from today's existing log value",
+      "updatedAt": "2026-06-21T03:27:06Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-18T07:06:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopMfA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACluf2hw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACn6CDvA",
+          "name": "sprint-68",
+          "description": "Sprint 68 issues",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 642,
+      "state": "OPEN",
+      "title": "Change Training Log Close Button to Grey",
+      "updatedAt": "2026-08-01T16:21:25Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-17T20:04:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkopJLg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACkwp_4w",
+          "name": "backend",
+          "description": "Backend / API work",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwt2w",
+          "name": "follow-up",
+          "description": "Follow-up from code review",
+          "color": "0052cc"
+        },
+        {
+          "id": "LA_kwDOSnYaIc8AAAACnYwuFA",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "e4e669"
+        }
+      ],
+      "number": 617,
+      "state": "OPEN",
+      "title": "[follow-up] Move write_activity_stream out of activity_streams.py into the caller layer",
+      "updatedAt": "2026-06-17T20:04:56Z"
+    }
+  ],
+  "prs": []
+}
