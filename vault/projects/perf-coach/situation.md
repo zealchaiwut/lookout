@@ -1,7 +1,7 @@
 ---
 target: perf-coach
-run: "2026-08-12T14:17:55Z"
-sources_ok: false
+run: "2026-08-12T14:48:01Z"
+sources_ok: true
 ---
 
 ## One-liner
@@ -16,7 +16,7 @@ _(source: manifest.json, brief.json, issues.json)_
 
 ## Since last run
 
-- `sources.sprints_history.status`: 'ok' → 'absent'
+- `sources.sprints_history.status`: 'absent' → 'ok'
 _(source: manifest.json)_
 
 ## What to do next
@@ -41,11 +41,5 @@ _(source: issues.json, questions.json)_
 
 ## Drift
 
-- `sources.sprints_history.status`: 'ok' → 'absent'
+- `sources.sprints_history.status`: 'absent' → 'ok'
 _(source: manifest.json, docs_manifest.json)_
-
----
-
-**Note:** The following expected sources were absent during this run:
-
-- `sprints_history`
