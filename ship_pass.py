@@ -79,10 +79,10 @@ def _write_frontmatter_field(text: str, field: str, value: str) -> str:
 # ---------------------------------------------------------------------------
 
 def load_issue_states(vault_dir: Path) -> dict:
-    """Return {issue_number: {number, title, state}} from all target snapshots.
+    """Return {project_name: {issue_number: {number, title, state}}} from all target snapshots.
 
-    Reads the most recent snapshot directory per target and aggregates all
-    issues found in their issues.json files.
+    Reads the most recent snapshot directory per target. Issue numbers are keyed
+    per-project so that two projects sharing a number do not overwrite each other.
     """
     states: dict = {}
     projects_dir = vault_dir / "projects"
@@ -103,14 +103,16 @@ def load_issue_states(vault_dir: Path) -> dict:
             continue
         try:
             data = json.loads(issues_json.read_text(encoding="utf-8"))
+            project_states: dict = {}
             for issue in data.get("issues", []):
                 num = issue.get("number")
                 if num is not None:
-                    states[int(num)] = {
+                    project_states[int(num)] = {
                         "number": int(num),
                         "title": issue.get("title", ""),
                         "state": issue.get("state", "OPEN").upper(),
                     }
+            states[proj_dir.name] = project_states
         except Exception:
             continue
     return states
@@ -198,6 +200,12 @@ def _parse_issue_numbers(issues_raw: list) -> list:
 def check_idea(idea_path: Path, issue_states: dict) -> str | None:
     """Process one promoted idea and update it in place.
 
+    issue_states: {project_name: {issue_number: {number, title, state}}}
+
+    For each linked issue, looks only in the snapshots of the idea's own
+    targets:. Issues unresolvable from those snapshots render as (unknown)/OPEN
+    and never trigger the promoted→shipped transition.
+
     Returns 'shipped' if the status advanced, None otherwise.
     """
     try:
@@ -213,8 +221,19 @@ def check_idea(idea_path: Path, issue_states: dict) -> str | None:
     if not issue_numbers:
         return None
 
+    targets = fm.get("targets") or []
+
+    def _resolve(n: int) -> dict:
+        for target in targets:
+            info = issue_states.get(target, {}).get(n)
+            if info is not None:
+                return info
+        return {"number": n, "title": "(unknown)", "state": "OPEN"}
+
+    scoped = {n: _resolve(n) for n in issue_numbers}
+
     all_closed = all(
-        issue_states.get(n, {}).get("state", "OPEN").upper() == "CLOSED"
+        scoped[n]["state"].upper() == "CLOSED"
         for n in issue_numbers
     )
 
@@ -224,7 +243,7 @@ def check_idea(idea_path: Path, issue_states: dict) -> str | None:
         idea_path.write_text(text, encoding="utf-8")
         return "shipped"
 
-    table = build_issue_table(issue_numbers, issue_states)
+    table = build_issue_table(issue_numbers, scoped)
     text = _update_machine_block(text, table)
     idea_path.write_text(text, encoding="utf-8")
     return None
