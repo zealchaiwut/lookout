@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-08-12T10:17:42Z",
+  "target": "viral-radar",
+  "health": {},
+  "sources": {
+    "brief": {
+      "status": "absent",
+      "error": "HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=10)"
+    },
+    "sprints_history": {
+      "status": "absent",
+      "error": "HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=10)"
+    },
+    "github": {
+      "status": "ok",
+      "error": ""
+    },
+    "endpoints": {
+      "status": "ok",
+      "error": "",
+      "count": 16
+    }
+  }
+}

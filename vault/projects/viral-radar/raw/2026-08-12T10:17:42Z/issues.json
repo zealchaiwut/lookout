@@ -1,0 +1,39 @@
+{
+  "issues": [
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T11:12:26Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaNQ",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 56,
+      "state": "OPEN",
+      "title": "[follow-up] Remove unnecessary f-string prefix in suggestions error detail",
+      "updatedAt": "2026-07-04T11:12:26Z"
+    }
+  ],
+  "prs": []
+}
