@@ -105,12 +105,12 @@ def _collect_gh(slug: str, out_dir: Path) -> dict:
     try:
         _fields = "number,title,state,labels,assignees,createdAt,updatedAt"
         issue_result = subprocess.run(
-            ["gh", "issue", "list", "--repo", slug, "--json",
+            ["gh", "issue", "list", "--repo", slug, "--state", "all", "--json",
              _fields, "--limit", "100"],
             capture_output=True, text=True,
         )
         pr_result = subprocess.run(
-            ["gh", "pr", "list", "--repo", slug, "--json",
+            ["gh", "pr", "list", "--repo", slug, "--state", "all", "--json",
              _fields, "--limit", "100"],
             capture_output=True, text=True,
         )

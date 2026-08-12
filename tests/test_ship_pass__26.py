@@ -114,17 +114,18 @@ def test_load_issue_states_returns_empty_when_no_snapshots(tmp_path):
 
 
 def test_load_issue_states_reads_issues_from_snapshot(tmp_path):
-    """AC1: load_issue_states reads issue number and state from snapshot issues.json."""
+    """AC1 + AC3 (issue #76): load_issue_states reads state keyed by project then number."""
     sp = _load_ship_pass()
     vault_dir = _make_vault_with_snapshot(tmp_path, [
         {"number": 101, "title": "Fix login bug", "state": "CLOSED"},
         {"number": 102, "title": "Add dark mode", "state": "OPEN"},
     ])
     states = sp.load_issue_states(vault_dir)
-    assert 101 in states, f"Issue 101 not found in states: {states}"
-    assert 102 in states, f"Issue 102 not found in states: {states}"
-    assert states[101]["state"] == "CLOSED"
-    assert states[102]["state"] == "OPEN"
+    assert "test-target" in states, f"Project 'test-target' not found in states: {states}"
+    assert 101 in states["test-target"], f"Issue 101 not found: {states}"
+    assert 102 in states["test-target"], f"Issue 102 not found: {states}"
+    assert states["test-target"][101]["state"] == "CLOSED"
+    assert states["test-target"][102]["state"] == "OPEN"
 
 
 def test_load_issue_states_uses_latest_snapshot(tmp_path):
@@ -145,21 +146,21 @@ def test_load_issue_states_uses_latest_snapshot(tmp_path):
         json.dumps({"issues": [{"number": 101, "title": "Fix", "state": "CLOSED"}], "prs": []})
     )
     states = sp.load_issue_states(vault_dir)
-    assert states[101]["state"] == "CLOSED", (
+    assert states["test-target"][101]["state"] == "CLOSED", (
         "Should use newest snapshot; expected CLOSED but got OPEN"
     )
 
 
 def test_load_issue_states_aggregates_across_targets(tmp_path):
-    """AC1: load_issue_states reads from all available target snapshots."""
+    """AC1 + AC3 (issue #76): load_issue_states reads from all targets, keyed by project."""
     sp = _load_ship_pass()
     vault_dir = tmp_path / "vault"
     vault_dir.mkdir()
     _make_snapshot(vault_dir, "target-a", [{"number": 101, "title": "A", "state": "CLOSED"}])
     _make_snapshot(vault_dir, "target-b", [{"number": 102, "title": "B", "state": "OPEN"}])
     states = sp.load_issue_states(vault_dir)
-    assert 101 in states and states[101]["state"] == "CLOSED"
-    assert 102 in states and states[102]["state"] == "OPEN"
+    assert "target-a" in states and 101 in states["target-a"] and states["target-a"][101]["state"] == "CLOSED"
+    assert "target-b" in states and 102 in states["target-b"] and states["target-b"][102]["state"] == "OPEN"
 
 
 # ---------------------------------------------------------------------------
@@ -176,7 +177,8 @@ def test_run_ship_pass_advances_to_shipped_when_all_closed(tmp_path):
     ideas_dir = tmp_path / "ideas"
     ideas_dir.mkdir()
     idea = _make_idea_note(ideas_dir, "2026-01-10-my-idea.md",
-                           slug="my-idea", status="promoted", issues=[101, 102])
+                           slug="my-idea", status="promoted", issues=[101, 102],
+                           targets=["test-target"])
     sp.run_ship_pass(ideas_dir, vault_dir)
     content = idea.read_text(encoding="utf-8")
     assert "status: shipped" in content, (
@@ -230,7 +232,8 @@ def test_run_ship_pass_keeps_promoted_when_any_issue_open(tmp_path):
     ideas_dir = tmp_path / "ideas"
     ideas_dir.mkdir()
     idea = _make_idea_note(ideas_dir, "2026-01-10-my-idea.md",
-                           slug="my-idea", status="promoted", issues=[101, 102])
+                           slug="my-idea", status="promoted", issues=[101, 102],
+                           targets=["test-target"])
     sp.run_ship_pass(ideas_dir, vault_dir)
     content = idea.read_text(encoding="utf-8")
     assert "status: promoted" in content, (
@@ -248,7 +251,8 @@ def test_run_ship_pass_adds_issue_table_when_any_open(tmp_path):
     ideas_dir = tmp_path / "ideas"
     ideas_dir.mkdir()
     idea = _make_idea_note(ideas_dir, "2026-01-10-my-idea.md",
-                           slug="my-idea", status="promoted", issues=[101, 102])
+                           slug="my-idea", status="promoted", issues=[101, 102],
+                           targets=["test-target"])
     sp.run_ship_pass(ideas_dir, vault_dir)
     content = idea.read_text(encoding="utf-8")
     # Table must be inside the machine assessment block
@@ -277,7 +281,8 @@ def test_fixture_mixed_issues_produces_promoted_with_table(tmp_path):
     ideas_dir = tmp_path / "ideas"
     ideas_dir.mkdir()
     idea = _make_idea_note(ideas_dir, "2026-01-10-fixture.md",
-                           slug="fixture", status="promoted", issues=[101, 102])
+                           slug="fixture", status="promoted", issues=[101, 102],
+                           targets=["test-target"])
     sp.run_ship_pass(ideas_dir, vault_dir)
     content = idea.read_text(encoding="utf-8")
 
@@ -312,7 +317,8 @@ def test_fixture_all_closed_produces_shipped_no_table(tmp_path):
     ideas_dir = tmp_path / "ideas"
     ideas_dir.mkdir()
     idea = _make_idea_note(ideas_dir, "2026-01-10-fixture.md",
-                           slug="fixture", status="promoted", issues=[101, 102])
+                           slug="fixture", status="promoted", issues=[101, 102],
+                           targets=["test-target"])
     sp.run_ship_pass(ideas_dir, vault_dir)
     content = idea.read_text(encoding="utf-8")
 
@@ -334,7 +340,8 @@ def test_transition_from_mixed_to_all_closed(tmp_path):
     ideas_dir = tmp_path / "ideas"
     ideas_dir.mkdir()
     idea = _make_idea_note(ideas_dir, "2026-01-10-fixture.md",
-                           slug="fixture", status="promoted", issues=[101, 102])
+                           slug="fixture", status="promoted", issues=[101, 102],
+                           targets=["test-target"])
 
     # First run: one open
     vault_dir = _make_vault_with_snapshot(tmp_path, [
@@ -498,4 +505,166 @@ def test_shipped_open_issue_exits_nonzero(tmp_path):
     assert result.returncode != 0, (
         f"Error must block pipeline (non-zero exit): got {result.returncode}\n"
         f"stdout:\n{result.stdout}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# Issue #76: Per-project issue scoping and closed-issue collection
+# ---------------------------------------------------------------------------
+
+def test_load_issue_states_keyed_by_project(tmp_path):
+    """AC3 (#76): load_issue_states keys state by project name then issue number."""
+    sp = _load_ship_pass()
+    vault_dir = tmp_path / "vault"
+    vault_dir.mkdir()
+    _make_snapshot(vault_dir, "alpha", [{"number": 42, "title": "Alpha 42", "state": "CLOSED"}])
+    _make_snapshot(vault_dir, "beta", [{"number": 42, "title": "Beta 42", "state": "OPEN"}])
+    states = sp.load_issue_states(vault_dir)
+    assert "alpha" in states, f"Project 'alpha' missing from states: {states}"
+    assert "beta" in states, f"Project 'beta' missing from states: {states}"
+    assert states["alpha"][42]["state"] == "CLOSED"
+    assert states["beta"][42]["state"] == "OPEN"
+    assert states["alpha"][42]["title"] == "Alpha 42"
+    assert states["beta"][42]["title"] == "Beta 42"
+
+
+def test_cross_project_collision_scoped_to_idea_target_open(tmp_path):
+    """AC4 + AC8 (#76): Issue CLOSED in another project does NOT satisfy check when idea targets the OPEN one."""
+    sp = _load_ship_pass()
+    vault_dir = tmp_path / "vault"
+    vault_dir.mkdir()
+    _make_snapshot(vault_dir, "project-a", [{"number": 42, "title": "A-42 closed", "state": "CLOSED"}])
+    _make_snapshot(vault_dir, "project-b", [{"number": 42, "title": "B-42 open", "state": "OPEN"}])
+
+    ideas_dir = tmp_path / "ideas"
+    ideas_dir.mkdir()
+    idea = _make_idea_note(ideas_dir, "idea.md", slug="idea", status="promoted",
+                           issues=[42], targets=["project-b"])
+
+    issue_states = sp.load_issue_states(vault_dir)
+    sp.check_idea(idea, issue_states)
+
+    content = idea.read_text(encoding="utf-8")
+    assert "status: promoted" in content, (
+        "Idea targeting project-b (where #42 is OPEN) must stay promoted, "
+        "even though project-a has a CLOSED #42"
+    )
+
+
+def test_cross_project_collision_scoped_to_idea_target_closed(tmp_path):
+    """AC6 + AC8 + AC9 (#76): Idea ships when its issue is CLOSED in its own target."""
+    sp = _load_ship_pass()
+    vault_dir = tmp_path / "vault"
+    vault_dir.mkdir()
+    _make_snapshot(vault_dir, "project-a", [{"number": 42, "title": "A-42 closed", "state": "CLOSED"}])
+    _make_snapshot(vault_dir, "project-b", [{"number": 42, "title": "B-42 open", "state": "OPEN"}])
+
+    ideas_dir = tmp_path / "ideas"
+    ideas_dir.mkdir()
+    idea = _make_idea_note(ideas_dir, "idea.md", slug="idea", status="promoted",
+                           issues=[42], targets=["project-a"])
+
+    issue_states = sp.load_issue_states(vault_dir)
+    sp.check_idea(idea, issue_states)
+
+    content = idea.read_text(encoding="utf-8")
+    assert "status: shipped" in content, (
+        "Idea targeting project-a (where #42 is CLOSED) must ship, "
+        "even though project-b has an OPEN #42"
+    )
+
+
+def test_unresolvable_issue_leaves_status_unchanged(tmp_path):
+    """AC5 + AC9 (#76): Idea targeting a project with no snapshot stays promoted, renders (unknown)."""
+    sp = _load_ship_pass()
+    vault_dir = tmp_path / "vault"
+    vault_dir.mkdir()
+    (vault_dir / "projects").mkdir()
+
+    ideas_dir = tmp_path / "ideas"
+    ideas_dir.mkdir()
+    idea = _make_idea_note(ideas_dir, "idea.md", slug="idea", status="promoted",
+                           issues=[99], targets=["missing-target"])
+
+    issue_states = sp.load_issue_states(vault_dir)
+    sp.check_idea(idea, issue_states)
+
+    content = idea.read_text(encoding="utf-8")
+    assert "status: promoted" in content, (
+        "Idea targeting a project with no snapshot must stay promoted"
+    )
+    assert "(unknown)" in content, (
+        "Unresolvable issue must render title as (unknown)"
+    )
+
+
+def test_empty_targets_leaves_status_unchanged(tmp_path):
+    """AC5 (#76): Idea with empty targets list stays promoted even if issue closed somewhere."""
+    sp = _load_ship_pass()
+    vault_dir = _make_vault_with_snapshot(tmp_path, [
+        {"number": 99, "title": "Some issue", "state": "CLOSED"},
+    ])
+    ideas_dir = tmp_path / "ideas"
+    ideas_dir.mkdir()
+    idea = _make_idea_note(ideas_dir, "idea.md", slug="idea", status="promoted",
+                           issues=[99], targets=[])
+
+    issue_states = sp.load_issue_states(vault_dir)
+    sp.check_idea(idea, issue_states)
+
+    content = idea.read_text(encoding="utf-8")
+    assert "status: promoted" in content, (
+        "Idea with empty targets must stay promoted even if issue is CLOSED somewhere"
+    )
+
+
+def test_run_ship_pass_cross_project_isolation(tmp_path):
+    """AC9 (#76): run_ship_pass: cross-project collision resolves correctly per idea."""
+    sp = _load_ship_pass()
+    vault_dir = tmp_path / "vault"
+    vault_dir.mkdir()
+    _make_snapshot(vault_dir, "project-x", [{"number": 10, "title": "X-10 open", "state": "OPEN"}])
+    _make_snapshot(vault_dir, "project-y", [{"number": 10, "title": "Y-10 closed", "state": "CLOSED"}])
+
+    ideas_dir = tmp_path / "ideas"
+    ideas_dir.mkdir()
+    idea_x = _make_idea_note(ideas_dir, "2026-01-01-idea-x.md", slug="idea-x",
+                              status="promoted", issues=[10], targets=["project-x"])
+    idea_y = _make_idea_note(ideas_dir, "2026-01-01-idea-y.md", slug="idea-y",
+                              status="promoted", issues=[10], targets=["project-y"])
+
+    sp.run_ship_pass(ideas_dir, vault_dir)
+
+    content_x = idea_x.read_text(encoding="utf-8")
+    content_y = idea_y.read_text(encoding="utf-8")
+    assert "status: promoted" in content_x, (
+        "idea-x targeting project-x (OPEN) must stay promoted"
+    )
+    assert "status: shipped" in content_y, (
+        "idea-y targeting project-y (CLOSED) must ship"
+    )
+
+
+def test_issue_table_shows_real_title_from_target(tmp_path):
+    """AC7 (#76): Issue table shows the real title from the idea's own target, not another project's."""
+    sp = _load_ship_pass()
+    vault_dir = tmp_path / "vault"
+    vault_dir.mkdir()
+    _make_snapshot(vault_dir, "my-project", [{"number": 5, "title": "Real Title Here", "state": "OPEN"}])
+    _make_snapshot(vault_dir, "other-project", [{"number": 5, "title": "Wrong Title", "state": "OPEN"}])
+
+    ideas_dir = tmp_path / "ideas"
+    ideas_dir.mkdir()
+    idea = _make_idea_note(ideas_dir, "idea.md", slug="idea", status="promoted",
+                           issues=[5], targets=["my-project"])
+
+    issue_states = sp.load_issue_states(vault_dir)
+    sp.check_idea(idea, issue_states)
+
+    content = idea.read_text(encoding="utf-8")
+    assert "Real Title Here" in content, (
+        "Issue table must show the title from the idea's own target project"
+    )
+    assert "Wrong Title" not in content, (
+        "Issue table must NOT show the title from a different project"
     )
