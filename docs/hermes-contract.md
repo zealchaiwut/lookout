@@ -36,6 +36,54 @@ global source endpoints.
 | `github` | string | required | GitHub repository in `owner/repo` form. |
 | `local` | string | required | Absolute or `~`-prefixed path to the local checkout. |
 
+---
+
+### 5. `vault/projects/<target>/raw/<ts>/issues.json`
+
+**Path pattern:** `vault/projects/<target>/raw/<ISO-8601-timestamp>/issues.json`
+
+**Purpose:** Point-in-time snapshot of GitHub issues and PRs for the target.
+Written by `gather._collect_gh`. Read by `ship_pass.py` and `synthesize.py`.
+`ship_pass` uses this file to determine whether idea-linked issues are closed
+without making any network calls.
+
+**Schema:**
+
+```json
+{
+  "issues": [
+    {
+      "number": 62,
+      "title": "Trend alerts",
+      "state": "CLOSED",
+      "labels": [],
+      "assignees": [],
+      "createdAt": "2026-05-27T00:00:00Z",
+      "updatedAt": "2026-05-27T00:00:00Z"
+    }
+  ],
+  "prs": []
+}
+```
+
+**Scope note (issue #81):** `issues` may contain entries outside the standard
+bulk-fetch window (`_OPEN_LIMIT` / `_CLOSED_LIMIT`). For each target, `gather`
+reads `vault/ideas/*.md` frontmatter and fetches any issue number referenced by
+an idea whose `targets:` includes the target being gathered, if that number is
+absent from the bulk results. These *pinned* entries are fetched by exact number
+(`gh issue view <N> --repo <slug>`) and are not subject to the closed-history
+window. A pinned fetch failure is non-fatal; the issue stays absent and
+`ship_pass` renders `(unknown)`.
+
+**Manifest counters** (in `sources.github`):**
+
+| Field | Type | Description |
+|---|---|---|
+| `pinned_requested` | integer | Issues the collector tried to fetch individually |
+| `pinned_resolved` | integer | Issues successfully fetched (≤ `pinned_requested`) |
+
+When `pinned_requested > pinned_resolved`, at least one lookup silently failed.
+
 **Minimal example:**
 
 ```yaml
