@@ -54,12 +54,9 @@
         <integer>0</integer>
     </dict>
 
-    <!-- Wake catch-up: run on next mount if the scheduled window was missed -->
+    <!-- Run on next load if the scheduled window was missed (e.g. machine asleep) -->
     <key>RunAtLoad</key>
     <false/>
-
-    <key>StartOnMount</key>
-    <true/>
 
     <key>StandardOutPath</key>
     <string>__REPO_ROOT__/logs/lookout-digest.log</string>

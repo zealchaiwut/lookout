@@ -2,10 +2,14 @@
 
 Exported entry points:
   load_targets_from_yaml(path) → list[str]
-  run_one(target, targets_yaml, lint_script, repo_root) → (bool, str)
+  _load_snapshot_branch(targets_yaml_path) → str
+  _get_current_branch(repo_root) → str
+  _update_manifest_committed(target, repo_root, committed) → None
+  run_one(target, targets_yaml, lint_script, repo_root, snapshot_branch) → (bool, str)
   run_all(targets_yaml, lint_script, lock_path, repo_root) → (list, bool)
-  _commit_target(target, timestamp, repo_root)  — patchable in tests
+  _commit_target(target, timestamp, repo_root, snapshot_branch)  — patchable in tests
 """
+import json
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -29,19 +33,75 @@ def load_targets_from_yaml(path):
     return list(data.get("targets", {}).keys())
 
 
-def _commit_target(target, timestamp, repo_root):
-    """Add vault snapshot files and commit. Separated for test patching."""
+def _load_snapshot_branch(targets_yaml_path):
+    """Return the configured snapshot branch, defaulting to 'develop'."""
+    with open(targets_yaml_path) as f:
+        data = yaml.safe_load(f)
+    return data.get("snapshot_branch", "develop")
+
+
+def _get_current_branch(repo_root):
+    """Return the name of the currently checked-out branch."""
+    result = subprocess.run(
+        ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+        cwd=repo_root,
+        capture_output=True,
+        text=True,
+    )
+    return result.stdout.strip() if result.returncode == 0 else ""
+
+
+def _update_manifest_committed(target, repo_root, committed):
+    """Update the latest snapshot manifest.json with the committed status."""
+    raw_dir = Path(repo_root) / "vault" / "projects" / target / "raw"
+    if not raw_dir.exists():
+        return
+    snapshots = sorted(d for d in raw_dir.iterdir() if d.is_dir())
+    if not snapshots:
+        return
+    manifest_path = snapshots[-1] / "manifest.json"
+    if not manifest_path.exists():
+        return
+    try:
+        with open(manifest_path) as f:
+            data = json.load(f)
+        data["committed"] = committed
+        with open(manifest_path, "w") as f:
+            json.dump(data, f, indent=2)
+    except Exception:
+        pass
+
+
+def _commit_target(target, timestamp, repo_root, snapshot_branch=None):
+    """Add vault snapshot files and commit. Separated for test patching.
+
+    Skips the commit (with a printed message) when the working tree is not on
+    the expected snapshot branch. The working tree is never switched — the run
+    must not move a developer's checkout out from under them.
+    """
+    _snapshot_branch = snapshot_branch or "develop"
+    current_branch = _get_current_branch(repo_root)
+
+    if current_branch != _snapshot_branch:
+        print(
+            f"lookout: skipping commit — current branch is '{current_branch}', "
+            f"expected '{_snapshot_branch}'. Vault files written but not committed."
+        )
+        _update_manifest_committed(target, repo_root, committed=False)
+        return
+
     vault_path = f"vault/projects/{target}/raw"
     subprocess.run(["git", "add", "-f", vault_path], cwd=repo_root, check=False)
     # Derived notes are not ignored, but still need staging to be committed.
     subprocess.run(["git", "add", "vault"], cwd=repo_root, check=False)
-    subprocess.run(
+    result = subprocess.run(
         ["git", "commit", "-m", f"lookout({target}): snapshot {timestamp}"],
         cwd=repo_root,
     )
+    _update_manifest_committed(target, repo_root, committed=(result.returncode == 0))
 
 
-def run_one(target, targets_yaml, lint_script, repo_root):
+def run_one(target, targets_yaml, lint_script, repo_root, snapshot_branch=None):
     """Run the full pipeline for one target.
 
     Returns:
@@ -78,8 +138,8 @@ def run_one(target, targets_yaml, lint_script, repo_root):
     if lint_result.returncode != 0:
         return False, f"lint failed (exit {lint_result.returncode})"
 
-    # Commit
-    _commit_target(target, timestamp, repo_root)
+    # Commit (guarded by branch check inside _commit_target)
+    _commit_target(target, timestamp, repo_root, snapshot_branch=snapshot_branch)
     return True, "ok"
 
 
@@ -97,6 +157,8 @@ def run_all(targets_yaml=None, lint_script=None, lock_path=None, repo_root=None)
     _lock_path = Path(lock_path) if lock_path else LOCK_PATH
     _repo_root = repo_root or REPO_ROOT
 
+    snapshot_branch = _load_snapshot_branch(_targets_yaml)
+
     # Acquire lock
     try:
         _lock_path.mkdir()
@@ -113,7 +175,10 @@ def run_all(targets_yaml=None, lint_script=None, lock_path=None, repo_root=None)
     try:
         for target in targets:
             print(f"\n--- [{target}] ---")
-            success, reason = run_one(target, _targets_yaml, _lint_script, _repo_root)
+            success, reason = run_one(
+                target, _targets_yaml, _lint_script, _repo_root,
+                snapshot_branch=snapshot_branch,
+            )
             results.append((target, success, reason))
             status = "ok" if success else f"FAILED: {reason}"
             print(f"[{target}] {status}")

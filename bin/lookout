@@ -48,7 +48,18 @@ def _print_summary_table(summary: dict) -> None:
     print()
 
 
-def commit_run(target, timestamp):
+def commit_run(target, timestamp, snapshot_branch=None):
+    _snapshot_branch = snapshot_branch or all_runner_module._load_snapshot_branch(TARGETS_YAML)
+    current_branch = all_runner_module._get_current_branch(REPO_ROOT)
+
+    if current_branch != _snapshot_branch:
+        print(
+            f"lookout: skipping commit — current branch is '{current_branch}', "
+            f"expected '{_snapshot_branch}'. Vault files written but not committed."
+        )
+        all_runner_module._update_manifest_committed(target, REPO_ROOT, committed=False)
+        return 0
+
     # vault/projects/*/raw/ is in .gitignore; -f force-adds snapshot files
     vault_path = f"vault/projects/{target}/raw"
     subprocess.run(["git", "add", "-f", vault_path], cwd=REPO_ROOT, check=True)
@@ -58,6 +69,9 @@ def commit_run(target, timestamp):
     result = subprocess.run(
         ["git", "commit", "-m", f"lookout({target}): snapshot {timestamp}"],
         cwd=REPO_ROOT,
+    )
+    all_runner_module._update_manifest_committed(
+        target, REPO_ROOT, committed=(result.returncode == 0)
     )
     return result.returncode
 

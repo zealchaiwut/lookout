@@ -187,8 +187,12 @@ deterministic runs, so you pay for it once.
 
 ## Nightly job
 
-`com.zealchaiwut.lookout-all` fires at 06:15 and runs `bin/lookout --all`
-against the clone it was installed from.
+`com.zealchaiwut.lookout-all` fires at **06:15** and runs `bin/lookout --all`
+against the clone it was installed from. No other schedule trigger is active —
+`StartOnMount` was removed because it fired on every volume mount (continuous on
+machines with network/Tailscale mounts), not only on wake. macOS already
+re-fires a missed `StartCalendarInterval` job when the machine wakes, so no
+explicit catch-up trigger is needed.
 
 ```bash
 scripts/install.sh                 # nightly sweep
@@ -199,6 +203,25 @@ launchctl kickstart -k gui/$(id -u)/com.zealchaiwut.lookout-all   # run now
 ```
 
 Logs land in `<repo>/logs/lookout-all.log` (gitignored).
+
+### Branch rule for commits
+
+Every sweep writes vault output regardless of which branch is checked out, but
+**commits only when the working tree is on the configured snapshot branch**.
+
+The expected branch is set by `snapshot_branch` in `targets.yaml` (defaults to
+`develop`). When the active branch differs, the runner prints a message naming
+both the current branch and the expected one, records `"committed": false` in
+`manifest.json`, and exits 0 — a skipped commit is not a failed run.
+
+The runner **never switches branches**. Switching the working tree during an
+unattended sweep would move a developer's checkout out from under them.
+
+To verify commit status after a run:
+
+```bash
+cat vault/projects/<target>/raw/<latest-timestamp>/manifest.json | python3 -m json.tool | grep committed
+```
 
 ### The plists are templates
 
