@@ -1,0 +1,391 @@
+{
+  "issues": [
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T09:27:30Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 199,
+      "state": "OPEN",
+      "title": "[follow-up] Route design_probes (three-horizon) through llm_providers.call_stage",
+      "updatedAt": "2026-07-06T09:27:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T06:00:36Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpuQ",
+          "name": "backend",
+          "description": "Backend / server",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 197,
+      "state": "OPEN",
+      "title": "[follow-up] Dead code: _parse_and_validate unused after structured-output refactor",
+      "updatedAt": "2026-07-06T06:00:36Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T06:00:33Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpuQ",
+          "name": "backend",
+          "description": "Backend / server",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 196,
+      "state": "OPEN",
+      "title": "[follow-up] Hardcoded 4000-char source truncation in content_summary",
+      "updatedAt": "2026-07-06T06:00:33Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T06:00:29Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpuQ",
+          "name": "backend",
+          "description": "Backend / server",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 195,
+      "state": "OPEN",
+      "title": "[follow-up] Per-stage Groq spend logged to app logger, not attached to run report",
+      "updatedAt": "2026-07-06T06:00:29Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-05T04:16:25Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpuQ",
+          "name": "backend",
+          "description": "Backend / server",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 187,
+      "state": "OPEN",
+      "title": "[follow-up] Review repo-wide .flake8 config added under a feature ticket",
+      "updatedAt": "2026-07-05T04:16:25Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-05T04:16:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpuQ",
+          "name": "backend",
+          "description": "Backend / server",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 186,
+      "state": "OPEN",
+      "title": "[follow-up] Reconsider duplicate rationale field in VerifySourceRequest (sources.py)",
+      "updatedAt": "2026-07-05T04:16:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T17:33:07Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpcA",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 183,
+      "state": "OPEN",
+      "title": "[follow-up] Avoid stale-closure eslint-disable on SourceDetailModal keydown effect",
+      "updatedAt": "2026-07-04T17:33:07Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T14:25:44Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        }
+      ],
+      "number": 167,
+      "state": "OPEN",
+      "title": "Sprint 57.1 Executive Summary",
+      "updatedAt": "2026-07-02T14:33:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T14:22:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        }
+      ],
+      "number": 166,
+      "state": "OPEN",
+      "title": "Sprint 57 Executive Summary",
+      "updatedAt": "2026-07-02T14:33:23Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-23T09:25:43Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoiL6Lw",
+          "name": "sprint-9.3",
+          "description": "Re-run of sprint-9.2",
+          "color": "C5DEF5"
+        }
+      ],
+      "number": 104,
+      "state": "OPEN",
+      "title": "Sprint 9.3 Executive Summary",
+      "updatedAt": "2026-06-23T09:25:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T15:10:46Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACocRiCQ",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "B60205"
+        }
+      ],
+      "number": 102,
+      "state": "OPEN",
+      "title": "Sprint 9 Executive Summary",
+      "updatedAt": "2026-06-22T15:10:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T12:46:32Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoeXnJw",
+          "name": "sprint-9.1",
+          "description": "Re-run of sprint-9",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 90,
+      "state": "OPEN",
+      "title": "Fix WeighPanel not rendering in CaseDetailScreen",
+      "updatedAt": "2026-06-22T17:07:06Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T10:19:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoMJYiw",
+          "name": "sprint-5",
+          "description": "Sprint 5 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 53,
+      "state": "OPEN",
+      "title": "Sprint 5 Executive Summary",
+      "updatedAt": "2026-06-20T10:22:30Z"
+    }
+  ],
+  "prs": [
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T08:54:02Z",
+      "labels": [],
+      "number": 47,
+      "state": "OPEN",
+      "title": "Set up Cursor Cloud dev environment for crux",
+      "updatedAt": "2026-06-22T12:14:09Z"
+    }
+  ]
+}
