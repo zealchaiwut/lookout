@@ -1,6 +1,6 @@
 ---
 target: crux
-run: "2026-08-12T14:47:57Z"
+run: "2026-08-12T13:38:48Z"
 sources_ok: true
 ---
 
@@ -21,11 +21,11 @@ _(source: manifest.json)_
 
 ## What to do next
 
-1. sprint-57
-2. sprint-9
-3. sprint-9.1
-4. sprint-9.2
-5. sprint-9.3
+1. #199 — [follow-up] Route design_probes (three-horizon) through llm_providers.call_stage
+2. #197 — [follow-up] Dead code: _parse_and_validate unused after structured-output refactor
+3. #196 — [follow-up] Hardcoded 4000-char source truncation in content_summary
+4. #195 — [follow-up] Per-stage Groq spend logged to app logger, not attached to run report
+5. #187 — [follow-up] Review repo-wide .flake8 config added under a feature ticket
 _(source: brief.json, notion_todos.json, docs_manifest.json)_
 
 ## From the journal

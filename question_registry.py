@@ -363,12 +363,17 @@ def extract_human_note_carryovers(notes_path: Path) -> list:
 
 
 def extract_stalled_items(issues_data: dict) -> list:
-    """Return stalled/blocked issue dicts from issues.json data."""
+    """Return stalled/blocked issue dicts from issues.json data.
+
+    Closed issues are excluded — a closed ticket cannot be stalled or block work.
+    """
     issues = issues_data.get("issues", []) if isinstance(issues_data, dict) else []
     stalled: list = []
     for issue in issues:
-        labels = [lbl.get("name", "").lower() for lbl in issue.get("labels", [])]
         state = str(issue.get("state", "")).lower()
+        if state == "closed":
+            continue
+        labels = [lbl.get("name", "").lower() for lbl in issue.get("labels", [])]
         if any(l in labels for l in ("blocked", "stalled", "needs-answer")) or state == "stalled":
             stalled.append(issue)
     return stalled

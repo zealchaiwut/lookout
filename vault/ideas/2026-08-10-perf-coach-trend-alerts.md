@@ -34,6 +34,6 @@ the notification delivery mechanism (push vs. email digest).
 
 | # | Title | State |
 |---|-------|-------|
-| #62 | [follow-up] /api/suggest slides field has no server-side upper bound | open |
+| #62 | (unknown) | open |
 <!-- END ISSUE STATE TABLE -->
 <!-- END MACHINE ASSESSMENT -->

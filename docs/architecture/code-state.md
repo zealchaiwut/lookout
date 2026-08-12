@@ -1,48 +1,48 @@
-# Code State — sprint-6.1
+# Code State — sprint-12
 
 _Deterministic snapshot generated at sprint finish. Do not hand-edit — regenerated each sprint._
 
 ## Module Map
 
+- **`scripts/`** — CLI helpers for ticket, branch, and sprint lifecycle operations
 - **`tests/`** — Pytest test suite (unit and integration)
 - **`docs/`** — Project documentation
 
-## Recent Deltas (sprint-6.1)
+## Recent Deltas (sprint-12)
 
-Files changed: **21**
+Files changed: **5**
 
-- `(root)/` — 8 file(s)
-- `vault/` — 7 file(s)
-- `tests/` — 5 file(s)
-- `.claude/` — 1 file(s)
+- `(root)/` — 2 file(s)
+- `docs/` — 2 file(s)
+- `tests/` — 1 file(s)
 
 ## Hot Files (last 90 days)
 
 | File | Commits |
 |------|---------|
-| `gather.py` | 9 |
+| `gather.py` | 14 |
+| `SKILL.md` | 12 |
+| `CHANGELOG.md` | 11 |
+| `README.md` | 11 |
+| `targets.yaml` | 9 |
 | `.claude/skills/lookout/scripts/lint.py` | 8 |
-| `SKILL.md` | 8 |
 | `vault/index.md` | 8 |
-| `CHANGELOG.md` | 7 |
-| `README.md` | 7 |
+| `docs/architecture/code-state.md` | 7 |
+| `bin/lookout` | 7 |
+| `synthesize.py` | 6 |
 | `tests/test_gather.py` | 6 |
-| `targets.yaml` | 5 |
-| `tests/test_ideas_ledger__24.py` | 4 |
-| `tests/test_assessment_pass__25.py` | 4 |
-| `bin/lookout` | 4 |
-| `docs/architecture/code-state.md` | 4 |
+| `docs/pipeline.md` | 5 |
+| `.gitignore` | 5 |
+| `tests/test_assessment_pass__25.py` | 5 |
+| `tests/test_ideas_ledger__24.py` | 5 |
+| `vault/projects/asset-studio/situation.md` | 4 |
+| `assessment_pass.py` | 4 |
+| `DESIGN.md` | 4 |
+| `vault/ideas/index.md` | 4 |
 | `tests/test_gather_collectors.py` | 4 |
-| `tests/test_lint.py` | 4 |
-| `tests/fixtures/trace-src/app.py` | 4 |
-| `vault/ideas/index.md` | 3 |
-| `DESIGN.md` | 3 |
-| `vault/agents.md` | 3 |
-| `tests/test_journal_delta.py` | 3 |
-| `tests/test_run_wrapper.py` | 3 |
 
 ## Generated
 
-Sprint: `sprint-6.1`  
-Timestamp: `2026-08-10T14:26:19Z`  
+Sprint: `sprint-12`  
+Timestamp: `2026-08-12T14:29:45Z`  
 _Generated deterministically — no LLM required._
