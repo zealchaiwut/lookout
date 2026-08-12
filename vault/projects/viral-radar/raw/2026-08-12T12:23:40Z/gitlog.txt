@@ -1,0 +1,62 @@
+=== branch ===
+develop
+
+=== log ===
+174b176 Merge pull request #59 from zealchaiwut/sprint/sprint-4
+2c80962 Merge pull request #58 from zealchaiwut/sprint/sprint-4.1
+8fa59d8 Merge feature/15-migration-versioning into sprint/sprint-4.1 (issue #15)
+60a0c12 style: auto-fix lint (issue #15)
+ed5da33 fix: remove unused count_before variable in migration test (issue #15)
+e10cf6a style: auto-fix lint (issue #15)
+b85280a feat: add numbered migration prefixes and schema_migrations version table (issue #15)
+d6edda3 docs: auto-update from sprint-sprint-4 diff
+12e262a Merge feature/53-rename-suggestion-schema-modules into sprint/sprint-4 (issue #53)
+ba29de6 feat: rename suggestion schema modules to intent-revealing names (issue #53)
+0920215 Merge feature/52-remove-dead-allowed-days-constant-and-days-param into sprint/sprint-4 (issue #52)
+70672b8 feat: remove dead _ALLOWED_DAYS constant and unused days param (issue #52)
+e630360 Merge feature/51-enforce-meaningful-threshold-gap-report-strength into sprint/sprint-4 (issue #51)
+d4b67fd feat: enforce MIN_STRENGTH_MARGIN threshold on gap-report strength selection (issue #51)
+eb1cd35 Merge feature/50-source-format-hooktype-from-niche-recipe into sprint/sprint-4 (issue #50)
+35fd553 feat: source suggestion format/hook-type from niche recipe (issue #50)
+a8af164 Merge feature/49-exclude-none-bucket-gap-report into sprint/sprint-4 (issue #49)
+b7cc8bf feat: exclude synthetic 'none' bucket from gap report top-gaps and strength (issue #49)
+0c8db96 Merge feature/48-surface-anthropic-api-failures-instead-of-returning-empty-suggestions into sprint/sprint-4 (issue #48)
+db818da feat: surface Anthropic API failures instead of returning empty suggestions (issue #48)
+22ae8be Merge feature/17-feat-agents-split-agents-view-into-activ into sprint/sprint-4 (issue #17)
+cd0e88d fix: replace optional chaining ?.remove() with explicit null check in collector-banner.js (issue #17)
+267a6b9 Merge feature/16-paste-endpoint-boolean-to-int-conversion-inconsistency into sprint/sprint-4 (issue #16)
+8af5003 test: verify has_image boolean-to-int cast in paste INSERT (issue #16)
+fdb8c5a Merge feature/14-fix-httpserror-body-read-twice-apify into sprint/sprint-4 (issue #14)
+c5b019e fix: cache HTTPError body to prevent double-read in _default_http_fn (issue #14)
+a47c55a Merge pull request #54 from zealchaiwut/sprint/sprint-3
+0abc623 sync develop into sprint/sprint-3 before sprint merge
+64b550c Merge pull request #47 from zealchaiwut/sprint/sprint-3.1
+b2d629b docs: auto-update from sprint-sprint-3.1 diff
+
+=== status ===
+M .env.example
+ M DESIGN.md
+ M PRODUCT.md
+ M api.py
+ M docs/milestones.md
+ M routers/paste.py
+ M routers/recipe.py
+ M routers/self_account.py
+ M services/db/__init__.py
+ M services/gold_analysis.py
+ M services/suggestions.py
+ M services/web_search.py
+ M static/analyzer.html
+ M static/index.html
+ M static/js/analyzer.js
+ M tests/test_gold_analysis__18.py
+ M tests/test_suggestions__48.py
+ M tests/test_watchlist_analyzer__6.py
+ M tests/test_web_search_discovery__23.py
+ M viral-radar.db
+?? docs/bulk-create/2026-07-02-1-viral-radar-core-engine.md
+?? docs/bulk-create/2026-07-02-2-viral-radar-apify-collector.md
+?? docs/bulk-create/2026-07-02-3-viral-radar-why-layer.md
+?? docs/bulk-create/2026-07-02-4-viral-radar-discovery.md
+?? docs/bulk-create/2026-07-02-5-viral-radar-self-analysis.md
+?? services/account_posts.py
