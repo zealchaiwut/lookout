@@ -1,34 +1,37 @@
-# Design System
+# Design
 
-**Register:** _product (the design serves the product) or brand (design IS the product)._
+Lookout has no user interface. It is a CLI that writes markdown, so its design
+surface is **the shape of the files it produces** — what belongs in a note, who
+owns which region of it, and what a generator is allowed to assert.
 
-**Scene:** _one sentence: who uses this, where, under what light, in what mood._
+The numbered sections below are contracts. Generators cite them; `lint.py`
+enforces several of them. Visual/typographic design tokens do not apply to this
+project and are deliberately absent.
 
-## Intent
+## Principles
 
-_The aesthetic direction in a sentence or two, and the anti-references (what it
-is deliberately NOT)._
+**Grounded or absent.** Every claim in a machine note cites the artifact it came
+from. Anything the vault cannot confirm becomes a numbered open question, never
+a guess. A fabricated edge on the capability map is worse than a missing one,
+because a missing edge is visibly missing.
 
-## Tokens
+**Sentinels, not conventions, separate ownership.** Any file with both machine
+and human content is split by explicit comment markers, and the generator
+extracts and re-injects the human region verbatim. A convention that says "don't
+edit below here" fails the first time a regeneration is careless; a sentinel does
+not.
 
-_Define the palette light and dark. Run `/impeccable init` to generate a real
-token set; the table below is a placeholder._
+**Regeneration is idempotent.** Running a generator twice over unchanged input
+produces a byte-identical file. Anything that cannot satisfy that — a timestamp,
+a run id — belongs in frontmatter, not the body.
 
-| Role | Light | Dark |
-|------|-------|------|
-| `--bg` | | |
-| `--surface` | | |
-| `--border` | | |
-| `--text` | | |
-| `--accent` | | |
+**Expensive output is preserved, not rebuilt.** Where a section costs a model
+call to produce, a later deterministic run keeps what is already there rather
+than overwriting it with a placeholder. Applies to `## What it is` and
+`## Notes for AI` on capability cards.
 
-## Typography
-
-_Body plus optional display/mono families; hierarchy via scale + weight contrast._
-
-> Starter system stamped by scaffold_project so sprints can run (the design-docs
-> guard requires this file). Refine with `/impeccable init`, then
-> `/impeccable critique` on the first real screen.
+**Degradation is silent and non-fatal.** A missing source produces an explicit
+"not found in snapshot evidence" line, never a plausible-looking placeholder.
 
 ## §7 Capability Map
 

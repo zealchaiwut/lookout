@@ -1,0 +1,184 @@
+# Pipeline
+
+What runs, in what order, reading what, writing what. This is the file to read
+before touching Lookout — it should answer "what happens when I run this"
+without opening a `.py`.
+
+`SKILL.md` documents each module's API in depth. This documents how they connect.
+
+---
+
+## The shape
+
+```
+targets.yaml ─┐
+              │
+              ▼
+         ┌─────────┐   raw/<timestamp>/*.json     ┌──────────┐   vault notes
+         │ gather  │ ───────────────────────────► │  derive  │ ─────────────►
+         └─────────┘   (evidence, machine-only)   └──────────┘  (what you read)
+              │                                         │
+       Commander API                              ┌─────┴─────┐
+       GitHub (gh)                                │   lint    │
+       local git                                  └─────┬─────┘
+       local docs                                       │
+       Notion                                     ┌─────┴─────┐
+       journal                                    │  commit   │
+                                                  └───────────┘
+```
+
+**gather writes evidence. derive writes notes. Nothing else writes to the vault.**
+
+Evidence lives under `vault/projects/<target>/raw/<timestamp>/` and is the sole
+source of truth for machine notes (`vault/agents.md`). Derived notes sit one
+level up, in `vault/projects/<target>/`.
+
+---
+
+## Stage table
+
+### Per target — `derive.derive_target()`
+
+| # | Stage | Module | Reads | Writes | LLM |
+|---|-------|--------|-------|--------|-----|
+| 0 | gather | `gather.py` | Commander API, `gh issue/pr list`, `git log`, target's `docs/`, Notion, journal | `raw/<ts>/{manifest,brief,issues,endpoints,docs_manifest}.json`, `gitlog.txt` | no |
+| 1 | capability_card | `capability_card.py` | `endpoints.json`, `manifest.json`, target's `README.md` | `capability.md` | **yes** — the `## What it is` description |
+| 2 | drift | `drift.py` | `docs_manifest.json`, `gitlog.txt`, `brief.json` | `drift.md` | no |
+| 3 | synthesize | `synthesize.py` | latest + previous snapshot, `drift.md`, `capability.md`, `questions.json`, `notes.md` | `situation.md`, `questions.json` | no (reuses stage 1's description) |
+| 4 | todo_view | `todo_view.py` | `notion_todos.json`, target's `docs/todo.md` | `todo-view.md` | no |
+
+### Vault-wide — `derive.derive_vault()`, once per run
+
+| # | Stage | Module | Reads | Writes | LLM |
+|---|-------|--------|-------|--------|-----|
+| 5 | capability_map | `capability_map.py` | every `projects/*/capability.md` | `vault/map.md` (Edges section only) | no |
+| 6 | ideas_ledger | `ideas_ledger.py` | `vault/ideas/*.md` | `vault/ideas/index.md` | no |
+| 7 | assessment_pass | `assessment_pass.py` | idea notes, atlas notes, capability cards | idea `## Assessment` blocks (max 3/run) | **yes** — atlas-note relevance ranking |
+| 8 | ship_pass | `ship_pass.py` | idea notes, `issues.json` | idea `status:` frontmatter | no |
+
+**Order is load-bearing.** capability.md must exist before synthesize reads its
+description for the one-liner, and drift.md must exist before situation.md cites
+it. Vault-wide stages run after every target so `map.md` and the ledger see the
+whole fleet, not a partial one.
+
+**Failure isolation.** Each stage runs inside `derive._run_stage`. A stage that
+raises is recorded as `error` and the remaining stages still run — the same
+tolerance `gather` applies to an unreachable source. `derive.any_error()` decides
+the exit code.
+
+---
+
+## Entry points
+
+| Command | Runs | Commits |
+|---|---|---|
+| `bin/lookout <target>` | gather → derive (per-target + vault-wide) → lint → commit | yes |
+| `bin/lookout --all` | the above for every target in `targets.yaml`, vault-wide once at the end | yes, per target |
+| `python derive.py <target>` | derive only, per-target + vault-wide | no |
+| `python derive.py <target> --skip-vault-wide` | per-target derive only | no |
+| `python derive.py --vault-only` | vault-wide derive only | no |
+| `bin/lookout pack <target...>` | context pack → `vault/packs/` | no |
+| `bin/lookout promote <file> --type idea\|sprint` | inbox → idea or sprint note | no |
+| `python atlas_seed.py <target>` | seeds the atlas from the target's README (see below) | no |
+| `python atlas_trace.py <target> <slug>` | traces one stale atlas note through real source | no |
+
+---
+
+## Stages that are NOT wired, and why
+
+| Module | Status | Reason |
+|---|---|---|
+| `atlas_seed.py` | manual | Seeding is a bootstrap step per target, not a per-run step. Re-running is idempotent but pointless nightly. |
+| `atlas_trace.py` | manual | Tracing needs the target's source checked out and is expensive. `gather` already marks notes stale and writes a capped pending queue; tracing consumes that queue on demand. |
+| `journal_crosslink.py` | **not runnable** | It requires `journal_delta.json`, which no stage in this pipeline produces. `journal_delta.py` exists but is not invoked by `gather` or `derive`. Wire the delta producer before wiring the consumer. |
+| `discuss_pack.py` | manual | On-demand, produces a working-session artifact. |
+| `todo_view_assessment.py` | manual | Annotates an existing `todo-view.md`; run after stage 4 when you want effort/blocked-by comments. |
+| `scripts/publish_digest.py` | manual | Writes to Notion. Deliberately outside the automatic path — see the read-only invariant below. |
+
+---
+
+## Invariants
+
+**Read-only against the world.** `vault/agents.md` forbids any tool in this repo
+from writing to a target project, GitHub, Notion, or the journal repo. Lookout
+commits only to its own repository. `_collect_endpoints` parses documentation
+tables rather than calling a target's API for exactly this reason.
+
+**Snapshots are committed.** `.gitignore` lists `vault/projects/*/raw/`, but both
+runners force-add it (`git add -f`). This is intentional — the README calls it a
+deterministic audit trail — but it means the repository grows with every run of
+every target. There is no retention policy yet.
+
+**Machine vs human ownership** is defined in `vault/agents.md` and enforced by
+`lint.py`. Machine-owned: situation, capability body, drift, todo-view, atlas,
+indexes, ideas ledger, assessment blocks, packs. Human-owned: notes, learning,
+decisions, `agents.md`, idea freeform tops, and `map.md`'s Pipelines section.
+
+**Lint gates the commit.** `lint.py` runs after derive so it validates this run's
+output. Ten check families; a wikilink that cannot resolve is a hard failure.
+This is why issue-sourced "What to do next" items render as plain `#N — title`
+references rather than wikilinks: an issue has no page in the vault.
+
+---
+
+## First run on a new target
+
+```bash
+# 1. register it
+$EDITOR targets.yaml            # commander_slug, github, local
+
+# 2. create the vault directory
+mkdir -p vault/projects/<target>
+
+# 3. add a one-liner row + a [[<target>]] bullet to vault/index.md
+$EDITOR vault/index.md          # human-owned, lint checks index/folder sync
+
+# 4. first snapshot + derive
+bin/lookout <target>
+
+# 5. bootstrap the atlas from the target's README / docs/features/
+python atlas_seed.py <target>
+
+# 6. enrich the description once (costs one claude -p call)
+LOOKOUT_LLM=1 python capability_card.py <target>
+
+# 7. optional — trace the features that matter
+python atlas_trace.py <target> <feature-slug> --source-dir ~/dev/<target>/uat
+```
+
+Step 5 reads the target's README `## Features` section (bold bullets **or**
+`###` subheadings) and `docs/features/` headings. A target with neither seeds
+zero features — add them by hand in the human section of
+`vault/projects/<target>/atlas/index.md` and re-run.
+
+Step 6 is worth doing once per target. The description is preserved across later
+deterministic runs, so you pay for it once.
+
+---
+
+## Troubleshooting
+
+| Symptom | Cause |
+|---|---|
+| `Read surfaces: _No read surfaces discovered_` | The target's README has no method/path table. `endpoints.json` will have `get_endpoints: []`. |
+| `vault/map.md` Edges section empty | No capability card lists a GET path, or no card references another project's path. Edges need both a producer and a consumer. |
+| Atlas seeded 0 features | README `## Features` uses a format neither parser recognises. Add features by hand to the atlas index human section. |
+| `Another run is in progress (lock: /tmp/lookout-all.lock)` | A previous `--all` died holding the lock. `rmdir /tmp/lookout-all.lock`. |
+| Lint fails on an unresolved wikilink | A machine stage emitted `[[X]]` where `X` has no file under `vault/`. Machine notes must only link to real vault pages. |
+| Situation one-liner reads "health is unknown" | No capability card description yet. Run `LOOKOUT_LLM=1 python capability_card.py <target>`. |
+
+---
+
+## Nightly job
+
+`launchd/com.zealchaiwut.lookout-all.plist` fires at 06:15 and runs
+`bin/lookout --all`. Install with `scripts/install.sh`.
+
+Two things to know about it:
+
+- The plist hardcodes `/Users/zeal-server/dev/lookout/...` and points at
+  `.commander/runtime/worktree-pool/slot-0` — a Commander worktree slot, not a
+  stable clone. If that slot is recycled the job breaks silently.
+- The sweep is deterministic: `LOOKOUT_LLM` is not set in the plist, so no stage
+  spends tokens. Enrichment is a manual, per-target decision. See
+  [llm-usage.md](llm-usage.md).

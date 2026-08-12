@@ -3,6 +3,31 @@
 Per-sprint changelog for lookout. Entries are written by the documentor when a
 sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/changelog/).
 
+## Unreleased
+
+- Wire the derive pipeline into `bin/lookout` and `lookout --all` (`derive.py`).
+  Previously both ran gather → lint → commit only, so no `situation.md`,
+  `capability.md`, `drift.md`, or `todo-view.md` was ever produced by a run.
+- Add `llm.py`, the single gate for model calls. `claude -p` only
+  (subscription-funded), cached by prompt hash, deterministic fallback on any
+  failure, off unless `LOOKOUT_LLM=1`. See `docs/llm-usage.md`.
+- Collect `endpoints.json` in `gather.py`. It was read by `capability_card.py`
+  but written by nothing, so Read surfaces was always empty and `vault/map.md`
+  could never hold an edge.
+- Fix `atlas_seed.py`: the README Features section ended at the first `###`, and
+  only bold-bullet feature lists were recognised. asset-studio seeded 0 features
+  and now seeds 28.
+- Exclude volatile host telemetry from the `situation.md` manifest diff — every
+  run reported `health.uptime_seconds` and friends as changes.
+- Populate "What to do next" from open GitHub issues and the brief keys the live
+  Commander payload actually uses; it was empty for every target.
+- Preserve an enriched capability description across deterministic runs.
+- Remove six pytest leftover targets from `targets.yaml`; `--all` iterated them
+  nightly against pytest tmp paths.
+- New docs: `docs/pipeline.md` (stage table and run order), `docs/llm-usage.md`.
+  `PRODUCT.md`, `DESIGN.md`, `docs/architecture.md`, and `README.md` rewritten
+  from scaffold placeholders.
+
 ## sprint-7
 
 - #29: Add lookout --all nightly runner with launchd scheduling
