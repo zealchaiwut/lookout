@@ -1,0 +1,75 @@
+{
+  "timestamp": "2026-08-12T12:18:42Z",
+  "target": "viral-radar",
+  "health": {
+    "status": "degraded",
+    "uptime_seconds": 25240,
+    "gh_auth_scopes": {
+      "authorized": true,
+      "scopes": [
+        "gist",
+        "read:org",
+        "repo",
+        "workflow"
+      ]
+    },
+    "disk": {
+      "partition": "/Users/chaiwutchaianuchittrakul/dev/commander/.commander",
+      "free_percent": 5.81
+    },
+    "sprints": {
+      "running_count": 0
+    },
+    "orphan_pids": {
+      "count": 0
+    },
+    "orphans_removed": 0,
+    "recent_dispatches": [
+      {
+        "timestamp": "2026-07-31T08:56:28Z",
+        "outcome": "failure",
+        "target": "zealchaiwut/commander/sprint-2"
+      },
+      {
+        "timestamp": "2026-07-31T08:56:28Z",
+        "outcome": "failure",
+        "target": "zealchaiwut/commander/sprint-99"
+      },
+      {
+        "timestamp": "2026-07-31T08:56:28Z",
+        "outcome": "failure",
+        "target": "zealchaiwut/commander/sprint-1"
+      },
+      {
+        "timestamp": "2026-07-21T03:00:39Z",
+        "outcome": "success",
+        "target": "zealchaiwut/perf-coach/sprint-120.2"
+      },
+      {
+        "timestamp": "2026-07-21T02:59:46Z",
+        "outcome": "success",
+        "target": "zealchaiwut/commander/sprint-1003.2"
+      }
+    ],
+    "checked_at": "2026-08-12T12:18:42Z"
+  },
+  "sources": {
+    "brief": {
+      "status": "ok",
+      "error": ""
+    },
+    "sprints_history": {
+      "status": "ok",
+      "error": ""
+    },
+    "github": {
+      "status": "ok",
+      "error": ""
+    },
+    "endpoints": {
+      "status": "ok",
+      "error": "",
+      "count": 16
+    }
+  }
+}
