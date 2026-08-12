@@ -187,15 +187,20 @@ def _diff_manifests(current: dict, previous: dict) -> list[str]:
 # What to do next
 # ---------------------------------------------------------------------------
 
-# Marks a next-item that came from a GitHub issue rather than a vault note.
-# Issues have no page in the vault, so wikilinking their titles would emit a
-# link that can never resolve — and vault lint fails the run for exactly that.
-_ISSUE_ITEM_PREFIX = "\x00issue\x00"
+# Marks a next-item that is prose rather than the name of a vault note — a
+# GitHub issue title, a Commander suggestion, a sprint label. Wikilinking those
+# emits a link that can never resolve, and the vault linter fails the run for
+# exactly that. Only items derived from doc paths become wikilinks.
+_PLAIN_ITEM_PREFIX = "\x00plain\x00"
+
+
+def _plain(text: str) -> str:
+    return f"{_PLAIN_ITEM_PREFIX}{text}"
 
 
 def _to_wikilink(title: str) -> str:
-    if title.startswith(_ISSUE_ITEM_PREFIX):
-        return title[len(_ISSUE_ITEM_PREFIX):]
+    if title.startswith(_PLAIN_ITEM_PREFIX):
+        return title[len(_PLAIN_ITEM_PREFIX):]
     clean = re.sub(r"[`*_#\[\]]", "", title)
     clean = re.sub(r"\.(md|json|txt|py|yaml|yml)$", "", clean, flags=re.IGNORECASE)
     parts = re.split(r"[/\-_\s]+", clean)
@@ -213,6 +218,25 @@ _BRIEF_NEXT_KEYS = (
 )
 
 
+# Keys a brief item may carry its human-readable label under, in priority order.
+# Commander suggestions use `text`; sprint lookahead entries use `label`. An item
+# with none of these is skipped rather than stringified — `str(some_dict)` in a
+# "What to do next" list is noise, and it used to reach situation.md verbatim.
+_ITEM_TITLE_KEYS = ("title", "text", "name", "label", "summary")
+
+
+def _item_title(item) -> str:
+    """Return a human-readable label for a brief item, or '' if it has none."""
+    if isinstance(item, str):
+        return item.strip()
+    if isinstance(item, dict):
+        for key in _ITEM_TITLE_KEYS:
+            val = item.get(key)
+            if isinstance(val, str) and val.strip():
+                return val.strip()
+    return ""
+
+
 def _collect_next_items(
     brief_data,
     notion_todos: list,
@@ -225,17 +249,12 @@ def _collect_next_items(
     if isinstance(brief_data, dict):
         for key in _BRIEF_NEXT_KEYS:
             val = brief_data.get(key, [])
-            if isinstance(val, list):
-                for item in val:
-                    title = item if isinstance(item, str) else item.get("title", str(item))
-                    if title:
-                        items.append(title)
-            elif isinstance(val, dict):
-                title = val.get("title", "")
+            if not isinstance(val, list):
+                val = [val]
+            for item in val:
+                title = _item_title(item)
                 if title:
-                    items.append(title)
-            elif isinstance(val, str) and val:
-                items.append(val)
+                    items.append(_plain(title))
 
     # From open GitHub issues. A target can have a quiet brief and still have
     # real queued work; without this the section reads "no items" next to a
@@ -250,7 +269,7 @@ def _collect_next_items(
             number = issue.get("number", "")
             if title:
                 items.append(
-                    f"{_ISSUE_ITEM_PREFIX}#{number} — {title}" if number else title
+                    _plain(f"#{number} — {title}" if number else title)
                 )
 
     # From Notion todos (exclude done/completed/archived)

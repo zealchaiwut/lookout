@@ -83,6 +83,32 @@ def test_features_section_ends_at_sibling_heading_not_subheading():
     assert len(features) == 3
 
 
+TABLE_README = """# commander
+
+## Features
+
+| Feature | What it does | Docs |
+|---|---|---|
+| **Dashboard** | Live agent event feed | [docs](docs/features/dashboard.md) |
+| **Sprint Manager** | Automates the BA loop | [docs](docs/features/sprint-manager.md) |
+
+## Repository Layout
+"""
+
+
+def test_table_features_are_extracted():
+    """A `| **Name** | … |` feature table yields one feature per row."""
+    features = atlas_seed.extract_features(TABLE_README, None)
+    assert [f["slug"] for f in features] == ["dashboard", "sprint-manager"]
+
+
+def test_table_header_and_separator_rows_are_not_features():
+    features = atlas_seed.extract_features(TABLE_README, None)
+    slugs = [f["slug"] for f in features]
+    assert "feature" not in slugs
+    assert not any(set(s) <= {"-"} for s in slugs)
+
+
 def test_bold_bullet_features_still_work():
     """The original bold-bullet README convention is unchanged."""
     features = atlas_seed.extract_features(BULLET_README, None)
@@ -187,9 +213,35 @@ def test_issue_items_are_not_wikilinked():
     assert not any("[[" in r for r in rendered)
 
 
-def test_vault_note_items_are_still_wikilinked():
-    items = synthesize._collect_next_items({"tasks": ["docs/todo.md"]}, [], {}, None)
+def test_changed_doc_files_are_still_wikilinked():
+    """Doc paths name real vault pages, so they keep their wikilink."""
+    manifest = {"changed_files": ["docs/todo.md"]}
+    items = synthesize._collect_next_items({}, [], manifest, None)
     assert synthesize._to_wikilink(items[0]).startswith("[[")
+
+
+def test_brief_suggestion_dicts_use_their_text_key():
+    """Commander suggestions are dicts keyed `text`, not `title`."""
+    brief = {"suggested_next": [
+        {"text": "Purge junk tickets", "type": "suggestion", "slug": "commander"}
+    ]}
+    rendered = [
+        synthesize._to_wikilink(i)
+        for i in synthesize._collect_next_items(brief, [], {}, None)
+    ]
+    assert rendered == ["Purge junk tickets"]
+
+
+def test_sprint_lookahead_dicts_use_their_label_key():
+    brief = {"up_next": [{"label": "sprint 100", "ticketcount": 2}]}
+    items = synthesize._collect_next_items(brief, [], {}, None)
+    assert [synthesize._to_wikilink(i) for i in items] == ["sprint 100"]
+
+
+def test_unlabelled_dict_items_are_skipped_not_stringified():
+    """A dict with no label key must never reach situation.md as its repr."""
+    brief = {"up_next": [{"ticketcount": 2, "estimatedhours": 0.5}]}
+    assert synthesize._collect_next_items(brief, [], {}, None) == []
 
 
 def test_open_issues_feed_what_to_do_next():
@@ -204,9 +256,12 @@ def test_open_issues_feed_what_to_do_next():
 def test_live_brief_keys_feed_what_to_do_next():
     """The keys the real Commander brief payload uses, not just generic ones."""
     brief = {"suggested_next": ["Ship the export"], "waiting_on_you": ["Review #3"]}
-    items = synthesize._collect_next_items(brief, [], {}, None)
-    assert "Ship the export" in items
-    assert "Review #3" in items
+    rendered = [
+        synthesize._to_wikilink(i)
+        for i in synthesize._collect_next_items(brief, [], {}, None)
+    ]
+    assert "Ship the export" in rendered
+    assert "Review #3" in rendered
 
 
 # ---------------------------------------------------------------------------

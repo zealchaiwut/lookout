@@ -315,7 +315,16 @@ def build_assessment(
     if first_atlas_ref is not None:
         first_slice = f"Verify scope against {first_atlas_ref}."
     elif targets and _is_registered(targets[0], vault_dir):
-        first_slice = f"Add capability card for `{targets[0]}`."
+        # A registered target with no atlas note to check against. If it already
+        # has a capability card, the missing piece is the atlas, not the card —
+        # suggesting "add a capability card" that exists reads as a stale note.
+        if _get_capability_card_path(targets[0], vault_dir) is not None:
+            first_slice = (
+                f"Seed the atlas for `{targets[0]}` "
+                f"(`python atlas_seed.py {targets[0]}`), then re-assess."
+            )
+        else:
+            first_slice = f"Add capability card for `{targets[0]}`."
     elif targets:
         q_text = next_q(f"What is the first testable step for `{targets[0]}`?")
         first_slice = f"({q_text})"

@@ -24,4 +24,5 @@ targets:
   viral-radar:
     commander_slug: viral-radar
     github: zealchaiwut/viral-radar
-    local: ~/dev/viral-radar/uat
+    # Flat layout — the repo is the clone; there is no uat/ subdirectory.
+    local: ~/dev/viral-radar

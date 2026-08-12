@@ -302,13 +302,19 @@ def test_build_assessment_effort_is_valid_size(tmp_path):
 # ---------------------------------------------------------------------------
 
 def test_build_assessment_unknown_claim_becomes_open_question(tmp_path):
-    """AC4: Anything unresolvable becomes a numbered open question."""
+    """AC4: Anything unresolvable becomes a numbered open question.
+
+    The empty project is built here rather than borrowed from the live vault:
+    a target that is bare today gets a capability card the first time the
+    pipeline runs against it, which would silently invalidate this test.
+    """
     ap = _load_assessment_pass()
-    # Use a registered-but-empty project (viral-radar has only .gitkeep)
+    scratch_vault = tmp_path / "vault"
+    (scratch_vault / "projects" / "empty-target").mkdir(parents=True)
     note = _make_idea_note(tmp_path, "2026-01-10-test.md",
                            slug="test-idea", assessed="null",
-                           targets=["viral-radar"])
-    assessment = ap.build_assessment(note, VAULT_ROOT,
+                           targets=["empty-target"])
+    assessment = ap.build_assessment(note, scratch_vault,
                                      today=datetime.date(2026, 8, 10))
     # Should contain a numbered open question
     assert re.search(r"Q\d+:", assessment), (
