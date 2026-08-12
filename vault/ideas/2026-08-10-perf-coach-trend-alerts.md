@@ -4,7 +4,7 @@ created: 2026-08-10
 status: promoted
 targets: [perf-coach]
 issues: [62]
-assessed: 2026-08-10
+assessed: 2026-08-12
 ---
 
 Add a trend-alert layer to perf-coach that detects statistically significant
@@ -34,6 +34,6 @@ the notification delivery mechanism (push vs. email digest).
 
 | # | Title | State |
 |---|-------|-------|
-| #62 | (unknown) | open |
+| #62 | [follow-up] /api/suggest slides field has no server-side upper bound | open |
 <!-- END ISSUE STATE TABLE -->
 <!-- END MACHINE ASSESSMENT -->

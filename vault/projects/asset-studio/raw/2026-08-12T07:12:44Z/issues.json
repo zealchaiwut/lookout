@@ -1,0 +1,795 @@
+{
+  "issues": [
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T10:14:14Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 140,
+      "state": "OPEN",
+      "title": "[follow-up] A leaked Path.stat patch crashes pytest at session finish",
+      "updatedAt": "2026-07-30T10:14:14Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T10:13:57Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 139,
+      "state": "OPEN",
+      "title": "[follow-up] Tests write real flows into flows/ and never clean up",
+      "updatedAt": "2026-07-30T11:07:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T09:57:41Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 137,
+      "state": "OPEN",
+      "title": "Manual engagement log \u2014 Posted tab, entry form, tier badges",
+      "updatedAt": "2026-07-30T10:42:40Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T09:57:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 136,
+      "state": "OPEN",
+      "title": "Manual engagement log \u2014 median-relative tier + performance report",
+      "updatedAt": "2026-07-30T10:42:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T09:57:03Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 135,
+      "state": "OPEN",
+      "title": "Manual engagement log \u2014 store performance on a v2 flow",
+      "updatedAt": "2026-07-30T10:42:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-19T17:02:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 134,
+      "state": "OPEN",
+      "title": "Sprint 9 Executive Summary",
+      "updatedAt": "2026-07-19T17:02:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-13T13:38:46Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 125,
+      "state": "OPEN",
+      "title": "[follow-up] stat.html dark background contradicts pastel brand framing in AC",
+      "updatedAt": "2026-07-13T13:38:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-12T04:41:31Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 111,
+      "state": "OPEN",
+      "title": "[follow-up] Unused account param in build_character_prompt",
+      "updatedAt": "2026-07-19T16:39:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T18:10:41Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 106,
+      "state": "OPEN",
+      "title": "[follow-up] Hoist repeated inner 'import json' to module level in characters_cutouts",
+      "updatedAt": "2026-07-19T16:39:20Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T18:10:39Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 105,
+      "state": "OPEN",
+      "title": "[follow-up] Remove unused slot_map in validate_texts",
+      "updatedAt": "2026-07-19T16:39:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T18:10:36Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6nug",
+          "name": "needs-rework",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 103,
+      "state": "OPEN",
+      "title": "[follow-up] Slide-editor state not restored on browser refresh (AC6)",
+      "updatedAt": "2026-07-19T17:02:23Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T11:28:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6nug",
+          "name": "needs-rework",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 62,
+      "state": "OPEN",
+      "title": "[follow-up] /api/suggest slides field has no server-side upper bound",
+      "updatedAt": "2026-07-19T16:51:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:29:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 33,
+      "state": "OPEN",
+      "title": "[follow-up] Log swallowed exception when logo compositing fails",
+      "updatedAt": "2026-07-19T16:39:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:29:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 32,
+      "state": "OPEN",
+      "title": "[follow-up] Declare python-dotenv explicitly in requirements.txt",
+      "updatedAt": "2026-07-19T16:33:16Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:28:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 31,
+      "state": "OPEN",
+      "title": "[follow-up] Reconcile server default port (7001 vs 8000) across code, docs, and UAT test",
+      "updatedAt": "2026-07-19T16:27:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:28:54Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6nug",
+          "name": "needs-rework",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 29,
+      "state": "OPEN",
+      "title": "[follow-up] Validate hex colors in compose request to avoid HTTP 500 on invalid input",
+      "updatedAt": "2026-07-19T16:23:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:28:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 28,
+      "state": "OPEN",
+      "title": "[follow-up] Enforce vertical safe margins / prevent bottom-edge content clipping in compositor",
+      "updatedAt": "2026-07-19T16:05:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:28:50Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6nug",
+          "name": "needs-rework",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 27,
+      "state": "OPEN",
+      "title": "[follow-up] Surface an error/warning when requested font is unavailable (no silent default fallback)",
+      "updatedAt": "2026-07-19T15:49:57Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:28:49Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 26,
+      "state": "OPEN",
+      "title": "[follow-up] Cache resolved fonts in compositor to protect <5s render budget",
+      "updatedAt": "2026-07-19T16:39:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:26Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 16,
+      "state": "OPEN",
+      "title": "[follow-up] Add API key validation to MysticClient constructor",
+      "updatedAt": "2026-07-19T16:39:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:25Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 15,
+      "state": "OPEN",
+      "title": "[follow-up] Improve exception handling in Magnific pipeline subprocess calls",
+      "updatedAt": "2026-07-19T15:41:03Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:21Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 13,
+      "state": "OPEN",
+      "title": "[follow-up] Improve file upload error feedback in settings modal",
+      "updatedAt": "2026-07-19T16:39:30Z"
+    }
+  ],
+  "prs": []
+}
