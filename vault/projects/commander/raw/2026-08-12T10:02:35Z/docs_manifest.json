@@ -1,0 +1,712 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "17f9d4b7f9b35a48dd2ea1c2e444ab9a9338bbdc3007625847c8fa08e1a48c5a",
+      "heading": "# Commander",
+      "mtime": 1784527776.119557
+    },
+    {
+      "path": "PRODUCT.md",
+      "sha256": "8ce9fc0899b6397c40bc33d94b33a3dcc9be55cd4c8fdeee4cb36d7687bab6ca",
+      "heading": "# Commander Product Overview",
+      "mtime": 1782104077.6933656
+    },
+    {
+      "path": "DESIGN.md",
+      "sha256": "d3d2629ddf5b354c68820c59748f56c68bbc30c321e45f47a7c3e21771a83421",
+      "heading": "# Commander Design Document",
+      "mtime": 1782104077.6930914
+    },
+    {
+      "path": "SCHEMA.md",
+      "sha256": "506f95aad9eceab913dec36cd5d9c4cbae2c62a4bdf5430c52a80398a6843c7d",
+      "heading": "# Schema",
+      "mtime": 1786517295.448443
+    },
+    {
+      "path": "docs/TRAVEL_PLAYBOOK.md",
+      "sha256": "dd6cb182eb962cdfa8dda3d0c072b8143a2a014b43ef87598ba066d6ffee996e",
+      "heading": "# Commander Travel Playbook",
+      "mtime": 1780886677.5404108
+    },
+    {
+      "path": "docs/agent-guide.md",
+      "sha256": "0eac8112fcf592067021a3271f8336d9227b60cb67fe0081879dba505a994a89",
+      "heading": "# Commander Agent Operate Guide",
+      "mtime": 1783948810.724132
+    },
+    {
+      "path": "docs/architecture/0_content.md",
+      "sha256": "5ffcc809bf65c49258ac8781af1a44557a17209ec67ce04bde427ee575122804",
+      "heading": "# Commander Architecture \u2014 Table of Contents",
+      "mtime": 1783826480.6118307
+    },
+    {
+      "path": "docs/architecture/10_devops.md",
+      "sha256": "566a6fbccc0b41c648e1ee0b11fadb2d5afd75080409d6dc9ee8ce0969f3285f",
+      "heading": "# 10. DevOps process",
+      "mtime": 1781519524.764034
+    },
+    {
+      "path": "docs/architecture/11_remote-work.md",
+      "sha256": "d0bb9101ff858f8d4272581fbad8be0af7de3d113b227d3985dcff66d5570ec1",
+      "heading": "# 11. Remote work",
+      "mtime": 1781270882.3060687
+    },
+    {
+      "path": "docs/architecture/12_security-and-secrets.md",
+      "sha256": "d0b41dab3ff105931fff72652499c0416d5dcd5f249331279118059ecbe31a51",
+      "heading": "# 12. Security & secrets",
+      "mtime": 1781270882.306169
+    },
+    {
+      "path": "docs/architecture/13_observability-and-cost.md",
+      "sha256": "048453cc9dbf4dc95e739efa7034ba2758dfd96a3c42de220ca04b5cf312619b",
+      "heading": "# 13. Observability & cost",
+      "mtime": 1781510849.0123239
+    },
+    {
+      "path": "docs/architecture/14_roadmap-and-sequencing.md",
+      "sha256": "34d16b08e2b885e3e4ce3a33ab6870f3a88309caff4e9ad12308d66c3ecf1bb9",
+      "heading": "# 14. Roadmap & sequencing",
+      "mtime": 1781510849.0124373
+    },
+    {
+      "path": "docs/architecture/1_state-and-source-of-truth.md",
+      "sha256": "dea3de9c7da9d62f471d348e7b26406e1fa193b60ada4ea2cb868983dd1f5880",
+      "heading": "# 1. State & source-of-truth model",
+      "mtime": 1783826480.6119828
+    },
+    {
+      "path": "docs/architecture/2.3a-frontend-module-boundaries.md",
+      "sha256": "24b826bc2155028ccfa08f428580a546495bb74c4726f0686fbd7cc6e896d226",
+      "heading": "# 2.3a \u2014 Frontend module boundaries",
+      "mtime": 1786517295.478088
+    },
+    {
+      "path": "docs/architecture/2_app-dashboard-architecture.md",
+      "sha256": "e687dc0d58993d616f4ac00fbecff1685b2614f074b18a9dee67acb3b233ab5a",
+      "heading": "# 2. App / Dashboard architecture",
+      "mtime": 1781510849.0128806
+    },
+    {
+      "path": "docs/architecture/3_sprint-flow.md",
+      "sha256": "8a984458ca82dc9dd6911b9157023434c5a128715e5fc3a8568eef86bf97362c",
+      "heading": "# 3. Sprint flow (work flow)",
+      "mtime": 1783321583.569937
+    },
+    {
+      "path": "docs/architecture/4_agents.md",
+      "sha256": "c5920dda207894405318fd9d473aa6b0fe9ecb6307808a78587660c117b319c1",
+      "heading": "# 4. Agents",
+      "mtime": 1781270882.3068802
+    },
+    {
+      "path": "docs/architecture/5_concurrency-and-locking.md",
+      "sha256": "2addea7b0e5ff472b30491339592678503ccfb8d90c132393a923a8db24b83e2",
+      "heading": "# 5. Concurrency & locking",
+      "mtime": 1781270882.306977
+    },
+    {
+      "path": "docs/architecture/6_failure-and-recovery.md",
+      "sha256": "9a99ae0aabe8b8fb09a153d875e3e9a1c175dc638a9270d8b8d65b26f6024b21",
+      "heading": "# 6. Failure & recovery semantics",
+      "mtime": 1783321583.5701346
+    },
+    {
+      "path": "docs/architecture/7_git-branch-strategy.md",
+      "sha256": "cfc0f59c7d6690b86f8ec46fad85ded1391168fc4e7281ab56315b88ba2f2971",
+      "heading": "# 7. Git / branch strategy",
+      "mtime": 1781270882.3071795
+    },
+    {
+      "path": "docs/architecture/8_database-and-local-env.md",
+      "sha256": "fa503681ae6b7fa2aeac8f8ba804e7bd5ca364844209c9e6091ff8dce15b8886",
+      "heading": "# 8. Database, connection & local env/files",
+      "mtime": 1783321583.570225
+    },
+    {
+      "path": "docs/architecture/9_multiple-projects.md",
+      "sha256": "664f562c737752c5c4f08e0d96bed4dd04fcd347a8ba81393049b36a09f5c715",
+      "heading": "# 9. Multiple projects \u2014 sync & creation",
+      "mtime": 1781270882.3074021
+    },
+    {
+      "path": "docs/architecture/boundaries.md",
+      "sha256": "c3c978e6947f3a8a22e3ac8993efb77264f4c26f8e1e8a009fd9ff2be83f5c9d",
+      "heading": "# Architecture Boundary Contract \u2014 Routers, Services, Repos",
+      "mtime": 1781315594.5047698
+    },
+    {
+      "path": "docs/architecture/code-state.md",
+      "sha256": "b4df31ef071cfed0d93f036873a51bda152cce381e9827d0ca0af3040376a424",
+      "heading": "# Code State \u2014 sprint-89113.1",
+      "mtime": 1786517295.4783938
+    },
+    {
+      "path": "docs/architecture/frontend-map.md",
+      "sha256": "a7f375ed4b4fed5246bc3d0972db79c434784b881c876e3c20958d4b7a61e49a",
+      "heading": "# Frontend Map \u2014 `project.html` Views and API Bindings",
+      "mtime": 1786517295.4787323
+    },
+    {
+      "path": "docs/architecture/open-questions-2026-07-02.md",
+      "sha256": "a39af520bb948d9b6f3538526af113e022a673da65d7d16ab8b3eb72635899ce",
+      "heading": "# Open Flow Questions \u2014 2026-07-02 Lifecycle/Reconcile/Data Review",
+      "mtime": 1783321583.5703056
+    },
+    {
+      "path": "docs/architecture/sprint-lifecycle.md",
+      "sha256": "d5e0e1e31f724fc9d07aabf7e2b028b137e0c9f64320e3d764aa6ff879c718e6",
+      "heading": "# Sprint Lifecycle \u2014 Source of Truth, States, Merge Model",
+      "mtime": 1786517295.4791114
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "4b47676281b5706381321c56c47cddcb3f3fc940f334e252c1e32ed21002c300",
+      "heading": "# Architecture",
+      "mtime": 1781005612.8532205
+    },
+    {
+      "path": "docs/bug-audit-2026-07-02.md",
+      "sha256": "c0749a30997962f96b07319f1da98cb5070e1ec7c3b6f591c7322c7a771a0b84",
+      "heading": "# Bug Audit \u2014 2026-07-02 (Whole-Codebase, Multi-Agent)",
+      "mtime": 1783321583.5706306
+    },
+    {
+      "path": "docs/bulk-create/2026-06-09-agent-browser-testing.md",
+      "sha256": "ab2145f128a79535ca2f45927d93029609e130e5506e1e3af29348a815e6b456",
+      "heading": "# Agent-Browser Testing + impeccable Skills",
+      "mtime": 1781187670.4349303
+    },
+    {
+      "path": "docs/bulk-create/2026-06-09-analytics-nav-logging.md",
+      "sha256": "91a5d2555091d1b6b5e43829e0b4765f575beffe6c7800e1a4ee82b3917bccdd",
+      "heading": "# Analytics tabs, nav moves, global notes, analytics calcs, agent logging",
+      "mtime": 1781187670.4356863
+    },
+    {
+      "path": "docs/bulk-create/2026-06-09-deploy-restart-env.md",
+      "sha256": "d4246910dd34d7dc31b7b0c4f7cc4b86c9df2a9d9c70f0b2ea384bd94570bbd1",
+      "heading": "# Per-project Deploy & Restart + Render-style ENV editor",
+      "mtime": 1781187670.4361138
+    },
+    {
+      "path": "docs/bulk-create/2026-06-09-sprint-pipeline.md",
+      "sha256": "ad15817b50b48a1012ba386649fb4e3c362c9b3b313e70cda279d0a2cd36e9b6",
+      "heading": "# Sprint pipeline \u2014 coder \u2225 tester (level-bounded)",
+      "mtime": 1781187670.4361837
+    },
+    {
+      "path": "docs/bulk-create/2026-06-10-deploy-tab-followups.md",
+      "sha256": "4f0d8fb4087d678c392ac1a34599f8c2cc7dbc09f67d867cff4f18834b486dba",
+      "heading": "# Deploy tab follow-ups (from testing the live feature)",
+      "mtime": 1781187670.4364371
+    },
+    {
+      "path": "docs/bulk-create/2026-06-10-logs-surface-failures.md",
+      "sha256": "7c9f275ae1395fb70d860f42ace3389a9afccec2fe6f9eadf048efe0f850362d",
+      "heading": "# Surface sprint failures on the Logs page (no raw-file digging)",
+      "mtime": 1781187670.437543
+    },
+    {
+      "path": "docs/bulk-create/2026-06-10-settings-and-timezone.md",
+      "sha256": "7726f3c2ac35a3df628e28de8dc616edc0a04457a72d728ca368659bfe58f666",
+      "heading": "# Settings consolidation + machine-local timezone",
+      "mtime": 1781187670.4377694
+    },
+    {
+      "path": "docs/bulk-create/2026-06-11-1-machine-onboarding.md",
+      "sha256": "02ed4ae9c5c2bba5e69a842c603ebb857ab21eac31e40a3bdefffca099157fbc",
+      "heading": "# Machine onboarding \u2014 launchd PATH, headless tokens, install doctor",
+      "mtime": 1781187670.4378598
+    },
+    {
+      "path": "docs/bulk-create/2026-06-11-2-sprint-reporting-analytics.md",
+      "sha256": "c2df23da89213346f447602f4169f21fe95d22e395f3c930bd3f042862d4ee44",
+      "heading": "# Sprint finish reconciliation, logs detail, real analytics, sprint briefs",
+      "mtime": 1781187670.4382606
+    },
+    {
+      "path": "docs/bulk-create/2026-06-11-3-roadmap-milestones.md",
+      "sha256": "b790a595e1db6a44fae32a8e6cd657b041e808c868dd0ac574c2bdc137d5d0b9",
+      "heading": "# Roadmap phase 1 \u2014 GitHub-native milestones + Roadmap tab",
+      "mtime": 1781187670.4383247
+    },
+    {
+      "path": "docs/bulk-create/2026-06-11-4-sprint-planner-signoff.md",
+      "sha256": "075b300dbb46b19658168c075580271526bcf9bd889c1cce4b61c5016b0645af",
+      "heading": "# Roadmap phase 2 \u2014 sprint planner, sign-off, scheduled night runs",
+      "mtime": 1781187670.438389
+    },
+    {
+      "path": "docs/bulk-create/2026-06-11-5-advisor.md",
+      "sha256": "a9feb498fbff31cb3e2acf5501ca80c415e022d368ea94d488915811830b5cff",
+      "heading": "# Roadmap phase 3 \u2014 advisor: suggest what to build next",
+      "mtime": 1781187670.438451
+    },
+    {
+      "path": "docs/bulk-create/2026-06-11-6-test-suite-rehab.md",
+      "sha256": "90aabc863dba28c67aa1c216e34d5ac5e207124f60d456a6b9ec41aa96d4f670",
+      "heading": "# Test suite rehabilitation \u2014 hang, 64 failures, timeout guard",
+      "mtime": 1781187670.4385076
+    },
+    {
+      "path": "docs/bulk-create/2026-06-11-7-vector-search-real-milvus.md",
+      "sha256": "498ca75489e41030ccfa09648933d820f57325baf21777b632fe29281028b994",
+      "heading": "# vector-search-demo \u2014 wire real Milvus backend",
+      "mtime": 1781187670.438576
+    },
+    {
+      "path": "docs/bulk-create/2026-06-13-1-run-start-completeness-guard.md",
+      "sha256": "f01d32650f58bf282dd4ebed6ab25039c07a36aa49fa7506747e967a05fb86d2",
+      "heading": "# Run-start ticket-set completeness guard",
+      "mtime": 1781519524.7644095
+    },
+    {
+      "path": "docs/bulk-create/2026-06-15-1-monolith-decomposition.md",
+      "sha256": "36a04fea6fa6aa0e55c1bd86bc459ca520a6b11272382b4033cf593b723f35d3",
+      "heading": "# Monolith decomposition \u2014 server.py + sprint_manager.py",
+      "mtime": 1781620581.3099685
+    },
+    {
+      "path": "docs/bulk-create/2026-06-15-2-mobile-responsive.md",
+      "sha256": "29bdcb233b522320750d1bc1a0c5e521824168f8af2ec74de52ac252b56c5773",
+      "heading": "# Mobile responsive pass \u2014 five core screens",
+      "mtime": 1781620581.310122
+    },
+    {
+      "path": "docs/bulk-create/2026-06-15-3-source-of-truth-neon-decision.md",
+      "sha256": "b4a65b0aefcc7515e657ef57b28abb0494283d8c90b28267ba6c52a4930cca64",
+      "heading": "# Source of truth \u2014 finish SQLite path (Neon stays export-only)",
+      "mtime": 1781620581.3102403
+    },
+    {
+      "path": "docs/bulk-create/2026-06-17-1-calibration-analytics-fix.md",
+      "sha256": "4cebfa6a9e01657800cffb3574d4ca6839a50ccb2195e933c771edd7acd54f37",
+      "heading": "# Calibration analytics fix \u2014 size resolution, cache rebuild, live refresh",
+      "mtime": 1785473545.9569046
+    },
+    {
+      "path": "docs/bulk-create/2026-06-20-1-sprint-speed-phases.md",
+      "sha256": "6b5bba772070cb21d80c4616617d5d34490df25d3ed76871fd5a0e3866c03010",
+      "heading": "# Sprint speed \u2014 Phase 1 runner, Phase 2 concurrent engine, Phase 3 plan fixes",
+      "mtime": 1782031801.9794035
+    },
+    {
+      "path": "docs/bulk-create/2026-06-21-1-composite-sprint-project-key.md",
+      "sha256": "214c83017f5d4d3c1094a6fdae7dd7e04a8d2c03bd9cd11bce61de187530e033",
+      "heading": "# Composite (label, project) key for the sprints lifecycle table",
+      "mtime": 1782040511.6547008
+    },
+    {
+      "path": "docs/bulk-create/2026-06-21-2-planning-definition-of-ready.md",
+      "sha256": "dc9dea3e69aabd8719e94ae3bbd1840174c1afac7e02c78d69521cdea4624a51",
+      "heading": "# Planning = Definition of Ready (coder quality via specs + design context)",
+      "mtime": 1785473545.9570825
+    },
+    {
+      "path": "docs/bulk-create/2026-06-21-3-dashboard-quick-wins.md",
+      "sha256": "3a223c5ccdd40ec4e056275cc1e88dddb7d8b00174e0286e0c628bcca8febd74",
+      "heading": "# Dashboard quick-wins \u2014 visual, low-logic UX batch",
+      "mtime": 1785473545.9572394
+    },
+    {
+      "path": "docs/bulk-create/2026-06-29-1-board-aggregate-api.md",
+      "sha256": "245110a265c581c5cdcc851d53d49db35472fc9f482493bf5b806620a69a9376",
+      "heading": "# Board tab \u2014 single aggregate API refactor",
+      "mtime": 1783321583.570844
+    },
+    {
+      "path": "docs/bulk-create/2026-06-29-2-running-history-aggregate.md",
+      "sha256": "3bc90e9b42edf50f75dc4628122d0a2bbe7d340208a0b4c09b8a4bbda6f88c4e",
+      "heading": "# Running + History tabs \u2014 aggregate API refactor (sprint 2)",
+      "mtime": 1783321583.57101
+    },
+    {
+      "path": "docs/bulk-create/2026-07-02-1-p1-critical-bugs.md",
+      "sha256": "d2827719ddc597d4f1c809409f01a6e8aa6ca93e02f279b2ce35c64c1a531c20",
+      "heading": "# P1 Critical Bugs \u2014 Broken Features, DB Poisoning, Sprint Deadlock",
+      "mtime": 1783321583.5711727
+    },
+    {
+      "path": "docs/bulk-create/2026-07-02-2-p2-backend-orchestrator-bugs.md",
+      "sha256": "c9d60214f2976b0a44ef918b6a1c8ff70cebd58fec376be749a80ceb117f4d61",
+      "heading": "# P2 Backend & Orchestrator Bugs \u2014 Races, Scoping, Sync Waste",
+      "mtime": 1783321583.5713334
+    },
+    {
+      "path": "docs/bulk-create/2026-07-02-3-p2-scripts-hooks-frontend-bugs.md",
+      "sha256": "dae2652196b23e373f0166718d73023e126a7100540919711d978300d57079b8",
+      "heading": "# P2 Scripts, Hooks & Frontend Bugs",
+      "mtime": 1783321583.5714915
+    },
+    {
+      "path": "docs/bulk-create/2026-07-03-1-dead-code-purge.md",
+      "sha256": "a152a0433af402404cf2ab471a99f3e799790e8e8617e6c3b79433577ac6b44c",
+      "heading": "# Dead Code & Dead Endpoint Purge",
+      "mtime": 1783528140.3760743
+    },
+    {
+      "path": "docs/bulk-create/2026-07-03-2-frontend-call-reduction.md",
+      "sha256": "f02dbde3cbd0fac9971e9f8cf91ccd9f27981bcf6e66d747dcfa0a4876b976c4",
+      "heading": "# Frontend API-Call Reduction \u2014 Polling, Timers, N+1",
+      "mtime": 1783528140.377609
+    },
+    {
+      "path": "docs/bulk-create/2026-07-03-3-github-mirror-routing.md",
+      "sha256": "0efdad14307cb48e54e0f37072d089a4406125f5cca843672733b9d2fba8b7a3",
+      "heading": "# GitHub API Quota \u2014 Route Bypass Call Sites Through the Mirror",
+      "mtime": 1783528140.3779242
+    },
+    {
+      "path": "docs/bulk-create/2026-07-03-4-aggregate-coherence.md",
+      "sha256": "9c5a5b861b37c7066abdab7c51de980ec9ad48f0a69bdc625e538c07d061c4f6",
+      "heading": "# Aggregate Coherence \u2014 Invalidation Push, Shared Cache, Observability, Flag Cutover",
+      "mtime": 1783528140.3785386
+    },
+    {
+      "path": "docs/bulk-create/2026-07-03-5-mobile-nav-modals.md",
+      "sha256": "d00a75fe22462e9469f3c2638a8059d6d8b8528f113a48c1c93d87cbed488153",
+      "heading": "# Mobile Compatibility \u2014 Nav Tab Strip, Sprint/Deploy/Settings Reach, Modal Overflow",
+      "mtime": 1783528140.379471
+    },
+    {
+      "path": "docs/bulk-create/2026-frontend-first.md",
+      "sha256": "5592b3c15ebe5dd9e907f9b19ffa0c9d84424e0b7413d6cdf08742b8d970608d",
+      "heading": "# Commander Frontend-First Milestone \u2014 Bulk-Create Backlog",
+      "mtime": 1781005612.8534064
+    },
+    {
+      "path": "docs/bulk-create/2026-sprint-runner-enhancements.md",
+      "sha256": "10a6da48d358fd110efac1e69fd74876172495920c698201791271ecd8b57b03",
+      "heading": "# Commander Sprint-Management & Runner Enhancements \u2014 Bulk-Create Backlog",
+      "mtime": 1781005612.8536034
+    },
+    {
+      "path": "docs/bulk-create/README.md",
+      "sha256": "89eccc6017f44a392c4009fd1de4bd35125d9f2a6aa523cce0890aa11a4a6587",
+      "heading": "# Bulk Create \u2014 Prompt & Output Record",
+      "mtime": 1783321583.5725775
+    },
+    {
+      "path": "docs/changelog/prd/2026-05-25-sprint-5.md",
+      "sha256": "d76b0567e9c9b963c44a4dc2aeef1f13a9141d9a1edc5bd5fe72c472019463d8",
+      "heading": "# PRD Changelog \u2014 Sprint 5 (2026-05-25)",
+      "mtime": 1779887570.3136735
+    },
+    {
+      "path": "docs/changelog/prd/2026-05-27-sprint-99.md",
+      "sha256": "02b5ba3fdb305c7637e52529c7fdd63f6a8ebf43bb68ee119b5e02acdcfd455e",
+      "heading": "# PRD Changelog \u2014 Sprint 99 (2026-05-27)",
+      "mtime": 1779887570.3137283
+    },
+    {
+      "path": "docs/changelog/prd/2026-06-14-hotfix-board-history-running-ux.md",
+      "sha256": "8d9675c719f4d6a4db33f78fe5dba8913728148628e573329a0de009c910b58a",
+      "heading": "# PRD Changelog \u2014 Hotfix: board-history-running-ux (2026-06-14)",
+      "mtime": 1781510849.0151777
+    },
+    {
+      "path": "docs/changelog/prd/_template.md",
+      "sha256": "a8145d47247859d9a13a5f0bdad5cd199f668253895934958a75d916acd76501",
+      "heading": "# PRD Changelog \u2014 Sprint N (YYYY-MM-DD)",
+      "mtime": 1779887570.3139024
+    },
+    {
+      "path": "docs/changelog/uat/2026-05-26-sprint-6.md",
+      "sha256": "2281208df1c25fc2b3f6be40aa686e5218646e7582ac3cd3ec8ff53a8667160e",
+      "heading": "# UAT Changelog \u2014 Sprint 6 (2026-05-26)",
+      "mtime": 1779887570.3148084
+    },
+    {
+      "path": "docs/changelog/uat/2026-05-28-sprint-16.md",
+      "sha256": "fd929c02b968d7a5bef2b50ca09588791d9fb5da9def91b4332396f8e9f541c2",
+      "heading": "# UAT Changelog \u2014 Sprint 16 (2026-05-28)",
+      "mtime": 1779934832.0228963
+    },
+    {
+      "path": "docs/changelog/uat/2026-05-28-sprint-20.md",
+      "sha256": "0333088948d243451f6b3aa8ae233447da4fb39cfd2b7ddd33ac633b4eba0772",
+      "heading": "# UAT Changelog \u2014 Sprint 20 (2026-05-28)",
+      "mtime": 1779982971.2058601
+    },
+    {
+      "path": "docs/changelog/uat/2026-05-29-sprint-22.md",
+      "sha256": "521e6fe3ec8a21f741dfff7a8ea85bb5edab1a8030295833496e71fd2bb4da03",
+      "heading": "# UAT Changelog \u2014 Sprint 22 (2026-05-29)",
+      "mtime": 1780065470.9507022
+    },
+    {
+      "path": "docs/changelog/uat/_template.md",
+      "sha256": "02a6a9268785eaa2e5bb70c79a77edd39188bd574f608a489360b812143357e2",
+      "heading": "# UAT Changelog \u2014 Sprint N (YYYY-MM-DD)",
+      "mtime": 1779887570.3149328
+    },
+    {
+      "path": "docs/commander-workflow.excalidraw",
+      "sha256": "62e3488670ffb9f72f5b56a0cf60a0c56f82406c50953f865a2f4a20956c6632",
+      "heading": "",
+      "mtime": 1779681381.0343046
+    },
+    {
+      "path": "docs/decisions/2026-07-02-1-delete-planned-state-and-signoff.md",
+      "sha256": "d42afc2413c6cda1b65b29c8e64b7b7393d643a4c67a67326330d44ebf6f3bbc",
+      "heading": "# 2026-07-02-1-delete-planned-state-and-signoff",
+      "mtime": 1785474714.4211564
+    },
+    {
+      "path": "docs/decisions/2026-07-02-10-close-without-uat-is-waive.md",
+      "sha256": "b489cfbdddb9372a37651908ca7559154790647f01acd8489268cdd3f217f8e8",
+      "heading": "# 2026-07-02-10-close-without-uat-is-waive",
+      "mtime": 1785474714.421396
+    },
+    {
+      "path": "docs/decisions/2026-07-02-11-reconcile-ttl-and-cursor.md",
+      "sha256": "5421ff385c8993767624821f20282f5afab54d449d8e53cf7e7454dda5a1bee5",
+      "heading": "# 2026-07-02-11-reconcile-ttl-and-cursor",
+      "mtime": 1785474714.4216895
+    },
+    {
+      "path": "docs/decisions/2026-07-02-12-delete-lineage-fully-in-develop.md",
+      "sha256": "b49e63e1643417aea798cd8384b938eaea943a021500556bdfc55c0e3a3ac2b6",
+      "heading": "# 2026-07-02-12-delete-lineage-fully-in-develop",
+      "mtime": 1785474714.4220097
+    },
+    {
+      "path": "docs/decisions/2026-07-02-13-neon-export-only-docstrings.md",
+      "sha256": "a5fba6a742c419e019604c2cc2a2fb6c5eecdfdbe39ccf485332ea70fcc6c71c",
+      "heading": "# 2026-07-02-13-neon-export-only-docstrings",
+      "mtime": 1785474714.4221346
+    },
+    {
+      "path": "docs/decisions/2026-07-02-2-merge-sprint-rework-soft-guard.md",
+      "sha256": "c7ee10fe19bf93b6b40f6adea44cd2ffdd844ceed3bd05900b2e3f3eee081b7e",
+      "heading": "# 2026-07-02-2-merge-sprint-rework-soft-guard",
+      "mtime": 1785474714.4222925
+    },
+    {
+      "path": "docs/decisions/2026-07-02-3-sweep-auto-settle-confirmed-orphans.md",
+      "sha256": "c4fa2cbb85573b8115281784f2b0a43eb817f44423c51dad12ee9c507e61af0d",
+      "heading": "# 2026-07-02-3-sweep-auto-settle-confirmed-orphans",
+      "mtime": 1785474714.4224167
+    },
+    {
+      "path": "docs/decisions/2026-07-02-4-consolidate-lineage-into-db.md",
+      "sha256": "9cb4a649a9fa4e74eb46e9a51ac9301470a2282bcca8ae41d3a5269f0e08e6ee",
+      "heading": "# 2026-07-02-4-consolidate-lineage-into-db",
+      "mtime": 1786517295.4795713
+    },
+    {
+      "path": "docs/decisions/2026-07-02-5-delete-duplicate-lifecycle-accessor.md",
+      "sha256": "5306e894251e78b4406b27deae33512440e3fabecb3ec85e9145bbbc898ff6d5",
+      "heading": "# 2026-07-02-5-delete-duplicate-lifecycle-accessor",
+      "mtime": 1785474714.4226747
+    },
+    {
+      "path": "docs/decisions/2026-07-02-6-draft-db-row-at-create.md",
+      "sha256": "db0fa4ea76a54945504d3c0b3b6a81fed6aa615a8ecf3b8839de7a22bf16d21e",
+      "heading": "# 2026-07-02-6-draft-db-row-at-create",
+      "mtime": 1785474714.422986
+    },
+    {
+      "path": "docs/decisions/2026-07-02-7-sqlite-wal-busy-timeout.md",
+      "sha256": "9627398ad5dbe1c12aa8d2a2ffe3327fe3d30aa4ce2e6ac04f6f2b8b8886a9ef",
+      "heading": "# 2026-07-02-7-sqlite-wal-busy-timeout",
+      "mtime": 1785474714.4231095
+    },
+    {
+      "path": "docs/decisions/2026-07-02-8-unify-run-lock-sentinel.md",
+      "sha256": "17271b4a00de3970a49a16dbb09fc56f7661d241a9c939f62c45e340e25da828",
+      "heading": "# 2026-07-02-8-unify-run-lock-sentinel",
+      "mtime": 1785474714.4232302
+    },
+    {
+      "path": "docs/decisions/2026-07-02-9-bless-disk-fallbacks.md",
+      "sha256": "e24ceeda49b5b5abb3d006e58aa731444f7c6ac168e4966aa8e91ea9fedfa5a6",
+      "heading": "# 2026-07-02-9-bless-disk-fallbacks",
+      "mtime": 1785474714.4233522
+    },
+    {
+      "path": "docs/decisions/2026-08-01-1-delete-roadmap-and-advisor.md",
+      "sha256": "8d6d031c148ecc7daeae3710576df6def27f479631531b90d123b98de2b6b62c",
+      "heading": "# 2026-08-01-1-delete-roadmap-and-advisor",
+      "mtime": 1786517295.4796293
+    },
+    {
+      "path": "docs/decisions/README.md",
+      "sha256": "2d8e1102ad91310b0fccd03c0243b8a20395e2e1dd8d112ce12537050b9a475a",
+      "heading": "# Decisions",
+      "mtime": 1786517295.4797156
+    },
+    {
+      "path": "docs/decisions/TEMPLATE.md",
+      "sha256": "24d354dd00ac8f26e1f9546feab3714a62695866583faa080a1b507dddafd8ab",
+      "heading": "# YYYY-MM-DD-N-slug",
+      "mtime": 1785474714.423707
+    },
+    {
+      "path": "docs/deck-urls.md",
+      "sha256": "e46a86c06e03cd896d034903e972196e591a17164bc26a6feae26608dcbff193",
+      "heading": "# Deck deep-link URLs",
+      "mtime": 1781369282.5940998
+    },
+    {
+      "path": "docs/features/README.md",
+      "sha256": "1ad9aacc7a00179df4490acef798f5dd455f6a8d012c2d71d802303165117820",
+      "heading": "# Features",
+      "mtime": 1781510849.0153143
+    },
+    {
+      "path": "docs/features/agent-skills.md",
+      "sha256": "ec1f9f6628a7e359a3fd48832a935056515b84bc3bd1a1700dff6fac72e67145",
+      "heading": "# Agent skills \u2014 caveman & code-review-graph",
+      "mtime": 1781314409.5450299
+    },
+    {
+      "path": "docs/features/api.md",
+      "sha256": "086d788e9dfa524f07a820ac53ad28e57289cacb7c1acc4d1933024d57187aea",
+      "heading": "# API Reference",
+      "mtime": 1786517295.480215
+    },
+    {
+      "path": "docs/features/coder-backends.md",
+      "sha256": "36b9b78848e3d03e014de589ba2ca1c8df1fab873dc91e02cbddfabcc7505f77",
+      "heading": "# Coder backends (Claude Code vs Cline)",
+      "mtime": 1781527103.049264
+    },
+    {
+      "path": "docs/features/dashboard.md",
+      "sha256": "5b533ff76d1065f4f81564bfd69a225f6d69cf96f5d9958288e9332b98796a36",
+      "heading": "# Dashboard",
+      "mtime": 1781575702.687576
+    },
+    {
+      "path": "docs/features/estimation-lifecycle.md",
+      "sha256": "70aef45f3dbf7b501607bf725390457f7b6011c4210f93b652d2c059a882d4ba",
+      "heading": "# Estimation Lifecycle",
+      "mtime": 1781754730.6583197
+    },
+    {
+      "path": "docs/features/flow.png",
+      "sha256": "6237d2258542e3b8f4d35ad8559ce76be3305475d2305dc06a4625e6ce6d7d80",
+      "heading": "",
+      "mtime": 1779887570.3170989
+    },
+    {
+      "path": "docs/features/sprint-manager.md",
+      "sha256": "18caa270bb76c63fba8569ffb2333e4b159ad1a8445e9c19ea83fc7723a3b99a",
+      "heading": "# Sprint Manager",
+      "mtime": 1781510849.015741
+    },
+    {
+      "path": "docs/impeccable-detect-baseline.md",
+      "sha256": "4286eb2d053c88d14b38a0ebc14ed827868a43d8341295c55d0dd268a08b3ed0",
+      "heading": "# Impeccable Detect \u2014 Gate Pass-Rate Baseline",
+      "mtime": 1781057680.9177914
+    },
+    {
+      "path": "docs/inspiration/sprint-planning-view-v1.png",
+      "sha256": "c93ffb1f5904f6e61ba3d382490371efe3431d82c1ce4eeadc8dde7f68779ea2",
+      "heading": "",
+      "mtime": 1779681381.034956
+    },
+    {
+      "path": "docs/inspiration/sprint-review-summary-v2.png",
+      "sha256": "e6cd4064fe73d9c412889ec3769929b5de9b323d346c103312a06ca602349e65",
+      "heading": "",
+      "mtime": 1779681381.0355146
+    },
+    {
+      "path": "docs/inspiration/sprint-working-view-v2.png",
+      "sha256": "eee6178be4fbc3464b6084c6fc25169b22d0fc76582be9686b06682897ade379",
+      "heading": "",
+      "mtime": 1779681381.0359304
+    },
+    {
+      "path": "docs/logging-schema.md",
+      "sha256": "659858502301636914dea21bd6d57014d96e0f474fff4d18a0cd2eb9c36a9dbb",
+      "heading": "# Commander Logging Schema",
+      "mtime": 1781158480.4324126
+    },
+    {
+      "path": "docs/machine-onboarding.md",
+      "sha256": "8d57de892cc4fa48b5c0b0034157e79373df7f02ad350f5bc006247f2560cfe3",
+      "heading": "# Machine Onboarding Runbook",
+      "mtime": 1781527103.0504708
+    },
+    {
+      "path": "docs/milestones/board-aggregate-api.md",
+      "sha256": "30be5134ff4f927a62e2aac56ae9cf02240831092d7005490534b63f65a24672",
+      "heading": "# Milestone: Board tab \u2014 single aggregate API",
+      "mtime": 1783826480.6122632
+    },
+    {
+      "path": "docs/milestones/commander-shrink-2026-08.md",
+      "sha256": "4044728b13e85a185536ca1e201c50425087bd6e78f1a5c2f87cf7ee64846944",
+      "heading": "# Commander Shrink \u2014 2026-08",
+      "mtime": 1786521141.6961188
+    },
+    {
+      "path": "docs/milestones/post-lifecycle-backlog.md",
+      "sha256": "a8ba0df1aadce574cf352a19541bda70df11647e0741c2092a51bcfd47cba4d5",
+      "heading": "# Milestone \u2014 Post-Lifecycle Backlog",
+      "mtime": 1781510849.0158567
+    },
+    {
+      "path": "docs/milestones/sprint-lifecycle-redesign.md",
+      "sha256": "b63c621138d7cff1bcb68f344bf6cadf367595fe1d1998ef4fce9b59043fcd82",
+      "heading": "# Milestone \u2014 Sprint Lifecycle Redesign",
+      "mtime": 1781514461.272193
+    },
+    {
+      "path": "docs/quickstart.md",
+      "sha256": "62b4fd2d2c27ff1a995cc30a34af8bb0774495feba5048ee4cc84ead5cd6702a",
+      "heading": "# Quick Start",
+      "mtime": 1781510849.0161521
+    },
+    {
+      "path": "docs/runbook-db-recovery.md",
+      "sha256": "c01b7991aa1539afa805e9857b5550a4da84424b29a38b10efe53c0f2e0e156f",
+      "heading": "# Runbook: commander.db Recovery",
+      "mtime": 1786517295.4805079
+    },
+    {
+      "path": "docs/runbook.md",
+      "sha256": "948664da128df57f848b3b52db648aa4c3a3317259d13a8d9c0af122aea08b67",
+      "heading": "# Commander Operations Runbook",
+      "mtime": 1781105767.0563006
+    },
+    {
+      "path": "docs/smoke-tests/sprint-drag.md",
+      "sha256": "e8cc761d127db9c5f7e58ccd07d70f0958348931d2736b028f120ccb65588e52",
+      "heading": "# Sprint board drag-and-drop smoke tests",
+      "mtime": 1780886677.5406556
+    },
+    {
+      "path": "docs/testing/sandbox-repo.md",
+      "sha256": "90fe2c36a153582ec38ecac464cd8de3e18a26d06abb0e87fec598246c659d68",
+      "heading": "# Sandbox Repo for Tester Isolation",
+      "mtime": 1779887570.3176613
+    },
+    {
+      "path": "docs/todo.md",
+      "sha256": "4368df39c6ad10b99d21cec9892a0726a41e0bfb682c8b49acfde6b23cf89a88",
+      "heading": "# TODO (formerly milestones.md)",
+      "mtime": 1786517295.4811528
+    },
+    {
+      "path": "docs/tutorial.md",
+      "sha256": "fc64ecf5e12aa08b97f6a7b2b0275a1d5c37b7bbe9d86e32a8c3fc8eddde3889",
+      "heading": "# Commander platform \u2014 usage tutorial",
+      "mtime": 1781754730.658581
+    },
+    {
+      "path": "docs/workflow.md",
+      "sha256": "3a74e8e94aab91c2fee3c1b0e02f7cf7fb40dccfe69ed788f763ae48849c3392",
+      "heading": "# Workflow",
+      "mtime": 1781510849.0165477
+    }
+  ]
+}
