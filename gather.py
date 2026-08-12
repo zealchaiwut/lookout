@@ -97,34 +97,41 @@ def _first_heading(path: Path) -> str:
     return ""
 
 
+_OPEN_LIMIT = 500   # generous ceiling; open sets are bounded in practice
+_CLOSED_LIMIT = 200  # documented ceiling for closed items
+
+
+def _gh_list(resource: str, slug: str, state: str, fields: str, limit: int) -> list:
+    """Run one gh <resource> list call and return parsed JSON (empty list on failure)."""
+    result = subprocess.run(
+        ["gh", resource, "list", "--repo", slug, "--state", state,
+         "--json", fields, "--limit", str(limit)],
+        capture_output=True, text=True,
+    )
+    if result.returncode == 0 and result.stdout.strip():
+        return json.loads(result.stdout)
+    return []
+
+
 def _collect_gh(slug: str, out_dir: Path) -> dict:
     """Write issues.json from gh issue list + gh pr list.
+
+    Open and closed items are fetched with independent limits so a large
+    closed set cannot crowd out open issues. Closed limit is _CLOSED_LIMIT;
+    open limit is _OPEN_LIMIT (effectively unbounded for real repos).
 
     Returns a sources entry dict.
     """
     try:
         _fields = "number,title,state,labels,assignees,createdAt,updatedAt"
-        issue_result = subprocess.run(
-            ["gh", "issue", "list", "--repo", slug, "--state", "all", "--json",
-             _fields, "--limit", "100"],
-            capture_output=True, text=True,
-        )
-        pr_result = subprocess.run(
-            ["gh", "pr", "list", "--repo", slug, "--state", "all", "--json",
-             _fields, "--limit", "100"],
-            capture_output=True, text=True,
-        )
 
-        issues = (
-            json.loads(issue_result.stdout)
-            if issue_result.returncode == 0 and issue_result.stdout.strip()
-            else []
-        )
-        prs = (
-            json.loads(pr_result.stdout)
-            if pr_result.returncode == 0 and pr_result.stdout.strip()
-            else []
-        )
+        open_issues = _gh_list("issue", slug, "open", _fields, _OPEN_LIMIT)
+        closed_issues = _gh_list("issue", slug, "closed", _fields, _CLOSED_LIMIT)
+        issues = open_issues + closed_issues
+
+        open_prs = _gh_list("pr", slug, "open", _fields, _OPEN_LIMIT)
+        closed_prs = _gh_list("pr", slug, "closed", _fields, _CLOSED_LIMIT)
+        prs = open_prs + closed_prs
 
         payload = {"issues": issues, "prs": prs}
         with open(out_dir / "issues.json", "w") as fh:
