@@ -1,0 +1,49 @@
+=== branch ===
+develop
+
+=== log ===
+9aea19a0 docs: add commander shrink plan for sprints 1021-1025
+3c422aa9 Merge pull request #2223 from zealchaiwut/sprint/sprint-1020
+de7779a7 sync develop into sprint/sprint-1020 (resolve doc and union conflicts)
+24bbc16c Merge pull request #2222 from zealchaiwut/sprint/sprint-1020.1
+0b3bf33b Merge pull request #2219 from zealchaiwut/sprint/sprint-1020.2
+163f3d1f docs: generate code-state snapshot for sprint-1020.2
+f76b2858 docs: auto-update from sprint-sprint-1020.2 diff
+1ad3f9fa Merge feature/2162-follow-up-2049-test-re-introduces-source into sprint/sprint-1020.2 (issue #2162)
+364d8984 Merge feature/2181-follow-up-2158-css-dedup-test-verifies-s into sprint/sprint-1020.2 (issue #2181)
+a0e56f6f style: apply prettier formatting to css-dedup-fbox-2158.test.mjs (issue #2181)
+844da7dd fix: move sanctioned #1746 exception doc to CLAUDE.md, revert grading test (issue #2181)
+6d5ecf87 feat: document sanctioned #1746 exception for CSS dedup test, add Node.js structural test (issue #2181)
+877e5f4d Merge feature/2189-follow-up-2018-ac2-test-asserts-in-conft into sprint/sprint-1020.2 (issue #2189)
+0510d733 test: add acceptance criteria tests for #2189 (strengthen conftest 1760 comment assertion)
+8fd5b456 fix: strengthen AC2 comment assertion to check rationale keywords, not just '#' (issue #2189)
+96e31eb2 Merge feature/2190-follow-up-2005-ac5-test-matches-test-fun into sprint/sprint-1020.2 (issue #2190)
+f6752e51 fix: replace brittle test-name stdout assertions with returncode check (issue #2190)
+3fb2ab81 Merge pull request #2216 from zealchaiwut/sprint/sprint-89113
+90251854 Merge pull request #2215 from zealchaiwut/sprint/sprint-89113.1
+970868b8 docs: generate code-state snapshot for sprint-89113.1
+17da66e2 Merge feature/2182-follow-up-2158-test-ac2-history-card-med into sprint/sprint-89113.1 (issue #2182)
+bd2a832f test: add behavioral TDD tests for AC1-AC4 of guard fix (issue #2182)
+05b56651 fix: guard against vacuous pass in test_ac2_history_card_media_block_has_no_fbox_rule (issue #2182)
+4b344894 docs: generate code-state snapshot for sprint-1020
+4111c1dd docs: auto-update from sprint-sprint-1020 diff
+dca59a59 Merge feature/2173-follow-up-extract-triplicated-db-import- into sprint/sprint-1020 (issue #2173)
+20b0b092 feat: extract triplicated db-import shim into _handle_disk_io helper (issue #2173)
+90762340 fix: add #1746 exception comments to source-text tests in #2049 suite (issue #2162)
+eaf3c788 Merge feature/2014-follow-up-remove-duplicate-local-backup- into sprint/sprint-1020 (issue #2014)
+c14009a4 style: remove unused pytest import from test file (issue #2014)
+
+=== status ===
+?? apps/dashboard/commander.db.bak-20260621-182552
+?? apps/dashboard/commander.db.bak-20260622-092517
+?? apps/dashboard/commander.db.corrupt-20260731
+?? apps/dashboard/commander.db.corrupt-20260731-shm
+?? apps/dashboard/commander.db.corrupt-20260731-wal
+?? apps/dashboard/prd.log.1
+?? apps/dashboard/prd.log.2
+?? apps/dashboard/prd.log.3
+?? apps/dashboard/prd.log.4
+?? apps/dashboard/prd.log.5
+?? docs/bulk-create/2026-06-17-1-calibration-analytics-fix.md
+?? docs/bulk-create/2026-06-21-2-planning-definition-of-ready.md
+?? docs/bulk-create/2026-06-21-3-dashboard-quick-wins.md
