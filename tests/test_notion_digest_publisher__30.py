@@ -16,7 +16,7 @@ PUBLISH_SCRIPT = REPO_ROOT / "scripts" / "publish_digest.py"
 VAULT_INDEX = REPO_ROOT / "vault" / "index.md"
 IDEAS_INDEX = REPO_ROOT / "vault" / "ideas" / "index.md"
 TARGETS_YAML = REPO_ROOT / "targets.yaml"
-PLIST_PATH = REPO_ROOT / "launchd" / "com.zealchaiwut.lookout-digest.plist"
+PLIST_PATH = REPO_ROOT / "launchd" / "com.zealchaiwut.lookout-digest.plist.template"
 
 _PYTHON = sys.executable
 

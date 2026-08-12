@@ -74,9 +74,17 @@ and prints a status summary. Exit code is non-zero if any target failed.
 Install the launchd job (fires 06:15 local, `StartOnMount` for wake catch-up):
 
 ```bash
-scripts/install.sh          # idempotent
-launchctl list | grep lookout
+scripts/install.sh                 # idempotent; nightly sweep
+scripts/install.sh --with-digest   # also the weekly Notion digest
+scripts/install.sh --uninstall     # remove both
+launchctl list | grep lookout      # col 2 is the last exit code
 ```
+
+The plists under `launchd/` are **templates** — `install.sh` substitutes the
+repo path, interpreter, and PATH for the installing machine. Do not copy them
+into `~/Library/LaunchAgents/` by hand. The PATH substitution is required:
+launchd's default PATH has no `gh`, so a run would collect zero GitHub issues
+and still report success. See [docs/pipeline.md](docs/pipeline.md#nightly-job).
 
 If a run is interrupted while holding the lock:
 
@@ -89,7 +97,7 @@ The nightly sweep is deterministic — it spends no tokens. See
 
 ### Environment
 
-The plist sources `~/dev/lookout/.env` before invoking the runner:
+The job sources `<repo>/.env` before invoking the runner:
 
 ```bash
 GITHUB_TOKEN=...
@@ -111,4 +119,4 @@ against the Claude.ai subscription.
 | sprint-5 | Fleet expansion — crux/viral-radar/asset-studio targets, capability map, `lookout pack`, discussion packs, lint hardening |
 | sprint-6 | Idea pipeline — note conventions and ledger, assessment pass, ship tracking, todo-view effort annotation |
 | sprint-7 | Hermes reader contract, vault inbox capture and promote, smoke contract validation |
-| — | Pipeline wiring (derive.py), endpoint collection, subscription-only LLM gate |
+| — | Pipeline wiring (derive.py), endpoint collection, subscription-only LLM gate, machine-independent launchd install |

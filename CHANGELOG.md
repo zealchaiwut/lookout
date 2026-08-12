@@ -34,6 +34,17 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
   and sprint labels name no vault page and render as plain text.
 - Recognise the `| **Feature** | … |` README table form in `atlas_seed`;
   commander seeded 0 features and now seeds 38.
+- Make the launchd plists machine-independent. They hardcoded
+  `/Users/zeal-server/dev/lookout/.commander/runtime/worktree-pool/slot-0` — a
+  specific user and a transient Commander worktree slot — so the nightly job
+  could not run on any other machine. They are now templates rendered by
+  `scripts/install.sh`, which also gained `--with-digest` and `--uninstall`.
+- Set PATH explicitly in the launchd jobs. launchd's default
+  `/usr/bin:/bin:/usr/sbin:/sbin` has no `gh` and no `claude`, so a sweep
+  collected zero GitHub issues and silently skipped every LLM call while still
+  reporting success for all five targets.
+- Record a `github` source entry in `manifest.json`. `gather()` discarded
+  `_collect_gh`'s result, so that failure left no trace anywhere.
 - New docs: `docs/pipeline.md` (stage table and run order), `docs/llm-usage.md`.
   `PRODUCT.md`, `DESIGN.md`, `docs/architecture.md`, and `README.md` rewritten
   from scaffold placeholders.

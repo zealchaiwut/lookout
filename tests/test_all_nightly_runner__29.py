@@ -14,7 +14,7 @@ import yaml
 REPO_ROOT = Path(__file__).parent.parent
 BIN_LOOKOUT = REPO_ROOT / "bin" / "lookout"
 TARGETS_YAML = REPO_ROOT / "targets.yaml"
-PLIST_PATH = REPO_ROOT / "launchd" / "com.zealchaiwut.lookout-all.plist"
+PLIST_PATH = REPO_ROOT / "launchd" / "com.zealchaiwut.lookout-all.plist.template"
 INSTALL_SCRIPT = REPO_ROOT / "scripts" / "install.sh"
 README_PATH = REPO_ROOT / "README.md"
 

@@ -660,7 +660,15 @@ def gather(target_name):
 
     # Local collectors — output files absent on failure
     if github_slug:
-        _collect_gh(github_slug, out_dir)
+        # The result was previously discarded, so a `gh` failure left no trace:
+        # no issues.json, no source entry, and a run that still reported success.
+        # That is exactly what happens under launchd, whose minimal PATH has no
+        # `gh`. Record it so the failure is visible in the manifest.
+        gh_result = _collect_gh(github_slug, out_dir)
+        sources["github"] = {
+            "status": gh_result.get("status", "absent"),
+            "error": gh_result.get("error", ""),
+        }
 
     if local_path is not None:
         _collect_git(local_path, out_dir)

@@ -459,3 +459,85 @@ def test_targets_yaml_has_no_pytest_leftovers():
         assert "pytest-of-" not in str(cfg.get("local", "")), (
             f"target {name} points at a pytest tmp dir"
         )
+
+
+# ---------------------------------------------------------------------------
+# launchd — plist templates must not hardcode a machine
+# ---------------------------------------------------------------------------
+
+LAUNCHD_TEMPLATES = sorted((REPO_ROOT / "launchd").glob("*.plist.template"))
+
+
+def test_launchd_templates_exist():
+    assert LAUNCHD_TEMPLATES, "no plist templates found under launchd/"
+
+
+@pytest.mark.parametrize("template", LAUNCHD_TEMPLATES, ids=lambda p: p.name)
+def test_template_hardcodes_no_user_path(template):
+    """A plist that names a specific user only runs on one machine."""
+    text = template.read_text()
+    assert "/Users/" not in text, (
+        f"{template.name} hardcodes an absolute user path; use __REPO_ROOT__"
+    )
+
+
+@pytest.mark.parametrize("template", LAUNCHD_TEMPLATES, ids=lambda p: p.name)
+def test_template_does_not_reference_a_worktree_slot(template):
+    """Commander worktree-pool slots are transient and get recycled."""
+    assert "worktree-pool" not in template.read_text()
+
+
+@pytest.mark.parametrize("template", LAUNCHD_TEMPLATES, ids=lambda p: p.name)
+def test_template_sets_path_for_gh_and_claude(template):
+    """launchd's default PATH has no gh and no claude.
+
+    Without an explicit PATH a run collects zero GitHub issues and silently
+    skips every LLM call while still reporting success.
+    """
+    text = template.read_text()
+    assert "<key>PATH</key>" in text
+    assert "__PATH__" in text
+
+
+@pytest.mark.parametrize("template", LAUNCHD_TEMPLATES, ids=lambda p: p.name)
+def test_template_renders_to_valid_plist(tmp_path, template):
+    """Substituting every placeholder must yield a plist macOS accepts."""
+    import plistlib
+
+    rendered = (
+        template.read_text()
+        .replace("__REPO_ROOT__", "/tmp/lookout")
+        .replace("__PYTHON__", "/usr/bin/python3")
+        .replace("__PATH__", "/usr/bin:/bin")
+    )
+    assert "__" not in rendered.split("-->")[-1], "placeholder left unsubstituted"
+
+    out = tmp_path / "rendered.plist"
+    out.write_text(rendered)
+    parsed = plistlib.loads(out.read_bytes())
+    assert parsed["Label"].startswith("com.zealchaiwut.lookout")
+    assert parsed["WorkingDirectory"] == "/tmp/lookout"
+    assert parsed["EnvironmentVariables"]["PATH"] == "/usr/bin:/bin"
+
+
+def test_install_script_substitutes_every_placeholder():
+    """Each placeholder used in a template must have a sed rule in install.sh."""
+    import re
+
+    install = (REPO_ROOT / "scripts" / "install.sh").read_text()
+    used = set()
+    for template in LAUNCHD_TEMPLATES:
+        used |= set(re.findall(r"__[A-Z_]+__", template.read_text()))
+    missing = [p for p in sorted(used) if f"s|{p}|" not in install]
+    assert missing == [], f"install.sh has no substitution for: {missing}"
+
+
+def test_gather_records_a_github_source_entry():
+    """A gh failure must be visible in the manifest, not silent.
+
+    It was not: gather() discarded _collect_gh's result, so a run under
+    launchd (whose PATH has no gh) wrote no issues.json, recorded nothing,
+    and still reported success.
+    """
+    text = (REPO_ROOT / "gather.py").read_text()
+    assert 'sources["github"]' in text

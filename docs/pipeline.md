@@ -187,14 +187,55 @@ deterministic runs, so you pay for it once.
 
 ## Nightly job
 
-`launchd/com.zealchaiwut.lookout-all.plist` fires at 06:15 and runs
-`bin/lookout --all`. Install with `scripts/install.sh`.
+`com.zealchaiwut.lookout-all` fires at 06:15 and runs `bin/lookout --all`
+against the clone it was installed from.
 
-Two things to know about it:
+```bash
+scripts/install.sh                 # nightly sweep
+scripts/install.sh --with-digest   # also the weekly Notion digest
+scripts/install.sh --uninstall     # remove both
+launchctl list | grep lookout      # verify (col 2 = last exit code)
+launchctl kickstart -k gui/$(id -u)/com.zealchaiwut.lookout-all   # run now
+```
 
-- The plist hardcodes `/Users/zeal-server/dev/lookout/...` and points at
-  `.commander/runtime/worktree-pool/slot-0` — a Commander worktree slot, not a
-  stable clone. If that slot is recycled the job breaks silently.
-- The sweep is deterministic: `LOOKOUT_LLM` is not set in the plist, so no stage
-  spends tokens. Enrichment is a manual, per-target decision. See
-  [llm-usage.md](llm-usage.md).
+Logs land in `<repo>/logs/lookout-all.log` (gitignored).
+
+### The plists are templates
+
+`launchd/*.plist.template` carry `__REPO_ROOT__`, `__PYTHON__`, and `__PATH__`
+placeholders. `install.sh` substitutes them for the installing machine and
+writes the result to `~/Library/LaunchAgents/`. **Do not copy a template there
+by hand** — it is not a valid plist until rendered, and `install.sh` refuses to
+install one with a placeholder left in it.
+
+This is not incidental. The plists previously hardcoded
+`/Users/zeal-server/dev/lookout/.commander/runtime/worktree-pool/slot-0` — both
+a specific user and a transient Commander worktree slot — so the job could not
+run on any other machine and would break silently when the slot was recycled.
+
+### PATH is set explicitly, and it matters
+
+launchd starts jobs with `PATH=/usr/bin:/bin:/usr/sbin:/sbin`. That is enough
+for `git` (macOS ships a `/usr/bin/git` shim) but **not** for `gh` or `claude`,
+which normally live in `/opt/homebrew/bin` and `~/.local/bin`.
+
+Without an explicit PATH the failure is silent in the worst way: `_collect_gh`
+raises `FileNotFoundError`, no `issues.json` is written, and the run still
+reports **success** for every target. Situation notes lose their "What to do
+next" list and the ideas ledger loses issue titles, with nothing in the log
+saying why.
+
+`install.sh` resolves `gh`, `git`, and `claude` on the installing shell's PATH,
+bakes their directories into the job, and warns if any is missing. `gather` now
+also records a `github` entry in `manifest.json`, so a future PATH problem shows
+up as `"status": "absent"` instead of vanishing.
+
+**Check after installing:** `sources.github.status` should be `ok` in the newest
+`manifest.json`, and `issues.json` should exist in the snapshot.
+
+### The sweep is deterministic
+
+`LOOKOUT_LLM` is not set by the installer, so no stage spends tokens. Add it to
+`<repo>/.env` — which the job sources — to enable enrichment. Descriptions
+already on a capability card survive a deterministic sweep either way. See
+[llm-usage.md](llm-usage.md).
