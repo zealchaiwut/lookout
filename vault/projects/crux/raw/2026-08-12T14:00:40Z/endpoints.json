@@ -1,0 +1,43 @@
+{
+  "get_endpoints": [
+    {
+      "path": "/healthz",
+      "description": "{status, env}` \u2014 no auth required",
+      "source": "docs/architecture.md",
+      "example": "curl http://localhost:8000/healthz"
+    },
+    {
+      "path": "/api/cases",
+      "description": "List all cases, newest first",
+      "source": "docs/architecture.md",
+      "example": "curl http://localhost:8000/api/cases"
+    },
+    {
+      "path": "/api/cases/{id}",
+      "description": "Full case with nested plans, sources, probe, verdict",
+      "source": "docs/architecture.md",
+      "example": "curl http://localhost:8000/api/cases/{id}"
+    },
+    {
+      "path": "/api/cases/{id}/related",
+      "description": "Cosine similarity against closed cases",
+      "source": "docs/architecture.md",
+      "example": "curl http://localhost:8000/api/cases/{id}/related"
+    },
+    {
+      "path": "/api/sources?plan_id={id}",
+      "description": "List sources for a plan",
+      "source": "docs/architecture.md",
+      "example": "curl http://localhost:8000/api/sources?plan_id={id}"
+    },
+    {
+      "path": "/api/plans/{id}/gather-status",
+      "description": "Poll: `{gather_status, error, sources}",
+      "source": "docs/architecture.md",
+      "example": "curl http://localhost:8000/api/plans/{id}/gather-status"
+    }
+  ],
+  "source_files": [
+    "docs/architecture.md"
+  ]
+}
