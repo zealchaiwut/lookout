@@ -1,0 +1,538 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "66ef8cf802631c60556397f60de690ec16fbf6f53c60205b1873068a66d8d2c5",
+      "heading": "# perf-coach",
+      "mtime": 1785904767.3668945
+    },
+    {
+      "path": "PRODUCT.md",
+      "sha256": "a759f784070c9bac790bc00228d0e64673735140019c9b64991008cda8c805d1",
+      "heading": "# Perf Coach \u2014 Product Overview",
+      "mtime": 1785805517.4667456
+    },
+    {
+      "path": "DESIGN.md",
+      "sha256": "3abc0f89ca71d704d301cd57a8fd7812ec32742fce25b8f94256119c89520255",
+      "heading": "# Perf Coach \u2014 Design Reference",
+      "mtime": 1781185026.9783013
+    },
+    {
+      "path": "SCHEMA.md",
+      "sha256": "5a6c11b83e14baa0422d3fc83d3b56fab16e46ff79cf2dbc2bfa2c6c61952dea",
+      "heading": "# Database Schema",
+      "mtime": 1786083923.8137677
+    },
+    {
+      "path": "docs/.DS_Store",
+      "sha256": "82aea749a1de55c0f0a2356de187f90e9164faf0c10915844c2b85c3cba82cff",
+      "heading": "",
+      "mtime": 1782653854.9914458
+    },
+    {
+      "path": "docs/CONTRIBUTING.md",
+      "sha256": "412f45e9396217f3c64249d0393af04bfe8d1fd0a3451779394d11f0800b2a18",
+      "heading": "# Contributing to perf-coach",
+      "mtime": 1783009463.7831752
+    },
+    {
+      "path": "docs/REGENERATING_GOLDEN.md",
+      "sha256": "6c45f2039d611f65f0ecd0d77433461f173e35468f072beec5936bbd632f6718",
+      "heading": "# Regenerating Golden Expected Outputs",
+      "mtime": 1781762940.4487255
+    },
+    {
+      "path": "docs/api-reference.md",
+      "sha256": "11f85aa90f01eed089d09ec4b1e8211811b59e9e092934829845feb6d49e3466",
+      "heading": "# API Reference",
+      "mtime": 1781085550.636276
+    },
+    {
+      "path": "docs/architecture/code-state.md",
+      "sha256": "6b5102c7a75bfbeea37f675eca98105c1e7db0dd06bc18787482264e043708ee",
+      "heading": "# Code State \u2014 sprint-132",
+      "mtime": 1786292407.9878173
+    },
+    {
+      "path": "docs/backup-restore.md",
+      "sha256": "e2d73db9f908df1b6d6e45507dfee9c40ac145b2fe83c58955e26dbb83e195ba",
+      "heading": "# DB Snapshot \u2014 Backup & Restore Runbook",
+      "mtime": 1780997259.3739939
+    },
+    {
+      "path": "docs/calculations/README.md",
+      "sha256": "b7ec797f24f29290a18e9ab70094f83b3a2510a5e3a5f5767c7a5e622233d3b2",
+      "heading": "# Calculations & Models \u2014 Index",
+      "mtime": 1785424100.4210594
+    },
+    {
+      "path": "docs/calculations/acwr-guardrail.md",
+      "sha256": "8514c0a6de770f1e28c13c6fcaccfb4c1dae477b85564dfae36f1c6872960c66",
+      "heading": "# ACWR & Guardrail \u2014 Injury-Risk Heuristics",
+      "mtime": 1783649112.5935845
+    },
+    {
+      "path": "docs/calculations/coach-narrative.md",
+      "sha256": "87d9d1206630b30904f1f920c0b78aacabdf71397ec85176c7407aad8bcff6e0",
+      "heading": "# Coach narrative (Home Now / Focus / Dream / Reflection)",
+      "mtime": 1786292407.988024
+    },
+    {
+      "path": "docs/calculations/fuel.md",
+      "sha256": "bfe7062015dfb00e011988a1ef9d2ffc9de92041d8a8a3e1cdfd1fc7cc718b4a",
+      "heading": "# Fuel \u2014 Daily Calorie Budget + Weekly Projection",
+      "mtime": 1783947026.221906
+    },
+    {
+      "path": "docs/calculations/gap-analysis.md",
+      "sha256": "2eccfcdf6ce919f35dded08db2a561906fb5a734d4bfcf81e25e4071b80f78a0",
+      "heading": "# Gap Analysis \u2014 Engine Contract",
+      "mtime": 1785904767.378906
+    },
+    {
+      "path": "docs/calculations/load-plan.md",
+      "sha256": "8912ba00f318ebfc22c42cadb84882ada36eb48e42d68d26ca18664163bfad58",
+      "heading": "# Session Load Plan \u2014 Race-Anchored Weekly TSS Targets",
+      "mtime": 1785904767.3790236
+    },
+    {
+      "path": "docs/calculations/muscle-load.md",
+      "sha256": "b4a3a8cf8987b73d21eb7adad478906066265ee840ac918152270a4c67f4abce",
+      "heading": "# Muscle-Load Ledger",
+      "mtime": 1784112198.250268
+    },
+    {
+      "path": "docs/calculations/performance-scores.md",
+      "sha256": "ec646a4dc577abffd6a2550a68fa50af1f9b4c832fc83f58955b722f6d780e8b",
+      "heading": "# Performance Scores \u2014 Endurance & Speed",
+      "mtime": 1785904767.3792832
+    },
+    {
+      "path": "docs/calculations/plan-matching.md",
+      "sha256": "1b6d2984f78950d71f81e08637c1a3ab44ecd16720501ccfb6fdc0f649f09259",
+      "heading": "# Plan-matching (planned session \u2192 workout)",
+      "mtime": 1786464432.6746984
+    },
+    {
+      "path": "docs/calculations/power-to-weight.md",
+      "sha256": "c807b40f8832ffe8e2180c9e894be53d251d85930cfea32340fac1670f1764f7",
+      "heading": "# Power-to-Weight (W/kg) Trend",
+      "mtime": 1783947026.222251
+    },
+    {
+      "path": "docs/calculations/projection.md",
+      "sha256": "f4c3a5d64cf78877539f2e817ce65dc587cc3d6f786b8136e11b7085d7b13a30",
+      "heading": "# Projection \u2014 Forward Fitness, Race Time, Calibration",
+      "mtime": 1783668843.4579825
+    },
+    {
+      "path": "docs/calculations/readiness.md",
+      "sha256": "bf7af13d6f1d989dd63483b73c3c54304920f37a2ddedfbeb3cbf66b677e8ef5",
+      "heading": "# Readiness \u2014 Daily Wellness Score",
+      "mtime": 1783009463.7833405
+    },
+    {
+      "path": "docs/calculations/score-reanchor-proposal.md",
+      "sha256": "5a6666eb557bef5e198ca520d4d33292c39394c196625ea38407b789d02d4d20",
+      "heading": "# Endurance/Speed score re-anchor \u2014 analysis & proposal",
+      "mtime": 1783779040.5509748
+    },
+    {
+      "path": "docs/calculations/training-load.md",
+      "sha256": "7888a4d4428ee7aa2fe7713cff37304f0f840c03b231bc9cea6d5e55f97677ed",
+      "heading": "# Training Load \u2014 CTL / ATL / TSB / ACWR",
+      "mtime": 1785491992.4705496
+    },
+    {
+      "path": "docs/calculations/tss.md",
+      "sha256": "56deb5c31087589ce94afd95fa6270508a07199f712f6360e2a2bf258e3b9786",
+      "heading": "# TSS \u2014 Per-Workout Training Stress",
+      "mtime": 1782980933.7362049
+    },
+    {
+      "path": "docs/calculations/weight-trend-rate.md",
+      "sha256": "07e67d73820b692cbfa64a25c4eef9b7009d8c3bf95b7cb9342dacd3f97ec9f5",
+      "heading": "# Weight-trend rate with a confidence interval",
+      "mtime": 1785424100.4212976
+    },
+    {
+      "path": "docs/changelog/uat/2026-07-08-smart-worker-migration.md",
+      "sha256": "93554a4f63425ff61f3132384d94919e2a16910f99a144577b6a9dc3fa9f7eba",
+      "heading": "# 2026-07-08 \u2014 Smart worker, lean web (Phases 1\u20133)",
+      "mtime": 1783495627.3080266
+    },
+    {
+      "path": "docs/features/api.md",
+      "sha256": "00c17af5c6e07fc5bae8c300d5d0f54ec9b455f0828202f40b2d60bf977f5e8d",
+      "heading": "# Hermes External Agent API Reference",
+      "mtime": 1786083923.8295054
+    },
+    {
+      "path": "docs/features/coach-export.md",
+      "sha256": "7d0c8f364023cab147faae198970eee6939f51bbb23687f4ea7bbabdc95158cb",
+      "heading": "# Coach export \u2014 the paste-to-Claude loop",
+      "mtime": 1785904767.3796656
+    },
+    {
+      "path": "docs/features/habits.md",
+      "sha256": "25598184ebbfa5e4598b9d3de2700e94b5b09ef61d3a5e824c50c9ec201d23e8",
+      "heading": "# Habits feature",
+      "mtime": 1781146874.135175
+    },
+    {
+      "path": "docs/features/home.md",
+      "sha256": "07f8c89028093a36976ec47c5e53e94a8bd19193a9aa25927b38ffdfb5e40382",
+      "heading": "# Home Page \u2014 Feature Reference",
+      "mtime": 1781184714.2134569
+    },
+    {
+      "path": "docs/features/lean-program.md",
+      "sha256": "ae9236ef94ff188902a1d7feaab7bf4a0f23920d8d2eddbf9bdd512321ca5b13",
+      "heading": "# The lean program",
+      "mtime": 1785507421.1915975
+    },
+    {
+      "path": "docs/features/mvp-daily-use.md",
+      "sha256": "d16dfa2a9c2665a2dfb1f8915c9d82f4b524e26469bf3434057bda86f989a146",
+      "heading": "# MVP Daily-Use Guide",
+      "mtime": 1781085550.6366808
+    },
+    {
+      "path": "docs/features/user-settings.md",
+      "sha256": "72de29bf54b60da814a8c16c4b552e03af0eb93fc13a43af59ccb4ba44303372",
+      "heading": "# User Settings",
+      "mtime": 1781085550.6367574
+    },
+    {
+      "path": "docs/features/weight-tab-revamp-pass0.md",
+      "sha256": "f4ec7114726d49bc7edf436190e8a1bca28f0b1ae200b5f64d9962abaafc9030",
+      "heading": "# Weight tab revamp \u2014 Pass 0 audit",
+      "mtime": 1785997310.6227927
+    },
+    {
+      "path": "docs/features/weight-tracking.md",
+      "sha256": "fed7199fad3e2744a5c9d121aa59ea3a4c86c6b4786ab1c70fb95d7f7efc9370",
+      "heading": "# Weight Tracking",
+      "mtime": 1785805517.47617
+    },
+    {
+      "path": "docs/feel-entries.md",
+      "sha256": "f221c671d7bb2b6ceca1d684464722b6d3e5ee6a015fe30a5fbcc2c2cac2044e",
+      "heading": "# Feel Entries",
+      "mtime": 1780997259.3748424
+    },
+    {
+      "path": "docs/habits-redesign-investigation.md",
+      "sha256": "a701d1ecf091dc9db2c94b4f9f287756f173a6850d26e2e634e74483af8359f5",
+      "heading": "# Habits Redesign Investigation",
+      "mtime": 1781146874.1358123
+    },
+    {
+      "path": "docs/home-redesign-investigation.md",
+      "sha256": "b706863d655e78820b776506687925d18ec5fc7a69a46f9b9dbcbfee0b879d3e",
+      "heading": "# Home Page v7 Redesign \u2014 API Readiness Investigation",
+      "mtime": 1781184714.2135441
+    },
+    {
+      "path": "docs/home-widget-spec.md",
+      "sha256": "3899de1b01c4866757be7e5bbd43ca61cfa9f7afbba15161e4d4e28b7d6c8437",
+      "heading": "# Home Page Widget Spec",
+      "mtime": 1780997259.374925
+    },
+    {
+      "path": "docs/integrations/architecture.md",
+      "sha256": "81c33b93f65f0bfb030d7b8d8707d90b85008b9034557193e7892d708ddfc8d2",
+      "heading": "# Integrations Architecture",
+      "mtime": 1780997259.375022
+    },
+    {
+      "path": "docs/integrations/strava.md",
+      "sha256": "bad0234d6f097c95a4e0cf804080c1d4e5fdb2579e13046d0eab3d5a3e177ee1",
+      "heading": "# Strava Integration Setup",
+      "mtime": 1781085550.6373622
+    },
+    {
+      "path": "docs/integrations/stryd.md",
+      "sha256": "277ccd19c90c1fac7d9c6fe7b4ba832acb15c98ad6a0074d6c81f00e631f5d97",
+      "heading": "# Stryd Integration Setup",
+      "mtime": 1780997259.3751395
+    },
+    {
+      "path": "docs/lean-program-operator-guide.md",
+      "sha256": "9bcbada5cde28061ae36cded33f5c1870302f6b2c37ff4a4cf9a8766a88c33ff",
+      "heading": "# Operator guide \u2014 running the lean program",
+      "mtime": 1785904767.3797827
+    },
+    {
+      "path": "docs/llm-coaching.md",
+      "sha256": "17ddb6cbdada8ee2efd6c8d81a6dc80eaf7e5937482199606c755112812842b9",
+      "heading": "# LLM Coaching",
+      "mtime": 1786292407.9883096
+    },
+    {
+      "path": "docs/local-dev.md",
+      "sha256": "804cb085c9c95170fbcee2fbc84a86e44e735d401369884b563944f079218749",
+      "heading": "# Local Development Guide",
+      "mtime": 1780997259.3753965
+    },
+    {
+      "path": "docs/mocks/home-mobile.html",
+      "sha256": "581454559ab200fdd82556de7d14112e1c34930c18ef79fb3e1906a377ebb7b2",
+      "heading": "",
+      "mtime": 1786292407.9889016
+    },
+    {
+      "path": "docs/mocks/home-revamp-v2.html",
+      "sha256": "74ee8c38af38979ebc61bc315244e88c925ef266b653e6145aeb0b80ae8c17bc",
+      "heading": "",
+      "mtime": 1786292407.9892204
+    },
+    {
+      "path": "docs/mockups/README.md",
+      "sha256": "20f04a91b7b0f700f5ecc2d6bbb152d29339ef8b7c756462fa0fc6803d88b142",
+      "heading": "",
+      "mtime": 1781184714.213657
+    },
+    {
+      "path": "docs/mockups/habit-wheel-theme2-final.html",
+      "sha256": "f8f79c4109f397d619dec2b81fa06b770f5adea7702a1beedb837ef330823552",
+      "heading": "",
+      "mtime": 1782383885.543811
+    },
+    {
+      "path": "docs/mockups/habits-redesign-v1.html",
+      "sha256": "a5b5d051870b312d181ac4d45a20447a421c77e369523650ad73e66bc9ec0a47",
+      "heading": "",
+      "mtime": 1781146874.1363068
+    },
+    {
+      "path": "docs/mockups/home-desktop.html",
+      "sha256": "613544ac2b022d84301c28845ee034454a3d7f55441b0f2975e0f555261e9dd5",
+      "heading": "",
+      "mtime": 1780046974.4978294
+    },
+    {
+      "path": "docs/mockups/home-mobile.html",
+      "sha256": "9c1694d9623ea4dc05373102ebfd4fb1166f38f63b9987055fb6d436c96fcb0f",
+      "heading": "",
+      "mtime": 1780046974.498233
+    },
+    {
+      "path": "docs/mockups/home-redesign-v7.html",
+      "sha256": "835463acb4a2bb6976091dcdeaf0c8545c306c60243a9f8723de909f2023ded9",
+      "heading": "",
+      "mtime": 1781184714.213722
+    },
+    {
+      "path": "docs/mockups/performance-tab.md",
+      "sha256": "9b1387f07c13512317c8c8358b29610e89a2ac0e3428e4c59a8fd11ae970d775",
+      "heading": "# Performance Sub-tab \u2014 Visual Reference (issue #811)",
+      "mtime": 1782043237.2636824
+    },
+    {
+      "path": "docs/mockups/run-session-laps-redesign.html",
+      "sha256": "678147365808cdcca09d02e2c694127cb465b2421ff4f0a1108b589f7b75ba10",
+      "heading": "",
+      "mtime": 1782383885.5441432
+    },
+    {
+      "path": "docs/mockups/run-view-redesign-v4.html",
+      "sha256": "43399cbb911ddc5b3c06d19c0b19c490abef9135a38ff75ad462b10c37e89b6c",
+      "heading": "",
+      "mtime": 1781856194.6731505
+    },
+    {
+      "path": "docs/mockups/session-profile-approachB-final.html",
+      "sha256": "ba53a6a76003db732b38ba0c6e946e41044d2a9c0624887723562b57a639e409",
+      "heading": "",
+      "mtime": 1782914711.8160036
+    },
+    {
+      "path": "docs/mockups/training-log-desktop.html",
+      "sha256": "ef3ed8e0b0103ceff404679ee4a971d9a4318b8e389f331bdb555ad2fb6f04fa",
+      "heading": "",
+      "mtime": 1780997259.3759115
+    },
+    {
+      "path": "docs/mockups/training-log-mobile.html",
+      "sha256": "f05c68485a076218c3c5a4dffa079cd2424a9516203077e77d37ac3932153861",
+      "heading": "",
+      "mtime": 1780997259.3761125
+    },
+    {
+      "path": "docs/mockups/weight-graph-basic-advanced.html",
+      "sha256": "1656590b09e6f2762c3eb21875c949cb0a3431ed4a0f8ec5a834834761bb828f",
+      "heading": "",
+      "mtime": 1782914711.8161237
+    },
+    {
+      "path": "docs/mockups/weight-redesign-v6.html",
+      "sha256": "ec22dfb33fb56816139dc61575fde7fbe2c87ecca3384d5d131bd10d41590f21",
+      "heading": "",
+      "mtime": 1781146874.136563
+    },
+    {
+      "path": "docs/mockups/weight-target-management-desktop.html",
+      "sha256": "0d7bcd529c0674a943acc8a7260b2d8f31281cdc0f3bd4b63a23f3dc93407aab",
+      "heading": "",
+      "mtime": 1780997259.376392
+    },
+    {
+      "path": "docs/mockups/weight-tracking-desktop.html",
+      "sha256": "5f4baf1da25b7565240e094eea1ac37ef968335ea5c3585fc892d2c0caf2d365",
+      "heading": "",
+      "mtime": 1780997259.376616
+    },
+    {
+      "path": "docs/mockups/weight-tracking-mobile.html",
+      "sha256": "4f75500aeb086c72a444dfc90b608c7c5f7e08904efc1a273efac80fc96ea16c",
+      "heading": "",
+      "mtime": 1780997259.3768694
+    },
+    {
+      "path": "docs/mockups/weight-trend-chart-v7.html",
+      "sha256": "4b6d0ab779aec96225d63711c667dea48b43d8839425680d5659c8cb31e9bfc4",
+      "heading": "",
+      "mtime": 1781541633.1416225
+    },
+    {
+      "path": "docs/mockups/weight-trend-chart-v8.html",
+      "sha256": "df608e549bdb83c40e9ce8d509977bfa57d36384b93ae3d8faa7927b687d9478",
+      "heading": "",
+      "mtime": 1781840237.095831
+    },
+    {
+      "path": "docs/mvp-flow-test.md",
+      "sha256": "455b97a50d0b5c58fdb8cdef4febb7a6d18faa4575ceedbed1cdfcd2a6f037a2",
+      "heading": "# MVP Daily-Use Flow Test",
+      "mtime": 1781085550.6377597
+    },
+    {
+      "path": "docs/mvp-investigation.md",
+      "sha256": "83c4b138f0ac0f8e2da10dfcd1c7e6ede75c4429fa6ce6100f49b3a8c41d6c2a",
+      "heading": "# MVP Investigation: Habits, Workouts, and Daily Metrics",
+      "mtime": 1781085550.6378655
+    },
+    {
+      "path": "docs/perk-performance.md",
+      "sha256": "26a1792dd0e92db886b40666d764896780c1f2c4d8ac97a51c0913112b19174f",
+      "heading": "# Peak Performance & Race Targeting \u2014 Design Doc (draft)",
+      "mtime": 1781762940.4489768
+    },
+    {
+      "path": "docs/pre-production-review-status.md",
+      "sha256": "02ce897429ef8f294704e09bf4b9e828bc3117d42b2956edce739c63d45e7c6d",
+      "heading": "# Pre-production review \u2014 status",
+      "mtime": 1785805517.4766855
+    },
+    {
+      "path": "docs/release-process.md",
+      "sha256": "b1ec510fe586fa2eebc9e260a884e10215eeeec5aea73f0ae2cb5a7dbbe6a71e",
+      "heading": "# Release Process",
+      "mtime": 1786292407.9897246
+    },
+    {
+      "path": "docs/render-setup.md",
+      "sha256": "b899816550293a9c55152f6fa3f1690e6bb615ab68612fb03d0b0a613f378b9f",
+      "heading": "# Render Setup",
+      "mtime": 1780997259.377111
+    },
+    {
+      "path": "docs/reviews/2026-07-architecture-review.md",
+      "sha256": "743203fc0a722b8cc77536d5313f08444c4aae9084c422b2a677191c1c411cde",
+      "heading": "# Architecture & Flow Review \u2014 2026-07",
+      "mtime": 1782980933.736359
+    },
+    {
+      "path": "docs/reviews/2026-07-questions.md",
+      "sha256": "f297af9bc3a4ef759b3a67510bc570eab00adcdeabb4c255ddb8aa5cd3325b41",
+      "heading": "# Open Questions for Discussion \u2014 2026-07 Review",
+      "mtime": 1782980933.736454
+    },
+    {
+      "path": "docs/reviews/fix-prompts/fix-deadcode.md",
+      "sha256": "90da8a86a6e9b4dc75fdf6f86e8d4caef09bb5ea5c6c97efb8dcc29afa1dcce0",
+      "heading": "# Prompt: Remove Dead Code",
+      "mtime": 1782980933.7365925
+    },
+    {
+      "path": "docs/reviews/fix-prompts/fix-loopholes.md",
+      "sha256": "b4bc0e91610fab0c8738bff8c4fbc28682b9fddef93299e312e2784bba6e4565",
+      "heading": "# Prompt: Fix Security & Logic Loopholes",
+      "mtime": 1782980933.7366881
+    },
+    {
+      "path": "docs/reviews/fix-prompts/fix-performance.md",
+      "sha256": "7c48f8d7e6b5bb47a05b541654439bcc89fb2ded7eaeafff7421c171be9fc594",
+      "heading": "# Prompt: Performance Fixes",
+      "mtime": 1782980933.7367902
+    },
+    {
+      "path": "docs/reviews/fix-prompts/fix-score-reanchor.md",
+      "sha256": "4220b721dcae94e0d006c9e17fbb0d1100cbb5406a7fdc47c7893599f35bf9bd",
+      "heading": "# Prompt: Re-anchor Endurance/Speed Scores to Universal VDOT Band",
+      "mtime": 1782986180.4375389
+    },
+    {
+      "path": "docs/sprints/2026-06-17-stryd-strava-workout-sync.md",
+      "sha256": "debf54a3c2cb3764b410a7e83369de739de6d47b58dfabed480e8bd1f0280f05",
+      "heading": "# Strava + Stryd \u2192 Unified Workout Sync",
+      "mtime": 1781762940.4492161
+    },
+    {
+      "path": "docs/sprints/2026-06-21-pre-prd-review-warnings.md",
+      "sha256": "9e9bcd94a5975fb0e04de9c3bacd487aa8b14d76375dd2097352a6d5ec7bff76",
+      "heading": "# Pre-PRD Review \u2014 Warnings Backlog",
+      "mtime": 1782228158.882449
+    },
+    {
+      "path": "docs/sprints/sprint-21-summary.md",
+      "sha256": "034122b01cb1ae1429fd5a5c3be5d9244b88bb67eb951236d13bf09d60a81bc3",
+      "heading": "# Sprint 21 Executive Summary",
+      "mtime": 1783009463.7834275
+    },
+    {
+      "path": "docs/sprints/sprint-3-summary.md",
+      "sha256": "0f9ee8362bf2ea24a39c95d8508d9b0459076932357041c7ba4fcf29ce33be78",
+      "heading": "# Sprint 3 Executive Summary",
+      "mtime": 1783009463.7834938
+    },
+    {
+      "path": "docs/sprints/sprint-6-summary.md",
+      "sha256": "c8384f1dd34237e4b8003ad90176913364b440220b57c7ace85680de565695ca",
+      "heading": "# Sprint 6 Executive Summary",
+      "mtime": 1783009463.7835588
+    },
+    {
+      "path": "docs/sync.md",
+      "sha256": "23a17b10b51784cff39d68a47da2da2c8fbfc77f4942048604a1d61556c54bb2",
+      "heading": "# Sync Architecture",
+      "mtime": 1783344350.3214874
+    },
+    {
+      "path": "docs/timezones.md",
+      "sha256": "7b9a32c42ebd87142514153e632587fdb112e931f7f1c8f7b1872b3d278157ab",
+      "heading": "# Timezone Convention",
+      "mtime": 1779859008.838891
+    },
+    {
+      "path": "docs/training-load.md",
+      "sha256": "fe69df2f142f751337e1ecdd5d24bf81e70dc9d87755349822f239b219d4931d",
+      "heading": "# Training Load",
+      "mtime": 1780997259.377444
+    },
+    {
+      "path": "docs/weight-redesign-investigation.md",
+      "sha256": "b32561a331022965d98c5baf11f3c14fc27ee4fae7203ca2aea8e6854f83c6d9",
+      "heading": "# Weight Page \u2014 Redesign Investigation",
+      "mtime": 1781184714.2139337
+    },
+    {
+      "path": "docs/worker.md",
+      "sha256": "244ef86d475bbd6afa11e90fcee0c46b5ff817154aecde4f0a71a5013b0158f4",
+      "heading": "# Compute worker",
+      "mtime": 1786416011.31177
+    }
+  ]
+}
