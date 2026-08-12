@@ -1,6 +1,6 @@
 ---
 target: viral-radar
-run: "2026-08-12T07:31:34Z"
+run: "2026-08-12T07:45:05Z"
 sources_ok: true
 ---
 
@@ -16,7 +16,7 @@ _(source: manifest.json, brief.json, issues.json)_
 
 ## Since last run
 
-_No changes detected._
+- `sources.github.status`: '<absent>' → 'ok'
 _(source: manifest.json)_
 
 ## What to do next
@@ -37,5 +37,5 @@ _(source: issues.json, questions.json)_
 
 ## Drift
 
-_No drift signals._
+- `sources.github.status`: '<absent>' → 'ok'
 _(source: manifest.json, docs_manifest.json)_
