@@ -23,7 +23,17 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
   Commander payload actually uses; it was empty for every target.
 - Preserve an enriched capability description across deterministic runs.
 - Remove six pytest leftover targets from `targets.yaml`; `--all` iterated them
-  nightly against pytest tmp paths.
+  nightly against pytest tmp paths. Fix `viral-radar`'s `local:` path — it is a
+  flat-layout project with no `uat/` subclone, so every local collector was
+  recording `absent`.
+- Read brief item labels through a key-priority list. Commander suggestions are
+  dicts keyed `text` and sprint lookahead entries are keyed `label`; the previous
+  `str(item)` fallback wrote Python dict reprs into `situation.md` and failed
+  vault lint on all four non-asset-studio targets.
+- Only wikilink next-items derived from doc paths. Issue titles, suggestions,
+  and sprint labels name no vault page and render as plain text.
+- Recognise the `| **Feature** | … |` README table form in `atlas_seed`;
+  commander seeded 0 features and now seeds 38.
 - New docs: `docs/pipeline.md` (stage table and run order), `docs/llm-usage.md`.
   `PRODUCT.md`, `DESIGN.md`, `docs/architecture.md`, and `README.md` rewritten
   from scaffold placeholders.

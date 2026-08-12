@@ -639,8 +639,13 @@ rather than a blank page:
 
 | Source | How parsed |
 |--------|-----------|
-| README `## Features` section | Bold `**Feature name**` bullet lines |
+| README `## Features` — bold bullets | `- **Feature name** — …` |
+| README `## Features` — subheadings | `### Feature Name (issue #N)`; the issue suffix is stripped |
+| README `## Features` — table rows | `\| **Feature Name** \| what it does \| docs \|` |
 | `docs/features/` headings | `## Heading` lines (skips generic titles like "Overview") |
+
+The section ends at the next sibling `## ` heading — a `###` inside it is a
+feature, not a terminator.
 
 Features appearing in both sources are deduplicated by their kebab-case slug.
 

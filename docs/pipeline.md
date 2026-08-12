@@ -146,10 +146,24 @@ LOOKOUT_LLM=1 python capability_card.py <target>
 python atlas_trace.py <target> <feature-slug> --source-dir ~/dev/<target>/uat
 ```
 
-Step 5 reads the target's README `## Features` section (bold bullets **or**
-`###` subheadings) and `docs/features/` headings. A target with neither seeds
-zero features — add them by hand in the human section of
-`vault/projects/<target>/atlas/index.md` and re-run.
+Step 5 reads the target's README `## Features` section and `docs/features/`
+headings. Three README conventions are recognised:
+
+| Form | Example | Used by |
+|---|---|---|
+| Bold bullet | `- **Readiness Score** — daily readiness.` | perf-coach |
+| Subheading | `### Brand Settings (issue #1)` | asset-studio |
+| Table row | `\| **Dashboard** \| Live event feed \| [docs](…) \|` | commander |
+
+A target whose README has no `## Features` section seeds zero features — that is
+correct, not a failure. Add them by hand in the human section of
+`vault/projects/<target>/atlas/index.md` and re-run; `atlas_seed` picks up human
+additions and writes a stub for each. `crux` and `viral-radar` are in this state.
+
+`local:` must point at the actual working clone. Nested-layout projects use
+`~/dev/<name>/uat`; flat-layout projects (viral-radar) use `~/dev/<name>`. A
+wrong path is not fatal — git, docs, and endpoints all record `absent` — so it
+fails quietly. Check the gather summary on a first run.
 
 Step 6 is worth doing once per target. The description is preserved across later
 deterministic runs, so you pay for it once.
@@ -162,7 +176,9 @@ deterministic runs, so you pay for it once.
 |---|---|
 | `Read surfaces: _No read surfaces discovered_` | The target's README has no method/path table. `endpoints.json` will have `get_endpoints: []`. |
 | `vault/map.md` Edges section empty | No capability card lists a GET path, or no card references another project's path. Edges need both a producer and a consumer. |
-| Atlas seeded 0 features | README `## Features` uses a format neither parser recognises. Add features by hand to the atlas index human section. |
+| Atlas seeded 0 features | The README has no `## Features` section, or uses a fourth format. Add features by hand to the atlas index human section. |
+| Gather summary shows every local source `absent` | `local:` in `targets.yaml` points at a path that does not exist. Check nested (`~/dev/<t>/uat`) vs flat (`~/dev/<t>`) layout. |
+| `situation.md` "What to do next" contains `{'text': …}` | A brief item shape with no recognised label key. Add it to `synthesize._ITEM_TITLE_KEYS`. |
 | `Another run is in progress (lock: /tmp/lookout-all.lock)` | A previous `--all` died holding the lock. `rmdir /tmp/lookout-all.lock`. |
 | Lint fails on an unresolved wikilink | A machine stage emitted `[[X]]` where `X` has no file under `vault/`. Machine notes must only link to real vault pages. |
 | Situation one-liner reads "health is unknown" | No capability card description yet. Run `LOOKOUT_LLM=1 python capability_card.py <target>`. |
