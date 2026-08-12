@@ -1,0 +1,109 @@
+{
+  "get_endpoints": [
+    {
+      "path": "/",
+      "description": "Main asset studio UI",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/"
+    },
+    {
+      "path": "/api/job/{id}",
+      "description": "Poll a job's status",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/job/{id}"
+    },
+    {
+      "path": "/api/jobs",
+      "description": "List all jobs (session-scoped)",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/jobs"
+    },
+    {
+      "path": "/api/profile",
+      "description": "Load brand profile",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/profile"
+    },
+    {
+      "path": "/api/profile/instruction-context",
+      "description": "Profile fields for generation prompts",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/profile/instruction-context"
+    },
+    {
+      "path": "/api/templates",
+      "description": "List available slide templates",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/templates"
+    },
+    {
+      "path": "/api/batch/{id}",
+      "description": "Aggregated batch status: per-job state, counts, and `total_cost_usd` rollup",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/batch/{id}"
+    },
+    {
+      "path": "/api/accounts",
+      "description": "List registered accounts",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/accounts"
+    },
+    {
+      "path": "/api/accounts/{handle}/templates",
+      "description": "List an account's layouts with their slot manifests",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/accounts/{handle}/templates"
+    },
+    {
+      "path": "/api/accounts/{handle}/characters/jobs/{id}",
+      "description": "Poll a character-generation job",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/accounts/{handle}/characters/jobs/{id}"
+    },
+    {
+      "path": "/api/accounts/{handle}/characters/cutouts",
+      "description": "List cutouts (optional `action` filter)",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/accounts/{handle}/characters/cutouts"
+    },
+    {
+      "path": "/api/slide-editor/flows/{id}",
+      "description": "Get slide-editor flow state",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/slide-editor/flows/{id}"
+    },
+    {
+      "path": "/api/slide-editor/flows/{id}/slides/{i}/slots",
+      "description": "Slot manifest + current text for a slide",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/slide-editor/flows/{id}/slides/{i}/slots"
+    },
+    {
+      "path": "/api/slide-editor/flows/{id}/slides/{i}/preview",
+      "description": "Render a slide preview PNG",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/slide-editor/flows/{id}/slides/{i}/preview"
+    },
+    {
+      "path": "/api/v2/flows",
+      "description": "List all flows (queue view: status, title, timestamps)",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/v2/flows"
+    },
+    {
+      "path": "/api/v2/flows/{id}",
+      "description": "Get v2 flow state",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/v2/flows/{id}"
+    },
+    {
+      "path": "/api/v2/flows/{id}/slides/{i}/preview",
+      "description": "Preview a v2 slide PNG",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/v2/flows/{id}/slides/{i}/preview"
+    }
+  ],
+  "source_files": [
+    "README.md"
+  ]
+}
