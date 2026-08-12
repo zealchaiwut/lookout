@@ -50,10 +50,6 @@
     <key>RunAtLoad</key>
     <false/>
 
-    <!-- Wake catch-up: mount/login triggers a run if the window was missed -->
-    <key>StartOnMount</key>
-    <true/>
-
     <key>StandardOutPath</key>
     <string>__REPO_ROOT__/logs/lookout-all.log</string>
 
