@@ -116,11 +116,12 @@ def _capacity_verdict(manifest: dict, brief_json: dict, issues_data: dict) -> st
     if sprint_state in ("active", "running"):
         return "Sprint running — wait"
 
-    # Blocked issues
+    # Blocked issues — only open issues count; a closed ticket cannot block work
     issues = issues_data.get("issues", []) if isinstance(issues_data, dict) else []
     blocked = [
         issue for issue in issues
-        if any(
+        if str(issue.get("state", "open")).lower() == "open"
+        and any(
             label.get("name", "").lower() == "blocked"
             for label in issue.get("labels", [])
         )
