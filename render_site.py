@@ -597,10 +597,7 @@ def build_tree(notes: list) -> dict:
         if parts[0] == "projects" and len(parts) >= 2:
             proj = projects.setdefault(parts[1], {"notes": [], "atlas": []})
             if "atlas" in parts:
-                if note.stem != "index":
-                    proj["atlas"].append(note)
-                else:
-                    proj["notes"].append(note)
+                proj["atlas"].append(note)
             else:
                 proj["notes"].append(note)
         elif parts[0] == "ideas":
@@ -612,7 +609,7 @@ def build_tree(notes: list) -> dict:
 
     for proj in projects.values():
         proj["notes"].sort(key=_project_note_sort_key)
-        proj["atlas"].sort(key=lambda n: n.stem)
+        proj["atlas"].sort(key=lambda n: ("" if n.stem == "index" else n.stem))
 
     return {
         "overview": sorted(overview, key=lambda n: n.stem),
@@ -662,8 +659,9 @@ def render_sidebar(tree: dict, current, from_note) -> str:
         any_project = any_project or active_here
         body = items(proj_notes)
         if atlas:
+            feature_count = sum(1 for n in atlas if n.stem != "index")
             body += _details(
-                "atlas", items(atlas), current in atlas, count=len(atlas)
+                "atlas", items(atlas), current in atlas, count=feature_count
             )
         proj_body.append(_details(name, body, active_here))
     out.append(_details("Projects", "".join(proj_body), any_project))
@@ -743,7 +741,7 @@ body {
 .tree details details { margin-left: .5rem; }
 .count { color: var(--text-muted); font-weight: 400; }
 .content { flex: 1 1 auto; min-width: 0; padding: 2rem 2.5rem 6rem; }
-.inner { max-width: 72ch; }
+.inner > *:not(.table-wrap) { max-width: 72ch; }
 .crumb {
   font-family: var(--mono); font-size: 12.5px; color: var(--text-muted);
   margin-bottom: .35rem;
@@ -792,9 +790,10 @@ td code, th code { white-space: nowrap; }
 .cards { display: grid; gap: .75rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); }
 .card {
   border: 1px solid var(--border); border-radius: 4px; padding: .8rem 1rem;
-  background: var(--surface);
+  background: var(--surface); text-decoration: none; display: block;
 }
-.card h3 { margin: 0 0 .3rem; }
+.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.card h3 { margin: 0 0 .3rem; color: var(--accent); }
 .card p { margin: 0; color: var(--text-muted); font-size: 13px; }
 @media (max-width: 720px) {
   .layout { display: block; }
@@ -837,10 +836,11 @@ def _landing_body(tree: dict, notes: list) -> str:
     for name, proj in tree["projects"].items():
         situation = next((n for n in proj["notes"] if n.stem == "situation"), None)
         href = situation.out_rel.as_posix() if situation else "#"
+        atlas_count = sum(1 for n in proj["atlas"] if n.stem != "index")
         cards.append(
             f'<a class="card" href="{html.escape(href)}">'
             f"<h3>{html.escape(name)}</h3>"
-            f'<p>{len(proj["notes"])} notes · {len(proj["atlas"])} atlas</p></a>'
+            f'<p>{len(proj["notes"])} notes · {atlas_count} atlas</p></a>'
         )
     return (
         "<h1>lookout</h1>"
