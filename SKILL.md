@@ -901,6 +901,67 @@ Runs the pass against the specified ideas directory. Exits 0 on completion.
 
 ---
 
+## `render-site` — Static HTML Site
+
+**Module:** `render_site.py`
+**Public API:** `generate_site(vault_dir, out_dir)` → `int`
+**Helpers:** `render_markdown(text, note, link_index)` → `str`,
+`build_tree(notes)` → `dict`, `render_sidebar(tree, current, from_note)` → `str`
+
+### What it does
+
+Renders every vault markdown file to a static HTML page with a tree sidebar, so
+the vault can be browsed and followed rather than read one file at a time in an
+editor. Output is plain pages: no server, no build step, no client framework, no
+network at runtime, and **no JavaScript** — the tree collapses using native
+`<details>`/`<summary>`.
+
+### Output
+
+```
+site/index.html                     landing page (generated)
+site/notes/<vault-relative>.html    one page per vault markdown file
+site/style.css
+```
+
+Notes sit under `notes/` so the generated landing page and the vault's own
+`index.md` do not collide. `site/` is gitignored — it is regenerable.
+
+### Markdown scope
+
+Deliberately **not** CommonMark. The vault is machine-generated and emits a
+fixed subset: headings, bullet and ordered lists, tables, blockquotes, fenced
+code, inline emphasis/code/links, wikilinks, and sentinel comments. Anything
+outside that subset is escaped and shown as plain text — never guessed at, never
+silently dropped. This is what keeps the module free of a markdown dependency.
+
+### Rules
+
+- `[[wikilinks]]` resolve to relative hrefs using lint's own index (stem, vault
+  path, and directory names). A directory resolves to its `index.md`, or to
+  `situation.md` for a project directory. An unresolvable target renders as
+  muted plain text rather than a dead link.
+- Sentinel comments (`<!-- BEGIN MACHINE … -->`) never reach the page.
+- Project notes appear in pipeline order (situation, capability, drift,
+  todo-view); atlas notes alphabetically.
+- The whole tree ships in every page with only the current page's ancestors
+  expanded, so each page stands alone under `file://`.
+- Regeneration is byte-identical for unchanged input.
+
+### Why not `site.py`
+
+`site` is a standard-library module Python imports at startup. A `site.py` at
+the repository root shadows it, and `import site` from a test resolves to the
+stdlib one.
+
+### CLI
+
+```
+python3 render_site.py [--vault <dir>] [--out <dir>]
+```
+
+---
+
 ## Notes
 
 All skill modules are pure Python with no external dependencies beyond the

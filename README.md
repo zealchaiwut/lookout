@@ -54,6 +54,7 @@ bin/lookout promote <file> --type idea|sprint
 python atlas_seed.py <target>          # bootstrap a target's atlas from its README
 python atlas_trace.py <target> <slug>  # trace one feature through real source
 python llm.py --status                 # check LLM configuration (spends nothing)
+python3 render_site.py                 # render the vault to a browsable HTML site
 python scripts/smoke_contract.py       # validate the vault against the reader contract
 ```
 
