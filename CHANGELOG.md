@@ -49,6 +49,13 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
   `PRODUCT.md`, `DESIGN.md`, `docs/architecture.md`, and `README.md` rewritten
   from scaffold placeholders.
 
+## sprint-14.1
+
+- #89: Fix atlas_trace: entry-point discovery, per-feature tracing, and issue filtering
+- #90: Render mermaid flowcharts to inline SVG at generate time
+- #91: Show note ownership badge and link to source in the generated site
+- #92: Fix three readability issues in the generated site
+
 ## sprint-7
 
 - #29: Add lookout --all nightly runner with launchd scheduling
