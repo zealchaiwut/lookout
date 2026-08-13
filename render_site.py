@@ -38,6 +38,7 @@ Usage
 """
 import argparse
 import html
+import os
 import re
 import sys
 from pathlib import Path
@@ -60,6 +61,18 @@ _BULLET_RE = re.compile(r"^(\s*)[-*]\s+(.*)$")
 _ORDERED_RE = re.compile(r"^(\s*)\d+\.\s+(.*)$")
 _TABLE_SEP_RE = re.compile(r"^\s*\|[\s:|-]+\|\s*$")
 _COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
+
+# Ownership sentinel patterns (from vault/agents.md conventions)
+_SENTINEL_MACHINE_ASSESS_RE = re.compile(r"<!--\s*BEGIN MACHINE ASSESSMENT\s*-->")
+_SENTINEL_MACHINE_ANY_RE = re.compile(r"<!--\s*BEGIN MACHINE\b")
+_SENTINEL_HUMAN_RE = re.compile(r"<!--\s*BEGIN HUMAN ([A-Z][A-Z ]+?)\s*-->")
+
+# File stems that vault/agents.md lists as machine-owned types
+_MACHINE_STEMS = frozenset(["situation", "drift", "todo-view", "index"])
+
+# File stems / path conditions that agents.md lists as human-owned types
+_HUMAN_STEMS = frozenset(["agents", "decisions"])
+_HUMAN_TOP_DIRS = frozenset(["learning"])
 
 # A whole-line `_(source: …)_` provenance marker. It is metadata about where a
 # section came from, not prose, and is rendered muted and smaller.
@@ -304,6 +317,90 @@ class Note:
         return self.stem.replace("-", " ")
 
 
+def resolve_ownership(note: "Note", text: str) -> dict:
+    """Return {"state": "machine"|"human"|"mixed", "editable": str|None}.
+
+    Priority:
+    1. Sentinel comments in the file content → mixed (split files)
+    2. File path/stem patterns matching agents.md machine types → machine
+    3. File path/stem patterns matching agents.md human types → human
+    4. Fallback → machine (the safer default; AC9)
+    """
+    parts = note.rel.parts
+    stem = note.stem
+
+    # Strip inline code spans so mentions of sentinels in prose (e.g. in
+    # agents.md documentation) are not confused with actual sentinel comments.
+    text_no_code = _INLINE_CODE_RE.sub("", text)
+
+    # 1. Sentinel detection — strongest signal for mixed ownership
+    if _SENTINEL_MACHINE_ASSESS_RE.search(text_no_code):
+        # Idea notes: machine assessment below sentinel, human freeform top above
+        return {"state": "mixed", "editable": "freeform top"}
+
+    hm = _SENTINEL_HUMAN_RE.search(text_no_code)
+    if hm and _SENTINEL_MACHINE_ANY_RE.search(text_no_code):
+        # Files with both machine and human sentinel blocks (e.g. map.md)
+        section = hm.group(1).strip().title()
+        return {"state": "mixed", "editable": f"{section} section"}
+
+    # 2. Machine-owned types (from vault/agents.md § Machine-Owned File Types)
+    if stem in _MACHINE_STEMS:
+        return {"state": "machine", "editable": None}
+    if "atlas" in parts:
+        return {"state": "machine", "editable": None}
+    if parts[0] in ("packs", "inbox"):
+        return {"state": "machine", "editable": None}
+    if "capability" in stem.lower():
+        return {"state": "machine", "editable": None}
+
+    # 3. Human-owned types (from vault/agents.md § Human-Owned File Types)
+    if stem in _HUMAN_STEMS:
+        return {"state": "human", "editable": None}
+    if parts[0] in _HUMAN_TOP_DIRS:
+        return {"state": "human", "editable": None}
+
+    # 4. Fallback — machine is the safer default (AC9)
+    return {"state": "machine", "editable": None}
+
+
+def _render_ownership_badge(ownership: dict, source_href: str) -> str:
+    """Render the ownership badge and source link as a single metadata line."""
+    state = ownership["state"]
+    editable = ownership.get("editable")
+
+    if state == "machine":
+        icon = "⚙"  # ⚙
+        label = "Machine-generated"
+        detail = "edits are overwritten on the next run"
+    elif state == "human":
+        icon = "✎"  # ✎
+        label = "Human-owned"
+        detail = "safe to edit freely"
+    else:  # mixed
+        icon = "◐"  # ◐
+        label = "Mixed"
+        region = html.escape(editable) if editable else "human region"
+        detail = f"the {region} is editable; machine block is overwritten"
+
+    src_name = html.escape(Path(source_href).name)
+    src = f'<a class="source-link" href="{html.escape(source_href)}">{src_name}</a>'
+
+    if state == "mixed":
+        detail_html = html.escape(f"the {editable} is editable; machine block is overwritten") if editable else html.escape(detail)
+    else:
+        detail_html = html.escape(detail)
+
+    return (
+        f'<div class="ownership-badge">'
+        f'<span class="badge-icon" aria-hidden="true">{icon}</span>'
+        f'<span class="badge-label">{html.escape(label)}</span>'
+        f'<span class="badge-detail">— {detail_html}</span>'
+        f'{src}'
+        f'</div>'
+    )
+
+
 def collect_notes(vault_dir: Path) -> list:
     """Every vault markdown file except raw/ snapshots, sorted by path."""
     notes = []
@@ -352,7 +449,6 @@ def build_link_index(notes: list, vault_dir: Path) -> dict:
 
 def _relative_href(from_out_rel: Path, to_out_rel: Path) -> str:
     """POSIX relative href between two output paths, for file:// browsing."""
-    import os
     rel = os.path.relpath(to_out_rel.as_posix(), start=from_out_rel.parent.as_posix())
     return rel.replace("\\", "/")
 
@@ -778,6 +874,14 @@ th, td {
 th { background: var(--surface); font-weight: 600; }
 td code, th code { white-space: nowrap; }
 .provenance { color: var(--text-muted); font-size: 12.5px; margin-top: -.25rem; }
+.ownership-badge {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: .15rem .4rem;
+  font-size: 12.5px; font-family: var(--mono);
+  color: var(--text-muted); margin: 0 0 1.25rem;
+}
+.badge-icon { font-style: normal; }
+.badge-label { font-weight: 600; color: var(--text); }
+.source-link { margin-left: .3rem; }
 .frontmatter {
   display: grid; grid-template-columns: max-content 1fr; gap: .1rem .9rem;
   background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
@@ -870,8 +974,13 @@ def generate_site(vault_dir: Path, out_dir: Path) -> int:
         depth = len(note.out_rel.parts) - 1
         css_href = "../" * depth + "style.css"
         home_href = "../" * depth + "index.html"
+        ownership = resolve_ownership(note, text)
+        html_dir = out_dir / note.out_rel.parent
+        source_href = os.path.relpath(note.path, html_dir).replace("\\", "/")
+        badge = _render_ownership_badge(ownership, source_href)
         page = _page(
-            title, crumb, f"<h1>{html.escape(note.title)}</h1>\n{body}",
+            title, crumb,
+            f"<h1>{html.escape(note.title)}</h1>\n{badge}\n{body}",
             sidebar, css_href, home_href,
         )
         dest = out_dir / note.out_rel
