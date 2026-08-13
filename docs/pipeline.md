@@ -83,6 +83,7 @@ the exit code.
 | `python atlas_trace.py <target> <slug>` | traces one stale atlas note through real source | no |
 | `python atlas_trace.py <target> --all-stale` | batch-traces stale notes for a target (up to `--batch-size`, default 3) | no |
 | `python3 render_site.py` | render the vault to a static HTML site in `site/` | no |
+| `python3 atlas_coverage.py` | report atlas trace coverage and what blocks it | no |
 
 ---
 

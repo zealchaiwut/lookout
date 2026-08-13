@@ -56,6 +56,7 @@ python atlas_trace.py <target> <slug>  # trace one feature through real source
 python atlas_trace.py <target> --all-stale  # batch-trace stale features (default cap 3)
 python llm.py --status                 # check LLM configuration (spends nothing)
 python3 render_site.py                 # render the vault to a browsable HTML site
+python3 atlas_coverage.py              # which atlas features are traced, and what blocks the rest
 python scripts/smoke_contract.py       # validate the vault against the reader contract
 ```
 
