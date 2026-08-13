@@ -59,14 +59,6 @@ Commander automates the solo development workflow (BA → Coder → Tester → U
   - Example: `curl http://localhost:8000/api/brief`
 - `GET /api/projects/{slug}/brief` — Deterministic per-project brief (DB-only, no LLM)
   - Example: `curl http://localhost:8000/api/projects/{slug}/brief`
-- `GET /api/brief/summary` — Home brief one-line recap (cached/generated)
-  - Example: `curl http://localhost:8000/api/brief/summary`
-- `GET /api/projects/{slug}/brief/summary` — Per-project brief recap (cached/generated)
-  - Example: `curl http://localhost:8000/api/projects/{slug}/brief/summary`
-- `GET /api/brief/daily` — Home daily artifact
-  - Example: `curl http://localhost:8000/api/brief/daily`
-- `GET /api/projects/{slug}/brief/daily` — Per-project daily artifact
-  - Example: `curl http://localhost:8000/api/projects/{slug}/brief/daily`
 - `GET /api/dev-report` — Per-project dev report: shipped, stale, waiting, and run-ready sprints
   - Example: `curl http://localhost:8000/api/dev-report`
 - `GET /api/agent-guide` — Canonical agent operate guide as `{content, version}`; `version` is a 16-hex SHA-256 fingerprint
@@ -77,8 +69,6 @@ Commander automates the solo development workflow (BA → Coder → Tester → U
   - Example: `curl http://localhost:8000/api/projects/{slug}/docs/{path}`
 - `GET /api/projects/{slug}/docs/scaffold/check` — Check for missing standard docs files
   - Example: `curl http://localhost:8000/api/projects/{slug}/docs/scaffold/check`
-- `GET /api/docs-freshness/warnings` — List open docs-freshness warnings
-  - Example: `curl http://localhost:8000/api/docs-freshness/warnings`
 - `GET /api/board` — Board columns snapshot for a project
   - Example: `curl http://localhost:8000/api/board`
 - `GET /api/issues` — List open issues with label/state filters
@@ -131,8 +121,6 @@ Commander automates the solo development workflow (BA → Coder → Tester → U
   - Example: `curl http://localhost:8000/api/sprints/{sprint_label}/finish-stream?project=`
 - `GET /api/sprints/{sprint_label}/bulk-complete-preview?project=` — Dry-run preview of bulk-complete. Returns `400` when the sprint has no child sprints (bulk-complete requires a parent sprint with at least one child) instead of a misleading `200` empty preview (issue #2160). Each `members[].merged` flag distinguishes a properly-merged-then-pruned branch from one deleted without merging: a branch absent from GitHub is reported `merged` only when a merged PR into its parent branch exists (issue #2086)
   - Example: `curl http://localhost:8000/api/sprints/{sprint_label}/bulk-complete-preview?project=`
-- `GET /api/sprints/{sprint_label}/conflict-status?project=` — Merge-conflict status for a sprint's branches
-  - Example: `curl http://localhost:8000/api/sprints/{sprint_label}/conflict-status?project=`
 - `GET /api/sprints/{label}/reconcile-preview` — Dry-run: GitHub-vs-DB diff + post-sprint checks for one sprint. No writes; requires `?project=`. Unknown `project=` → `404` (issue #2069). Response now also carries `outcome_mismatch` (bool) and `outcome_derived_state` (the terminal state re-derived from stored `issues_json` ticket outcomes): a sprint stored `ready_to_merge` whose ticket outcomes show a failure/dead-letter is flagged for downgrade to `needs_rework` even when no GitHub needs-rework label exists (issue #2167)
   - Example: `curl http://localhost:8000/api/sprints/{label}/reconcile-preview`
 - `GET /api/sprints/history` — List completed sprint summaries (local, GitHub-free ledger feed)
@@ -141,14 +129,8 @@ Commander automates the solo development workflow (BA → Coder → Tester → U
   - Example: `curl http://localhost:8000/api/sprints/{label}/run-stats`
 - `GET /api/sprints/pending-signoff` — Sprints sitting in the pending sign-off gate
   - Example: `curl http://localhost:8000/api/sprints/pending-signoff`
-- `GET /api/sprints/{sprint_label}/preflight` — Full preflight health check before dispatch
+- `GET /api/sprints/{sprint_label}/preflight` — Full preflight health check before dispatch. Cycle, file-overlap conflict, and dependency-order data are returned inline in this aggregate response (issue #2234). Also returns `dor_mode` and inline `readiness` (`ready` / `not_ready` with per-ticket `missing` reasons); when `dor_mode == "block"` and any work ticket is `not_ready`, `ok` is `false` (Definition of Ready gate, issue #2262)
   - Example: `curl http://localhost:8000/api/sprints/{sprint_label}/preflight`
-- `GET /api/sprints/{sprint_label}/cycle-check` — Detect dependency cycles in the sprint DAG
-  - Example: `curl http://localhost:8000/api/sprints/{sprint_label}/cycle-check`
-- `GET /api/sprints/{sprint_label}/conflicts` — Detect file-overlap conflicts between tickets
-  - Example: `curl http://localhost:8000/api/sprints/{sprint_label}/conflicts`
-- `GET /api/sprints/{sprint_label}/dep-order` — Resolved dependency execution order
-  - Example: `curl http://localhost:8000/api/sprints/{sprint_label}/dep-order`
 - `GET /api/sprints/{sprint_label}/preview-dag` — Preview the ticket dependency DAG
   - Example: `curl http://localhost:8000/api/sprints/{sprint_label}/preview-dag`
 - `GET /api/sprints/{sprint_label}/dag-order-preview` — Preview DAG-resolved execution order
@@ -179,6 +161,16 @@ Commander automates the solo development workflow (BA → Coder → Tester → U
   - Example: `curl http://localhost:8000/api/sprint-status`
 - `GET /api/sprint-summary` — Sprint summary for the active or last sprint
   - Example: `curl http://localhost:8000/api/sprint-summary`
+- `GET /api/sprint-history` — List completed sprint summaries
+  - Example: `curl http://localhost:8000/api/sprint-history`
+- `GET /api/sprint-history-content` — Raw Markdown content of a sprint summary
+  - Example: `curl http://localhost:8000/api/sprint-history-content`
+- `GET /api/sprints/timeline` — Timeline data across sprints
+  - Example: `curl http://localhost:8000/api/sprints/timeline`
+- `GET /api/sprints/summaries` — All sprint summaries
+  - Example: `curl http://localhost:8000/api/sprints/summaries`
+- `GET /api/home` — Aggregated Home payload: summary stats, per-project cards, last 5 activity events. Per-project data cached 30s; always HTTP 200
+  - Example: `curl http://localhost:8000/api/home`
 
 ## How to make it do things
 

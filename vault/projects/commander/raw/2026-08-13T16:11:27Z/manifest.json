@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-13T16:11:19Z",
-  "target": "asset-studio",
+  "timestamp": "2026-08-13T16:11:27Z",
+  "target": "commander",
   "health": {
     "status": "unhealthy",
     "uptime_seconds": 125597,
@@ -71,8 +71,7 @@
     "endpoints": {
       "status": "ok",
       "error": "",
-      "count": 17
+      "count": 126
     }
-  },
-  "committed": true
+  }
 }

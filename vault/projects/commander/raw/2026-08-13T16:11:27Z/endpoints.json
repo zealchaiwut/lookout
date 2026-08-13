@@ -1,0 +1,763 @@
+{
+  "get_endpoints": [
+    {
+      "path": "/api/health",
+      "description": "Health check",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/health"
+    },
+    {
+      "path": "/api/status",
+      "description": "Domain-grouped local-only status snapshot, zero GitHub calls",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/status"
+    },
+    {
+      "path": "/api/status/sprints",
+      "description": "Just the sprints slice of `/api/status",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/status/sprints"
+    },
+    {
+      "path": "/api/status/health",
+      "description": "Just the health slice of `/api/status",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/status/health"
+    },
+    {
+      "path": "/api/status/queue",
+      "description": "Just the queue slice of `/api/status",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/status/queue"
+    },
+    {
+      "path": "/api/environment",
+      "description": "Current environment (`prd`/`uat`) and version",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/environment"
+    },
+    {
+      "path": "/api/version",
+      "description": "App version string",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/version"
+    },
+    {
+      "path": "/api/doctor",
+      "description": "Run install-time host doctor checks, return pass/fail results",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/doctor"
+    },
+    {
+      "path": "/api/backup/status",
+      "description": "Backup subsystem status",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/backup/status"
+    },
+    {
+      "path": "/api/gh-auth-status",
+      "description": "GitHub CLI auth status",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/gh-auth-status"
+    },
+    {
+      "path": "/api/gh-auth/login/status",
+      "description": "Poll the in-progress login flow",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/gh-auth/login/status"
+    },
+    {
+      "path": "/api/repo/config",
+      "description": "Repository configuration (labels, sprint prefix)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/repo/config"
+    },
+    {
+      "path": "/api/github/labels",
+      "description": "List GitHub labels for the repo",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/github/labels"
+    },
+    {
+      "path": "/api/agents",
+      "description": "List active agents with last-seen timestamp",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/agents"
+    },
+    {
+      "path": "/api/events",
+      "description": "List recent agent events (paginated)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/events"
+    },
+    {
+      "path": "/events",
+      "description": "SSE stream \u2014 pushed to the Agents tab in real time",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/events"
+    },
+    {
+      "path": "/api/projects/{slug}/events",
+      "description": "Recent events for one project",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/events"
+    },
+    {
+      "path": "/api/projects",
+      "description": "List all tracked projects",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects"
+    },
+    {
+      "path": "/api/projects/{project}/running-sprint",
+      "description": "The running sprint for one project, if any",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{project}/running-sprint"
+    },
+    {
+      "path": "/api/project-details",
+      "description": "Full project detail: tickets grouped by status, sprint label, assignee",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/project-details"
+    },
+    {
+      "path": "/api/running",
+      "description": "Running-sprint snapshot for a project (`?project=`), mirror/DB only",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/running"
+    },
+    {
+      "path": "/api/brief",
+      "description": "Home rollup brief across all projects",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/brief"
+    },
+    {
+      "path": "/api/projects/{slug}/brief",
+      "description": "Deterministic per-project brief (DB-only, no LLM)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/brief"
+    },
+    {
+      "path": "/api/dev-report",
+      "description": "Per-project dev report: shipped, stale, waiting, and run-ready sprints",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/dev-report"
+    },
+    {
+      "path": "/api/agent-guide",
+      "description": "Canonical agent operate guide as `{content, version}`; `version` is a 16-hex SHA-256 fingerprint",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/agent-guide"
+    },
+    {
+      "path": "/api/projects/{slug}/docs",
+      "description": "List allowed `.md` files in the project's clone root as `[{path, size, mtime}]`. Nested layout resolves the clone root in `uat`\u2192`main`\u2192`prd` order, preferring the develop-tracking `uat` clone so docs reflect the most current (unmerged) state (issue #2052)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/docs"
+    },
+    {
+      "path": "/api/projects/{slug}/docs/{path}",
+      "description": "Fetch one doc's content as `{path, content}",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/docs/{path}"
+    },
+    {
+      "path": "/api/projects/{slug}/docs/scaffold/check",
+      "description": "Check for missing standard docs files",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/docs/scaffold/check"
+    },
+    {
+      "path": "/api/board",
+      "description": "Board columns snapshot for a project",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/board"
+    },
+    {
+      "path": "/api/issues",
+      "description": "List open issues with label/state filters",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/issues"
+    },
+    {
+      "path": "/api/open-issues",
+      "description": "Open issues including body, for conflict detection",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/open-issues"
+    },
+    {
+      "path": "/api/issues/{issue_id}/test-report",
+      "description": "Fetch the test report comment for an issue",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/issues/{issue_id}/test-report"
+    },
+    {
+      "path": "/api/sprint-planning/issues",
+      "description": "Issues available for sprint assignment, with size estimate",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprint-planning/issues"
+    },
+    {
+      "path": "/api/sprint-management/issues",
+      "description": "Sprint Mgmt panel view (issues grouped by sprint)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprint-management/issues"
+    },
+    {
+      "path": "/api/sprints",
+      "description": "List all sprint labels in the repo",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints"
+    },
+    {
+      "path": "/api/sprints/goal",
+      "description": "Get the current sprint goal",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/goal"
+    },
+    {
+      "path": "/api/sprints/order",
+      "description": "Get the sprint ordering list",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/order"
+    },
+    {
+      "path": "/api/sprints/running-all",
+      "description": "All currently-running sprints across projects",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/running-all"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/branch-status",
+      "description": "Branch status for a sprint's tickets",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/branch-status"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/rerun-preview",
+      "description": "Preview what a rerun would do",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/rerun-preview"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/rerun/preview",
+      "description": "Alias preview route",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/rerun/preview"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/state",
+      "description": "plan.json` payload",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/state"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/state-full",
+      "description": "Full `state.json` + outcome",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/state-full"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/state-timing",
+      "description": "Timing data from `state.json",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/state-timing"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/live",
+      "description": "Live snapshot \u2014 counts, current ticket, active agent, last 50 log lines, locked `issues[]` (see below)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/live"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/live/stream",
+      "description": "SSE stream of live sprint log lines",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/live/stream"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/finish-card",
+      "description": "Finish-report card data \u2014 always HTTP 200 (see below)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/finish-card"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/dispatch-log",
+      "description": "Tail of the most recent sprint run log file. `?tail_lines=N` (max 2000)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/dispatch-log"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/issue/{issue_num}/log",
+      "description": "Tail of the most recent per-issue log. `?tail_lines=N` (max 2000)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/issue/{issue_num}/log"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/timeline",
+      "description": "Structured per-issue segment data for the running-sprint pane (DB-sourced, no disk reads)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/timeline"
+    },
+    {
+      "path": "/api/logs/runs",
+      "description": "Paginated sprint run history",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/logs/runs"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/finish-preview?project=",
+      "description": "Preview what \"finish sprint\" would do",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/finish-preview?project="
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/finish-stream?project=",
+      "description": "SSE stream of finish-sprint progress; resends current snapshot on reconnect",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/finish-stream?project="
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/bulk-complete-preview?project=",
+      "description": "Dry-run preview of bulk-complete. Returns `400` when the sprint has no child sprints (bulk-complete requires a parent sprint with at least one child) instead of a misleading `200` empty preview (issue #2160). Each `members[].merged` flag distinguishes a properly-merged-then-pruned branch from one deleted without merging: a branch absent from GitHub is reported `merged` only when a merged PR into its parent branch exists (issue #2086)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/bulk-complete-preview?project="
+    },
+    {
+      "path": "/api/sprints/{label}/reconcile-preview",
+      "description": "Dry-run: GitHub-vs-DB diff + post-sprint checks for one sprint. No writes; requires `?project=`. Unknown `project=` \u2192 `404` (issue #2069). Response now also carries `outcome_mismatch` (bool) and `outcome_derived_state` (the terminal state re-derived from stored `issues_json` ticket outcomes): a sprint stored `ready_to_merge` whose ticket outcomes show a failure/dead-letter is flagged for downgrade to `needs_rework` even when no GitHub needs-rework label exists (issue #2167)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{label}/reconcile-preview"
+    },
+    {
+      "path": "/api/sprints/history",
+      "description": "List completed sprint summaries (local, GitHub-free ledger feed)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/history"
+    },
+    {
+      "path": "/api/sprints/{label}/run-stats",
+      "description": "Per-run stats for a finished sprint",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{label}/run-stats"
+    },
+    {
+      "path": "/api/sprints/pending-signoff",
+      "description": "Sprints sitting in the pending sign-off gate",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/pending-signoff"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/preflight",
+      "description": "Full preflight health check before dispatch. Cycle, file-overlap conflict, and dependency-order data are returned inline in this aggregate response (issue #2234). Also returns `dor_mode` and inline `readiness` (`ready` / `not_ready` with per-ticket `missing` reasons); when `dor_mode == \"block\"` and any work ticket is `not_ready`, `ok` is `false` (Definition of Ready gate, issue #2262)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/preflight"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/preview-dag",
+      "description": "Preview the ticket dependency DAG",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/preview-dag"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/dag-order-preview",
+      "description": "Preview DAG-resolved execution order",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/dag-order-preview"
+    },
+    {
+      "path": "/api/estimate-jobs/{job_id}",
+      "description": "Poll an async estimate job",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/estimate-jobs/{job_id}"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/estimate",
+      "description": "Get saved estimates for a sprint",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/estimate"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/estimate-summary",
+      "description": "Rolled-up estimate summary for a sprint",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/estimate-summary"
+    },
+    {
+      "path": "/api/estimates/batch",
+      "description": "Batch-fetch estimates for multiple issues",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/estimates/batch"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/outcome",
+      "description": "Actual outcome data for a finished sprint",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/outcome"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/estimate-vs-actual",
+      "description": "Estimate-vs-actual comparison",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/estimate-vs-actual"
+    },
+    {
+      "path": "/api/calibration",
+      "description": "Average actual time per size bucket (estimator calibration)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/calibration"
+    },
+    {
+      "path": "/api/projects/{slug}/analytics/calibration",
+      "description": "Per-project calibration view",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/analytics/calibration"
+    },
+    {
+      "path": "/api/sprints/{sprint_label}/mis-sizing-flags",
+      "description": "Flagged tickets whose actual size diverged from estimate",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/{sprint_label}/mis-sizing-flags"
+    },
+    {
+      "path": "/api/mis-sizing/history",
+      "description": "Historical mis-sizing flag log",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/mis-sizing/history"
+    },
+    {
+      "path": "/api/mis-sizing/config",
+      "description": "Read mis-sizing detection config",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/mis-sizing/config"
+    },
+    {
+      "path": "/api/sprint-status",
+      "description": "Current sprint run status (per-ticket states)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprint-status"
+    },
+    {
+      "path": "/api/sprint-summary",
+      "description": "Sprint summary for the active or last sprint",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprint-summary"
+    },
+    {
+      "path": "/api/sprint-history",
+      "description": "List completed sprint summaries",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprint-history"
+    },
+    {
+      "path": "/api/sprint-history-content",
+      "description": "Raw Markdown content of a sprint summary",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprint-history-content"
+    },
+    {
+      "path": "/api/sprints/timeline",
+      "description": "Timeline data across sprints",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/timeline"
+    },
+    {
+      "path": "/api/sprints/summaries",
+      "description": "All sprint summaries",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprints/summaries"
+    },
+    {
+      "path": "/api/home",
+      "description": "Aggregated Home payload: summary stats, per-project cards, last 5 activity events. Per-project data cached 30s; always HTTP 200",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/home"
+    },
+    {
+      "path": "/api/sprint-nav-status",
+      "description": "GitHub-backed sprint status for the nav-bar pill",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprint-nav-status"
+    },
+    {
+      "path": "/api/sprint-progress",
+      "description": "Unified sprint progress (live + persisted + GitHub)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprint-progress"
+    },
+    {
+      "path": "/api/sprint-nav-summary",
+      "description": "Sprint summary issue body, on demand",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/sprint-nav-summary"
+    },
+    {
+      "path": "/api/metrics/sprints",
+      "description": "Sprint-level metrics",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/metrics/sprints"
+    },
+    {
+      "path": "/api/projects/{slug}/analytics/metrics",
+      "description": "Per-project analytics metrics",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/analytics/metrics"
+    },
+    {
+      "path": "/api/projects/{slug}/analytics/cost",
+      "description": "Token-usage cost per sprint/ticket/agent for a project",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/analytics/cost"
+    },
+    {
+      "path": "/api/tickets/bulk/{job_id}",
+      "description": "Poll a bulk job's state",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/tickets/bulk/{job_id}"
+    },
+    {
+      "path": "/api/tickets/bulk/{job_id}/stream",
+      "description": "SSE stream of bulk job progress",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/tickets/bulk/{job_id}/stream"
+    },
+    {
+      "path": "/runs",
+      "description": "List past sprints + tickets from `agent_runs`, for the Run Browser. Manual (non-sprint) sessions \u2014 `agent_runs.sprint_label IS NULL` \u2014 are grouped under the sprint key `\"null\"` so the UI can still build valid log URLs (issue #2247)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/runs"
+    },
+    {
+      "path": "/runs/{sprint}/{issue}/{agent}/log",
+      "description": "Paginated log content for one run. Pass `sprint=null` to resolve a manual session's log (`sprint_label IS NULL`) (issue #2247)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/runs/{sprint}/{issue}/{agent}/log"
+    },
+    {
+      "path": "/runs/{sprint}/{issue}/{agent}/log/tail",
+      "description": "Last N KB of a run's log. Pass `sprint=null` for a manual session (issue #2247)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/runs/{sprint}/{issue}/{agent}/log/tail"
+    },
+    {
+      "path": "/api/manual/live",
+      "description": "Active manual (non-sprint) agent sessions \u2014 `agent_runs` rows where `sprint_label IS NULL AND finished_at IS NULL`. Optional `project` query param scopes to one repo. Returns `{\"sessions\": [{\"id\", \"issue_number\", \"agent\", \"project\", \"session_id\", \"started_at\", \"log_path\"}, ...]}` (issue #2247)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/manual/live"
+    },
+    {
+      "path": "/api/logs/runs/{sprint_label}/ticket-stats",
+      "description": "Per-ticket stats for a sprint's runs",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/logs/runs/{sprint_label}/ticket-stats"
+    },
+    {
+      "path": "/api/logs/runs/{sprint_label}/ica-cost",
+      "description": "ICA (claude-proxy) cost breakdown for a sprint's runs",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/logs/runs/{sprint_label}/ica-cost"
+    },
+    {
+      "path": "/logs/tail",
+      "description": "Tail arbitrary log output",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/logs/tail"
+    },
+    {
+      "path": "/api/logs/search",
+      "description": "Cross-run log search using ripgrep with DB-indexed pre-filtering",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/logs/search"
+    },
+    {
+      "path": "/api/alerts",
+      "description": "List active alerts",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/alerts"
+    },
+    {
+      "path": "/api/settings",
+      "description": "Read effective global settings; secrets shown as `<field>_set` booleans",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/settings"
+    },
+    {
+      "path": "/api/projects/{slug}/settings",
+      "description": "Read effective project settings, project overrides merged over global",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/settings"
+    },
+    {
+      "path": "/api/projects/{slug}/deploy-config",
+      "description": "Read a project's deploy config",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/deploy-config"
+    },
+    {
+      "path": "/api/projects/{slug}/environments",
+      "description": "List a project's environments",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/environments"
+    },
+    {
+      "path": "/api/projects/{slug}/environments/{env}/env-vars",
+      "description": "Read an environment's env vars",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/environments/{env}/env-vars"
+    },
+    {
+      "path": "/api/projects/{slug}/environments/{env}/run-state",
+      "description": "Running/stopped state of an environment",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/environments/{env}/run-state"
+    },
+    {
+      "path": "/api/projects/{slug}/environments/{env}/deploy-status",
+      "description": "Last deploy status for an environment",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{slug}/environments/{env}/deploy-status"
+    },
+    {
+      "path": "/api/deploy/overview",
+      "description": "Cross-project deploy overview",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/deploy/overview"
+    },
+    {
+      "path": "/api/fs/list",
+      "description": "Browse the local filesystem (for path pickers)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/fs/list"
+    },
+    {
+      "path": "/api/projects/notes",
+      "description": "Read project notes",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/notes"
+    },
+    {
+      "path": "/api/settings/provider",
+      "description": "Active LLM provider (`anthropic` or `ica`)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/settings/provider"
+    },
+    {
+      "path": "/api/settings/sync/status",
+      "description": "Settings-sync status vs. the shared source",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/settings/sync/status"
+    },
+    {
+      "path": "/api/milestones",
+      "description": "List milestones across projects (selector)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/milestones"
+    },
+    {
+      "path": "/api/projects/{owner}/{repo}/branches/stale",
+      "description": "List stale branches for a project",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/projects/{owner}/{repo}/branches/stale"
+    },
+    {
+      "path": "/scan-stale-branches",
+      "description": "List `feature/<N>-*` remote branches, map each to a sprint, flag merged. `?repo=&target=",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/scan-stale-branches"
+    },
+    {
+      "path": "/api/maintenance/sprints/export",
+      "description": "Export sprint data as CSV",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/maintenance/sprints/export"
+    },
+    {
+      "path": "/api/plan-usage",
+      "description": "Claude API plan usage (token budget remaining)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/plan-usage"
+    },
+    {
+      "path": "/api/estimator/health",
+      "description": "Estimator subsystem health check",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/estimator/health"
+    },
+    {
+      "path": "/api/debug/sprint-collisions",
+      "description": "Sprint-collision audit manifest",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/debug/sprint-collisions"
+    },
+    {
+      "path": "/api/debug/api-volume",
+      "description": "API call-volume and cache-hit observability",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/debug/api-volume"
+    },
+    {
+      "path": "/api/debug/token-usage/by-agent-model",
+      "description": "Token spend grouped by `agent_role` + `model_name`; optional `?window_start=` ISO-8601 UTC lower bound",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/api/debug/token-usage/by-agent-model"
+    },
+    {
+      "path": "/diagnostics",
+      "description": "Low-level server diagnostics page",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/diagnostics"
+    },
+    {
+      "path": "/",
+      "description": "Home page (serves `static/index.html`)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/"
+    },
+    {
+      "path": "/home",
+      "description": "Alias for `/",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/home"
+    },
+    {
+      "path": "/overview",
+      "description": "Cross-project overview page",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/overview"
+    },
+    {
+      "path": "/brief",
+      "description": "Brief page",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/brief"
+    },
+    {
+      "path": "/projects/{path}",
+      "description": "Project detail page (SPA deep-link handler)",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/projects/{path}"
+    },
+    {
+      "path": "/project/{slug}",
+      "description": "Project page",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/project/{slug}"
+    },
+    {
+      "path": "/project/{slug}/analytics",
+      "description": "Project analytics tab",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/project/{slug}/analytics"
+    },
+    {
+      "path": "/project/{slug}/{tab}",
+      "description": "Project detail page, specific tab",
+      "source": "docs/features/api.md",
+      "example": "curl http://localhost:8000/project/{slug}/{tab}"
+    }
+  ],
+  "source_files": [
+    "docs/features/api.md"
+  ]
+}
