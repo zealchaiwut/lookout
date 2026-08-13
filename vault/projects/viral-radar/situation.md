@@ -1,6 +1,6 @@
 ---
 target: viral-radar
-run: "2026-08-12T14:48:03Z"
+run: "2026-08-13T11:18:40Z"
 sources_ok: true
 ---
 

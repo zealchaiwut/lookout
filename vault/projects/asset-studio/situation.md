@@ -1,12 +1,12 @@
 ---
 target: asset-studio
-run: "2026-08-13T02:34:32Z"
+run: "2026-08-13T16:11:27Z"
 sources_ok: true
 ---
 
 ## One-liner
 
-`asset-studio` — Asset-studio is a local web app for social media creators to build and export multi-slide carousels using AI image upscaling (Magnific) and generation (Mystic) paired with text compositing and brand templates. (health: degraded)
+`asset-studio` — Asset-studio is a local web app for social media creators to build and export multi-slide carousels using AI image upscaling (Magnific) and generation (Mystic) paired with text compositing and brand templates. (health: unhealthy)
 _(source: manifest.json, brief.json)_
 
 ## Capacity
@@ -16,8 +16,7 @@ _(source: manifest.json, brief.json, issues.json)_
 
 ## Since last run
 
-- `sources.github.pinned_requested`: '<absent>' → 0
-- `sources.github.pinned_resolved`: '<absent>' → 0
+_No changes detected._
 _(source: manifest.json)_
 
 ## What to do next
@@ -42,6 +41,5 @@ _(source: issues.json, questions.json)_
 
 ## Drift
 
-- `sources.github.pinned_requested`: '<absent>' → 0
-- `sources.github.pinned_resolved`: '<absent>' → 0
+_No drift signals._
 _(source: manifest.json, docs_manifest.json)_

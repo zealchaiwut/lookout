@@ -1,0 +1,68 @@
+{
+  "brief": {
+    "project": "asset-studio",
+    "date": "2026-08-13",
+    "shipped": [],
+    "in_progress": null,
+    "up_next": null,
+    "blocked": [],
+    "kpis": {
+      "sprints_shipped": 0,
+      "tickets_done": 0,
+      "in_progress": false,
+      "in_progress_percent": 0,
+      "needs_you": 8
+    },
+    "recent_activity": [
+      {
+        "time": "16:03",
+        "source": "agent",
+        "message": "agent started"
+      },
+      {
+        "time": "16:00",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "15:59",
+        "source": "agent",
+        "message": "agent started"
+      },
+      {
+        "time": "15:58",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "15:57",
+        "source": "agent",
+        "message": "agent started"
+      },
+      {
+        "time": "15:56",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "15:55",
+        "source": "agent",
+        "message": "agent started"
+      },
+      {
+        "time": "15:54",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "15:54",
+        "source": "agent",
+        "message": "agent started"
+      }
+    ],
+    "ran_overnight": [],
+    "waiting_on_you": [],
+    "suggested_next": []
+  },
+  "sprints_history": []
+}
