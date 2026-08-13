@@ -1052,6 +1052,42 @@ python3 atlas_coverage.py [--vault <dir>] [--targets-yaml <path>]
 
 ---
 
+## `pack` — Context Pack
+
+**Module:** `pack.py`
+**Public API:** `generate_pack(targets, vault_dir, targets_yaml, now)` → `Path`
+
+### What it does
+
+Bundles one or more targets into a single file to drop into a working session.
+Per target: the situation one-liner and capacity verdict, any open questions,
+and the capability card body — What it is, Data it owns, Read surfaces, How to
+make it do things, Constraints. Then the capability map and the read-only
+ground rules from `agents.md`.
+
+The capability card is the point. A pack carrying only a one-liner is
+decorative; the read surfaces are what a reader or an agent works against —
+viral-radar alone documents 16.
+
+### Rules
+
+- `## Notes for AI` is excluded: it is a scratchpad preserved across
+  regenerations, not a description of the target.
+- Provenance lines (`_(source: …)_`) are stripped — they cite where lookout got
+  the data, which is noise in a context drop.
+- The Open questions heading is omitted entirely when a target has none, rather
+  than emitting a heading that says nothing.
+- A missing capability card degrades to the one-liner rather than failing.
+- A card older than 7 days raises a `⚠ STALE` line in the header.
+
+### CLI
+
+```
+bin/lookout pack <target...>
+```
+
+---
+
 ## Notes
 
 All skill modules are pure Python with no external dependencies beyond the

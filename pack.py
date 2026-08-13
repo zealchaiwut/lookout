@@ -1,10 +1,17 @@
 """
 pack.py — pack generator for Lookout.
 
-Bundles target situation one-liners, capacity lines, the capability map,
-and agent ground rules into a single, auditable context file.
+Bundles, per target: the situation one-liner and capacity verdict, the
+capability card body (what it is, the data it owns, its read surfaces and its
+constraints), and any open questions — followed by the capability map and the
+agent ground rules, in a single auditable context file.
 
-Cards:     vault/projects/<target>/situation.md
+The capability card is the point of the pack. A pack carrying only a one-liner
+is decorative: the read surfaces are what a reader or an agent actually needs
+to work against a target, and viral-radar alone documents 16 of them.
+
+Situation:  vault/projects/<target>/situation.md
+Capability: vault/projects/<target>/capability.md
 Staleness: card mtime > 7 days → ⚠ STALE warning in header
 Output:    vault/packs/<YYYY-MM-DD>-<slug>.md
 
@@ -76,6 +83,54 @@ def _extract_one_liner(content: str) -> str:
 
 def _extract_capacity(content: str) -> str:
     return _extract_section_first_line(content, "## Capacity")
+
+
+def _extract_section(content: str, header: str) -> str:
+    """Return a whole section body, minus provenance lines, or ''."""
+    m = re.search(
+        r"^" + re.escape(header) + r"\s*\n(.*?)(?=\n## |\Z)",
+        content,
+        re.MULTILINE | re.DOTALL,
+    )
+    if not m:
+        return ""
+    kept = [
+        ln for ln in m.group(1).splitlines()
+        if not ln.strip().startswith("_(")
+    ]
+    return "\n".join(kept).strip()
+
+
+def _extract_card_body(card_content: str) -> str:
+    """Assemble the useful part of a capability card.
+
+    `## Notes for AI` is deliberately excluded: it is a scratchpad preserved
+    across regenerations, not a description of the target.
+    """
+    out: list = []
+    for header in (
+        "## What it is",
+        "## Data it owns",
+        "## Read surfaces",
+        "## How to make it do things",
+        "## Constraints",
+    ):
+        body = _extract_section(card_content, header)
+        if body:
+            out.append(f"{header}\n\n{body}")
+    return "\n\n".join(out)
+
+
+def _extract_open_questions(situation_content: str) -> str:
+    """Return the Open questions section, or '' when there are none.
+
+    The generated placeholder is treated as absence — a pack should not carry a
+    heading that says nothing.
+    """
+    body = _extract_section(situation_content, "## Open questions")
+    if not body or body.strip().startswith("_No open questions"):
+        return ""
+    return body
 
 
 def _extract_ground_rules(agents_content: str) -> str:
@@ -151,6 +206,19 @@ def generate_pack(
                 lines.append(one_liner)
             if capacity:
                 lines.append(capacity)
+            questions = _extract_open_questions(content)
+            if questions:
+                lines.append("")
+                lines.append("### Open questions")
+                lines.append("")
+                lines.append(questions)
+
+        cap = vault_dir / "projects" / target / "capability.md"
+        if cap.exists():
+            body = _extract_card_body(cap.read_text())
+            if body:
+                lines.append("")
+                lines.append(body)
         lines.append("")
 
     # --- Map (verbatim) ---
