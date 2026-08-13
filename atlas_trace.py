@@ -544,7 +544,13 @@ def _candidate_entry_points(
 
     _push(_find_test_entry_point(feature_slug, feature_name, source_dir))
     _push(_find_source_by_name(feature_slug, feature_name, source_dir))
-    _push(_find_app_entry(source_dir))
+
+    # The application entry point is deliberately NOT a candidate. It is not a
+    # feature's entry point at any size: 32 commander features fell back to
+    # apps/dashboard/server.py and produced byte-identical 3-node diagrams,
+    # which is the "identical diagrams" failure #89 was written to prevent.
+    # A size limit does not catch it, because a shallow app trace stays small.
+    # _find_app_entry remains for callers that genuinely want the app entry.
     return out
 
 

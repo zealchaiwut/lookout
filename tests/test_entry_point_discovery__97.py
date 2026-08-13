@@ -74,21 +74,37 @@ def test_app_entry_returns_none_when_no_candidate_exists(tmp_path):
 
 
 def test_candidates_are_ordered_most_specific_first(repo):
-    cands = atlas_trace._candidate_entry_points("widget-flow", "Widget Flow", repo)
+    cands = atlas_trace._candidate_entry_points("widgets", "Widgets", repo)
     names = [c.name for c in cands]
-    assert names[0] == "test_widget_flow.py"
-    assert "server.py" in names
-    assert names.index("test_widget_flow.py") < names.index("server.py")
+    assert names[0] == "widgets.py"
+
+
+def test_application_entry_is_never_a_feature_candidate(repo):
+    """server.py is not a feature entry point at any size.
+
+    32 commander features fell back to apps/dashboard/server.py and produced
+    byte-identical 3-node diagrams. A size limit misses that, because a shallow
+    app trace stays small.
+    """
+    cands = atlas_trace._candidate_entry_points("widget-flow", "Widget Flow", repo)
+    assert all(c.name != "server.py" for c in cands)
 
 
 # --- candidates are evaluated, not trusted ---------------------------------
 
-def test_entry_point_that_imports_nothing_local_is_rejected(repo):
-    """A TestClient-driven test resolves but traces to nothing."""
+def test_entry_point_that_imports_nothing_local_yields_no_diagram(repo):
+    """A TestClient-driven test resolves but traces to nothing.
+
+    It is the only candidate for this feature, so it is returned in order to
+    name what was attempted — but generate_note must emit no diagram for it.
+    """
     ep = atlas_trace._find_entry_point_for_feature("http-only", "Http Only", repo)
-    assert ep != "tests/test_http_only.py", (
-        "a candidate that traces to no implementation must not be selected"
+    note = atlas_trace.generate_note(
+        feature_name="Http Only", source_dir=repo, entry_point_file=ep, issues=[],
     )
+    body = note.split("```mermaid")[1].split("```")[0]
+    assert body.strip() == "flowchart LR"
+    assert "OPEN QUESTION" in note
 
 
 def test_selection_prefers_a_candidate_that_reaches_real_files(repo):
