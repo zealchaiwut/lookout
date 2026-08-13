@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-13T16:11:34Z",
-  "target": "crux",
+  "timestamp": "2026-08-13T16:11:41Z",
+  "target": "perf-coach",
   "health": {
     "status": "unhealthy",
     "uptime_seconds": 125612,
@@ -65,14 +65,13 @@
     "github": {
       "status": "ok",
       "error": "",
-      "pinned_requested": 0,
-      "pinned_resolved": 0
+      "pinned_requested": 1,
+      "pinned_resolved": 1
     },
     "endpoints": {
       "status": "ok",
       "error": "",
-      "count": 6
+      "count": 30
     }
-  },
-  "committed": true
+  }
 }

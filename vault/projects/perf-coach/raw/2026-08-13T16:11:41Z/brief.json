@@ -1,0 +1,104 @@
+{
+  "brief": {
+    "project": "perf-coach",
+    "date": "2026-08-13",
+    "shipped": [],
+    "in_progress": null,
+    "up_next": null,
+    "blocked": [],
+    "kpis": {
+      "sprints_shipped": 0,
+      "tickets_done": 0,
+      "in_progress": false,
+      "in_progress_percent": 0,
+      "needs_you": 4
+    },
+    "recent_activity": [
+      {
+        "time": "15:24",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "15:20",
+        "source": "agent",
+        "message": "agent started"
+      },
+      {
+        "time": "15:19",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "15:15",
+        "source": "agent",
+        "message": "agent started"
+      },
+      {
+        "time": "15:15",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "15:12",
+        "source": "agent",
+        "message": "agent started"
+      },
+      {
+        "time": "15:03",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "15:03",
+        "source": "agent",
+        "message": "agent started"
+      },
+      {
+        "time": "14:34",
+        "source": "agent",
+        "message": "agent finished"
+      },
+      {
+        "time": "14:30",
+        "source": "agent",
+        "message": "agent started"
+      }
+    ],
+    "ran_overnight": [],
+    "waiting_on_you": [
+      {
+        "label": "sprint-100",
+        "ticket_count": 2,
+        "estimated_hours": 0.33,
+        "project": null
+      },
+      {
+        "label": "sprint-101",
+        "ticket_count": 5,
+        "estimated_hours": 2.0,
+        "project": null
+      },
+      {
+        "label": "sprint-102",
+        "ticket_count": 5,
+        "estimated_hours": 1.75,
+        "project": null
+      },
+      {
+        "label": "sprint-120.2",
+        "ticket_count": 2,
+        "estimated_hours": 0.0,
+        "project": null
+      },
+      {
+        "label": "sprint-99",
+        "ticket_count": 1,
+        "estimated_hours": 0.0,
+        "project": null
+      }
+    ],
+    "suggested_next": []
+  },
+  "sprints_history": []
+}
