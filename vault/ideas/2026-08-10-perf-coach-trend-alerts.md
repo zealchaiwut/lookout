@@ -4,7 +4,7 @@ created: 2026-08-10
 status: promoted
 targets: [perf-coach]
 issues: [62]
-assessed: 2026-08-12
+assessed: 2026-08-13
 ---
 
 Add a trend-alert layer to perf-coach that detects statistically significant
@@ -23,10 +23,10 @@ the notification delivery mechanism (push vs. email digest).
 <!-- BEGIN MACHINE ASSESSMENT -->
 ## Assessment
 
-**Already exists:** [[projects/perf-coach/atlas/accept-suggestion-flow]]; [[projects/perf-coach/atlas/activity-streams]]; [[projects/perf-coach/atlas/acwr-training-load-guidance]]
+**Already exists:** [[projects/perf-coach/capability]]; [[projects/perf-coach/atlas/accept-suggestion-flow]]; [[projects/perf-coach/atlas/activity-streams]]; [[projects/perf-coach/atlas/acwr-training-load-guidance]]
 **Must be built:** —
 **Effort:** S
-**Dependencies:** [[projects/perf-coach]]
+**Dependencies:** [[projects/perf-coach/capability]]; [[projects/perf-coach]]
 **Suggested first slice:** Verify scope against [[projects/perf-coach/atlas/accept-suggestion-flow]].
 
 <!-- BEGIN ISSUE STATE TABLE -->

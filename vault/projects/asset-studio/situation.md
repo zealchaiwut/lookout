@@ -1,6 +1,6 @@
 ---
 target: asset-studio
-run: "2026-08-12T14:47:51Z"
+run: "2026-08-13T02:34:32Z"
 sources_ok: true
 ---
 
@@ -16,7 +16,8 @@ _(source: manifest.json, brief.json, issues.json)_
 
 ## Since last run
 
-_No changes detected._
+- `sources.github.pinned_requested`: '<absent>' → 0
+- `sources.github.pinned_resolved`: '<absent>' → 0
 _(source: manifest.json)_
 
 ## What to do next
@@ -41,5 +42,6 @@ _(source: issues.json, questions.json)_
 
 ## Drift
 
-_No drift signals._
+- `sources.github.pinned_requested`: '<absent>' → 0
+- `sources.github.pinned_resolved`: '<absent>' → 0
 _(source: manifest.json, docs_manifest.json)_
