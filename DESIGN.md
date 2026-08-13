@@ -25,6 +25,21 @@ query, so a viewer with no preference still gets a complete palette.
 | `--accent` | `#3a5a8c` | `#7fa3d8` |
 | `--code-bg` | `#f0f0ee` | `#24242c` |
 
+### Diagram colours
+
+Inline SVG diagrams (mermaid flowchart blocks rendered at generate time) reuse
+the same tokens — no additional palette is introduced:
+
+| Role | Token |
+|------|-------|
+| Node fill | `--surface` |
+| Node / edge stroke | `--border` |
+| Label text | `--text` |
+| Arrowhead fill | `--accent` |
+
+Node labels use the monospace stack (`--mono`) to match the file-path and
+identifier content they carry.
+
 ## Typography
 
 System UI stack for prose, system mono for code, tables, and file paths — the

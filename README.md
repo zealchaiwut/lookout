@@ -53,6 +53,7 @@ python discuss_pack.py <target-or-idea>  # discussion pack for one topic
 bin/lookout promote <file> --type idea|sprint
 python atlas_seed.py <target>          # bootstrap a target's atlas from its README
 python atlas_trace.py <target> <slug>  # trace one feature through real source
+python atlas_trace.py <target> --all-stale  # batch-trace stale features (default cap 3)
 python llm.py --status                 # check LLM configuration (spends nothing)
 python3 render_site.py                 # render the vault to a browsable HTML site
 python scripts/smoke_contract.py       # validate the vault against the reader contract
@@ -120,4 +121,5 @@ against the Claude.ai subscription.
 | sprint-5 | Fleet expansion — crux/viral-radar/asset-studio targets, capability map, `lookout pack`, discussion packs, lint hardening |
 | sprint-6 | Idea pipeline — note conventions and ledger, assessment pass, ship tracking, todo-view effort annotation |
 | sprint-7 | Hermes reader contract, vault inbox capture and promote, smoke contract validation |
+| sprint-14.1 | atlas_trace per-feature entry-point discovery and batch tracing; mermaid → inline SVG rendering; note ownership badges and source links; readability fixes in generated site |
 | — | Pipeline wiring (derive.py), endpoint collection, subscription-only LLM gate, machine-independent launchd install |

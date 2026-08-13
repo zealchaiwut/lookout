@@ -7,7 +7,7 @@ imports in source, then writes an atlas note with:
   - YAML frontmatter (files_read list)
   - ## What — one-sentence description
   - ## Entry Points — discovered entry files and routes
-  - ## Related Issues — issues pulled from snapshot
+  - ## Related Issues — issues pulled from snapshot (open only, ≤10, feature-matched)
   - ## Mermaid flowchart — every node is a real file, route, or table
   - ## Key Files — one descriptive line per file read
   - OPEN QUESTION callouts for any unresolved import or handler
@@ -29,6 +29,7 @@ Usage
 
 Or CLI:
     python atlas_trace.py <target> <feature-slug> [--vault <vault_dir>]
+    python atlas_trace.py <target> --all-stale [--vault <vault_dir>] [--source-dir <path>]
 """
 import re
 import sys
@@ -238,11 +239,6 @@ def _build_mermaid(
         for tid in table_ids:
             lines.append(f"  {file_ids[-1]} --> {tid}")
 
-    # Fallback: at least one self-link when there are no connections
-    if len(nodes) == 1:
-        nid = nodes[0][0]
-        lines.append(f"  {nid}")
-
     return "\n".join(lines)
 
 
@@ -251,6 +247,8 @@ def generate_note(
     source_dir: Path,
     entry_point_file: str,
     issues: list[dict],
+    traced: str | None = None,
+    stale: bool = True,
 ) -> str:
     """Generate an atlas trace note for a stale feature.
 
@@ -259,7 +257,9 @@ def generate_note(
     feature_name     Display name of the feature.
     source_dir       Root directory of the target's source tree.
     entry_point_file Filename (relative to source_dir) where tracing begins.
-    issues           List of dicts with 'number' and 'title' keys.
+    issues           List of dicts with 'number' and 'title' keys (pre-filtered).
+    traced           ISO date string to set in frontmatter, or None for null.
+    stale            Whether to mark the note stale in frontmatter.
 
     Returns
     -------
@@ -298,12 +298,14 @@ def generate_note(
 
     # --- Frontmatter ---
     files_list = "\n".join(f"  - {f.name}" for f in files_read)
+    traced_val = traced if traced is not None else "null"
+    stale_val = "true" if stale else "false"
     frontmatter = (
         "---\n"
         f"feature: {feature_name}\n"
         f"files_read:\n{files_list or '  []'}\n"
-        f"traced: null\n"
-        f"stale: true\n"
+        f"traced: {traced_val}\n"
+        f"stale: {stale_val}\n"
         "---\n"
     )
 
@@ -363,6 +365,166 @@ def generate_note(
 
 
 # ---------------------------------------------------------------------------
+# Entry-point discovery
+# ---------------------------------------------------------------------------
+
+_EP_PATTERN = re.compile(r"[Ee]ntry\s+point[:\s]*`([^`]+\.py)`")
+
+
+def _find_entry_point_for_feature(
+    feature_slug: str,
+    feature_name: str,
+    source_dir: Path,
+) -> str | None:
+    """Return the entry-point filename for a feature, or None when undiscoverable.
+
+    Search order:
+      1. docs/features/<feature_slug>.md  (per-feature file in directory)
+      2. docs/features/<feature_name_slug>.md  (name-derived slug)
+      3. docs/features.md  (legacy global file)
+    Returns the first .py filename found in an "Entry point: `x.py`" line.
+    """
+    source_dir = Path(source_dir)
+    docs_dir = source_dir / "docs"
+
+    # --- 1. Per-feature file inside docs/features/ directory ---
+    features_dir = docs_dir / "features"
+    if features_dir.is_dir():
+        candidates = [
+            features_dir / f"{feature_slug}.md",
+            features_dir / f"{re.sub(r'[^a-z0-9]+', '-', feature_name.lower())}.md",
+        ]
+        for candidate in candidates:
+            if candidate.exists():
+                m = _EP_PATTERN.search(candidate.read_text())
+                if m:
+                    return m.group(1)
+
+    # --- 2. Legacy docs/features.md (global file) ---
+    features_md = docs_dir / "features.md"
+    if features_md.exists():
+        m = _EP_PATTERN.search(features_md.read_text())
+        if m:
+            return m.group(1)
+
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Issue filtering
+# ---------------------------------------------------------------------------
+
+def _filter_issues(
+    issues: list[dict],
+    feature_name: str,
+    cap: int = 10,
+) -> list[dict]:
+    """Return at most `cap` open issues plausibly related to `feature_name`.
+
+    Filtering rules:
+      - Exclude issues where state is CLOSED (case-insensitive).
+      - Include issues where at least one word from feature_name (≥3 chars)
+        appears in the issue title (case-insensitive substring match).
+      - Cap result at `cap` (default 10).
+    """
+    words = [w.lower() for w in feature_name.split() if len(w) >= 3]
+    result: list[dict] = []
+    for issue in issues:
+        state = issue.get("state", "OPEN")
+        if isinstance(state, str) and state.upper() == "CLOSED":
+            continue
+        title = issue.get("title", "").lower()
+        if words and not any(w in title for w in words):
+            continue
+        result.append(issue)
+        if len(result) == cap:
+            break
+    return result
+
+
+# ---------------------------------------------------------------------------
+# Batch tracing
+# ---------------------------------------------------------------------------
+
+def trace_all_stale(
+    target: str,
+    vault_dir: "Path | str",
+    source_dir: "Path | str",
+    max_batch: int = 3,
+) -> list[str]:
+    """Trace all stale atlas features for `target`, up to `max_batch`.
+
+    Selects the oldest-traced (or never-traced) stale features first — matching
+    the batch-selection order in gather.select_trace_batch. Writes updated notes
+    back to disk with stale: false and the current traced date.
+
+    Returns a list of feature slugs that were traced this run.
+    """
+    import json
+    from datetime import date
+
+    vault_dir = Path(vault_dir)
+    source_dir = Path(source_dir)
+    atlas_dir = vault_dir / "projects" / target / "atlas"
+    if not atlas_dir.exists():
+        return []
+
+    # Load issues from latest snapshot
+    raw_dir = vault_dir / "projects" / target / "raw"
+    issues: list[dict] = []
+    if raw_dir.exists():
+        snapshots = sorted(p for p in raw_dir.iterdir() if p.is_dir())
+        if snapshots:
+            issues_file = snapshots[-1] / "issues.json"
+            if issues_file.exists():
+                data = json.loads(issues_file.read_text())
+                issues = data.get("issues", [])
+
+    # Collect stale candidates (oldest traced first, then alphabetical)
+    candidates: list[tuple[str | None, str]] = []
+    for note_path in sorted(atlas_dir.glob("*.md")):
+        if note_path.name == "index.md":
+            continue
+        text = note_path.read_text()
+        stale_m = re.search(r"^stale:\s*(.+)$", text, re.MULTILINE)
+        is_stale = bool(stale_m and stale_m.group(1).strip().lower() == "true")
+        traced_m = re.search(r"^traced:\s*(.+)$", text, re.MULTILINE)
+        traced_val = traced_m.group(1).strip() if traced_m else None
+        if traced_val in (None, "null", "", "None"):
+            traced_val = None
+        if is_stale or traced_val is None:
+            candidates.append((traced_val, note_path.stem))
+
+    candidates.sort(key=lambda item: ("0000" if item[0] is None else item[0], item[1]))
+    batch = [slug for _, slug in candidates[:max_batch]]
+
+    today = date.today().isoformat()
+    traced_slugs: list[str] = []
+
+    for slug in batch:
+        note_path = atlas_dir / f"{slug}.md"
+        text = note_path.read_text()
+        fm_m = re.search(r"^feature:\s*(.+)$", text, re.MULTILINE)
+        feature_name = fm_m.group(1).strip() if fm_m else slug
+
+        ep = _find_entry_point_for_feature(slug, feature_name, source_dir) or "app.py"
+        filtered = _filter_issues(issues, feature_name)
+
+        note = generate_note(
+            feature_name=feature_name,
+            source_dir=source_dir,
+            entry_point_file=ep,
+            issues=filtered,
+            traced=today,
+            stale=False,
+        )
+        note_path.write_text(note)
+        traced_slugs.append(slug)
+
+    return traced_slugs
+
+
+# ---------------------------------------------------------------------------
 # Public helpers
 # ---------------------------------------------------------------------------
 
@@ -407,17 +569,47 @@ def get_node_names(mermaid_text: str) -> list[str]:
 def main() -> None:
     import argparse
     import json
+    from datetime import date
 
     parser = argparse.ArgumentParser(
         description="Trace a stale feature and write an atlas note"
     )
     parser.add_argument("target", help="Target name (e.g. perf-coach)")
-    parser.add_argument("feature_slug", help="Feature slug (e.g. today-recommendation)")
+    parser.add_argument(
+        "feature_slug",
+        nargs="?",
+        help="Feature slug (e.g. today-recommendation); omit with --all-stale",
+    )
     parser.add_argument("--vault", default="vault", help="Path to vault directory")
     parser.add_argument("--source-dir", help="Path to the target's source directory")
+    parser.add_argument(
+        "--all-stale",
+        action="store_true",
+        help="Trace all stale features for the target (up to --batch-size)",
+    )
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=3,
+        help="Max features to trace in one --all-stale run (default 3)",
+    )
     args = parser.parse_args()
 
     vault_dir = Path(args.vault)
+    source_dir = Path(args.source_dir) if args.source_dir else Path(".")
+
+    if args.all_stale:
+        traced = trace_all_stale(args.target, vault_dir, source_dir, args.batch_size)
+        if traced:
+            print(f"Traced {len(traced)} feature(s): {', '.join(traced)}")
+        else:
+            print("No stale features to trace.")
+        return
+
+    if not args.feature_slug:
+        print("Error: feature_slug is required (or use --all-stale)", file=sys.stderr)
+        sys.exit(1)
+
     atlas_dir = vault_dir / "projects" / args.target / "atlas"
     stub_path = atlas_dir / f"{args.feature_slug}.md"
 
@@ -436,36 +628,32 @@ def main() -> None:
         print(f"Feature '{feature_name}' is not stale — skipping trace.", file=sys.stderr)
         sys.exit(0)
 
-    source_dir = Path(args.source_dir) if args.source_dir else Path(".")
-
-    # Load issues from latest snapshot
+    # Load issues from latest snapshot and filter for this feature
     raw_dir = vault_dir / "projects" / args.target / "raw"
-    issues: list[dict] = []
+    all_issues: list[dict] = []
     if raw_dir.exists():
-        snapshots = sorted(raw_dir.iterdir())
+        snapshots = sorted(p for p in raw_dir.iterdir() if p.is_dir())
         if snapshots:
             issues_file = snapshots[-1] / "issues.json"
             if issues_file.exists():
                 data = json.loads(issues_file.read_text())
-                issues = data.get("issues", [])
+                all_issues = data.get("issues", [])
 
-    # Determine entry point
-    entry_point = "app.py"
-    docs_dir = source_dir / "docs"
-    for docs_file in ([docs_dir / "features.md"] if docs_dir.exists() else []):
-        if docs_file.exists():
-            text = docs_file.read_text()
-            # Look for "Entry point: `<file>`" pattern
-            ep_m = re.search(r"[Ee]ntry\s+point.*?`([^`]+\.py)`", text)
-            if ep_m:
-                entry_point = ep_m.group(1)
-                break
+    issues = _filter_issues(all_issues, feature_name)
+
+    # Resolve per-feature entry point
+    entry_point = (
+        _find_entry_point_for_feature(args.feature_slug, feature_name, source_dir)
+        or "app.py"
+    )
 
     note = generate_note(
         feature_name=feature_name,
         source_dir=source_dir,
         entry_point_file=entry_point,
         issues=issues,
+        traced=date.today().isoformat(),
+        stale=False,
     )
 
     out_path = atlas_dir / f"{args.feature_slug}.md"

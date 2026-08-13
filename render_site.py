@@ -38,6 +38,7 @@ Usage
 """
 import argparse
 import html
+import os
 import re
 import sys
 from pathlib import Path
@@ -61,11 +62,241 @@ _ORDERED_RE = re.compile(r"^(\s*)\d+\.\s+(.*)$")
 _TABLE_SEP_RE = re.compile(r"^\s*\|[\s:|-]+\|\s*$")
 _COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
 
+# Ownership sentinel patterns (from vault/agents.md conventions)
+_SENTINEL_MACHINE_ASSESS_RE = re.compile(r"<!--\s*BEGIN MACHINE ASSESSMENT\s*-->")
+_SENTINEL_MACHINE_ANY_RE = re.compile(r"<!--\s*BEGIN MACHINE\b")
+_SENTINEL_HUMAN_RE = re.compile(r"<!--\s*BEGIN HUMAN ([A-Z][A-Z ]+?)\s*-->")
+
+# File stems that vault/agents.md lists as machine-owned types
+_MACHINE_STEMS = frozenset(["situation", "drift", "todo-view", "index"])
+
+# File stems / path conditions that agents.md lists as human-owned types
+_HUMAN_STEMS = frozenset(["agents", "decisions"])
+_HUMAN_TOP_DIRS = frozenset(["learning"])
+
 # A whole-line `_(source: …)_` provenance marker. It is metadata about where a
 # section came from, not prose, and is rendered muted and smaller.
 _SOURCE_LINE_RE = re.compile(r"^_\((?:source|sources):.*\)_$")
 
 _PLACEHOLDER = "\x00%d\x00"
+
+# ---------------------------------------------------------------------------
+# Mermaid → inline SVG (supported subset: flowchart LR only)
+# ---------------------------------------------------------------------------
+
+_MM_NODE_RECT_RE = re.compile(r"^\s*(\w+)\[([^\]]*)\]\s*$")
+_MM_NODE_CYL_RE = re.compile(r"^\s*(\w+)\[\(([^)]*)\)\]\s*$")
+_MM_EDGE_RE = re.compile(r"^\s*(\w+)\s*-->\s*(\w+)\s*$")
+_MM_LONE_RE = re.compile(r"^\s*(\w+)\s*$")
+_MM_COMMENT_RE = re.compile(r"^\s*%%")
+# Layout constants (all integers — SVG coordinates stay whole pixels)
+_MM_NW = 140   # node width
+_MM_NH = 40    # node height
+_MM_EH = 10    # cylinder ellipse half-height
+_MM_CG = 80    # column gap (horizontal space between layers)
+_MM_RG = 20    # row gap (vertical space between nodes in same layer)
+_MM_PAD = 24   # SVG padding (all sides)
+
+
+def _mm_hash(s: str) -> str:
+    """Deterministic 32-bit polynomial hash, returned as a hex string."""
+    h = 0
+    for c in s:
+        h = (h * 31 + ord(c)) & 0xFFFFFFFF
+    return format(h, "x")
+
+
+def _mermaid_to_svg(nodes: dict, node_order: list, edges: list, svg_id: str) -> str:
+    """Generate inline SVG from parsed mermaid flowchart LR data."""
+    NW, NH, EH = _MM_NW, _MM_NH, _MM_EH
+    CG, RG, PAD = _MM_CG, _MM_RG, _MM_PAD
+
+    # Build predecessor / successor maps
+    preds: dict = {nid: [] for nid in nodes}
+    succs: dict = {nid: [] for nid in nodes}
+    for src, dst in edges:
+        succs[src].append(dst)
+        preds[dst].append(src)
+
+    # BFS layer assignment (longest path from any root)
+    layer: dict = {}
+    roots = [nid for nid in node_order if not preds[nid]]
+    if not roots:
+        roots = [node_order[0]]
+    for nid in roots:
+        layer[nid] = 0
+    queue = list(roots)
+    visited: set = set(roots)
+    qi = 0
+    while qi < len(queue):
+        nid = queue[qi]
+        for dst in succs[nid]:
+            new_l = layer[nid] + 1
+            if dst not in layer or layer[dst] < new_l:
+                layer[dst] = new_l
+            if dst not in visited:
+                visited.add(dst)
+                queue.append(dst)
+        qi += 1
+    for nid in node_order:
+        if nid not in layer:
+            layer[nid] = 0
+
+    # Group by layer, preserving insertion order within each layer
+    by_layer: dict = {}
+    for nid in node_order:
+        by_layer.setdefault(layer[nid], []).append(nid)
+
+    # Compute node positions
+    positions: dict = {}
+    for layer_idx, nids in by_layer.items():
+        col_x = PAD + layer_idx * (NW + CG)
+        for j, nid in enumerate(nids):
+            row_y = PAD + j * (NH + RG)
+            positions[nid] = (col_x, row_y)
+
+    # Canvas size
+    num_l = max(layer.values()) + 1
+    max_row = max(len(v) for v in by_layer.values())
+    W = PAD * 2 + num_l * NW + (num_l - 1) * CG
+    H = PAD * 2 + max_row * NH + (max_row - 1) * RG
+
+    marker_id = f"mm-a-{svg_id}"
+    out = []
+    out.append(
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}"'
+        f' width="100%"'
+        f' style="max-width:{W}px;height:auto;display:block;margin:.8rem 0;">'
+    )
+    # Arrowhead marker (accent colour makes arrows visually distinct)
+    out.append(
+        f'<defs>'
+        f'<marker id="{marker_id}" markerWidth="10" markerHeight="7"'
+        f' refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">'
+        f'<polygon points="0,0 10,3.5 0,7" style="fill:var(--accent);"/>'
+        f'</marker>'
+        f'</defs>'
+    )
+
+    # Edges — drawn first so nodes render on top
+    for src, dst in edges:
+        sx, sy = positions[src]
+        dx, dy = positions[dst]
+        x1, y1 = sx + NW, sy + NH // 2
+        x2, y2 = dx, dy + NH // 2
+        mx = (x1 + x2) // 2
+        out.append(
+            f'<path d="M{x1},{y1} C{mx},{y1} {mx},{y2} {x2},{y2}"'
+            f' style="fill:none;stroke:var(--border);stroke-width:1.5;"'
+            f' marker-end="url(#{marker_id})"/>'
+        )
+
+    # Nodes
+    for nid in node_order:
+        x, y = positions[nid]
+        label = html.escape(nodes[nid]["label"])
+        shape = nodes[nid]["shape"]
+        cx = x + NW // 2
+        ty = y + NH // 2 + 4   # baseline for 12px font, visually centred
+
+        if shape == "cyl":
+            by_y = y + EH        # body rectangle top
+            bh = NH - 2 * EH    # body rectangle height
+            out.append(
+                f'<g>'
+                f'<rect x="{x}" y="{by_y}" width="{NW}" height="{bh}"'
+                f' style="fill:var(--surface);stroke:var(--border);stroke-width:1;"/>'
+                f'<ellipse cx="{cx}" cy="{by_y}" rx="{NW // 2}" ry="{EH}"'
+                f' style="fill:var(--surface);stroke:var(--border);stroke-width:1;"/>'
+                f'<ellipse cx="{cx}" cy="{y + NH - EH}" rx="{NW // 2}" ry="{EH}"'
+                f' style="fill:none;stroke:var(--border);stroke-width:1;"/>'
+                f'<text x="{cx}" y="{ty}" text-anchor="middle" font-size="12"'
+                f' style="fill:var(--text);font-family:var(--mono);">'
+                f'{label}</text>'
+                f'</g>'
+            )
+        else:
+            out.append(
+                f'<rect x="{x}" y="{y}" width="{NW}" height="{NH}" rx="3"'
+                f' style="fill:var(--surface);stroke:var(--border);stroke-width:1;"/>'
+            )
+            out.append(
+                f'<text x="{cx}" y="{ty}" text-anchor="middle" font-size="12"'
+                f' style="fill:var(--text);font-family:var(--mono);">'
+                f'{label}</text>'
+            )
+
+    out.append("</svg>")
+    return "".join(out)
+
+
+def _render_mermaid(body: str):
+    """Parse a mermaid block; return inline SVG string, or None if unsupported."""
+    lines = body.strip().splitlines()
+
+    # First non-empty, non-comment line must be exactly 'flowchart LR'
+    non_empty = [line.strip() for line in lines if line.strip() and not _MM_COMMENT_RE.match(line)]
+    if not non_empty or non_empty[0] != "flowchart LR":
+        return None
+
+    nodes: dict = {}
+    node_order: list = []
+    edges: list = []
+
+    past_header = False
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or _MM_COMMENT_RE.match(line):
+            continue
+        if not past_header:
+            past_header = True
+            continue  # skip the validated 'flowchart LR' header
+
+        # Cylinder node: id[(label)]  — must try before rect to avoid partial match
+        m = _MM_NODE_CYL_RE.match(line)
+        if m:
+            nid, label = m.group(1), m.group(2)
+            if nid not in nodes:
+                node_order.append(nid)
+                nodes[nid] = {"label": label, "shape": "cyl"}
+            continue
+
+        # Rect node: id[label]
+        m = _MM_NODE_RECT_RE.match(line)
+        if m:
+            nid, label = m.group(1), m.group(2)
+            if nid not in nodes:
+                node_order.append(nid)
+                nodes[nid] = {"label": label, "shape": "rect"}
+            continue
+
+        # Edge: src --> dst
+        m = _MM_EDGE_RE.match(line)
+        if m:
+            src, dst = m.group(1), m.group(2)
+            for nid in (src, dst):
+                if nid not in nodes:
+                    node_order.append(nid)
+                    nodes[nid] = {"label": nid, "shape": "rect"}
+            edges.append((src, dst))
+            continue
+
+        # Lone node id (already declared → no-op; undeclared → implicit rect)
+        m = _MM_LONE_RE.match(line)
+        if m:
+            nid = m.group(1)
+            if nid not in nodes:
+                node_order.append(nid)
+                nodes[nid] = {"label": nid, "shape": "rect"}
+            continue
+
+        # Unrecognised line → unsupported construct → caller shows fallback
+        return None
+
+    if not nodes:
+        return None
+
+    return _mermaid_to_svg(nodes, node_order, edges, _mm_hash(body))
 
 
 # ---------------------------------------------------------------------------
@@ -84,6 +315,90 @@ class Note:
     @property
     def title(self) -> str:
         return self.stem.replace("-", " ")
+
+
+def resolve_ownership(note: "Note", text: str) -> dict:
+    """Return {"state": "machine"|"human"|"mixed", "editable": str|None}.
+
+    Priority:
+    1. Sentinel comments in the file content → mixed (split files)
+    2. File path/stem patterns matching agents.md machine types → machine
+    3. File path/stem patterns matching agents.md human types → human
+    4. Fallback → machine (the safer default; AC9)
+    """
+    parts = note.rel.parts
+    stem = note.stem
+
+    # Strip inline code spans so mentions of sentinels in prose (e.g. in
+    # agents.md documentation) are not confused with actual sentinel comments.
+    text_no_code = _INLINE_CODE_RE.sub("", text)
+
+    # 1. Sentinel detection — strongest signal for mixed ownership
+    if _SENTINEL_MACHINE_ASSESS_RE.search(text_no_code):
+        # Idea notes: machine assessment below sentinel, human freeform top above
+        return {"state": "mixed", "editable": "freeform top"}
+
+    hm = _SENTINEL_HUMAN_RE.search(text_no_code)
+    if hm and _SENTINEL_MACHINE_ANY_RE.search(text_no_code):
+        # Files with both machine and human sentinel blocks (e.g. map.md)
+        section = hm.group(1).strip().title()
+        return {"state": "mixed", "editable": f"{section} section"}
+
+    # 2. Machine-owned types (from vault/agents.md § Machine-Owned File Types)
+    if stem in _MACHINE_STEMS:
+        return {"state": "machine", "editable": None}
+    if "atlas" in parts:
+        return {"state": "machine", "editable": None}
+    if parts[0] in ("packs", "inbox"):
+        return {"state": "machine", "editable": None}
+    if "capability" in stem.lower():
+        return {"state": "machine", "editable": None}
+
+    # 3. Human-owned types (from vault/agents.md § Human-Owned File Types)
+    if stem in _HUMAN_STEMS:
+        return {"state": "human", "editable": None}
+    if parts[0] in _HUMAN_TOP_DIRS:
+        return {"state": "human", "editable": None}
+
+    # 4. Fallback — machine is the safer default (AC9)
+    return {"state": "machine", "editable": None}
+
+
+def _render_ownership_badge(ownership: dict, source_href: str) -> str:
+    """Render the ownership badge and source link as a single metadata line."""
+    state = ownership["state"]
+    editable = ownership.get("editable")
+
+    if state == "machine":
+        icon = "⚙"  # ⚙
+        label = "Machine-generated"
+        detail = "edits are overwritten on the next run"
+    elif state == "human":
+        icon = "✎"  # ✎
+        label = "Human-owned"
+        detail = "safe to edit freely"
+    else:  # mixed
+        icon = "◐"  # ◐
+        label = "Mixed"
+        region = html.escape(editable) if editable else "human region"
+        detail = f"the {region} is editable; machine block is overwritten"
+
+    src_name = html.escape(Path(source_href).name)
+    src = f'<a class="source-link" href="{html.escape(source_href)}">{src_name}</a>'
+
+    if state == "mixed":
+        detail_html = html.escape(f"the {editable} is editable; machine block is overwritten") if editable else html.escape(detail)
+    else:
+        detail_html = html.escape(detail)
+
+    return (
+        f'<div class="ownership-badge">'
+        f'<span class="badge-icon" aria-hidden="true">{icon}</span>'
+        f'<span class="badge-label">{html.escape(label)}</span>'
+        f'<span class="badge-detail">— {detail_html}</span>'
+        f'{src}'
+        f'</div>'
+    )
 
 
 def collect_notes(vault_dir: Path) -> list:
@@ -134,7 +449,6 @@ def build_link_index(notes: list, vault_dir: Path) -> dict:
 
 def _relative_href(from_out_rel: Path, to_out_rel: Path) -> str:
     """POSIX relative href between two output paths, for file:// browsing."""
-    import os
     rel = os.path.relpath(to_out_rel.as_posix(), start=from_out_rel.parent.as_posix())
     return rel.replace("\\", "/")
 
@@ -283,9 +597,15 @@ def render_markdown(text: str, note=None, link_index=None) -> str:
                 body.append(lines[i])
                 i += 1
             i += 1
+            raw = chr(10).join(body)
+            if lang == "mermaid":
+                svg = _render_mermaid(raw)
+                if svg is not None:
+                    parts.append(svg)
+                    continue
             cls = f' class="lang-{html.escape(lang)}"' if lang else ""
             parts.append(
-                f"<pre{cls}><code>{html.escape(chr(10).join(body))}</code></pre>"
+                f"<pre{cls}><code>{html.escape(raw)}</code></pre>"
             )
             continue
 
@@ -373,10 +693,7 @@ def build_tree(notes: list) -> dict:
         if parts[0] == "projects" and len(parts) >= 2:
             proj = projects.setdefault(parts[1], {"notes": [], "atlas": []})
             if "atlas" in parts:
-                if note.stem != "index":
-                    proj["atlas"].append(note)
-                else:
-                    proj["notes"].append(note)
+                proj["atlas"].append(note)
             else:
                 proj["notes"].append(note)
         elif parts[0] == "ideas":
@@ -388,7 +705,7 @@ def build_tree(notes: list) -> dict:
 
     for proj in projects.values():
         proj["notes"].sort(key=_project_note_sort_key)
-        proj["atlas"].sort(key=lambda n: n.stem)
+        proj["atlas"].sort(key=lambda n: ("" if n.stem == "index" else n.stem))
 
     return {
         "overview": sorted(overview, key=lambda n: n.stem),
@@ -438,8 +755,9 @@ def render_sidebar(tree: dict, current, from_note) -> str:
         any_project = any_project or active_here
         body = items(proj_notes)
         if atlas:
+            feature_count = sum(1 for n in atlas if n.stem != "index")
             body += _details(
-                "atlas", items(atlas), current in atlas, count=len(atlas)
+                "atlas", items(atlas), current in atlas, count=feature_count
             )
         proj_body.append(_details(name, body, active_here))
     out.append(_details("Projects", "".join(proj_body), any_project))
@@ -519,7 +837,7 @@ body {
 .tree details details { margin-left: .5rem; }
 .count { color: var(--text-muted); font-weight: 400; }
 .content { flex: 1 1 auto; min-width: 0; padding: 2rem 2.5rem 6rem; }
-.inner { max-width: 72ch; }
+.inner > *:not(.table-wrap) { max-width: 72ch; }
 .crumb {
   font-family: var(--mono); font-size: 12.5px; color: var(--text-muted);
   margin-bottom: .35rem;
@@ -556,6 +874,14 @@ th, td {
 th { background: var(--surface); font-weight: 600; }
 td code, th code { white-space: nowrap; }
 .provenance { color: var(--text-muted); font-size: 12.5px; margin-top: -.25rem; }
+.ownership-badge {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: .15rem .4rem;
+  font-size: 12.5px; font-family: var(--mono);
+  color: var(--text-muted); margin: 0 0 1.25rem;
+}
+.badge-icon { font-style: normal; }
+.badge-label { font-weight: 600; color: var(--text); }
+.source-link { margin-left: .3rem; }
 .frontmatter {
   display: grid; grid-template-columns: max-content 1fr; gap: .1rem .9rem;
   background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
@@ -568,9 +894,10 @@ td code, th code { white-space: nowrap; }
 .cards { display: grid; gap: .75rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); }
 .card {
   border: 1px solid var(--border); border-radius: 4px; padding: .8rem 1rem;
-  background: var(--surface);
+  background: var(--surface); text-decoration: none; display: block;
 }
-.card h3 { margin: 0 0 .3rem; }
+.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.card h3 { margin: 0 0 .3rem; color: var(--accent); }
 .card p { margin: 0; color: var(--text-muted); font-size: 13px; }
 @media (max-width: 720px) {
   .layout { display: block; }
@@ -613,10 +940,11 @@ def _landing_body(tree: dict, notes: list) -> str:
     for name, proj in tree["projects"].items():
         situation = next((n for n in proj["notes"] if n.stem == "situation"), None)
         href = situation.out_rel.as_posix() if situation else "#"
+        atlas_count = sum(1 for n in proj["atlas"] if n.stem != "index")
         cards.append(
             f'<a class="card" href="{html.escape(href)}">'
             f"<h3>{html.escape(name)}</h3>"
-            f'<p>{len(proj["notes"])} notes · {len(proj["atlas"])} atlas</p></a>'
+            f'<p>{len(proj["notes"])} notes · {atlas_count} atlas</p></a>'
         )
     return (
         "<h1>lookout</h1>"
@@ -646,8 +974,13 @@ def generate_site(vault_dir: Path, out_dir: Path) -> int:
         depth = len(note.out_rel.parts) - 1
         css_href = "../" * depth + "style.css"
         home_href = "../" * depth + "index.html"
+        ownership = resolve_ownership(note, text)
+        html_dir = out_dir / note.out_rel.parent
+        source_href = os.path.relpath(note.path, html_dir).replace("\\", "/")
+        badge = _render_ownership_badge(ownership, source_href)
         page = _page(
-            title, crumb, f"<h1>{html.escape(note.title)}</h1>\n{body}",
+            title, crumb,
+            f"<h1>{html.escape(note.title)}</h1>\n{badge}\n{body}",
             sidebar, css_href, home_href,
         )
         dest = out_dir / note.out_rel
