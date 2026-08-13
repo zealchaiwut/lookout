@@ -974,6 +974,26 @@ silently dropped. This is what keeps the module free of a markdown dependency.
   expanded, so each page stands alone under `file://`.
 - Regeneration is byte-identical for unchanged input.
 
+### Mermaid rendering
+
+A `` ```mermaid `` fenced block is rendered to inline SVG at generate time —
+no JavaScript, no network, opens from `file://`. Only the subset that
+`atlas_trace` emits is supported:
+
+| Construct | Supported |
+|-----------|-----------|
+| `flowchart LR` | ✓ |
+| `id[label]` — file / route node | ✓ (rectangle) |
+| `id[(label)]` — table node | ✓ (cylinder) |
+| `a --> b` — directed edge | ✓ |
+| Any other diagram type or direction | Fallback to `<pre>` |
+| Subgraphs, styling, `classDef` | Fallback to `<pre>` |
+
+An unsupported block is never silently dropped or partially rendered — it falls
+back to a preformatted code block showing the raw source. The SVG uses the
+site's CSS custom properties (`--surface`, `--border`, `--text`, `--accent`)
+and scales to its container with `width="100%"` and a `viewBox`.
+
 ### Why not `site.py`
 
 `site` is a standard-library module Python imports at startup. A `site.py` at

@@ -67,6 +67,224 @@ _SOURCE_LINE_RE = re.compile(r"^_\((?:source|sources):.*\)_$")
 
 _PLACEHOLDER = "\x00%d\x00"
 
+# ---------------------------------------------------------------------------
+# Mermaid → inline SVG (supported subset: flowchart LR only)
+# ---------------------------------------------------------------------------
+
+_MM_NODE_RECT_RE = re.compile(r"^\s*(\w+)\[([^\]]*)\]\s*$")
+_MM_NODE_CYL_RE = re.compile(r"^\s*(\w+)\[\(([^)]*)\)\]\s*$")
+_MM_EDGE_RE = re.compile(r"^\s*(\w+)\s*-->\s*(\w+)\s*$")
+_MM_LONE_RE = re.compile(r"^\s*(\w+)\s*$")
+_MM_COMMENT_RE = re.compile(r"^\s*%%")
+# Layout constants (all integers — SVG coordinates stay whole pixels)
+_MM_NW = 140   # node width
+_MM_NH = 40    # node height
+_MM_EH = 10    # cylinder ellipse half-height
+_MM_CG = 80    # column gap (horizontal space between layers)
+_MM_RG = 20    # row gap (vertical space between nodes in same layer)
+_MM_PAD = 24   # SVG padding (all sides)
+
+
+def _mm_hash(s: str) -> str:
+    """Deterministic 32-bit polynomial hash, returned as a hex string."""
+    h = 0
+    for c in s:
+        h = (h * 31 + ord(c)) & 0xFFFFFFFF
+    return format(h, "x")
+
+
+def _mermaid_to_svg(nodes: dict, node_order: list, edges: list, svg_id: str) -> str:
+    """Generate inline SVG from parsed mermaid flowchart LR data."""
+    NW, NH, EH = _MM_NW, _MM_NH, _MM_EH
+    CG, RG, PAD = _MM_CG, _MM_RG, _MM_PAD
+
+    # Build predecessor / successor maps
+    preds: dict = {nid: [] for nid in nodes}
+    succs: dict = {nid: [] for nid in nodes}
+    for src, dst in edges:
+        succs[src].append(dst)
+        preds[dst].append(src)
+
+    # BFS layer assignment (longest path from any root)
+    layer: dict = {}
+    roots = [nid for nid in node_order if not preds[nid]]
+    if not roots:
+        roots = [node_order[0]]
+    for nid in roots:
+        layer[nid] = 0
+    queue = list(roots)
+    visited: set = set(roots)
+    qi = 0
+    while qi < len(queue):
+        nid = queue[qi]
+        for dst in succs[nid]:
+            new_l = layer[nid] + 1
+            if dst not in layer or layer[dst] < new_l:
+                layer[dst] = new_l
+            if dst not in visited:
+                visited.add(dst)
+                queue.append(dst)
+        qi += 1
+    for nid in node_order:
+        if nid not in layer:
+            layer[nid] = 0
+
+    # Group by layer, preserving insertion order within each layer
+    by_layer: dict = {}
+    for nid in node_order:
+        by_layer.setdefault(layer[nid], []).append(nid)
+
+    # Compute node positions
+    positions: dict = {}
+    for l, nids in by_layer.items():
+        col_x = PAD + l * (NW + CG)
+        for j, nid in enumerate(nids):
+            row_y = PAD + j * (NH + RG)
+            positions[nid] = (col_x, row_y)
+
+    # Canvas size
+    num_l = max(layer.values()) + 1
+    max_row = max(len(v) for v in by_layer.values())
+    W = PAD * 2 + num_l * NW + (num_l - 1) * CG
+    H = PAD * 2 + max_row * NH + (max_row - 1) * RG
+
+    marker_id = f"mm-a-{svg_id}"
+    out = []
+    out.append(
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}"'
+        f' width="100%"'
+        f' style="max-width:{W}px;height:auto;display:block;margin:.8rem 0;">'
+    )
+    # Arrowhead marker (accent colour makes arrows visually distinct)
+    out.append(
+        f'<defs>'
+        f'<marker id="{marker_id}" markerWidth="10" markerHeight="7"'
+        f' refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">'
+        f'<polygon points="0,0 10,3.5 0,7" style="fill:var(--accent);"/>'
+        f'</marker>'
+        f'</defs>'
+    )
+
+    # Edges — drawn first so nodes render on top
+    for src, dst in edges:
+        sx, sy = positions[src]
+        dx, dy = positions[dst]
+        x1, y1 = sx + NW, sy + NH // 2
+        x2, y2 = dx, dy + NH // 2
+        mx = (x1 + x2) // 2
+        out.append(
+            f'<path d="M{x1},{y1} C{mx},{y1} {mx},{y2} {x2},{y2}"'
+            f' style="fill:none;stroke:var(--border);stroke-width:1.5;"'
+            f' marker-end="url(#{marker_id})"/>'
+        )
+
+    # Nodes
+    for nid in node_order:
+        x, y = positions[nid]
+        label = html.escape(nodes[nid]["label"])
+        shape = nodes[nid]["shape"]
+        cx = x + NW // 2
+        ty = y + NH // 2 + 4   # baseline for 12px font, visually centred
+
+        if shape == "cyl":
+            by_y = y + EH        # body rectangle top
+            bh = NH - 2 * EH    # body rectangle height
+            out.append(
+                f'<g>'
+                f'<rect x="{x}" y="{by_y}" width="{NW}" height="{bh}"'
+                f' style="fill:var(--surface);stroke:var(--border);stroke-width:1;"/>'
+                f'<ellipse cx="{cx}" cy="{by_y}" rx="{NW // 2}" ry="{EH}"'
+                f' style="fill:var(--surface);stroke:var(--border);stroke-width:1;"/>'
+                f'<ellipse cx="{cx}" cy="{y + NH - EH}" rx="{NW // 2}" ry="{EH}"'
+                f' style="fill:none;stroke:var(--border);stroke-width:1;"/>'
+                f'<text x="{cx}" y="{ty}" text-anchor="middle" font-size="12"'
+                f' style="fill:var(--text);font-family:var(--mono);">'
+                f'{label}</text>'
+                f'</g>'
+            )
+        else:
+            out.append(
+                f'<rect x="{x}" y="{y}" width="{NW}" height="{NH}" rx="3"'
+                f' style="fill:var(--surface);stroke:var(--border);stroke-width:1;"/>'
+            )
+            out.append(
+                f'<text x="{cx}" y="{ty}" text-anchor="middle" font-size="12"'
+                f' style="fill:var(--text);font-family:var(--mono);">'
+                f'{label}</text>'
+            )
+
+    out.append("</svg>")
+    return "".join(out)
+
+
+def _render_mermaid(body: str):
+    """Parse a mermaid block; return inline SVG string, or None if unsupported."""
+    lines = body.strip().splitlines()
+
+    # First non-empty, non-comment line must be exactly 'flowchart LR'
+    non_empty = [l.strip() for l in lines if l.strip() and not _MM_COMMENT_RE.match(l)]
+    if not non_empty or non_empty[0] != "flowchart LR":
+        return None
+
+    nodes: dict = {}
+    node_order: list = []
+    edges: list = []
+
+    past_header = False
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or _MM_COMMENT_RE.match(line):
+            continue
+        if not past_header:
+            past_header = True
+            continue  # skip the validated 'flowchart LR' header
+
+        # Cylinder node: id[(label)]  — must try before rect to avoid partial match
+        m = _MM_NODE_CYL_RE.match(line)
+        if m:
+            nid, label = m.group(1), m.group(2)
+            if nid not in nodes:
+                node_order.append(nid)
+                nodes[nid] = {"label": label, "shape": "cyl"}
+            continue
+
+        # Rect node: id[label]
+        m = _MM_NODE_RECT_RE.match(line)
+        if m:
+            nid, label = m.group(1), m.group(2)
+            if nid not in nodes:
+                node_order.append(nid)
+                nodes[nid] = {"label": label, "shape": "rect"}
+            continue
+
+        # Edge: src --> dst
+        m = _MM_EDGE_RE.match(line)
+        if m:
+            src, dst = m.group(1), m.group(2)
+            for nid in (src, dst):
+                if nid not in nodes:
+                    node_order.append(nid)
+                    nodes[nid] = {"label": nid, "shape": "rect"}
+            edges.append((src, dst))
+            continue
+
+        # Lone node id (already declared → no-op; undeclared → implicit rect)
+        m = _MM_LONE_RE.match(line)
+        if m:
+            nid = m.group(1)
+            if nid not in nodes:
+                node_order.append(nid)
+                nodes[nid] = {"label": nid, "shape": "rect"}
+            continue
+
+        # Unrecognised line → unsupported construct → caller shows fallback
+        return None
+
+    if not nodes:
+        return None
+
+    return _mermaid_to_svg(nodes, node_order, edges, _mm_hash(body))
+
 
 # ---------------------------------------------------------------------------
 # Vault model
@@ -283,9 +501,15 @@ def render_markdown(text: str, note=None, link_index=None) -> str:
                 body.append(lines[i])
                 i += 1
             i += 1
+            raw = chr(10).join(body)
+            if lang == "mermaid":
+                svg = _render_mermaid(raw)
+                if svg is not None:
+                    parts.append(svg)
+                    continue
             cls = f' class="lang-{html.escape(lang)}"' if lang else ""
             parts.append(
-                f"<pre{cls}><code>{html.escape(chr(10).join(body))}</code></pre>"
+                f"<pre{cls}><code>{html.escape(raw)}</code></pre>"
             )
             continue
 
