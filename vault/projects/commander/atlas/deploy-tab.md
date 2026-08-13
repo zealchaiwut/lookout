@@ -1,7 +1,7 @@
 ---
 feature: Deploy tab
 files_read:
-  []
+  - __init__.py
 traced: 2026-08-13
 stale: false
 ---
@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Deploy tab — no entry point could be discovered.
+Deploy tab — traced from `tests/test_722__deploy_config.py` through 1 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_722__deploy_config.py` (tracing origin)
 
 ## Related Issues
 
@@ -23,13 +23,15 @@ _No related issues found in snapshot._
 
 ```mermaid
 flowchart LR
+  __init___py[__init__.py]
 ```
 
 ## Key Files
 
-_No source files could be read during tracing._
+- `__init__.py` — traced during import walk
 
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Deploy tab` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_722__deploy_config.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: `sqlalchemy` imported in `test_722__deploy_config.py` but `sqlalchemy.py` not found in source — handler unresolved -->

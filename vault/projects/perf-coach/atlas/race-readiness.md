@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Race readiness — no entry point could be discovered.
+Race readiness — traced from `tests/test_race_readiness_combined_endpoint__611.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_race_readiness_combined_endpoint__611.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,6 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Race readiness` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_race_readiness_combined_endpoint__611.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: `httpx` imported in `test_race_readiness_combined_endpoint__611.py` but `httpx.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_race_readiness_combined_endpoint__611.py` imports no local modules — no implementation files could be traced -->

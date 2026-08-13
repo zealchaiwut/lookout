@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Weekly habits widget — no entry point could be discovered.
+Weekly habits widget — traced from `tests/test_weekly_habits_progress_widget__391.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_weekly_habits_progress_widget__391.py` (tracing origin)
 
 ## Related Issues
 
@@ -33,4 +33,4 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Weekly habits widget` — cannot begin tracing -->
+<!-- OPEN QUESTION: Entry point `tests/test_weekly_habits_progress_widget__391.py` imports no local modules — no implementation files could be traced -->

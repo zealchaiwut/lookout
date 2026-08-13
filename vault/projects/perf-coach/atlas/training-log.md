@@ -34,4 +34,4 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: Trace from `tests/test_training_log.py` reached 79 files, over the 25-file limit — this entry point describes the application, not `Training log`. No diagram emitted; add a test or a source file named for this feature -->
+<!-- OPEN QUESTION: Trace from `tests/test_training_log.py` reached 84 files, over the 25-file limit — this entry point describes the application, not `Training log`. No diagram emitted; add a test or a source file named for this feature -->

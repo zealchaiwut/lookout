@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Daily Brief — no entry point could be discovered.
+Daily Brief — traced from `tests/test_842__home_daily_brief.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_842__home_daily_brief.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,5 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Daily Brief` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_842__home_daily_brief.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_842__home_daily_brief.py` imports no local modules — no implementation files could be traced -->

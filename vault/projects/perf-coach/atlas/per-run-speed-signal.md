@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Per-run speed signal — no entry point could be discovered.
+Per-run speed signal — traced from `tests/test_compute_store_speed_signal_per_run__1048.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_compute_store_speed_signal_per_run__1048.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,5 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Per-run speed signal` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_compute_store_speed_signal_per_run__1048.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_compute_store_speed_signal_per_run__1048.py` imports no local modules — no implementation files could be traced -->

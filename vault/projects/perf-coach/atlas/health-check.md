@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Health check — no entry point could be discovered.
+Health check — traced from `tests/test_health_check_env_metadata__156.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_health_check_env_metadata__156.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,6 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Health check` — cannot begin tracing -->
+<!-- OPEN QUESTION: `httpx` imported in `test_health_check_env_metadata__156.py` but `httpx.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: `pytest` imported in `test_health_check_env_metadata__156.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_health_check_env_metadata__156.py` imports no local modules — no implementation files could be traced -->

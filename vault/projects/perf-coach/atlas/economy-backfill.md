@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Economy backfill — no entry point could be discovered.
+Economy backfill — traced from `tests/test_backfill_economy__1149.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_backfill_economy__1149.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,4 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Economy backfill` — cannot begin tracing -->
+<!-- OPEN QUESTION: Entry point `tests/test_backfill_economy__1149.py` imports no local modules — no implementation files could be traced -->

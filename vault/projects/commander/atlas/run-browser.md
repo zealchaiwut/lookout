@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Run Browser — no entry point could be discovered.
+Run Browser — traced from `tests/test_783__run_browser.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_783__run_browser.py` (tracing origin)
 
 ## Related Issues
 
@@ -37,4 +37,6 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Run Browser` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_783__run_browser.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: `fastapi` imported in `test_783__run_browser.py` but `fastapi.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_783__run_browser.py` imports no local modules — no implementation files could be traced -->

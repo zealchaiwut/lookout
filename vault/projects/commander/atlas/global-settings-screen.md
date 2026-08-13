@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Global Settings screen — no entry point could be discovered.
+Global Settings screen — traced from `tests/test_641__global_settings_screen.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_641__global_settings_screen.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,6 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Global Settings screen` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_641__global_settings_screen.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: `sqlalchemy` imported in `test_641__global_settings_screen.py` but `sqlalchemy.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_641__global_settings_screen.py` imports no local modules — no implementation files could be traced -->

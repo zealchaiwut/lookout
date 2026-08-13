@@ -1,7 +1,7 @@
 ---
 feature: Session profile detection
 files_read:
-  []
+  - interval_detector.py
 traced: 2026-08-13
 stale: false
 ---
@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Session profile detection — no entry point could be discovered.
+Session profile detection — traced from `tests/test_add_interval_and_set_detection_to_session_profile_pipeline__585.py` through 1 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_add_interval_and_set_detection_to_session_profile_pipeline__585.py` (tracing origin)
 
 ## Related Issues
 
@@ -23,13 +23,14 @@ _No entry point discovered._
 
 ```mermaid
 flowchart LR
+  interval_detector_py[interval_detector.py]
 ```
 
 ## Key Files
 
-_No source files could be read during tracing._
+- `interval_detector.py` — traced during import walk
 
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Session profile detection` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_add_interval_and_set_detection_to_session_profile_pipeline__585.py` but `pytest.py` not found in source — handler unresolved -->

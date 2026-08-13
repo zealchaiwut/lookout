@@ -1,7 +1,7 @@
 ---
 feature: Body-modifier guardrail
 files_read:
-  []
+  - body_modifier.py
 traced: 2026-08-13
 stale: false
 ---
@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Body-modifier guardrail — no entry point could be discovered.
+Body-modifier guardrail — traced from `tests/test_surface_body_modifier_guardrail_warning__1161.py` through 1 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_surface_body_modifier_guardrail_warning__1161.py` (tracing origin)
 
 ## Related Issues
 
@@ -23,13 +23,14 @@ _No related issues found in snapshot._
 
 ```mermaid
 flowchart LR
+  body_modifier_py[body_modifier.py]
 ```
 
 ## Key Files
 
-_No source files could be read during tracing._
+- `body_modifier.py` — traced during import walk
 
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Body-modifier guardrail` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_surface_body_modifier_guardrail_warning__1161.py` but `pytest.py` not found in source — handler unresolved -->

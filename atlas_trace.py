@@ -56,16 +56,41 @@ _TABLE_PATTERN = re.compile(
 
 
 def _module_to_file(module_name: str, source_dir: Path) -> Path | None:
-    """Convert a dotted module name to a .py file path inside source_dir."""
+    """Convert a dotted module name to a .py file path inside source_dir.
+
+    Handles both layouts present in this fleet:
+
+      flat      perf-coach, asset-studio   weight_ewma.py, services/sourcing.py
+      package   commander                  services/sprint_manager/sprint_manager.py
+
+    Only the flat forms were resolved before, which is why commander — whose code
+    lives under apps/ and services/ as packages — traced almost nothing while
+    perf-coach traced fine. A package is entered through its __init__.py, and a
+    `from pkg import mod` is also tried as pkg/mod.py.
+
+    Roots beyond source_dir are searched too: commander's dashboard imports
+    `routers.x` from inside apps/dashboard/, not from the repository root.
+    """
     parts = module_name.replace(".", "/")
-    candidate = source_dir / f"{parts}.py"
-    if candidate.exists():
-        return candidate
-    # Try just the last component (handles 'from package.module import X')
     last = module_name.split(".")[-1]
-    candidate2 = source_dir / f"{last}.py"
-    if candidate2.exists():
-        return candidate2
+
+    roots = [source_dir]
+    for extra in ("apps", "services", "src"):
+        d = source_dir / extra
+        if d.is_dir():
+            roots.append(d)
+            # one level deeper: apps/dashboard/, services/sprint_manager/
+            roots.extend(sorted(c for c in d.iterdir() if c.is_dir()))
+
+    for root in roots:
+        for candidate in (
+            root / f"{parts}.py",          # a/b/c.py
+            root / parts / "__init__.py",  # a/b/c/__init__.py — package
+            root / f"{last}.py",           # from a.b import c  ->  c.py
+            root / last / "__init__.py",
+        ):
+            if candidate.exists() and candidate.is_file():
+                return candidate
     return None
 
 
@@ -464,30 +489,76 @@ def _iter_source_files(source_dir: Path):
         yield p
 
 
+def _feature_tokens(feature_slug: str, feature_name: str) -> list[str]:
+    """Meaningful words in a feature name, for matching against filenames.
+
+    Very short and generic words are dropped: matching "api" or "tab" anywhere
+    in a 959-file suite returns noise, not the feature's test.
+    """
+    raw = re.split(r"[^a-z0-9]+", f"{feature_slug} {feature_name}".lower())
+    stop = {"the", "a", "an", "and", "or", "for", "with", "to", "of", "in",
+            "on", "by", "per", "tab", "view", "page", "api", "ui", "v1", "v2"}
+    out: list[str] = []
+    for w in raw:
+        if len(w) >= 3 and w not in stop and w not in out:
+            out.append(w)
+    return out
+
+
 def _find_test_entry_point(
     feature_slug: str, feature_name: str, source_dir: Path
 ) -> Path | None:
     """Locate the test file that covers a feature.
 
-    `CLAUDE.md` mandates `tests/test_<feature>__<criterion>.py`, so a test file
-    names the feature *and* imports its implementation. That makes it the most
-    reliable route into the code in this fleet — it exists because of an enforced
-    convention rather than by luck.
+    A test file names the feature *and* imports its implementation, which makes
+    it the most reliable route into the code.
+
+    Two naming conventions are in play across this fleet and both must resolve:
+
+      asset-studio   test_<feature>__<criterion>.py   feature first
+      commander      test_<issue>__<description>.py   issue number first
+
+    Requiring a prefix match handles only the first. commander has 959 test
+    files and every atlas feature is covered by one — `test_726__deploy_tab.py`
+    tests the Deploy tab — yet a prefix matcher sees none of them, because the
+    filename opens with the issue number. So exact and prefix matches are tried
+    first, then the feature's meaningful words are matched anywhere in the name.
+
+    Token matching picks the candidate covering the most tokens, and requires
+    every token for multi-word features, so "Deploy tab" does not collect every
+    file mentioning deploy.
     """
     tests_dir = source_dir / "tests"
     if not tests_dir.is_dir():
         return None
+
     variants = _slug_variants(feature_slug, feature_name)
     candidates = sorted(tests_dir.rglob("test_*.py"))
+
     for variant in variants:
         exact = [c for c in candidates if c.stem == f"test_{variant}"]
         if exact:
             return exact[0]
-        # `test_content_queue__101.py` — convention suffixes the criterion/issue.
         prefixed = [c for c in candidates if c.stem.startswith(f"test_{variant}__")]
         if prefixed:
             return prefixed[0]
-    return None
+
+    # --- token match anywhere in the filename ---
+    tokens = _feature_tokens(feature_slug, feature_name)
+    if not tokens:
+        return None
+
+    best: tuple[int, Path] | None = None
+    for cand in candidates:
+        words = set(re.split(r"[^a-z0-9]+", cand.stem.lower()))
+        hit = sum(1 for t in tokens if t in words)
+        # Every token must appear, so a multi-word feature is not satisfied by
+        # one common word. A single-token feature still needs that one token.
+        if hit < len(tokens):
+            continue
+        if best is None or hit > best[0]:
+            best = (hit, cand)
+    return best[1] if best else None
 
 
 def _find_source_by_name(

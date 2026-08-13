@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Env-var editor — no entry point could be discovered.
+Env-var editor — traced from `tests/test_727__env_var_editor.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_727__env_var_editor.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,5 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Env-var editor` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_727__env_var_editor.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_727__env_var_editor.py` imports no local modules — no implementation files could be traced -->

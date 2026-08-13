@@ -32,4 +32,4 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: Trace from `tests/test_today_recommendation__1352.py` reached 80 files, over the 25-file limit — this entry point describes the application, not `Today recommendation`. No diagram emitted; add a test or a source file named for this feature -->
+<!-- OPEN QUESTION: Trace from `tests/test_today_recommendation__1352.py` reached 85 files, over the 25-file limit — this entry point describes the application, not `Today recommendation`. No diagram emitted; add a test or a source file named for this feature -->

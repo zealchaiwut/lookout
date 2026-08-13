@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Project Settings tab — no entry point could be discovered.
+Project Settings tab — traced from `tests/test_642__project_settings_tab.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_642__project_settings_tab.py` (tracing origin)
 
 ## Related Issues
 
@@ -33,4 +33,6 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Project Settings tab` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_642__project_settings_tab.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: `sqlalchemy` imported in `test_642__project_settings_tab.py` but `sqlalchemy.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_642__project_settings_tab.py` imports no local modules — no implementation files could be traced -->

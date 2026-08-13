@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Habit tracking — no entry point could be discovered.
+Habit tracking — traced from `tests/test_document_habit_tracking_type_immutability__470.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_document_habit_tracking_type_immutability__470.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,4 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Habit tracking` — cannot begin tracing -->
+<!-- OPEN QUESTION: Entry point `tests/test_document_habit_tracking_type_immutability__470.py` imports no local modules — no implementation files could be traced -->

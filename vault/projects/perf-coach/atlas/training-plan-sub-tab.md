@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Training Plan sub-tab — no entry point could be discovered.
+Training Plan sub-tab — traced from `tests/test_add_log_plan_performance_sub_tabs_to_training_page__636.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_add_log_plan_performance_sub_tabs_to_training_page__636.py` (tracing origin)
 
 ## Related Issues
 
@@ -33,4 +33,6 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Training Plan sub-tab` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_add_log_plan_performance_sub_tabs_to_training_page__636.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: `httpx` imported in `test_add_log_plan_performance_sub_tabs_to_training_page__636.py` but `httpx.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_add_log_plan_performance_sub_tabs_to_training_page__636.py` imports no local modules — no implementation files could be traced -->

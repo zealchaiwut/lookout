@@ -1,7 +1,9 @@
 ---
 feature: Economy contribution in projection
 files_read:
-  []
+  - ceiling_bonus.py
+  - economy_config.py
+  - economy_stimulus.py
 traced: 2026-08-13
 stale: false
 ---
@@ -9,11 +11,11 @@ stale: false
 
 ## What
 
-Economy contribution in projection — no entry point could be discovered.
+Economy contribution in projection — traced from `tests/test_economy_contribution_projection__1150.py` through 3 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_economy_contribution_projection__1150.py` (tracing origin)
 
 ## Related Issues
 
@@ -23,13 +25,20 @@ _No entry point discovered._
 
 ```mermaid
 flowchart LR
+  ceiling_bonus_py[ceiling_bonus.py]
+  economy_config_py[economy_config.py]
+  economy_stimulus_py[economy_stimulus.py]
+  ceiling_bonus_py --> economy_config_py
+  economy_config_py --> economy_stimulus_py
 ```
 
 ## Key Files
 
-_No source files could be read during tracing._
+- `ceiling_bonus.py` — traced during import walk
+- `economy_config.py` — traced during import walk
+- `economy_stimulus.py` — traced during import walk
 
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Economy contribution in projection` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_economy_contribution_projection__1150.py` but `pytest.py` not found in source — handler unresolved -->
