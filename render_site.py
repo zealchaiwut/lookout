@@ -136,8 +136,8 @@ def _mermaid_to_svg(nodes: dict, node_order: list, edges: list, svg_id: str) -> 
 
     # Compute node positions
     positions: dict = {}
-    for l, nids in by_layer.items():
-        col_x = PAD + l * (NW + CG)
+    for layer_idx, nids in by_layer.items():
+        col_x = PAD + layer_idx * (NW + CG)
         for j, nid in enumerate(nids):
             row_y = PAD + j * (NH + RG)
             positions[nid] = (col_x, row_y)
@@ -222,7 +222,7 @@ def _render_mermaid(body: str):
     lines = body.strip().splitlines()
 
     # First non-empty, non-comment line must be exactly 'flowchart LR'
-    non_empty = [l.strip() for l in lines if l.strip() and not _MM_COMMENT_RE.match(l)]
+    non_empty = [line.strip() for line in lines if line.strip() and not _MM_COMMENT_RE.match(line)]
     if not non_empty or non_empty[0] != "flowchart LR":
         return None
 
