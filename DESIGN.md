@@ -1,12 +1,49 @@
 # Design
 
-Lookout has no user interface. It is a CLI that writes markdown, so its design
-surface is **the shape of the files it produces** — what belongs in a note, who
-owns which region of it, and what a generator is allowed to assert.
+Lookout's primary output is markdown, and its contracts are about the *shape of
+the files it produces* — what belongs in a note, who owns which region of it,
+and what a generator may assert. The numbered sections below are those
+contracts; generators cite them and `lint.py` enforces several.
 
-The numbered sections below are contracts. Generators cite them; `lint.py`
-enforces several of them. Visual/typographic design tokens do not apply to this
-project and are deliberately absent.
+Since #88 there is also one rendered surface: the static HTML site produced by
+`site.py`. Its tokens are below. They apply to that site only — nothing else in
+this project renders.
+
+## Tokens
+
+Light is defined on bare `:root`; dark overrides the same names under
+`prefers-color-scheme: dark`. No colour has its only definition inside a media
+query, so a viewer with no preference still gets a complete palette.
+
+| Role | Light | Dark |
+|------|-------|------|
+| `--bg` | `#fdfdfc` | `#16161a` |
+| `--surface` | `#f4f4f2` | `#1e1e24` |
+| `--border` | `#e0e0dc` | `#2e2e36` |
+| `--text` | `#22222a` | `#e6e6ea` |
+| `--text-muted` | `#6a6a76` | `#9a9aa8` |
+| `--accent` | `#3a5a8c` | `#7fa3d8` |
+| `--code-bg` | `#f0f0ee` | `#24242c` |
+
+## Typography
+
+System UI stack for prose, system mono for code, tables, and file paths — the
+vault is full of identifiers and paths that must stay scannable.
+
+| Use | Family | Size | Line height |
+|---|---|---|---|
+| Prose | system UI | 15px | 1.55 |
+| Headings | system UI | 1.6 / 1.12 / 1.0 rem | 1.25 |
+| Tables, code | system mono | 13–13.5px | 1.35–1.45 |
+| Provenance, breadcrumb | system mono | 12.5px | inherit |
+
+Content is capped at `72ch`. Tables may exceed it and scroll inside their own
+container, so the page body never scrolls sideways.
+
+**Register:** product — the design serves the content. A reading tool for one
+person and their agents, used at a desk beside an editor. It should read as
+documentation, not as a dashboard: no cards for their own sake, no shadows, no
+animation beyond the native disclosure triangle.
 
 ## Principles
 

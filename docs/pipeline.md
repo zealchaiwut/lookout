@@ -81,6 +81,7 @@ the exit code.
 | `bin/lookout promote <file> --type idea\|sprint` | inbox → idea or sprint note | no |
 | `python atlas_seed.py <target>` | seeds the atlas from the target's README (see below) | no |
 | `python atlas_trace.py <target> <slug>` | traces one stale atlas note through real source | no |
+| `python3 render_site.py` | render the vault to a static HTML site in `site/` | no |
 
 ---
 
