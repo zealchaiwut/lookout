@@ -81,6 +81,7 @@ the exit code.
 | `bin/lookout promote <file> --type idea\|sprint` | inbox → idea or sprint note | no |
 | `python atlas_seed.py <target>` | seeds the atlas from the target's README (see below) | no |
 | `python atlas_trace.py <target> <slug>` | traces one stale atlas note through real source | no |
+| `python atlas_trace.py <target> --all-stale` | batch-traces stale notes for a target (up to `--batch-size`, default 3) | no |
 | `python3 render_site.py` | render the vault to a static HTML site in `site/` | no |
 
 ---
@@ -90,7 +91,7 @@ the exit code.
 | Module | Status | Reason |
 |---|---|---|
 | `atlas_seed.py` | manual | Seeding is a bootstrap step per target, not a per-run step. Re-running is idempotent but pointless nightly. |
-| `atlas_trace.py` | manual | Tracing needs the target's source checked out and is expensive. `gather` already marks notes stale and writes a capped pending queue; tracing consumes that queue on demand. |
+| `atlas_trace.py` | manual | Tracing requires the target's source checked out locally and is expensive per feature. `gather` already marks notes stale and writes a capped pending queue; `atlas_trace.py --all-stale` consumes that queue on demand (single-feature or batch, capped at 3 per run by default). Entry points are resolved per-feature from `docs/features/<slug>.md`; related issues are filtered to open, feature-matched issues capped at 10. |
 | `journal_crosslink.py` | **not runnable** | It requires `journal_delta.json`, which no stage in this pipeline produces. `journal_delta.py` exists but is not invoked by `gather` or `derive`. Wire the delta producer before wiring the consumer. |
 | `discuss_pack.py` | manual | On-demand, produces a working-session artifact. |
 | `todo_view_assessment.py` | manual | Annotates an existing `todo-view.md`; run after stage 4 when you want effort/blocked-by comments. |
@@ -143,8 +144,10 @@ python atlas_seed.py <target>
 # 6. enrich the description once (costs one claude -p call)
 LOOKOUT_LLM=1 python capability_card.py <target>
 
-# 7. optional — trace the features that matter
+# 7. optional — trace the features that matter (per-feature or batch)
 python atlas_trace.py <target> <feature-slug> --source-dir ~/dev/<target>/uat
+# or batch-trace all stale features for a target (up to 3 at a time):
+python atlas_trace.py <target> --all-stale --source-dir ~/dev/<target>/uat
 ```
 
 Step 5 reads the target's README `## Features` section and `docs/features/`
