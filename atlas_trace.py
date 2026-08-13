@@ -245,7 +245,7 @@ def _build_mermaid(
 def generate_note(
     feature_name: str,
     source_dir: Path,
-    entry_point_file: str,
+    entry_point_file: str | None,
     issues: list[dict],
     traced: str | None = None,
     stale: bool = True,
@@ -266,17 +266,50 @@ def generate_note(
     A Markdown string with YAML frontmatter and all six required sections.
     """
     source_dir = Path(source_dir)
-    entry_path = source_dir / entry_point_file
 
     open_questions: list[str] = []
     files_read: list[Path] = []
     routes: list[str] = []
     tables: list[str] = []
 
-    if entry_path.exists():
+    entry_path = source_dir / entry_point_file if entry_point_file else None
+
+    if entry_path is None:
+        open_questions.append(
+            f"No entry point could be discovered for `{feature_name}` — "
+            "cannot begin tracing"
+        )
+    elif entry_path.exists():
+        # Remember where this trace's questions begin, so a rejected trace can
+        # take its unresolved-import notes with it.
+        _q_mark = len(open_questions)
         files_read, routes, tables = _trace_imports(
             entry_path, source_dir, open_questions=open_questions
         )
+        # A test file is the route into the feature, not part of it. Keeping it
+        # would put `test_visual_sourcing.py` in the diagram and in Key Files,
+        # describing the test suite rather than the implementation.
+        files_read = [f for f in files_read if not _is_test_path(f, source_dir)]
+        if not files_read:
+            # A test that drives the app over HTTP (TestClient) imports nothing
+            # local, so it resolves as an entry point but traces to nothing.
+            open_questions.append(
+                f"Entry point `{entry_point_file}` imports no local modules — "
+                "no implementation files could be traced"
+            )
+        elif len(files_read) > _MAX_DIAGRAM_FILES:
+            # Reaching this many files means the entry point is the application,
+            # not the feature — every feature would get the same picture of the
+            # whole program. A diagram that is identical across 28 features is
+            # noise wearing the shape of signal, so none is emitted.
+            del open_questions[_q_mark:]
+            open_questions.append(
+                f"Trace from `{entry_point_file}` reached {len(files_read)} files, "
+                f"over the {_MAX_DIAGRAM_FILES}-file limit — this entry point "
+                f"describes the application, not `{feature_name}`. No diagram "
+                "emitted; add a test or a source file named for this feature"
+            )
+            files_read, routes, tables = [], [], []
     else:
         open_questions.append(
             f"Entry point `{entry_point_file}` not found in source_dir — "
@@ -310,14 +343,20 @@ def generate_note(
     )
 
     # --- ## What ---
-    what_section = (
-        "## What\n\n"
-        f"{feature_name} — traced from `{entry_point_file}` through "
-        f"{len(files_read)} source file(s).\n"
-    )
+    if entry_point_file:
+        what_body = (
+            f"{feature_name} — traced from `{entry_point_file}` through "
+            f"{len(files_read)} source file(s)."
+        )
+    else:
+        what_body = f"{feature_name} — no entry point could be discovered."
+    what_section = f"## What\n\n{what_body}\n"
 
     # --- ## Entry Points ---
-    ep_lines = [f"- `{entry_point_file}` (tracing origin)"]
+    if entry_point_file:
+        ep_lines = [f"- `{entry_point_file}` (tracing origin)"]
+    else:
+        ep_lines = ["_No entry point discovered._"]
     for route in unique_routes:
         ep_lines.append(f"- Route: `{route}`")
     entry_section = "## Entry Points\n\n" + "\n".join(ep_lines) + "\n"
@@ -371,43 +410,175 @@ def generate_note(
 _EP_PATTERN = re.compile(r"[Ee]ntry\s+point[:\s]*`([^`]+\.py)`")
 
 
+# Directories that are never worth walking when hunting for a source file.
+_SKIP_DIRS = {
+    ".git", "node_modules", "venv", ".venv", "__pycache__", "site",
+    "build", "dist", ".mypy_cache", ".pytest_cache",
+}
+
+# Probed in order when a feature yields no specific entry point. The previous
+# hardcoded "app.py" matches no project in this fleet — asset-studio's entry is
+# server.py — so the application entry is probed rather than assumed.
+_APP_ENTRY_CANDIDATES = ("server.py", "main.py", "app.py", "__main__.py")
+
+# A feature diagram must stay readable. Falling back to the application
+# entry point traces the entire program — asset-studio yields 267 nodes —
+# which describes the app, not the feature. Past this the note records the
+# truncation as an open question rather than shipping an unreadable graph.
+_MAX_DIAGRAM_FILES = 25
+
+
+def _slug_variants(feature_slug: str, feature_name: str) -> list[str]:
+    """Underscore and hyphen spellings of a feature, for filename matching."""
+    name_slug = re.sub(r"[^a-z0-9]+", "-", feature_name.lower()).strip("-")
+    out: list[str] = []
+    for base in (feature_slug, name_slug):
+        for v in (base, base.replace("-", "_")):
+            if v and v not in out:
+                out.append(v)
+    return out
+
+
+def _is_test_path(path: Path, source_dir: Path | None = None) -> bool:
+    """True for a pytest file or anything under the target's tests/ directory.
+
+    Judged relative to `source_dir` when given. An absolute check would misfire
+    whenever the source tree itself sits below a directory called `tests` — as
+    the trace fixture does — and would then exclude every file it traced.
+    """
+    if path.name.startswith("test_"):
+        return True
+    parts = path.parts
+    if source_dir is not None:
+        try:
+            parts = path.relative_to(source_dir).parts
+        except ValueError:
+            pass
+    return "tests" in parts
+
+
+def _iter_source_files(source_dir: Path):
+    for p in source_dir.rglob("*.py"):
+        if _SKIP_DIRS & set(p.relative_to(source_dir).parts):
+            continue
+        yield p
+
+
+def _find_test_entry_point(
+    feature_slug: str, feature_name: str, source_dir: Path
+) -> Path | None:
+    """Locate the test file that covers a feature.
+
+    `CLAUDE.md` mandates `tests/test_<feature>__<criterion>.py`, so a test file
+    names the feature *and* imports its implementation. That makes it the most
+    reliable route into the code in this fleet — it exists because of an enforced
+    convention rather than by luck.
+    """
+    tests_dir = source_dir / "tests"
+    if not tests_dir.is_dir():
+        return None
+    variants = _slug_variants(feature_slug, feature_name)
+    candidates = sorted(tests_dir.rglob("test_*.py"))
+    for variant in variants:
+        exact = [c for c in candidates if c.stem == f"test_{variant}"]
+        if exact:
+            return exact[0]
+        # `test_content_queue__101.py` — convention suffixes the criterion/issue.
+        prefixed = [c for c in candidates if c.stem.startswith(f"test_{variant}__")]
+        if prefixed:
+            return prefixed[0]
+    return None
+
+
+def _find_source_by_name(
+    feature_slug: str, feature_name: str, source_dir: Path
+) -> Path | None:
+    """Locate a non-test source file whose name matches the feature."""
+    variants = _slug_variants(feature_slug, feature_name)
+    files = [p for p in _iter_source_files(source_dir)
+             if not _is_test_path(p, source_dir)]
+    for variant in variants:
+        for p in sorted(files):
+            if p.stem == variant:
+                return p
+    return None
+
+
+def _find_app_entry(source_dir: Path) -> Path | None:
+    """Probe for the project's application entry point."""
+    for name in _APP_ENTRY_CANDIDATES:
+        p = source_dir / name
+        if p.exists():
+            return p
+    for name in _APP_ENTRY_CANDIDATES:
+        for p in sorted(_iter_source_files(source_dir)):
+            if p.name == name and not _is_test_path(p, source_dir):
+                return p
+    return None
+
+
+def _candidate_entry_points(
+    feature_slug: str, feature_name: str, source_dir: Path
+) -> list[Path]:
+    """Ordered entry-point candidates for a feature, most specific first."""
+    out: list[Path] = []
+
+    def _push(p: Path | None):
+        if p is not None and p.exists() and p not in out:
+            out.append(p)
+
+    docs_dir = source_dir / "docs"
+    features_dir = docs_dir / "features"
+    doc_files = []
+    if features_dir.is_dir():
+        doc_files += [
+            features_dir / f"{feature_slug}.md",
+            features_dir / f"{re.sub(r'[^a-z0-9]+', '-', feature_name.lower())}.md",
+        ]
+    doc_files.append(docs_dir / "features.md")
+    for doc in doc_files:
+        if doc.exists():
+            m = _EP_PATTERN.search(doc.read_text())
+            if m:
+                _push(source_dir / m.group(1))
+
+    _push(_find_test_entry_point(feature_slug, feature_name, source_dir))
+    _push(_find_source_by_name(feature_slug, feature_name, source_dir))
+    _push(_find_app_entry(source_dir))
+    return out
+
+
 def _find_entry_point_for_feature(
     feature_slug: str,
     feature_name: str,
     source_dir: Path,
 ) -> str | None:
-    """Return the entry-point filename for a feature, or None when undiscoverable.
+    """Return the entry-point path (relative to source_dir), or None.
 
-    Search order:
-      1. docs/features/<feature_slug>.md  (per-feature file in directory)
-      2. docs/features/<feature_name_slug>.md  (name-derived slug)
-      3. docs/features.md  (legacy global file)
-    Returns the first .py filename found in an "Entry point: `x.py`" line.
+    Candidates are tried most-specific first (see _candidate_entry_points) and
+    each is *evaluated* rather than trusted: a candidate is accepted only if
+    tracing it reaches at least one non-test implementation file.
+
+    That check matters. A test driving the app through FastAPI's TestClient
+    imports nothing local, so it resolves as an entry point and then traces to
+    nothing — `test_content_queue__101.py` does exactly this. Without
+    evaluation the note would claim an origin and show an empty diagram.
+
+    When no candidate traces to anything, the first candidate is returned so the
+    note can name what was attempted; generate_note records the open question.
     """
     source_dir = Path(source_dir)
-    docs_dir = source_dir / "docs"
+    candidates = _candidate_entry_points(feature_slug, feature_name, source_dir)
+    if not candidates:
+        return None
 
-    # --- 1. Per-feature file inside docs/features/ directory ---
-    features_dir = docs_dir / "features"
-    if features_dir.is_dir():
-        candidates = [
-            features_dir / f"{feature_slug}.md",
-            features_dir / f"{re.sub(r'[^a-z0-9]+', '-', feature_name.lower())}.md",
-        ]
-        for candidate in candidates:
-            if candidate.exists():
-                m = _EP_PATTERN.search(candidate.read_text())
-                if m:
-                    return m.group(1)
+    for candidate in candidates:
+        traced, _routes, _tables = _trace_imports(candidate, source_dir)
+        real = [f for f in traced if not _is_test_path(f, source_dir)]
+        if real:
+            return str(candidate.relative_to(source_dir))
 
-    # --- 2. Legacy docs/features.md (global file) ---
-    features_md = docs_dir / "features.md"
-    if features_md.exists():
-        m = _EP_PATTERN.search(features_md.read_text())
-        if m:
-            return m.group(1)
-
-    return None
+    return str(candidates[0].relative_to(source_dir))
 
 
 # ---------------------------------------------------------------------------
@@ -507,7 +678,7 @@ def trace_all_stale(
         fm_m = re.search(r"^feature:\s*(.+)$", text, re.MULTILINE)
         feature_name = fm_m.group(1).strip() if fm_m else slug
 
-        ep = _find_entry_point_for_feature(slug, feature_name, source_dir) or "app.py"
+        ep = _find_entry_point_for_feature(slug, feature_name, source_dir)
         filtered = _filter_issues(issues, feature_name)
 
         note = generate_note(
@@ -644,7 +815,6 @@ def main() -> None:
     # Resolve per-feature entry point
     entry_point = (
         _find_entry_point_for_feature(args.feature_slug, feature_name, source_dir)
-        or "app.py"
     )
 
     note = generate_note(
