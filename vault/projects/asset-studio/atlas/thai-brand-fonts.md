@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Thai Brand Fonts — no entry point could be discovered.
+Thai Brand Fonts — traced from `tests/test_bundle_thai_brand_fonts__85.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_bundle_thai_brand_fonts__85.py` (tracing origin)
 
 ## Related Issues
 
@@ -33,4 +33,5 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Thai Brand Fonts` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_bundle_thai_brand_fonts__85.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_bundle_thai_brand_fonts__85.py` imports no local modules — no implementation files could be traced -->

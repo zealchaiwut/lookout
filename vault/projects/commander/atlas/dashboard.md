@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Dashboard — no entry point could be discovered.
+Dashboard — traced from `tests/test_629__instrument_dashboard_routes_events.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_629__instrument_dashboard_routes_events.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,5 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Dashboard` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_629__instrument_dashboard_routes_events.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_629__instrument_dashboard_routes_events.py` imports no local modules — no implementation files could be traced -->

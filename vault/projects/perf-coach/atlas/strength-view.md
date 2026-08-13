@@ -1,7 +1,7 @@
 ---
 feature: Strength View
 files_read:
-  []
+  - tss.py
 traced: 2026-08-13
 stale: false
 ---
@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Strength View — no entry point could be discovered.
+Strength View — traced from `tests/test_compute_strength_tss__594.py` through 1 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_compute_strength_tss__594.py` (tracing origin)
 
 ## Related Issues
 
@@ -26,13 +26,14 @@ _No entry point discovered._
 
 ```mermaid
 flowchart LR
+  tss_py[tss.py]
 ```
 
 ## Key Files
 
-_No source files could be read during tracing._
+- `tss.py` — traced during import walk
 
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Strength View` — cannot begin tracing -->
+<!-- OPEN QUESTION: `sqlalchemy` imported in `tss.py` but `sqlalchemy.py` not found in source — handler unresolved -->

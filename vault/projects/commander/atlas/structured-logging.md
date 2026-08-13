@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Structured Logging — no entry point could be discovered.
+Structured Logging — traced from `tests/test_unify_structured_logging__784.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_unify_structured_logging__784.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,5 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Structured Logging` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_unify_structured_logging__784.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_unify_structured_logging__784.py` imports no local modules — no implementation files could be traced -->

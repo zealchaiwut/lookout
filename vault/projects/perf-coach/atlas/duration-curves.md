@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Duration curves — no entry point could be discovered.
+Duration curves — traced from `tests/test_athlete_best_effort_duration_curves__695.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_athlete_best_effort_duration_curves__695.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,6 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Duration curves` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_athlete_best_effort_duration_curves__695.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: `httpx` imported in `test_athlete_best_effort_duration_curves__695.py` but `httpx.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_athlete_best_effort_duration_curves__695.py` imports no local modules — no implementation files could be traced -->

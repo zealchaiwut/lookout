@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Template Pack v1 — no entry point could be discovered.
+Template Pack v1 — traced from `tests/test_template_pack__87.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_template_pack__87.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,5 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Template Pack v1` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_template_pack__87.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_template_pack__87.py` imports no local modules — no implementation files could be traced -->

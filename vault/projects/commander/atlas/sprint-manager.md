@@ -41,4 +41,4 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: Trace from `services/sprint_manager/sprint_manager.py` reached 26 files, over the 25-file limit — this entry point describes the application, not `Sprint Manager`. No diagram emitted; add a test or a source file named for this feature -->
+<!-- OPEN QUESTION: Trace from `services/sprint_manager/sprint_manager.py` reached 30 files, over the 25-file limit — this entry point describes the application, not `Sprint Manager`. No diagram emitted; add a test or a source file named for this feature -->

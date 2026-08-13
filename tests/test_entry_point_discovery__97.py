@@ -224,3 +224,55 @@ def test_issue_number_is_not_part_of_the_display_name():
 def test_stub_frontmatter_records_the_issue():
     assert "issue: 7" in atlas_seed._stub_text("Thing", 7)
     assert "issue: null" in atlas_seed._stub_text("Thing", None)
+
+
+# --- issue-first test naming (#99) -----------------------------------------
+
+def test_issue_first_test_filenames_resolve(tmp_path):
+    """commander names tests test_<issue>__<description>.py, not feature-first.
+
+    A prefix-only matcher sees none of its 959 test files, even though every
+    atlas feature is covered by one.
+    """
+    r = tmp_path / "proj"
+    (r / "tests").mkdir(parents=True)
+    (r / "deploy_config.py").write_text("pass\n")
+    (r / "tests" / "test_726__deploy_tab.py").write_text("import deploy_config\n")
+    got = atlas_trace._find_test_entry_point("deploy-tab", "Deploy tab", r)
+    assert got is not None and got.name == "test_726__deploy_tab.py"
+
+
+def test_generic_words_alone_do_not_match(tmp_path):
+    """Matching "api" or "tab" anywhere in a large suite returns noise."""
+    r = tmp_path / "proj"
+    (r / "tests").mkdir(parents=True)
+    (r / "tests" / "test_1__api_client.py").write_text("pass\n")
+    assert atlas_trace._find_test_entry_point("api", "API", r) is None
+
+
+def test_every_feature_token_must_appear(tmp_path):
+    """A multi-word feature is not satisfied by one common word."""
+    r = tmp_path / "proj"
+    (r / "tests").mkdir(parents=True)
+    (r / "tests" / "test_9__deploy_only.py").write_text("pass\n")
+    assert atlas_trace._find_test_entry_point(
+        "deploy-config-editor", "Deploy config editor", r
+    ) is None
+
+
+def test_package_layout_modules_resolve(tmp_path):
+    """commander's code lives in packages; only flat a/b/c.py resolved before."""
+    r = tmp_path / "proj"
+    (r / "services" / "mgr").mkdir(parents=True)
+    (r / "services" / "mgr" / "__init__.py").write_text("pass\n")
+    (r / "services" / "mgr" / "core.py").write_text("pass\n")
+    assert atlas_trace._module_to_file("services.mgr", r) is not None
+    assert atlas_trace._module_to_file("services.mgr.core", r).name == "core.py"
+
+
+def test_nested_root_modules_resolve(tmp_path):
+    """apps/dashboard imports `routers.x` relative to itself, not the repo root."""
+    r = tmp_path / "proj"
+    (r / "apps" / "dashboard" / "routers").mkdir(parents=True)
+    (r / "apps" / "dashboard" / "routers" / "deploy.py").write_text("pass\n")
+    assert atlas_trace._module_to_file("routers.deploy", r).name == "deploy.py"

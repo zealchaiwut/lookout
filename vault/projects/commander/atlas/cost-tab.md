@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Cost tab — no entry point could be discovered.
+Cost tab — traced from `tests/test_689__replace_bare_except_token_cost.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_689__replace_bare_except_token_cost.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,5 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Cost tab` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_689__replace_bare_except_token_cost.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_689__replace_bare_except_token_cost.py` imports no local modules — no implementation files could be traced -->

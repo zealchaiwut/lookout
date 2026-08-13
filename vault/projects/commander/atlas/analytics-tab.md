@@ -9,11 +9,11 @@ stale: false
 
 ## What
 
-Analytics tab — no entry point could be discovered.
+Analytics tab — traced from `tests/test_1066__analytics_redesign.py` through 0 source file(s).
 
 ## Entry Points
 
-_No entry point discovered._
+- `tests/test_1066__analytics_redesign.py` (tracing origin)
 
 ## Related Issues
 
@@ -32,4 +32,6 @@ _No source files could be read during tracing._
 
 ## Open Questions
 
-<!-- OPEN QUESTION: No entry point could be discovered for `Analytics tab` — cannot begin tracing -->
+<!-- OPEN QUESTION: `pytest` imported in `test_1066__analytics_redesign.py` but `pytest.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: `httpx` imported in `test_1066__analytics_redesign.py` but `httpx.py` not found in source — handler unresolved -->
+<!-- OPEN QUESTION: Entry point `tests/test_1066__analytics_redesign.py` imports no local modules — no implementation files could be traced -->
