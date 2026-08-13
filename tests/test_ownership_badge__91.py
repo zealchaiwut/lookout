@@ -14,7 +14,6 @@ AC9: Unknown ownership rule falls back to machine badge (safer default)
 AC10: pytest passes and lint.py exits 0
 """
 import re
-import subprocess
 import sys
 from pathlib import Path
 
@@ -279,9 +278,6 @@ def test_ac6_badge_has_text_label_not_just_color(built_ownership):
         if "ownership-badge" not in page:
             continue
         # It must contain at least one of the ownership keywords as visible text
-        badge_area = re.search(
-            r'class="ownership-badge"[^<]*(?:<[^>]*>)*([^<]*)', page
-        )
         assert re.search(r"machine|human|mixed", page, re.IGNORECASE), (
             f"{page_path.name}: badge must include a text label (machine/human/mixed)"
         )
