@@ -1008,6 +1008,50 @@ python3 render_site.py [--vault <dir>] [--out <dir>]
 
 ---
 
+## `atlas-coverage` — Trace Coverage Report
+
+**Module:** `atlas_coverage.py`
+**Public API:** `generate_coverage(vault_dir, targets_yaml)` → `Path`,
+`analyse_target(target, local_path, vault_dir)` → `dict`
+
+### What it does
+
+Reports which atlas features have a traced diagram and what blocks the rest,
+writing `vault/atlas-coverage.md`.
+
+The first full `--all-stale` pass traced 26 of 185 features. The remaining 159
+are not a lookout defect — the target repository has no feature-named test or
+source file, so tracing has no way in. That information was spread across 159
+individual notes; this collects it into a work list naming the exact file that
+would unlock each feature.
+
+### Blocked reasons
+
+| Reason | Meaning | Action given |
+|---|---|---|
+| `no entry point` | Nothing in the target names the feature | Add `tests/test_<feature>.py` |
+| `entry imports nothing local` | A test exists but drives the app over HTTP | Make it import the modules it exercises |
+
+The distinction matters: telling a reader to add a test that already exists is
+wrong advice.
+
+### Rules
+
+- Entry-point resolution is imported from `atlas_trace`, never reimplemented, so
+  the report cannot drift from what tracing actually does.
+- A target whose local checkout is missing is reported as **unavailable**, not
+  blocked — absent source is not the same as an absent entry point, and
+  conflating them would overstate the work.
+- The report carries no timestamp, so an unchanged fleet produces no diff.
+
+### CLI
+
+```
+python3 atlas_coverage.py [--vault <dir>] [--targets-yaml <path>]
+```
+
+---
+
 ## Notes
 
 All skill modules are pure Python with no external dependencies beyond the
