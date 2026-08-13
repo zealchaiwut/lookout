@@ -493,8 +493,10 @@ from question_registry import (
 ## `atlas-trace` — Stale Feature Tracing
 
 **Module:** `atlas_trace.py`  
-**Public API:** `generate_note(feature_name, source_dir, entry_point_file, issues)` → `str`  
-**Helpers:** `extract_mermaid_block(note_text)` → `str | None`, `get_node_names(mermaid_text)` → `list[str]`
+**Public API:** `generate_note(feature_name, source_dir, entry_point_file, issues, *, traced=None, stale=True)` → `str`  
+**Batch API:** `trace_all_stale(target, vault_dir, source_dir, max_batch=3)` → `list[str]`  
+**Helpers:** `extract_mermaid_block(note_text)` → `str | None`, `get_node_names(mermaid_text)` → `list[str]`  
+**Internal:** `_find_entry_point_for_feature(feature_slug, feature_name, source_dir)` → `str | None`, `_filter_issues(issues, feature_name, cap=10)` → `list[dict]`
 
 ### When to run
 
@@ -509,9 +511,17 @@ diagram or description. The step prevents hallucinated edges and invented file
 paths from reaching atlas notes by grounding every node in an artifact that
 exists in the repository.
 
-**Phase 1 — discover entry points.**  
-Read `docs/features.md` (or equivalent documentation) to find the entry point
-file named for the feature. Never prompt for file names not present in docs or
+**Phase 1 — discover entry points (per feature).**  
+Resolve the entry point **per feature** by calling `_find_entry_point_for_feature`.
+Search order:
+1. `docs/features/<feature-slug>.md` — look for `Entry point: \`x.py\`` in the
+   feature's individual doc file inside the `docs/features/` directory.
+2. `docs/features.md` — legacy global file; same pattern search.
+
+Each feature traces from its own entry point. Two features in the same project
+that have different entries in `docs/features/` produce different diagrams.
+If no entry point can be found, the note records an `OPEN QUESTION` callout and
+no diagram is invented. Never prompt for file names not present in docs or
 observed imports.
 
 **Phase 2 — traverse imports.**  
@@ -540,8 +550,8 @@ feature: <name>
 files_read:
   - <file1.py>
   - <file2.py>
-traced: null
-stale: true
+traced: <ISO date>
+stale: false
 ---
 
 ## What
@@ -555,7 +565,7 @@ stale: true
 
 ## Related Issues
 
-- #<N> — <title>  (pulled from snapshot issues.json)
+- #<N> — <title>  (open issues from snapshot, matched to this feature, ≤10)
 
 ## Flowchart
 
@@ -590,21 +600,37 @@ must appear whenever any import cannot be resolved to a real source file.
   each named file, route, or table in the repository and get a hit.
 - **Frontmatter lists every file read.** The `files_read:` key in the YAML
   frontmatter must enumerate every `.py` file traversed during import tracing.
+- **Related Issues filtered.** `_filter_issues` removes closed issues and limits
+  results to issues whose title contains at least one word from the feature name
+  (words ≥ 3 chars). Cap is 10 per note regardless of snapshot size.
+- **traced and stale.** After a successful trace run, `traced:` is set to the
+  ISO run date and `stale: false`. If the entry point was not found, the note
+  still records the attempt with `stale: false` and an OPEN QUESTION.
 
 ### CLI
 
 ```
+# Trace one feature
 python atlas_trace.py <target-name> <feature-slug> [--vault <vault_dir>] [--source-dir <path>]
+
+# Batch: trace all stale features for a target (respects trace cap, default 3)
+python atlas_trace.py <target-name> --all-stale [--vault <vault_dir>] [--source-dir <path>] [--batch-size N]
 ```
 
 Reads the atlas stub from `vault/projects/<target>/atlas/<feature-slug>.md`,
-traces imports starting from the entry point discovered in docs, and writes the
-completed note back to the same path.
+traces imports starting from the per-feature entry point discovered in
+`docs/features/<slug>.md`, and writes the completed note back to the same path.
 
-**Example — trace perf-coach today-recommendation:**
+**Example — trace asset-studio brand-settings:**
 
 ```
-python atlas_trace.py perf-coach today-recommendation --source-dir /path/to/perf-coach
+python atlas_trace.py asset-studio brand-settings --source-dir ~/dev/asset-studio/uat
+```
+
+**Example — batch-trace all stale asset-studio features (up to 3):**
+
+```
+python atlas_trace.py asset-studio --all-stale --source-dir ~/dev/asset-studio/uat
 ```
 
 ### Fixture
@@ -617,7 +643,7 @@ Tracing fixtures live at `tests/fixtures/trace-src/`:
 | `routes.py` | Route definitions importing `db` and `models` |
 | `db.py` | Database class with table name |
 | `models.py` | Domain model |
-| `docs/features.md` | Entry point documentation stub |
+| `docs/features.md` | Entry point documentation stub (legacy flat-file format) |
 
 Running tracing against this fixture with `entry_point_file="app.py"` produces
 a four-node diagram (`app.py → routes.py → /api/recommendations → coaching_sessions`)
