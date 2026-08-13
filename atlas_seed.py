@@ -88,12 +88,12 @@ def extract_features(
     seen_slugs: set[str] = set()
     features: list[dict] = []
 
-    def _add(name: str) -> None:
+    def _add(name: str, issue: int | None = None) -> None:
         slug = _slugify(name)
         if not slug or slug in seen_slugs:
             return
         seen_slugs.add(slug)
-        features.append({"name": name, "slug": slug})
+        features.append({"name": name, "slug": slug, "issue": issue})
 
     if readme_text:
         in_features_section = False
@@ -117,9 +117,11 @@ def extract_features(
                     continue
                 m = _README_SUBHEADING_PATTERN.match(line)
                 if m:
-                    name = _ISSUE_SUFFIX_PATTERN.sub("", m.group(1)).strip()
+                    raw = m.group(1)
+                    issue_m = re.search(r"#(\d+)", raw)
+                    name = _ISSUE_SUFFIX_PATTERN.sub("", raw).strip()
                     if name.lower() not in _SKIP_HEADINGS:
-                        _add(name)
+                        _add(name, int(issue_m.group(1)) if issue_m else None)
 
     if docs_features_text:
         for m in _DOCS_HEADING_PATTERN.finditer(docs_features_text):
@@ -134,10 +136,12 @@ def extract_features(
 # Stub file creation
 # ---------------------------------------------------------------------------
 
-def _stub_text(feature_name: str) -> str:
+def _stub_text(feature_name: str, issue: int | None = None) -> str:
+    issue_line = f"issue: {issue}\n" if issue is not None else "issue: null\n"
     return (
         "---\n"
         f"feature: {feature_name}\n"
+        f"{issue_line}"
         "files: []\n"
         "traced: null\n"
         "stale: true\n"
@@ -145,10 +149,12 @@ def _stub_text(feature_name: str) -> str:
     )
 
 
-def _ensure_stub(atlas_dir: Path, slug: str, feature_name: str) -> None:
+def _ensure_stub(
+    atlas_dir: Path, slug: str, feature_name: str, issue: int | None = None
+) -> None:
     stub_path = atlas_dir / f"{slug}.md"
     if not stub_path.exists():
-        stub_path.write_text(_stub_text(feature_name))
+        stub_path.write_text(_stub_text(feature_name, issue))
 
 
 # ---------------------------------------------------------------------------
@@ -259,7 +265,7 @@ def seed(
 
     # Create stub files for any missing feature
     for f in all_machine_features:
-        _ensure_stub(atlas_dir, f["slug"], f["name"])
+        _ensure_stub(atlas_dir, f["slug"], f["name"], f.get("issue"))
 
     # Write index.md (machine table regenerated; human section preserved verbatim)
     index_text = _build_index_md(
