@@ -1,0 +1,121 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "df9c41680a3de7dbd9da53e93b606dd0585d1513c6dd64a0d6e0536bf26681ec",
+      "heading": "# viral-radar",
+      "mtime": 1786686374.7778459
+    },
+    {
+      "path": "PRODUCT.md",
+      "sha256": "7636899c59ae08e3907a9ff166b4d56d947a2d11e114a6e841143ff03c3fb718",
+      "heading": "# PRODUCT.md \u2014 Viral Radar",
+      "mtime": 1786610387.2030098
+    },
+    {
+      "path": "DESIGN.md",
+      "sha256": "7aab98fc71a291b1a21a5306553453e5a7edd41c06065a62f23d28e37d420110",
+      "heading": "# DESIGN.md \u2014 Viral Radar",
+      "mtime": 1786610387.2028103
+    },
+    {
+      "path": "SCHEMA.md",
+      "sha256": "875ff0f772e4d4a9bbf3086d1bc2d8726e821b8d77427ec33311f0dad0f282b8",
+      "heading": "# Schema",
+      "mtime": 1783327803.3013291
+    },
+    {
+      "path": "docs/.DS_Store",
+      "sha256": "cbecc07af7527c4aff54c4861f1787de6de6bfd6340ae3af3e1d2ed12206d1d5",
+      "heading": "",
+      "mtime": 1783011509.7672765
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "1e0bb158181dd965b66f17b1f399c6decd36aae480703631d1a075fec77a98cd",
+      "heading": "# Architecture",
+      "mtime": 1783010957.159514
+    },
+    {
+      "path": "docs/bulk-create/2026-07-02-1-viral-radar-core-engine.md",
+      "sha256": "d194df227d198827b58c1f7303c181697d30265517551b54a4e9122799d03789",
+      "heading": "# Viral Radar \u2014 Batch 1: Core analyzer engine (multi-account from day one)",
+      "mtime": 1786610387.20361
+    },
+    {
+      "path": "docs/bulk-create/2026-07-02-2-viral-radar-apify-collector.md",
+      "sha256": "c77322b3a974efb3e78b67e8a261873b3ec35db5ebf0602d38b5a53ea81132b5",
+      "heading": "# Viral Radar \u2014 Batch 2: Apify collector (backfill + refresh)",
+      "mtime": 1786610387.203797
+    },
+    {
+      "path": "docs/bulk-create/2026-07-02-3-viral-radar-why-layer.md",
+      "sha256": "0f89d80608fff9dc4f6a2841da8629a84b7c473810c286aa0fb9f2019d4a0d4d",
+      "heading": "# Viral Radar \u2014 Batch 3: The \"why\" layer (AI judgment on gold posts)",
+      "mtime": 1786610387.2039309
+    },
+    {
+      "path": "docs/bulk-create/2026-07-02-4-viral-radar-discovery.md",
+      "sha256": "8189c26cd4e609cbe960f0695c87c9959cffde35a355adee31f15b12fab0500b",
+      "heading": "# Viral Radar \u2014 Batch 4: Similar-account discovery",
+      "mtime": 1786610387.2041504
+    },
+    {
+      "path": "docs/bulk-create/2026-07-02-5-viral-radar-self-analysis.md",
+      "sha256": "02db2e496fd7e5e86997b877c907e613eab1ca3d229c0dbeb17614e7456fe7ec",
+      "heading": "# Viral Radar \u2014 Batch 5: Turn it on nerdysteps (gap analysis + suggestions)",
+      "mtime": 1786610387.204781
+    },
+    {
+      "path": "docs/bulk-create/README.md",
+      "sha256": "a53df5ed0340e318b201af4303d43b97e2af0cfd7a99592b93a30f234ef5ad76",
+      "heading": "# Bulk Create \u2014 Prompt & Output Record",
+      "mtime": 1783010957.1596236
+    },
+    {
+      "path": "docs/changelog/sprint-1.1.md",
+      "sha256": "b7f258bf68814fa01279417b3e7ce462e933b5b426c9234d85b0de0aadb17548",
+      "heading": "# Sprint 1.1 \u2014 2026-07-03",
+      "mtime": 1783327803.3020067
+    },
+    {
+      "path": "docs/features/README.md",
+      "sha256": "b53935bd9decd5fba561d5ad20556fbb5f070f4567f36a64bbc63736925e5962",
+      "heading": "# Features",
+      "mtime": 1783010957.1597385
+    },
+    {
+      "path": "docs/milestones/next-stage-bcd.md",
+      "sha256": "0e761276d184bbb3f3152d6183f0b55623eb10506ee08e3e2959a05b163d57e1",
+      "heading": "# Next stage plan \u2014 B / C / D (+ recommended extras)",
+      "mtime": 1786615087.389539
+    },
+    {
+      "path": "docs/milestones.md",
+      "sha256": "85613269ee657951bd28fc61ce42f83e41c5240e035e29103eb6bccc17c27d97",
+      "heading": "# Milestone: Viral Radar (nerdysteps social intelligence)",
+      "mtime": 1786610387.2051249
+    },
+    {
+      "path": "docs/quickstart.md",
+      "sha256": "5b5ee7885e90509cfc8e16722a309212df809b8f4b77316c7bd7d2aceaa99aea",
+      "heading": "# Quick Start",
+      "mtime": 1783010957.1598794
+    },
+    {
+      "path": "docs/tutorial.md",
+      "sha256": "a556f8ccb0f1cc2a478e4e756a8b595dd87d32b7c3af904bf0a8b93881c8dc78",
+      "heading": "# Tutorial",
+      "mtime": 1783010957.159943
+    },
+    {
+      "path": "docs/workflow.md",
+      "sha256": "dd0f8e299474ea675710cae7a3a02412b1ad271276ccdaa82e836e6cebda0906",
+      "heading": "# Workflow",
+      "mtime": 1783010957.1600132
+    }
+  ],
+  "changed_files": [
+    "README.md"
+  ]
+}

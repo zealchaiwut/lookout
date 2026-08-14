@@ -13,10 +13,6 @@ Viral-Radar is a Facebook content analytics service for creators and marketers t
 
 ## Read surfaces
 
-- `GET /recipe` — Recipe card: features that separate Gold from Bronze across all accounts
-  - Example: `curl http://localhost:8000/recipe`
-- `GET /recipe?account_id=<name>` — Recipe card scoped to a single account
-  - Example: `curl http://localhost:8000/recipe?account_id=<name>`
 - `GET /api/digest?days=30` — Gold post feed filtered to the last N days (7, 30, or 90)
   - Example: `curl http://localhost:8000/api/digest?days=30`
 - `GET /api/posts/{post_id}` — Post detail including AI analysis fields

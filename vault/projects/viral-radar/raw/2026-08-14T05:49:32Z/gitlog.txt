@@ -1,0 +1,61 @@
+=== branch ===
+feature/next
+
+=== log ===
+2e4d130 Merge pull request #64 from zealchaiwut/feature/gap-report-ui
+e4e1644 feat: three-tab UI shell with Now API, Sources embeds, and analysis compare views
+a1e742c Merge pull request #63 from zealchaiwut/feature/candidate-hygiene-scorecard
+dae2996 feat: candidate hygiene, replicability scorecard, and dual approve paths
+e57ff3e Merge pull request #62 from zealchaiwut/feature/digest-self-gap
+322af23 feat: global analysis run, post exclusion, and shell polish
+895cb44 feat: unify M3/M5 UI shell and wire digest self-gap tracks
+1bc9b06 feat: add Claude gold analysis and structure-only template variants
+dc8de2d fix: polish Digest/Suggestions UX and drop permalink media
+70a6d98 feat: wire gold analysis into Digest and self-gap loop
+cb0f255 Merge pull request #61 from zealchaiwut/feature/ui-revamp
+b2e4516 fix: harden Apify mapping and polish Analyzer feed UX
+3755f8b feat: revamp Analyzer UI with shared shell and post inspector
+0b7901b fix: make Self Apify scrape reliable with upsert history
+d269f1c Merge pull request #60 from zealchaiwut/feature/next-stage-bcd-extras
+cefccfd fix: align Groq/Tavily config with product docs and tests
+dbb63bd docs: mark next-stage B–D extras as implemented on feature branch
+6a13bb9 feat: polish gap report fingerprints and suggestion citations
+ccb80fe feat: comment gold ingest and promote to audience questions
+feabf6a feat: Reddit question radar with keep/export skeletons
+3f14692 feat: niche-fit scorecard on discovery quarantine samples
+2b32aef feat: add format fingerprint for account and niche
+f775932 feat: niche discovery queries, anti-model reasons, URL seed
+691d1e8 feat: add race wave calendar with post windows
+2540461 feat: wire analyzer to paste engagement tiers and recipe
+174b176 Merge pull request #59 from zealchaiwut/sprint/sprint-4
+2c80962 Merge pull request #58 from zealchaiwut/sprint/sprint-4.1
+8fa59d8 Merge feature/15-migration-versioning into sprint/sprint-4.1 (issue #15)
+60a0c12 style: auto-fix lint (issue #15)
+ed5da33 fix: remove unused count_before variable in migration test (issue #15)
+
+=== status ===
+M README.md
+ M api.py
+ M routers/calendar.py
+ M routers/gold_analysis.py
+ M scripts/analyze_gold_claude.py
+ M services/db/__init__.py
+ M services/db/template_variants.py
+ M services/now.py
+ M services/race_calendar.py
+ M static/app.css
+ M static/calendar.html
+ M static/js/analysis-tab.js
+ M static/js/now-tab.js
+ M tests/test_analyze_gold_claude.py
+ M tests/test_gold_analysis_api.py
+ M tests/test_now_api.py
+ M viral-radar.db
+?? routers/templates.py
+?? routers/waves.py
+?? services/db/wave_topics.py
+?? services/db/wave_topics_schema.py
+?? services/template_evidence.py
+?? services/wave_signal.py
+?? tests/test_template_tfix.py
+?? tests/test_wave_signal__wfix.py

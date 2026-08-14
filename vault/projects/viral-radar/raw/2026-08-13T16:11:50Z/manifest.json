@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-08-13T16:11:41Z",
-  "target": "perf-coach",
+  "timestamp": "2026-08-13T16:11:50Z",
+  "target": "viral-radar",
   "health": {
     "status": "unhealthy",
-    "uptime_seconds": 125612,
+    "uptime_seconds": 125632,
     "gh_auth_scopes": {
       "authorized": true,
       "scopes": [
@@ -51,7 +51,7 @@
         "target": "zealchaiwut/commander/sprint-1003.2"
       }
     ],
-    "checked_at": "2026-08-13T16:11:34Z"
+    "checked_at": "2026-08-13T16:11:54Z"
   },
   "sources": {
     "brief": {
@@ -65,14 +65,13 @@
     "github": {
       "status": "ok",
       "error": "",
-      "pinned_requested": 1,
-      "pinned_resolved": 1
+      "pinned_requested": 0,
+      "pinned_resolved": 0
     },
     "endpoints": {
       "status": "ok",
       "error": "",
-      "count": 30
+      "count": 14
     }
-  },
-  "committed": true
+  }
 }

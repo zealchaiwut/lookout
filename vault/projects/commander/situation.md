@@ -1,12 +1,12 @@
 ---
 target: commander
-run: "2026-08-13T16:11:34Z"
+run: "2026-08-14T05:50:42Z"
 sources_ok: true
 ---
 
 ## One-liner
 
-`commander` — Commander automates the solo development workflow (BA → Coder → Tester → UAT) by dispatching Claude Code agents coordinated through a GitHub Issues sprint board and live dashboard. (health: unhealthy)
+`commander` — Commander automates the solo development workflow (BA → Coder → Tester → UAT) by dispatching Claude Code agents coordinated through a GitHub Issues sprint board and live dashboard. (health: degraded)
 _(source: manifest.json, brief.json)_
 
 ## Capacity
@@ -16,9 +16,7 @@ _(source: manifest.json, brief.json, issues.json)_
 
 ## Since last run
 
-- `sources.endpoints.count`: 144 → 126
-- `sources.github.pinned_requested`: '<absent>' → 0
-- `sources.github.pinned_resolved`: '<absent>' → 0
+_No changes detected._
 _(source: manifest.json)_
 
 ## What to do next
@@ -43,7 +41,5 @@ _(source: issues.json, questions.json)_
 
 ## Drift
 
-- `sources.endpoints.count`: 144 → 126
-- `sources.github.pinned_requested`: '<absent>' → 0
-- 37 doc(s) changed: README.md, SCHEMA.md, docs/architecture/code-state.md
+_No drift signals._
 _(source: manifest.json, docs_manifest.json)_

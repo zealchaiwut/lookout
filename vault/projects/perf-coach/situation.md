@@ -1,12 +1,12 @@
 ---
 target: perf-coach
-run: "2026-08-13T16:11:50Z"
+run: "2026-08-14T05:50:57Z"
 sources_ok: true
 ---
 
 ## One-liner
 
-`perf-coach` — Perf-coach is a personal performance dashboard for athletes and fitness enthusiasts tracking bodyweight, body composition, and power-to-weight trends within structured weight-loss or muscle-gain phases. (health: unhealthy)
+`perf-coach` — Perf-coach is a personal performance dashboard for athletes and fitness enthusiasts tracking bodyweight, body composition, and power-to-weight trends within structured weight-loss or muscle-gain phases. (health: degraded)
 _(source: manifest.json, brief.json)_
 
 ## Capacity
@@ -16,8 +16,7 @@ _(source: manifest.json, brief.json, issues.json)_
 
 ## Since last run
 
-- `sources.github.pinned_requested`: '<absent>' → 1
-- `sources.github.pinned_resolved`: '<absent>' → 1
+_No changes detected._
 _(source: manifest.json)_
 
 ## What to do next
@@ -42,7 +41,5 @@ _(source: issues.json, questions.json)_
 
 ## Drift
 
-- `sources.github.pinned_requested`: '<absent>' → 1
-- `sources.github.pinned_resolved`: '<absent>' → 1
-- 2 doc(s) changed: docs/calculations/plan-matching.md, docs/worker.md
+_No drift signals._
 _(source: manifest.json, docs_manifest.json)_

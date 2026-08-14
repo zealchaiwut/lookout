@@ -1,0 +1,51 @@
+=== branch ===
+feature/digest-self-gap
+
+=== log ===
+895cb44 feat: unify M3/M5 UI shell and wire digest self-gap tracks
+1bc9b06 feat: add Claude gold analysis and structure-only template variants
+dc8de2d fix: polish Digest/Suggestions UX and drop permalink media
+70a6d98 feat: wire gold analysis into Digest and self-gap loop
+cb0f255 Merge pull request #61 from zealchaiwut/feature/ui-revamp
+b2e4516 fix: harden Apify mapping and polish Analyzer feed UX
+3755f8b feat: revamp Analyzer UI with shared shell and post inspector
+0b7901b fix: make Self Apify scrape reliable with upsert history
+d269f1c Merge pull request #60 from zealchaiwut/feature/next-stage-bcd-extras
+cefccfd fix: align Groq/Tavily config with product docs and tests
+dbb63bd docs: mark next-stage B–D extras as implemented on feature branch
+6a13bb9 feat: polish gap report fingerprints and suggestion citations
+ccb80fe feat: comment gold ingest and promote to audience questions
+feabf6a feat: Reddit question radar with keep/export skeletons
+3f14692 feat: niche-fit scorecard on discovery quarantine samples
+2b32aef feat: add format fingerprint for account and niche
+f775932 feat: niche discovery queries, anti-model reasons, URL seed
+691d1e8 feat: add race wave calendar with post windows
+2540461 feat: wire analyzer to paste engagement tiers and recipe
+174b176 Merge pull request #59 from zealchaiwut/sprint/sprint-4
+2c80962 Merge pull request #58 from zealchaiwut/sprint/sprint-4.1
+8fa59d8 Merge feature/15-migration-versioning into sprint/sprint-4.1 (issue #15)
+60a0c12 style: auto-fix lint (issue #15)
+ed5da33 fix: remove unused count_before variable in migration test (issue #15)
+e10cf6a style: auto-fix lint (issue #15)
+b85280a feat: add numbered migration prefixes and schema_migrations version table (issue #15)
+d6edda3 docs: auto-update from sprint-sprint-4 diff
+12e262a Merge feature/53-rename-suggestion-schema-modules into sprint/sprint-4 (issue #53)
+ba29de6 feat: rename suggestion schema modules to intent-revealing names (issue #53)
+0920215 Merge feature/52-remove-dead-allowed-days-constant-and-days-param into sprint/sprint-4 (issue #52)
+
+=== status ===
+M README.md
+ M api.py
+ D routers/recipe.py
+ M services/recipe.py
+ M static/analyzer.css
+ M static/analyzer.html
+ M static/js/analyzer.js
+ D tests/test_ai_blend_recipe_card__19.py
+ D tests/test_recipe.py
+ D tests/test_recipe_ai_blend__19.py
+ D tests/test_recipe_ai_blend_unit__19.py
+ D tests/test_recipe_card__5.py
+ M tests/test_self_account__26.py
+ M tests/test_watchlist_analyzer__6.py
+ M viral-radar.db

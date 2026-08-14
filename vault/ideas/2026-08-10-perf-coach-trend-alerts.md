@@ -1,7 +1,7 @@
 ---
 slug: perf-coach-trend-alerts
 created: 2026-08-10
-status: promoted
+status: shipped
 targets: [perf-coach]
 issues: [62]
 assessed: 2026-08-13
@@ -29,11 +29,5 @@ the notification delivery mechanism (push vs. email digest).
 **Dependencies:** [[projects/perf-coach/capability]]; [[projects/perf-coach]]
 **Suggested first slice:** Verify scope against [[projects/perf-coach/atlas/accept-suggestion-flow]].
 
-<!-- BEGIN ISSUE STATE TABLE -->
-## Linked Issues
 
-| # | Title | State |
-|---|-------|-------|
-| #62 | (unknown) | open |
-<!-- END ISSUE STATE TABLE -->
 <!-- END MACHINE ASSESSMENT -->

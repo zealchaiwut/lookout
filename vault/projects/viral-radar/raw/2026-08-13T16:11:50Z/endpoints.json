@@ -1,0 +1,91 @@
+{
+  "get_endpoints": [
+    {
+      "path": "/api/digest?days=30",
+      "description": "Gold post feed filtered to the last N days (7, 30, or 90)",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/digest?days=30"
+    },
+    {
+      "path": "/api/posts/{post_id}",
+      "description": "Post detail including AI analysis fields",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/posts/{post_id}"
+    },
+    {
+      "path": "/niches/{niche_id}/recipe",
+      "description": "Niche recipe: equal-weighted signal aggregation with AI blend and example posts",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/niches/{niche_id}/recipe"
+    },
+    {
+      "path": "/candidates/{id}/sample",
+      "description": "Return the cached quarantine scorecard for a candidate without re-scraping",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/candidates/{id}/sample"
+    },
+    {
+      "path": "/suggestions",
+      "description": "Discovery UI \u2014 `static/suggestions.html",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/suggestions"
+    },
+    {
+      "path": "/api/suggestions",
+      "description": "List all content suggestions",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/suggestions"
+    },
+    {
+      "path": "/api/suggestions/{id}/export",
+      "description": "Export a kept suggestion as a prose-free skeleton Markdown draft",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/suggestions/{id}/export"
+    },
+    {
+      "path": "/api/waves",
+      "description": "List engagement waves available as sources for AI post suggestions",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/waves"
+    },
+    {
+      "path": "/api/waves/{wave}/suggestions",
+      "description": "List previously generated suggestions for a wave",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/waves/{wave}/suggestions"
+    },
+    {
+      "path": "/api/settings/voice-notes",
+      "description": "Get the stored voice-notes guidance used to steer suggestion generation",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/api/settings/voice-notes"
+    },
+    {
+      "path": "/niches/{niche_id}/gap-report?account=<name>",
+      "description": "Gap report: gold-post signals present in the niche recipe but missing from an account",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/niches/{niche_id}/gap-report?account=<name>"
+    },
+    {
+      "path": "/self-account",
+      "description": "Return the current self account, or null if none is registered",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/self-account"
+    },
+    {
+      "path": "/self-account/posts",
+      "description": "Return posts for the self account (powers the Self tab)",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/self-account/posts"
+    },
+    {
+      "path": "/accounts",
+      "description": "List watchlist accounts, excluding the self account",
+      "source": "README.md",
+      "example": "curl http://localhost:8000/accounts"
+    }
+  ],
+  "source_files": [
+    "README.md"
+  ]
+}

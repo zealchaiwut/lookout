@@ -1,12 +1,12 @@
 ---
 target: crux
-run: "2026-08-13T16:11:41Z"
+run: "2026-08-14T05:50:49Z"
 sources_ok: true
 ---
 
 ## One-liner
 
-`crux` — Crux is a research and diagnosis tool that transforms a messy problem into falsifiable hypotheses, generates and researches three competing root-cause explanations (A/B/C) with cited sources, re-ranks them against your data, and designs short/medium/long-horizon experiments to settle the question. (health: unhealthy)
+`crux` — Crux is a research and diagnosis tool that transforms a messy problem into falsifiable hypotheses, generates and researches three competing root-cause explanations (A/B/C) with cited sources, re-ranks them against your data, and designs short/medium/long-horizon experiments to settle the question. (health: degraded)
 _(source: manifest.json, brief.json)_
 
 ## Capacity
@@ -16,7 +16,7 @@ _(source: manifest.json, brief.json, issues.json)_
 
 ## Since last run
 
-- `committed`: False → '<absent>'
+_No changes detected._
 _(source: manifest.json)_
 
 ## What to do next
@@ -41,5 +41,5 @@ _(source: issues.json, questions.json)_
 
 ## Drift
 
-- `committed`: False → '<absent>'
+_No drift signals._
 _(source: manifest.json, docs_manifest.json)_
