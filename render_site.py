@@ -47,7 +47,10 @@ REPO_ROOT = Path(__file__).parent
 
 # Project notes read in pipeline order, not alphabetical — that is the order a
 # reader wants them, and the order the derive stages produce them in.
-_PROJECT_NOTE_ORDER = ["situation", "capability", "drift", "todo-view", "notes", "decisions"]
+_PROJECT_NOTE_ORDER = [
+    "discovery", "situation", "capability", "flow", "changelog",
+    "drift", "todo-view", "notes", "decisions",
+]
 
 _FM_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 _WIKILINK_RE = re.compile(r"\[\[([^\]|]+)(?:\|([^\]]*))?\]\]")
@@ -68,7 +71,9 @@ _SENTINEL_MACHINE_ANY_RE = re.compile(r"<!--\s*BEGIN MACHINE\b")
 _SENTINEL_HUMAN_RE = re.compile(r"<!--\s*BEGIN HUMAN ([A-Z][A-Z ]+?)\s*-->")
 
 # File stems that vault/agents.md lists as machine-owned types
-_MACHINE_STEMS = frozenset(["situation", "drift", "todo-view", "index"])
+_MACHINE_STEMS = frozenset([
+    "situation", "drift", "todo-view", "index", "flow", "changelog", "discovery",
+])
 
 # File stems / path conditions that agents.md lists as human-owned types
 _HUMAN_STEMS = frozenset(["agents", "decisions"])
@@ -90,12 +95,16 @@ _MM_EDGE_RE = re.compile(r"^\s*(\w+)\s*-->\s*(\w+)\s*$")
 _MM_LONE_RE = re.compile(r"^\s*(\w+)\s*$")
 _MM_COMMENT_RE = re.compile(r"^\s*%%")
 # Layout constants (all integers — SVG coordinates stay whole pixels)
-_MM_NW = 140   # node width
-_MM_NH = 40    # node height
+_MM_NW = 180   # default node width (widens further for long labels)
+_MM_NH = 48    # default node height (grows with wrapped lines)
 _MM_EH = 10    # cylinder ellipse half-height
-_MM_CG = 80    # column gap (horizontal space between layers)
-_MM_RG = 20    # row gap (vertical space between nodes in same layer)
+_MM_CG = 48    # column gap (horizontal space between layers)
+_MM_RG = 24    # row gap (vertical space between nodes in same layer)
 _MM_PAD = 24   # SVG padding (all sides)
+_MM_CHAR_W = 7  # approx mono 12px glyph width
+_MM_LINE_H = 15
+_MM_MAX_CHARS = 18
+_MM_MAX_LINES = 3
 
 
 def _mm_hash(s: str) -> str:
@@ -106,10 +115,54 @@ def _mm_hash(s: str) -> str:
     return format(h, "x")
 
 
+def _mm_wrap_label(label: str, max_chars: int = _MM_MAX_CHARS) -> list[str]:
+    """Word-wrap a node label into at most _MM_MAX_LINES lines."""
+    words = (label or "").split()
+    if not words:
+        return [""]
+    lines: list[str] = []
+    cur: list[str] = []
+    remaining = list(words)
+    while remaining:
+        word = remaining[0]
+        trial = " ".join(cur + [word])
+        if cur and len(trial) > max_chars:
+            lines.append(" ".join(cur))
+            cur = []
+            if len(lines) == _MM_MAX_LINES - 1:
+                rest = " ".join(remaining)
+                if len(rest) > max_chars:
+                    rest = rest[: max_chars - 1].rstrip() + "…"
+                lines.append(rest)
+                return lines
+            continue
+        cur.append(word)
+        remaining.pop(0)
+    if cur:
+        lines.append(" ".join(cur))
+    return lines[:_MM_MAX_LINES]
+
+
+def _mm_node_box(label: str, shape: str) -> tuple[int, int, list[str]]:
+    """Return (width, height, wrapped_lines) sized to fit the label."""
+    lines = _mm_wrap_label(label)
+    longest = max((len(ln) for ln in lines), default=1)
+    nw = max(_MM_NW, min(240, longest * _MM_CHAR_W + 28))
+    nh = max(_MM_NH, 18 + len(lines) * _MM_LINE_H)
+    if shape == "cyl":
+        nh = max(nh, 56)
+    return nw, nh, lines
+
+
 def _mermaid_to_svg(nodes: dict, node_order: list, edges: list, svg_id: str) -> str:
     """Generate inline SVG from parsed mermaid flowchart LR data."""
-    NW, NH, EH = _MM_NW, _MM_NH, _MM_EH
     CG, RG, PAD = _MM_CG, _MM_RG, _MM_PAD
+    EH = _MM_EH
+
+    # Per-node box sizes so long labels are not clipped.
+    sizes: dict = {}
+    for nid in node_order:
+        sizes[nid] = _mm_node_box(nodes[nid]["label"], nodes[nid]["shape"])
 
     # Build predecessor / successor maps
     preds: dict = {nid: [] for nid in nodes}
@@ -147,19 +200,33 @@ def _mermaid_to_svg(nodes: dict, node_order: list, edges: list, svg_id: str) -> 
     for nid in node_order:
         by_layer.setdefault(layer[nid], []).append(nid)
 
-    # Compute node positions
+    # Column x from cumulative max width per layer
+    layer_widths = {
+        li: max(sizes[nid][0] for nid in nids)
+        for li, nids in by_layer.items()
+    }
+    layer_x: dict = {}
+    x_cursor = PAD
+    for li in sorted(by_layer):
+        layer_x[li] = x_cursor
+        x_cursor += layer_widths[li] + CG
+
+    # Compute node positions (top-left of each box)
     positions: dict = {}
     for layer_idx, nids in by_layer.items():
-        col_x = PAD + layer_idx * (NW + CG)
-        for j, nid in enumerate(nids):
-            row_y = PAD + j * (NH + RG)
-            positions[nid] = (col_x, row_y)
+        y_cursor = PAD
+        for nid in nids:
+            positions[nid] = (layer_x[layer_idx], y_cursor)
+            y_cursor += sizes[nid][1] + RG
 
-    # Canvas size
-    num_l = max(layer.values()) + 1
-    max_row = max(len(v) for v in by_layer.values())
-    W = PAD * 2 + num_l * NW + (num_l - 1) * CG
-    H = PAD * 2 + max_row * NH + (max_row - 1) * RG
+    W = x_cursor - CG + PAD
+    H = PAD * 2 + max(
+        (
+            sum(sizes[nid][1] for nid in nids) + RG * (len(nids) - 1)
+            for nids in by_layer.values()
+        ),
+        default=_MM_NH,
+    )
 
     marker_id = f"mm-a-{svg_id}"
     out = []
@@ -168,7 +235,6 @@ def _mermaid_to_svg(nodes: dict, node_order: list, edges: list, svg_id: str) -> 
         f' width="100%"'
         f' style="max-width:{W}px;height:auto;display:block;margin:.8rem 0;">'
     )
-    # Arrowhead marker (accent colour makes arrows visually distinct)
     out.append(
         f'<defs>'
         f'<marker id="{marker_id}" markerWidth="10" markerHeight="7"'
@@ -182,8 +248,10 @@ def _mermaid_to_svg(nodes: dict, node_order: list, edges: list, svg_id: str) -> 
     for src, dst in edges:
         sx, sy = positions[src]
         dx, dy = positions[dst]
-        x1, y1 = sx + NW, sy + NH // 2
-        x2, y2 = dx, dy + NH // 2
+        snw, snh, _ = sizes[src]
+        dnw, dnh, _ = sizes[dst]
+        x1, y1 = sx + snw, sy + snh // 2
+        x2, y2 = dx, dy + dnh // 2
         mx = (x1 + x2) // 2
         out.append(
             f'<path d="M{x1},{y1} C{mx},{y1} {mx},{y2} {x2},{y2}"'
@@ -194,40 +262,52 @@ def _mermaid_to_svg(nodes: dict, node_order: list, edges: list, svg_id: str) -> 
     # Nodes
     for nid in node_order:
         x, y = positions[nid]
-        label = html.escape(nodes[nid]["label"])
+        nw, nh, text_lines = sizes[nid]
         shape = nodes[nid]["shape"]
-        cx = x + NW // 2
-        ty = y + NH // 2 + 4   # baseline for 12px font, visually centred
+        cx = x + nw // 2
 
         if shape == "cyl":
-            by_y = y + EH        # body rectangle top
-            bh = NH - 2 * EH    # body rectangle height
+            by_y = y + EH
+            bh = nh - 2 * EH
             out.append(
                 f'<g>'
-                f'<rect x="{x}" y="{by_y}" width="{NW}" height="{bh}"'
+                f'<rect x="{x}" y="{by_y}" width="{nw}" height="{bh}"'
                 f' style="fill:var(--surface);stroke:var(--border);stroke-width:1;"/>'
-                f'<ellipse cx="{cx}" cy="{by_y}" rx="{NW // 2}" ry="{EH}"'
+                f'<ellipse cx="{cx}" cy="{by_y}" rx="{nw // 2}" ry="{EH}"'
                 f' style="fill:var(--surface);stroke:var(--border);stroke-width:1;"/>'
-                f'<ellipse cx="{cx}" cy="{y + NH - EH}" rx="{NW // 2}" ry="{EH}"'
+                f'<ellipse cx="{cx}" cy="{y + nh - EH}" rx="{nw // 2}" ry="{EH}"'
                 f' style="fill:none;stroke:var(--border);stroke-width:1;"/>'
-                f'<text x="{cx}" y="{ty}" text-anchor="middle" font-size="12"'
-                f' style="fill:var(--text);font-family:var(--mono);">'
-                f'{label}</text>'
-                f'</g>'
             )
+            text_block = _mm_text_tspans(cx, y, nh, text_lines)
+            out.append(text_block)
+            out.append("</g>")
         else:
             out.append(
-                f'<rect x="{x}" y="{y}" width="{NW}" height="{NH}" rx="3"'
+                f'<rect x="{x}" y="{y}" width="{nw}" height="{nh}" rx="3"'
                 f' style="fill:var(--surface);stroke:var(--border);stroke-width:1;"/>'
             )
-            out.append(
-                f'<text x="{cx}" y="{ty}" text-anchor="middle" font-size="12"'
-                f' style="fill:var(--text);font-family:var(--mono);">'
-                f'{label}</text>'
-            )
+            out.append(_mm_text_tspans(cx, y, nh, text_lines))
 
     out.append("</svg>")
     return "".join(out)
+
+
+def _mm_text_tspans(cx: int, y: int, nh: int, lines: list[str]) -> str:
+    """Centered multi-line label inside a node box."""
+    n = max(len(lines), 1)
+    block_h = n * _MM_LINE_H
+    start_y = y + (nh - block_h) // 2 + _MM_LINE_H - 3
+    parts = [
+        f'<text x="{cx}" y="{start_y}" text-anchor="middle" font-size="12"'
+        f' style="fill:var(--text);font-family:var(--mono);">'
+    ]
+    for i, line in enumerate(lines):
+        dy = 0 if i == 0 else _MM_LINE_H
+        parts.append(
+            f'<tspan x="{cx}" dy="{dy}">{html.escape(line)}</tspan>'
+        )
+    parts.append("</text>")
+    return "".join(parts)
 
 
 def _render_mermaid(body: str):
@@ -311,10 +391,45 @@ class Note:
         self.rel = path.relative_to(vault_dir)          # e.g. projects/crux/situation.md
         self.out_rel = Path("notes") / self.rel.with_suffix(".html")
         self.stem = path.stem
+        self._frontmatter = None
+
+    @property
+    def frontmatter(self) -> dict:
+        if self._frontmatter is None:
+            try:
+                text = self.path.read_text(encoding="utf-8", errors="replace")
+            except OSError:
+                self._frontmatter = {}
+                return self._frontmatter
+            m = _FM_RE.match(text)
+            parsed: dict = {}
+            if m:
+                for line in m.group(1).splitlines():
+                    if ":" not in line:
+                        continue
+                    key, _, val = line.partition(":")
+                    parsed[key.strip()] = val.strip()
+            self._frontmatter = parsed
+        return self._frontmatter
 
     @property
     def title(self) -> str:
+        if self.rel.parts and self.rel.parts[0] == "ideas" and self.stem != "index":
+            slug = self.frontmatter.get("slug")
+            if slug:
+                return slug
         return self.stem.replace("-", " ")
+
+    def idea_targets(self) -> list[str]:
+        raw = self.frontmatter.get("targets", "")
+        if not raw or raw in ("[]", "null", "~"):
+            return []
+        inner = raw.strip()
+        if inner.startswith("[") and inner.endswith("]"):
+            inner = inner[1:-1].strip()
+        if not inner:
+            return []
+        return [x.strip().strip("'\"") for x in inner.split(",") if x.strip()]
 
 
 def resolve_ownership(note: "Note", text: str) -> dict:
@@ -401,6 +516,33 @@ def _render_ownership_badge(ownership: dict, source_href: str) -> str:
     )
 
 
+def _idea_belongs_banner(note: "Note", link_index: dict) -> str:
+    """One-line 'this idea belongs to X' for idea notes, empty otherwise."""
+    if not note.rel.parts or note.rel.parts[0] != "ideas" or note.stem == "index":
+        return ""
+    targets = note.idea_targets()
+    status = note.frontmatter.get("status", "")
+    if targets:
+        bits = []
+        for name in targets:
+            href_note = (link_index or {}).get(name) or (link_index or {}).get(
+                f"projects/{name}/situation"
+            )
+            if href_note is not None:
+                href = _relative_href(note.out_rel, href_note.out_rel)
+                bits.append(f'<a href="{html.escape(href)}">{html.escape(name)}</a>')
+            else:
+                bits.append(html.escape(name))
+        where = ", ".join(bits)
+    else:
+        where = "no registered project (fleet-wide)"
+    status_html = html.escape(status) if status else "unknown"
+    return (
+        f'<p class="idea-belongs">This idea belongs to {where} '
+        f"· status <strong>{status_html}</strong>.</p>\n"
+    )
+
+
 def collect_notes(vault_dir: Path) -> list:
     """Every vault markdown file except raw/ snapshots, sorted by path."""
     notes = []
@@ -427,10 +569,10 @@ def build_link_index(notes: list, vault_dir: Path) -> dict:
         if not d.is_dir() or "raw" in d.relative_to(vault_dir).parts:
             continue
         # A directory has no page of its own. Prefer its index.md; for a
-        # project directory there is none, so fall back to situation.md — the
-        # note a reader following [[perf-coach]] actually wants.
+        # project directory there is none, so prefer discovery.md (start here),
+        # then situation.md — the note a reader following [[perf-coach]] wants.
         target = None
-        for candidate in ("index.md", "situation.md"):
+        for candidate in ("index.md", "discovery.md", "situation.md"):
             f = d / candidate
             if f.exists():
                 target = next((n for n in notes if n.path == f), None)
@@ -509,15 +651,37 @@ def render_inline(text: str, note=None, link_index=None) -> str:
 # Block rendering
 # ---------------------------------------------------------------------------
 
-def _render_frontmatter(fm_body: str) -> str:
+def _render_frontmatter(fm_body: str, note=None, link_index=None) -> str:
     rows = []
     for line in fm_body.splitlines():
         if ":" not in line:
             continue
         key, _, val = line.partition(":")
+        key = key.strip()
+        val = val.strip()
+        label = "projects" if key == "targets" else key
+        if key == "targets" and link_index:
+            names = []
+            inner = val
+            if inner.startswith("[") and inner.endswith("]"):
+                inner = inner[1:-1].strip()
+            for raw in inner.split(",") if inner else []:
+                name = raw.strip().strip("'\"")
+                if not name:
+                    continue
+                target = f"projects/{name}/situation"
+                href_note = (link_index or {}).get(target) or (link_index or {}).get(name)
+                if href_note is not None and note is not None:
+                    href = _relative_href(note.out_rel, href_note.out_rel)
+                    names.append(f'<a href="{html.escape(href)}">{html.escape(name)}</a>')
+                else:
+                    names.append(html.escape(name))
+            val_html = ", ".join(names) if names else "—"
+        else:
+            val_html = html.escape(val) if val else "—"
         rows.append(
-            f"<div><dt>{html.escape(key.strip())}</dt>"
-            f"<dd>{html.escape(val.strip())}</dd></div>"
+            f"<div><dt>{html.escape(label)}</dt>"
+            f"<dd>{val_html}</dd></div>"
         )
     if not rows:
         return ""
@@ -556,7 +720,7 @@ def render_markdown(text: str, note=None, link_index=None) -> str:
 
     fm = _FM_RE.match(text)
     if fm:
-        parts.append(_render_frontmatter(fm.group(1)))
+        parts.append(_render_frontmatter(fm.group(1), note, link_index))
         text = text[fm.end():]
 
     # Sentinel comments mark machine/human ownership regions. They are structure
@@ -684,14 +848,14 @@ def _project_note_sort_key(note):
 
 
 def build_tree(notes: list) -> dict:
-    """Group notes into the sidebar's four sections."""
+    """Group notes into the sidebar's sections."""
     overview, ideas, journal = [], [], []
     projects: dict = {}
 
     for note in notes:
         parts = note.rel.parts
         if parts[0] == "projects" and len(parts) >= 2:
-            proj = projects.setdefault(parts[1], {"notes": [], "atlas": []})
+            proj = projects.setdefault(parts[1], {"notes": [], "atlas": [], "ideas": []})
             if "atlas" in parts:
                 proj["atlas"].append(note)
             else:
@@ -703,9 +867,17 @@ def build_tree(notes: list) -> dict:
         else:
             overview.append(note)
 
+    for note in ideas:
+        if note.stem == "index":
+            continue
+        for name in note.idea_targets():
+            if name in projects:
+                projects[name]["ideas"].append(note)
+
     for proj in projects.values():
         proj["notes"].sort(key=_project_note_sort_key)
         proj["atlas"].sort(key=lambda n: ("" if n.stem == "index" else n.stem))
+        proj["ideas"].sort(key=lambda n: n.stem)
 
     return {
         "overview": sorted(overview, key=lambda n: n.stem),
@@ -737,6 +909,9 @@ def render_sidebar(tree: dict, current, from_note) -> str:
 
     The whole tree ships in every page so each page stands alone under file://.
     Collapsing is native <details>/<summary> — no JavaScript.
+
+    Ideas and Journal are fleet-wide (they are not a child of one project), so
+    they sit under a Fleet group rather than as siblings of Projects.
     """
     def items(notes):
         return "<ul>" + "".join(_link(n, n is current, from_note) for n in notes) + "</ul>"
@@ -751,7 +926,8 @@ def render_sidebar(tree: dict, current, from_note) -> str:
     for name, proj in tree["projects"].items():
         proj_notes = proj["notes"]
         atlas = proj["atlas"]
-        active_here = current in proj_notes or current in atlas
+        proj_ideas = proj.get("ideas") or []
+        active_here = current in proj_notes or current in atlas or current in proj_ideas
         any_project = any_project or active_here
         body = items(proj_notes)
         if atlas:
@@ -759,15 +935,31 @@ def render_sidebar(tree: dict, current, from_note) -> str:
             body += _details(
                 "atlas", items(atlas), current in atlas, count=feature_count
             )
+        if proj_ideas:
+            body += _details(
+                "ideas", items(proj_ideas), current in proj_ideas, count=len(proj_ideas)
+            )
         proj_body.append(_details(name, body, active_here))
     out.append(_details("Projects", "".join(proj_body), any_project))
 
+    fleet_open = (
+        (current in tree["ideas"] if tree["ideas"] else False)
+        or (current in tree["journal"] if tree["journal"] else False)
+    )
+    fleet_bits = []
     if tree["ideas"]:
-        out.append(_details(
-            "Ideas", items(tree["ideas"]), current in tree["ideas"], count=len(tree["ideas"])
+        fleet_bits.append(_details(
+            "Ideas", items(tree["ideas"]),
+            current in tree["ideas"] if current else False,
+            count=len(tree["ideas"]),
         ))
     if tree["journal"]:
-        out.append(_details("Journal", items(tree["journal"]), current in tree["journal"]))
+        fleet_bits.append(_details(
+            "Journal", items(tree["journal"]),
+            current in tree["journal"] if current else False,
+        ))
+    if fleet_bits:
+        out.append(_details("Fleet", "".join(fleet_bits), fleet_open))
 
     out.append("</nav>")
     return "".join(out)
@@ -872,7 +1064,24 @@ th, td {
   text-align: left; vertical-align: top;
 }
 th { background: var(--surface); font-weight: 600; }
-td code, th code { white-space: nowrap; }
+td code, th code { white-space: pre-wrap; word-break: break-word; }
+.idea-belongs {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
+  padding: .6rem .8rem; font-size: 14px; margin: 0 0 1.25rem;
+}
+.resync-bar {
+  display: flex; flex-wrap: wrap; gap: .5rem .75rem; align-items: center;
+  padding: .5rem .9rem; background: var(--surface);
+  border-bottom: 1px solid var(--border); font-size: 13px;
+  position: sticky; top: 0; z-index: 5;
+}
+.resync-bar button {
+  font: inherit; padding: .25rem .65rem;
+  border: 1px solid var(--border); border-radius: 4px;
+  background: var(--bg); color: var(--text); cursor: pointer;
+}
+.resync-bar button:hover { border-color: var(--accent); color: var(--accent); }
+.resync-hint { color: var(--text-muted); }
 .provenance { color: var(--text-muted); font-size: 12.5px; margin-top: -.25rem; }
 .ownership-badge {
   display: flex; align-items: baseline; flex-wrap: wrap; gap: .15rem .4rem;
@@ -938,8 +1147,10 @@ def _page(title: str, crumb: str, body: str, sidebar: str, css_href: str, home_h
 def _landing_body(tree: dict, notes: list) -> str:
     cards = []
     for name, proj in tree["projects"].items():
+        discovery = next((n for n in proj["notes"] if n.stem == "discovery"), None)
         situation = next((n for n in proj["notes"] if n.stem == "situation"), None)
-        href = situation.out_rel.as_posix() if situation else "#"
+        entry = discovery or situation
+        href = entry.out_rel.as_posix() if entry else "#"
         atlas_count = sum(1 for n in proj["atlas"] if n.stem != "index")
         cards.append(
             f'<a class="card" href="{html.escape(href)}">'
@@ -978,9 +1189,10 @@ def generate_site(vault_dir: Path, out_dir: Path) -> int:
         html_dir = out_dir / note.out_rel.parent
         source_href = os.path.relpath(note.path, html_dir).replace("\\", "/")
         badge = _render_ownership_badge(ownership, source_href)
+        extra = _idea_belongs_banner(note, link_index)
         page = _page(
             title, crumb,
-            f"<h1>{html.escape(note.title)}</h1>\n{badge}\n{body}",
+            f"<h1>{html.escape(note.title)}</h1>\n{badge}\n{extra}{body}",
             sidebar, css_href, home_href,
         )
         dest = out_dir / note.out_rel

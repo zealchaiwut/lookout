@@ -145,8 +145,9 @@ def test_ac4_site_module_imports_only_stdlib():
 def test_ac5_sidebar_has_the_four_sections(built):
     out, _ = built
     page = read(out, "notes/projects/alpha/situation.html")
-    for section in ("Overview", "Projects", "Ideas"):
+    for section in ("Overview", "Projects", "Fleet"):
         assert f"<summary>{section}" in page
+    assert "<summary>Ideas" in page
 
 
 def test_ac5_tree_uses_native_details_not_javascript(built):

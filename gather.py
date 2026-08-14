@@ -381,6 +381,27 @@ _ENDPOINT_ROW_RE = re.compile(
 )
 
 
+_PATH_PARAM_DEFAULTS = {
+    "slug": None,  # filled per-target
+    "project": None,
+    "sprint_label": "sprint-1",
+    "issue_id": "1",
+    "issue_num": "1",
+    "path": "README.md",
+}
+
+
+def _fill_path_params(path: str, target: str) -> str:
+    """Replace `{param}` placeholders with a concrete value for the example."""
+    filled = path
+    for name, default in _PATH_PARAM_DEFAULTS.items():
+        value = target if name in ("slug", "project") else default
+        filled = filled.replace("{" + name + "}", str(value))
+    # Any leftover {param} gets a short placeholder so the curl is copyable.
+    filled = re.sub(r"\{[^}]+\}", "example", filled)
+    return filled
+
+
 def _parse_endpoint_tables(text: str) -> list:
     """Extract GET endpoints from Markdown method/path tables in `text`.
 
@@ -407,19 +428,23 @@ def _parse_endpoint_tables(text: str) -> list:
     return endpoints
 
 
-def _collect_endpoints(local_path: Path, out_dir: Path) -> dict:
+def _collect_endpoints(local_path: Path, out_dir: Path, target: str = "") -> dict:
     """Scan the target's README and docs/ for API endpoint tables.
 
     Writes endpoints.json in the schema capability_card.py expects:
-        {"get_endpoints": [{"path", "description", "example"}], "source_files": [...]}
+        {"get_endpoints": [{"path", "description", "example", "response"}],
+         "source_files": [...]}
 
     Doc tables are the evidence source rather than live introspection: Lookout is
     read-only against targets and must not start or call a target's server.
+    The `response` field is the documented return (status + what the description
+    says comes back), not a captured body.
     """
     try:
         endpoints: list = []
         source_files: list = []
         seen: set[str] = set()
+        name = target or local_path.name
 
         candidates = [local_path / "README.md"]
         docs_dir = local_path / "docs"
@@ -437,7 +462,10 @@ def _collect_endpoints(local_path: Path, out_dir: Path) -> dict:
             for e in fresh:
                 seen.add(e["path"])
                 e["source"] = rel
-                e["example"] = f"curl http://localhost:8000{e['path']}"
+                filled = _fill_path_params(e["path"], name)
+                e["example"] = f"curl -sS http://localhost:8000{filled}"
+                desc = e.get("description") or "JSON body"
+                e["response"] = f"200 JSON — {desc}"
             endpoints.extend(fresh)
             source_files.append(rel)
 
@@ -770,7 +798,7 @@ def gather(target_name):
     if local_path is not None:
         _collect_git(local_path, out_dir)
         _collect_docs_manifest(local_path, out_dir, vault_project_dir)
-        endpoints_result = _collect_endpoints(local_path, out_dir)
+        endpoints_result = _collect_endpoints(local_path, out_dir, target=target_name)
         sources["endpoints"] = {
             "status": endpoints_result["status"],
             "error": endpoints_result["error"],

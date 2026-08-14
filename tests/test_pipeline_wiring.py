@@ -213,11 +213,15 @@ def test_issue_items_are_not_wikilinked():
     assert not any("[[" in r for r in rendered)
 
 
-def test_changed_doc_files_are_still_wikilinked():
-    """Doc paths name real vault pages, so they keep their wikilink."""
-    manifest = {"changed_files": ["docs/todo.md"]}
-    items = synthesize._collect_next_items({}, [], manifest, None)
-    assert synthesize._to_wikilink(items[0]).startswith("[[")
+def test_changed_doc_files_are_not_wikilinked():
+    """Target-repo paths (README.md, docs/todo.md) are not vault notes."""
+    manifest = {"changed_files": ["docs/todo.md", "README.md"]}
+    rendered = [
+        synthesize._to_wikilink(i)
+        for i in synthesize._collect_next_items({}, [], manifest, None)
+    ]
+    assert rendered == ["docs/todo.md", "README.md"]
+    assert not any("[[" in r for r in rendered)
 
 
 def test_brief_suggestion_dicts_use_their_text_key():

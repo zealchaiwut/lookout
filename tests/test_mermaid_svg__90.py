@@ -206,9 +206,22 @@ def test_ac6_no_hardcoded_colour_values():
 # AC7 — SVG scales to container, does not overflow content column
 # ---------------------------------------------------------------------------
 
-def test_ac7_svg_has_width_100_percent():
-    out = _render("flowchart LR\n  n[x]")
-    assert 'width="100%"' in out
+def test_long_labels_wrap_inside_the_box():
+    out = _render(
+        "flowchart LR\n"
+        "  a[Pick account / open flow]\n"
+        "  b[Export]\n"
+        "  a --> b"
+    )
+    assert "<tspan" in out
+    # Source box must be wider than the old 140px clip width.
+    widths = [int(w) for w in re.findall(r'<rect[^>]+width="(\d+)"', out)]
+    assert widths and max(widths) >= 180
+    # Arrow starts at the right edge of the first box, not through its text.
+    path_x = int(re.search(r'<path d="M(\d+),', out).group(1))
+    first_x = int(re.search(r'<rect x="(\d+)"', out).group(1))
+    first_w = widths[0]
+    assert path_x == first_x + first_w
 
 
 def test_ac7_svg_has_viewbox():

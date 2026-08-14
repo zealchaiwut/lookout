@@ -9,17 +9,19 @@ and the nightly `lookout --all` sweep produced snapshots and nothing else.
 Two groups, run in this order:
 
   Per target (derive_target)
-    1. capability_card  — capability.md          (reads endpoints.json, README)
-    2. drift            — drift.md               (reads docs_manifest, gitlog)
-    3. synthesize       — situation.md           (reads the snapshot, drift.md,
-                                                  and capability.md's one-liner)
-    4. todo_view        — todo-view.md           (reads notion_todos + docs/todo.md)
+    1. capability_card  — capability.md
+    2. drift            — drift.md
+    3. synthesize       — situation.md
+    4. todo_view        — todo-view.md
+    5. project_flow     — flow.md           (workflow.md + atlas sitemap)
+    6. project_changelog — changelog.md     (merged PRs + git log)
+    7. project_discovery — discovery.md     (start-here: flow + API + modules)
 
   Vault-wide (derive_vault), once after every target
-    5. capability_map   — vault/map.md           (reads every capability.md)
-    6. ideas_ledger     — vault/ideas/index.md
-    7. assessment_pass  — idea Assessment blocks (capped at 3 ideas per run)
-    8. ship_pass        — promoted → shipped transitions
+    8. capability_map
+    9. ideas_ledger
+   10. assessment_pass
+   11. ship_pass
 
 Ordering is load-bearing: capability.md must exist before synthesize reads its
 description, and drift.md must exist before situation.md cites it.
@@ -87,6 +89,9 @@ def derive_target(target: str, vault_dir: Path | None = None) -> list[dict]:
 
     import capability_card
     import drift as drift_module
+    import project_changelog
+    import project_discovery
+    import project_flow
     import synthesize as synthesize_module
     import todo_view
 
@@ -112,6 +117,21 @@ def derive_target(target: str, vault_dir: Path | None = None) -> list[dict]:
     results.append(_run_stage(
         "todo_view",
         lambda: str(todo_view._run_cli(target, vault_dir, docs_todo).name),
+    ))
+
+    results.append(_run_stage(
+        "project_flow",
+        lambda: str(project_flow.generate_flow(target, vault_dir).name),
+    ))
+
+    results.append(_run_stage(
+        "project_changelog",
+        lambda: str(project_changelog.generate_changelog(target, vault_dir).name),
+    ))
+
+    results.append(_run_stage(
+        "project_discovery",
+        lambda: str(project_discovery.generate_discovery(target, vault_dir).name),
     ))
 
     return results

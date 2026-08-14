@@ -13,18 +13,14 @@ Crux is a research and diagnosis tool that transforms a messy problem into falsi
 
 ## Read surfaces
 
-- `GET /healthz` — {status, env}` — no auth required
-  - Example: `curl http://localhost:8000/healthz`
-- `GET /api/cases` — List all cases, newest first
-  - Example: `curl http://localhost:8000/api/cases`
-- `GET /api/cases/{id}` — Full case with nested plans, sources, probe, verdict
-  - Example: `curl http://localhost:8000/api/cases/{id}`
-- `GET /api/cases/{id}/related` — Cosine similarity against closed cases
-  - Example: `curl http://localhost:8000/api/cases/{id}/related`
-- `GET /api/sources?plan_id={id}` — List sources for a plan
-  - Example: `curl http://localhost:8000/api/sources?plan_id={id}`
-- `GET /api/plans/{id}/gather-status` — Poll: `{gather_status, error, sources}
-  - Example: `curl http://localhost:8000/api/plans/{id}/gather-status`
+| API name | API | Example |
+|---|---|---|
+| {status, env}' — no auth required | `GET /healthz` | `curl -sS http://localhost:8000/healthz` → `200 JSON — {status, env}' — no auth required` |
+| List all cases, newest first | `GET /api/cases` | `curl -sS http://localhost:8000/api/cases` → `200 JSON — List all cases, newest first` |
+| Full case with nested plans, sources, probe, verdict | `GET /api/cases/{id}` | `curl -sS http://localhost:8000/api/cases/example` → `200 JSON — Full case with nested plans, sources, probe, verdict` |
+| Cosine similarity against closed cases | `GET /api/cases/{id}/related` | `curl -sS http://localhost:8000/api/cases/example/related` → `200 JSON — Cosine similarity against closed cases` |
+| List sources for a plan | `GET /api/sources?plan_id={id}` | `curl -sS http://localhost:8000/api/sources?plan_id=example` → `200 JSON — List sources for a plan` |
+| Poll: '{gather_status, error, sources} | `GET /api/plans/{id}/gather-status` | `curl -sS http://localhost:8000/api/plans/example/gather-status` → `200 JSON — Poll: '{gather_status, error, sources}` |
 
 ## How to make it do things
 

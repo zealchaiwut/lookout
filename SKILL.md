@@ -33,15 +33,18 @@ actually opens.
 | 2 | `drift` | `drift.md` |
 | 3 | `synthesize` | `situation.md` |
 | 4 | `todo_view` | `todo-view.md` |
+| 5 | `project_flow` | `flow.md` |
+| 6 | `project_changelog` | `changelog.md` |
+| 7 | `project_discovery` | `discovery.md` |
 
 **Vault-wide**, once per run after every target:
 
 | # | Stage | Writes |
 |---|-------|--------|
-| 5 | `capability_map` | `vault/map.md` |
-| 6 | `ideas_ledger` | `vault/ideas/index.md` |
-| 7 | `assessment_pass` | idea `## Assessment` blocks |
-| 8 | `ship_pass` | idea `status:` frontmatter |
+| 8 | `capability_map` | `vault/map.md` |
+| 9 | `ideas_ledger` | `vault/ideas/index.md` |
+| 10 | `assessment_pass` | idea `## Assessment` blocks |
+| 11 | `ship_pass` | idea `status:` frontmatter |
 
 Order matters: `capability.md` must exist before `synthesize` reads its
 description for the one-liner, and `drift.md` must exist before `situation.md`
@@ -968,8 +971,8 @@ silently dropped. This is what keeps the module free of a markdown dependency.
   `situation.md` for a project directory. An unresolvable target renders as
   muted plain text rather than a dead link.
 - Sentinel comments (`<!-- BEGIN MACHINE … -->`) never reach the page.
-- Project notes appear in pipeline order (situation, capability, drift,
-  todo-view); atlas notes alphabetically.
+- Project notes appear in pipeline order (discovery, situation, capability, flow,
+  changelog, drift, todo-view); atlas notes alphabetically.
 - The whole tree ships in every page with only the current page's ancestors
   expanded, so each page stands alone under `file://`.
 - Regeneration is byte-identical for unchanged input.

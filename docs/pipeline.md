@@ -46,15 +46,18 @@ level up, in `vault/projects/<target>/`.
 | 2 | drift | `drift.py` | `docs_manifest.json`, `gitlog.txt`, `brief.json` | `drift.md` | no |
 | 3 | synthesize | `synthesize.py` | latest + previous snapshot, `drift.md`, `capability.md`, `questions.json`, `notes.md` | `situation.md`, `questions.json` | no (reuses stage 1's description) |
 | 4 | todo_view | `todo_view.py` | `notion_todos.json`, target's `docs/todo.md` | `todo-view.md` | no |
+| 5 | project_flow | `project_flow.py` | target's `docs/workflow.md`, `docs/architecture.md`, atlas index, `docs_manifest.json` | `flow.md` | no |
+| 6 | project_changelog | `project_changelog.py` | `issues.json` PRs, `gitlog.txt`, atlas notes | `changelog.md` | no |
+| 7 | project_discovery | `project_discovery.py` | PRODUCT.md / flow helpers, `endpoints.json`, local tree, atlas notes, capability.md | `discovery.md` | no |
 
 ### Vault-wide — `derive.derive_vault()`, once per run
 
 | # | Stage | Module | Reads | Writes | LLM |
 |---|-------|--------|-------|--------|-----|
-| 5 | capability_map | `capability_map.py` | every `projects/*/capability.md` | `vault/map.md` (Edges section only) | no |
-| 6 | ideas_ledger | `ideas_ledger.py` | `vault/ideas/*.md` | `vault/ideas/index.md` | no |
-| 7 | assessment_pass | `assessment_pass.py` | idea notes, atlas notes, capability cards | idea `## Assessment` blocks (max 3/run) | **yes** — atlas-note relevance ranking |
-| 8 | ship_pass | `ship_pass.py` | idea notes, `issues.json` (per idea's `targets:`) | idea `status:` frontmatter | no |
+| 8 | capability_map | `capability_map.py` | every `projects/*/capability.md` | `vault/map.md` (Edges section only) | no |
+| 9 | ideas_ledger | `ideas_ledger.py` | `vault/ideas/*.md` | `vault/ideas/index.md` | no |
+| 10 | assessment_pass | `assessment_pass.py` | idea notes, atlas notes, capability cards | idea `## Assessment` blocks (max 3/run) | **yes** — atlas-note relevance ranking |
+| 11 | ship_pass | `ship_pass.py` | idea notes, `issues.json` (per idea's `targets:`) | idea `status:` frontmatter | no |
 
 **Order is load-bearing.** capability.md must exist before synthesize reads its
 description for the one-liner, and drift.md must exist before situation.md cites
@@ -100,6 +103,17 @@ the exit code.
 
 ---
 
+## Discovery page
+
+`discovery.md` is the per-project **start here** note: one-liner, product flow
+(from PRODUCT.md — not the Commander sprint template), API map with atlas joins,
+a shallow capped module mermaid, atlas coverage, and read-next links. It is
+docs-first and static — no interactive graph, no live API introspection, no
+writes into target clones. Generate alone with
+`python3 project_discovery.py <target>`, or via `derive`.
+
+---
+
 ## Invariants
 
 **Read-only against the world.** `vault/agents.md` forbids any tool in this repo
@@ -113,9 +127,10 @@ deterministic audit trail — but it means the repository grows with every run o
 every target. There is no retention policy yet.
 
 **Machine vs human ownership** is defined in `vault/agents.md` and enforced by
-`lint.py`. Machine-owned: situation, capability body, drift, todo-view, atlas,
-indexes, ideas ledger, assessment blocks, packs. Human-owned: notes, learning,
-decisions, `agents.md`, idea freeform tops, and `map.md`'s Pipelines section.
+`lint.py`. Machine-owned: situation, capability body, drift, todo-view, flow,
+changelog, discovery, atlas, indexes, ideas ledger, assessment blocks, packs.
+Human-owned: notes, learning, decisions, `agents.md`, idea freeform tops, and
+`map.md`'s Pipelines section.
 
 **Lint gates the commit.** `lint.py` runs after derive so it validates this run's
 output. Ten check families; a wikilink that cannot resolve is a hard failure.

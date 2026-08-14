@@ -112,6 +112,7 @@ def extract_read_surface_paths(card_content: str) -> list:
 
     Returns a list of path strings (e.g. ['/api/health', '/api/sprints']).
     Used by UAT validation to confirm every surfaced endpoint is reachable.
+    Accepts both the current 3-column table and the older bullet list.
     """
     m = re.search(r"## Read surfaces\s+(.*?)(?=\n## |\Z)", card_content, re.DOTALL)
     if not m:
@@ -139,18 +140,57 @@ def _extract_notes_for_ai(existing_content: str) -> str:
     return m.group(1).rstrip()
 
 
-def _build_read_surfaces_section(endpoints: list) -> str:
-    """Build the Read surfaces section from a list of endpoint dicts."""
+def _md_cell(text: str) -> str:
+    """Escape a value so it can sit in a markdown table cell."""
+    return (
+        (text or "")
+        .replace("|", "/")
+        .replace("\n", " ")
+        .replace("`", "'")
+        .strip()
+    )
+
+
+def _fill_example_path(path: str, target: str) -> str:
+    filled = path.replace("{slug}", target).replace("{project}", target)
+    filled = filled.replace("{sprint_label}", "sprint-1")
+    filled = filled.replace("{issue_id}", "1").replace("{issue_num}", "1")
+    filled = re.sub(r"\{[^}]+\}", "example", filled)
+    return filled
+
+
+def _example_cell(ep: dict, target: str = "") -> str:
+    """Request + expected response in one table cell (no HTML — the site escapes it)."""
+    path = ep.get("path", "")
+    description = ep.get("description", "") or "JSON body"
+    filled = _fill_example_path(path, target) if target else path
+    example = f"curl -sS http://localhost:8000{filled}"
+    response = ep.get("response") or f"200 JSON — {description}"
+    return (
+        f"`{_md_cell(example)}` "
+        f"→ `{_md_cell(response)}`"
+    )
+
+
+def _build_read_surfaces_section(endpoints: list, target: str = "") -> str:
+    """Build the Read surfaces section as a 3-column table.
+
+    Columns: API name (the human description), API (method + path), Example
+    (curl request plus the documented response, not a live call — Lookout
+    never hits a target's server).
+    """
     if not endpoints:
         return "_No read surfaces discovered in snapshot evidence._"
 
-    lines = []
+    lines = [
+        "| API name | API | Example |",
+        "|---|---|---|",
+    ]
     for ep in endpoints:
         path = ep.get("path", "")
-        description = ep.get("description", "")
-        example = ep.get("example", f"curl http://localhost:8000{path}")
-        lines.append(f"- `GET {path}` — {description}")
-        lines.append(f"  - Example: `{example}`")
+        name = _md_cell(ep.get("description", "") or path)
+        api = f"`GET {_md_cell(path)}`"
+        lines.append(f"| {name} | {api} | {_example_cell(ep, target)} |")
 
     return "\n".join(lines)
 
@@ -238,7 +278,7 @@ def _build_card(
     )
 
     # --- Read surfaces ---
-    read_surfaces = _build_read_surfaces_section(endpoints)
+    read_surfaces = _build_read_surfaces_section(endpoints, target=target)
 
     # --- How to make it do things ---
     how_to = (
@@ -316,16 +356,8 @@ def generate_capability_card(
         preserved_what_it_is,
     )
 
-    # Enforce token limit by trimming Read surfaces if needed
-    if count_tokens(content) > _TOKEN_LIMIT:
-        # Trim endpoint list to fit within budget
-        while endpoints and count_tokens(content) > _TOKEN_LIMIT:
-            endpoints = endpoints[:-1]
-            content = _build_card(
-                target, target_config, manifest, endpoints, preserved_notes, readme_text,
-                preserved_what_it_is,
-            )
-
+    # Token budget is a lint *warning*, not a hard cap. Trimming endpoints
+    # used to hide the rest of the API from the card a reader actually opens.
     cap_md_path.write_text(content)
     return cap_md_path
 

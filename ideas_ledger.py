@@ -139,20 +139,39 @@ def regenerate_ledger(ideas_dir: Path, today: date | None = None) -> Path:
         effort = fm.get("effort") or "—"
         blocked_by = fm.get("blocked_by") or "—"
         age = _age_string(fm.get("created"), today)
+        targets = fm.get("targets") or []
+        if isinstance(targets, str):
+            targets = [targets] if targets not in ("[]", "—", "") else []
+        if not isinstance(targets, list):
+            targets = []
         rows.append({
             "slug": slug,
+            "stem": idea_path.stem,
             "status": status,
             "effort": effort,
             "blocked_by": blocked_by,
             "age": age,
+            "targets": targets,
         })
 
-    lines = ["# Ideas\n", "\n"]
-    lines.append("| Idea | Status | Effort | Blocked-by | Age |\n")
-    lines.append("|------|--------|--------|------------|-----|\n")
+    lines = [
+        "# Ideas\n",
+        "\n",
+        "Fleet-wide proposals. Each idea names the project(s) it belongs to "
+        "in the Project column (and in the note's `targets:` frontmatter). "
+        "An empty project means it is not attached to a registered target yet.\n",
+        "\n",
+    ]
+    lines.append("| Idea | Project | Status | Effort | Blocked-by | Age |\n")
+    lines.append("|------|---------|--------|--------|------------|-----|\n")
     for row in rows:
+        idea_link = f"[[{row['stem']}|{row['slug']}]]"
+        if row["targets"]:
+            project = ", ".join(f"[[projects/{t}/situation|{t}]]" for t in row["targets"])
+        else:
+            project = "—"
         lines.append(
-            f"| {row['slug']} | {row['status']} | {row['effort']} "
+            f"| {idea_link} | {project} | {row['status']} | {row['effort']} "
             f"| {row['blocked_by']} | {row['age']} |\n"
         )
 

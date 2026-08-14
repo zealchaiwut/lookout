@@ -192,7 +192,7 @@ def test_regenerate_creates_index(tmp_path):
 
 
 def test_regenerate_index_has_required_columns(tmp_path):
-    """AC4: index.md contains table columns: Idea, Status, Effort, Blocked-by, Age."""
+    """AC4: index.md contains table columns: Idea, Project, Status, Effort, Blocked-by, Age."""
     ledger = _load_ledger()
     ideas_dir = tmp_path / "vault" / "ideas"
     ideas_dir.mkdir(parents=True)
@@ -200,7 +200,7 @@ def test_regenerate_index_has_required_columns(tmp_path):
                     slug="dark-mode", created="2026-01-10", status="idea")
     ledger.regenerate_ledger(ideas_dir, today=date(2026, 8, 10))
     content = (ideas_dir / "index.md").read_text(encoding="utf-8")
-    for col in ("Idea", "Status", "Effort", "Blocked-by", "Age"):
+    for col in ("Idea", "Project", "Status", "Effort", "Blocked-by", "Age"):
         assert col in content, f"Column '{col}' missing from index.md:\n{content}"
 
 

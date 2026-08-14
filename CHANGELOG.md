@@ -5,6 +5,11 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
 
 ## Unreleased
 
+- Render Read surfaces as a 3-column table (API name, API, example → documented response).
+- Per-project `flow.md` (lifecycle from `docs/workflow.md`, sitemap from atlas + docs) and `changelog.md` (merged PRs joined to atlas issues).
+- Ideas ledger shows which project an idea belongs to; sidebar groups Ideas and Journal under Fleet.
+- `serve_site.py` serves the HTML site with Resync all / Resync this project.
+
 - Wire the derive pipeline into `bin/lookout` and `lookout --all` (`derive.py`).
   Previously both ran gather → lint → commit only, so no `situation.md`,
   `capability.md`, `drift.md`, or `todo-view.md` was ever produced by a run.

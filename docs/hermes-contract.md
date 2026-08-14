@@ -164,7 +164,7 @@ Written by `capability_card.py`.
 |---|---|
 | `## What it is` | ≤2 sentences describing the target |
 | `## Data it owns` | datasets, files, or stores managed by the target |
-| `## Read surfaces` | every real GET endpoint with one example call each |
+| `## Read surfaces` | every real GET endpoint as a 3-column table (name, API, example+response) |
 | `## How to make it do things` | commander slug, bulk-create path, CLI entries |
 | `## Constraints` | known limitations and invariants |
 | `## Notes for AI` | preserved verbatim across regenerations |
@@ -183,8 +183,10 @@ improvement recommendations.
 
 ## Read surfaces
 
-`GET /api/health` — health check
-`GET /api/projects/perf-coach/brief` — project brief
+| API name | API | Example |
+|---|---|---|
+| health check | `GET /api/health` | `curl -sS http://localhost:8000/api/health` → `200 JSON — health check` |
+| project brief | `GET /api/projects/perf-coach/brief` | `curl -sS http://localhost:8000/api/projects/perf-coach/brief` → `200 JSON — project brief` |
 
 ## How to make it do things
 

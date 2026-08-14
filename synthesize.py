@@ -282,11 +282,13 @@ def _collect_next_items(
                 if title:
                     items.append(title)
 
-    # From changed doc files
+    # From changed doc files. These are paths in the *target* repo
+    # (README.md, docs/todo.md, …), not vault notes — wikilinking them
+    # produces [[Readme]] / [[Docs Todo]] that lint cannot resolve.
     if isinstance(docs_manifest, dict):
         for f in docs_manifest.get("changed_files", []):
             if isinstance(f, str):
-                items.append(f)
+                items.append(_plain(f))
 
     # Deduplicate, limit to 5
     seen: set = set()

@@ -16,6 +16,9 @@ The following file types are owned and written by the agent pipeline. Human cont
 - **capability body** — structured capability assessment content
 - **drift** — delta between last snapshot and current state
 - **todo-view** — filtered, ranked view of open todos for a target
+- **flow** — lifecycle and sitemap extracted from the target's own docs
+- **changelog** — merged PRs, git history, and atlas-joined issue links
+- **discovery** — start-here page (product flow, API map, shallow module map, atlas)
 - **atlas** — cross-target structural map
 - **index** — vault master registry (e.g. `vault/index.md`)
 - **journal index** — chronological index of journal entries
