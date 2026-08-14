@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-08-14T05:51:25Z",
-  "target": "commander",
+  "timestamp": "2026-08-14T05:51:41Z",
+  "target": "crux",
   "health": {
     "status": "degraded",
-    "uptime_seconds": 13149,
+    "uptime_seconds": 13171,
     "gh_auth_scopes": {
       "authorized": true,
       "scopes": [
@@ -51,7 +51,7 @@
         "target": "zealchaiwut/commander/sprint-1003.2"
       }
     ],
-    "checked_at": "2026-08-14T05:51:18Z"
+    "checked_at": "2026-08-14T05:51:41Z"
   },
   "sources": {
     "brief": {
@@ -71,8 +71,7 @@
     "endpoints": {
       "status": "ok",
       "error": "",
-      "count": 126
+      "count": 6
     }
-  },
-  "committed": true
+  }
 }
