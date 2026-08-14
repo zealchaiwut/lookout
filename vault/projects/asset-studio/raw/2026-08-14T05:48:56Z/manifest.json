@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-08-14T05:50:57Z",
-  "target": "viral-radar",
+  "timestamp": "2026-08-14T05:48:56Z",
+  "target": "asset-studio",
   "health": {
     "status": "degraded",
-    "uptime_seconds": 13127,
+    "uptime_seconds": 13006,
     "gh_auth_scopes": {
       "authorized": true,
       "scopes": [
@@ -15,7 +15,7 @@
     },
     "disk": {
       "partition": "/Users/chaiwutchaianuchittrakul/dev/commander/.commander",
-      "free_percent": 7.56
+      "free_percent": 7.66
     },
     "sprints": {
       "running_count": 0
@@ -51,7 +51,7 @@
         "target": "zealchaiwut/commander/sprint-1003.2"
       }
     ],
-    "checked_at": "2026-08-14T05:50:57Z"
+    "checked_at": "2026-08-14T05:48:56Z"
   },
   "sources": {
     "brief": {
@@ -71,8 +71,7 @@
     "endpoints": {
       "status": "ok",
       "error": "",
-      "count": 14
+      "count": 17
     }
-  },
-  "committed": true
+  }
 }
