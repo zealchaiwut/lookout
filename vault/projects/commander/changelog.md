@@ -6,6 +6,13 @@ Merged PRs and recent git history from the latest snapshot, joined to atlas note
 
 | Date | PR | Title | Issue | Feature |
 |---|---|---|---|---|
+| 2026-08-19 | [#2327](https://github.com/zealchaiwut/commander/pull/2327) | Dispatch reads the project sprint.yaml instead of a slash command (#2325) | [#2325](https://github.com/zealchaiwut/commander/issues/2325) | — |
+| 2026-08-19 | [#2326](https://github.com/zealchaiwut/commander/pull/2326) | Judge agent success from the result envelope, not the exit code (#2324) | [#2324](https://github.com/zealchaiwut/commander/issues/2324) | — |
+| 2026-08-19 | [#2323](https://github.com/zealchaiwut/commander/pull/2323) | POST /api/sprints/{label}/dispatch as a queue consumer (#2315) | [#2315](https://github.com/zealchaiwut/commander/issues/2315) | — |
+| 2026-08-19 | [#2320](https://github.com/zealchaiwut/commander/pull/2320) | Restore POST /api/sprints/{label}/rerun (#2318) | [#2318](https://github.com/zealchaiwut/commander/issues/2318) | — |
+| 2026-08-19 | [#2322](https://github.com/zealchaiwut/commander/pull/2322) | Document dispatch constraints and the missing quality bar (#2317) | [#2317](https://github.com/zealchaiwut/commander/issues/2317) | — |
+| 2026-08-19 | [#2321](https://github.com/zealchaiwut/commander/pull/2321) | Record the dispatch-triggering decision (#2314) | [#2314](https://github.com/zealchaiwut/commander/issues/2314) | — |
+| 2026-08-19 | [#2319](https://github.com/zealchaiwut/commander/pull/2319) | Baseline-delta check before a tester merge (#2316) | [#2316](https://github.com/zealchaiwut/commander/issues/2316) | — |
 | 2026-08-13 | [#2313](https://github.com/zealchaiwut/commander/pull/2313) | sprint-1026: post-milestone cleanup — dead controls, CLI guidance, retry helper, live-HTTP check | — | — |
 | 2026-08-13 | [#2308](https://github.com/zealchaiwut/commander/pull/2308) | Commander shrink milestone: retire autonomous dispatch, hand knowledge layer to lookout | — | — |
 | 2026-08-13 | [#2307](https://github.com/zealchaiwut/commander/pull/2307) | sprint-1026: demote the Dev Report to /report (#2290, second attempt) | [#2290](https://github.com/zealchaiwut/commander/issues/2290) | — |
@@ -39,13 +46,6 @@ Merged PRs and recent git history from the latest snapshot, joined to atlas note
 | 2026-08-04 | [#2193](https://github.com/zealchaiwut/commander/pull/2193) | fix: scope _backfill_immediate_parent_labels UPDATE by project (issue #2192) | [#2192](https://github.com/zealchaiwut/commander/issues/2192) | — |
 | 2026-08-04 | [#2191](https://github.com/zealchaiwut/commander/pull/2191) | Merge check: sprint/sprint-1019 → develop | — | — |
 | 2026-08-04 | [#2186](https://github.com/zealchaiwut/commander/pull/2186) | Merge check: sprint/sprint-1018 → develop | — | — |
-| 2026-08-04 | [#2184](https://github.com/zealchaiwut/commander/pull/2184) | Sprint sprint-1018.1 → sprint-1018 — 0 ticket(s) shipped | — | — |
-| 2026-08-04 | [#2185](https://github.com/zealchaiwut/commander/pull/2185) | Merge check: sprint/sprint-1017 → develop | — | — |
-| 2026-08-04 | [#2179](https://github.com/zealchaiwut/commander/pull/2179) | Sprint sprint-1017.1 → sprint-1017 — 0 ticket(s) shipped | — | — |
-| 2026-08-04 | [#2177](https://github.com/zealchaiwut/commander/pull/2177) | Sprint 1016: complete-step child-branch fix, DB integrity-check, WAL checkpoint wiring, bulk-complete-preview fix, reconcile terminal-state fix | — | — |
-| 2026-08-04 | [#2176](https://github.com/zealchaiwut/commander/pull/2176) | Sprint 1015: stale worktree-pool test fix, DB corruption post-mortem, lineage DB-authoritative, docs drift cleanup | — | — |
-| 2026-08-03 | [#2164](https://github.com/zealchaiwut/commander/pull/2164) | Sprint 1014: reconcile settled_done fix, UAT state-machine enforcement, Brain cross-project bleed fix | — | — |
-| 2026-08-03 | [#2163](https://github.com/zealchaiwut/commander/pull/2163) | Sprint 1013: Issues tab refresh, mobile Failures columns, delete-sprint cleanup, scope-contamination diff-base fix | — | — |
 
 _Showing the 40 most recently updated PRs._
 

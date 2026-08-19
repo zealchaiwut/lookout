@@ -1,0 +1,37 @@
+=== branch ===
+develop
+
+=== log ===
+7c48022c test: commit AC tests for #2309 and #2310
+cf987b77 Merge feature/2312-enforce-that-ac-tests-never-make-live-ht into develop (issue #2312)
+2bdcc8bf feat: enforce no live HTTP calls in AC tests (issue #2312)
+fa2a7a13 Merge feature/2311-a-failed-sprint-has-no-recovery-path-dec into develop (issue #2311)
+22425964 feat: add retry_ticket.py to reset failed tickets to dispatchable state (issue #2311)
+9e6d3425 Merge feature/2310-board-gives-no-indication-that-dispatch- into develop (issue #2310)
+88932322 feat: add CLI dispatch guidance note on pre-dispatch sprint cards (issue #2310)
+31db7a94 Merge feature/2309-dead-cancel-button-and-rerun-remnants-in into develop (issue #2309)
+a4415b12 feat: remove dead cancel/rerun buttons and helpers from board-render.js (issue #2309)
+8aec77ea Merge pull request #2307 from zealchaiwut/sprint/sprint-1026
+469d1314 docs: generate code-state snapshot for sprint-1026
+f86fd949 Merge feature/2290-demote-the-dev-report-to-its-own-route-s into sprint/sprint-1026 (issue #2290)
+9e7042c3 fix: correct /home→/ in AC3 test; /home is a 301 redirect (issue #2290)
+44b7bb0c test: rebuild bundle and add HTTP tests for /report route (issue #2290)
+e2f6cd0d fix: remove home-page digest fetch, restore #2261 zero-call assertion (issue #2290)
+ad98e267 feat: demote Dev Report to /report route; add optional digest on home page (issue #2290)
+a8560662 Merge pull request #2304 from zealchaiwut/fix/2260-retire-bulk-create-library
+2ddc56d0 style: ruff --fix (F541) on the #2260 test
+52a7ff83 docs: retire the bulk-create prompt library to lookout ideas (issue #2260)
+85413a64 Merge pull request #2299 from zealchaiwut/sprint/sprint-1024.1
+d889d63c docs: generate code-state snapshot for sprint-1024.1
+2a5bb394 docs: auto-update from sprint-sprint-1024.1 diff
+6b9f3378 Merge feature/2255-delete-the-todos-feature-in-favour-of-do into sprint/sprint-1024.1 (issue #2255)
+2f8130a2 fix: update test_neon_export_only for deleted sprint_manager.py and archived migrate script (issue #2255)
+a00797a2 feat: delete todos feature in favour of docs/todo.md (issue #2255)
+f9f33524 Merge feature/2256-delete-the-docs-freshness-subsystem into sprint/sprint-1024.1 (issue #2256)
+e544338d style: fix F541 f-string without placeholder in test (issue #2256)
+f6675f5f feat: delete docs-freshness subsystem (issue #2256)
+c28e1821 Merge feature/2257-delete-brief-caching-llm-summary-and-the into sprint/sprint-1024.1 (issue #2257)
+41b3cdd4 feat: delete brief caching, LLM summary, and daily-report job (issue #2257)
+
+=== status ===
+?? docs/bulk-create/
