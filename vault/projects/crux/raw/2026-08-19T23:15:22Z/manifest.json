@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-08-19T23:15:13Z",
-  "target": "commander",
+  "timestamp": "2026-08-19T23:15:22Z",
+  "target": "crux",
   "health": {
     "status": "degraded",
-    "uptime_seconds": 74436,
+    "uptime_seconds": 74453,
     "gh_auth_scopes": {
       "authorized": true,
       "scopes": [
@@ -15,7 +15,7 @@
     },
     "disk": {
       "partition": "/Users/chaiwutchaianuchittrakul/dev/commander/.commander",
-      "free_percent": 5.1
+      "free_percent": 5.09
     },
     "sprints": {
       "running_count": 0
@@ -51,7 +51,7 @@
         "target": "zealchaiwut/commander/sprint-1003.2"
       }
     ],
-    "checked_at": "2026-08-19T23:15:05Z"
+    "checked_at": "2026-08-19T23:15:22Z"
   },
   "sources": {
     "brief": {
@@ -71,8 +71,7 @@
     "endpoints": {
       "status": "ok",
       "error": "",
-      "count": 126
+      "count": 6
     }
-  },
-  "committed": true
+  }
 }

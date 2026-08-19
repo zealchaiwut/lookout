@@ -1,0 +1,5325 @@
+{
+  "issues": [
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T09:27:30Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 199,
+      "state": "OPEN",
+      "title": "[follow-up] Route design_probes (three-horizon) through llm_providers.call_stage",
+      "updatedAt": "2026-07-06T09:27:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T06:00:36Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpuQ",
+          "name": "backend",
+          "description": "Backend / server",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 197,
+      "state": "OPEN",
+      "title": "[follow-up] Dead code: _parse_and_validate unused after structured-output refactor",
+      "updatedAt": "2026-07-06T06:00:36Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T06:00:33Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpuQ",
+          "name": "backend",
+          "description": "Backend / server",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 196,
+      "state": "OPEN",
+      "title": "[follow-up] Hardcoded 4000-char source truncation in content_summary",
+      "updatedAt": "2026-07-06T06:00:33Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T06:00:29Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpuQ",
+          "name": "backend",
+          "description": "Backend / server",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 195,
+      "state": "OPEN",
+      "title": "[follow-up] Per-stage Groq spend logged to app logger, not attached to run report",
+      "updatedAt": "2026-07-06T06:00:29Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-05T04:16:25Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpuQ",
+          "name": "backend",
+          "description": "Backend / server",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 187,
+      "state": "OPEN",
+      "title": "[follow-up] Review repo-wide .flake8 config added under a feature ticket",
+      "updatedAt": "2026-07-05T04:16:25Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-05T04:16:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpuQ",
+          "name": "backend",
+          "description": "Backend / server",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 186,
+      "state": "OPEN",
+      "title": "[follow-up] Reconsider duplicate rationale field in VerifySourceRequest (sources.py)",
+      "updatedAt": "2026-07-05T04:16:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T17:33:07Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpcA",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 183,
+      "state": "OPEN",
+      "title": "[follow-up] Avoid stale-closure eslint-disable on SourceDetailModal keydown effect",
+      "updatedAt": "2026-07-04T17:33:07Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T14:25:44Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        }
+      ],
+      "number": 167,
+      "state": "OPEN",
+      "title": "Sprint 57.1 Executive Summary",
+      "updatedAt": "2026-07-02T14:33:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T14:22:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        }
+      ],
+      "number": 166,
+      "state": "OPEN",
+      "title": "Sprint 57 Executive Summary",
+      "updatedAt": "2026-07-02T14:33:23Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-23T09:25:43Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoiL6Lw",
+          "name": "sprint-9.3",
+          "description": "Re-run of sprint-9.2",
+          "color": "C5DEF5"
+        }
+      ],
+      "number": 104,
+      "state": "OPEN",
+      "title": "Sprint 9.3 Executive Summary",
+      "updatedAt": "2026-06-23T09:25:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T15:10:46Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACocRiCQ",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "B60205"
+        }
+      ],
+      "number": 102,
+      "state": "OPEN",
+      "title": "Sprint 9 Executive Summary",
+      "updatedAt": "2026-06-22T15:10:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T12:46:32Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoeXnJw",
+          "name": "sprint-9.1",
+          "description": "Re-run of sprint-9",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 90,
+      "state": "OPEN",
+      "title": "Fix WeighPanel not rendering in CaseDetailScreen",
+      "updatedAt": "2026-06-22T17:07:06Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T10:19:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoMJYiw",
+          "name": "sprint-5",
+          "description": "Sprint 5 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 53,
+      "state": "OPEN",
+      "title": "Sprint 5 Executive Summary",
+      "updatedAt": "2026-06-20T10:22:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T05:55:03Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqUKtQQ",
+          "name": "sprint-58",
+          "description": "Sprint 58 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 194,
+      "state": "CLOSED",
+      "title": "Sprint 58 Executive Summary",
+      "updatedAt": "2026-07-06T09:24:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T04:15:41Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqUKtQQ",
+          "name": "sprint-58",
+          "description": "Sprint 58 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 193,
+      "state": "CLOSED",
+      "title": "Add Groq regression gate for known-deficit test case",
+      "updatedAt": "2026-07-06T09:24:54Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T04:15:39Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqUKtQQ",
+          "name": "sprint-58",
+          "description": "Sprint 58 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 192,
+      "state": "CLOSED",
+      "title": "Wire Groq token spend into USD budget tracker",
+      "updatedAt": "2026-07-06T09:24:55Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T04:15:37Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqUKtQQ",
+          "name": "sprint-58",
+          "description": "Sprint 58 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 191,
+      "state": "CLOSED",
+      "title": "Route bulk pipeline stages to CRUX_BULK_MODEL",
+      "updatedAt": "2026-07-06T09:24:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T04:15:35Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqUKtQQ",
+          "name": "sprint-58",
+          "description": "Sprint 58 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 190,
+      "state": "CLOSED",
+      "title": "Route judgment stages to provider with structured outputs",
+      "updatedAt": "2026-07-06T09:24:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T04:15:33Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqUKtQQ",
+          "name": "sprint-58",
+          "description": "Sprint 58 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 189,
+      "state": "CLOSED",
+      "title": "Add Groq as a switchable LLM provider",
+      "updatedAt": "2026-07-06T09:25:00Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-05T04:11:29Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqMKsYQ",
+          "name": "sprint-56.1",
+          "description": "Re-run of sprint-56",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 184,
+      "state": "CLOSED",
+      "title": "Sprint 56.1 Executive Summary",
+      "updatedAt": "2026-07-05T15:27:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T17:27:08Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 182,
+      "state": "CLOSED",
+      "title": "Sprint 56 Executive Summary",
+      "updatedAt": "2026-07-05T15:28:12Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T09:41:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGxWeg",
+          "name": "sprint-55.1",
+          "description": "Re-run of sprint-55",
+          "color": "006B75"
+        }
+      ],
+      "number": 179,
+      "state": "CLOSED",
+      "title": "Sprint 55.1 Executive Summary",
+      "updatedAt": "2026-07-04T09:49:07Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T07:22:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpuQ",
+          "name": "backend",
+          "description": "Backend / server",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 178,
+      "state": "CLOSED",
+      "title": "[follow-up] Extract duplicated horizon sort-key helper in cases.py",
+      "updatedAt": "2026-07-05T15:28:14Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T07:22:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpuQ",
+          "name": "backend",
+          "description": "Backend / server",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 177,
+      "state": "CLOSED",
+      "title": "[follow-up] Reject falsy source_id in summary reference validation",
+      "updatedAt": "2026-07-05T15:28:16Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T07:22:03Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpJA",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpPA",
+          "name": "code-review",
+          "description": "Raised by code reviewer",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGLpcA",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 176,
+      "state": "CLOSED",
+      "title": "[follow-up] Return focus to SourceChip and trap focus in source detail modal",
+      "updatedAt": "2026-07-05T15:28:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T07:12:24Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkVofw",
+          "name": "sprint-55",
+          "description": "Sprint 55 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 175,
+      "state": "CLOSED",
+      "title": "Sprint 55 Executive Summary",
+      "updatedAt": "2026-07-04T09:49:31Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T15:57:24Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqGxWeg",
+          "name": "sprint-55.1",
+          "description": "Re-run of sprint-55",
+          "color": "006B75"
+        }
+      ],
+      "number": 174,
+      "state": "CLOSED",
+      "title": "Render summary with linked inline citations",
+      "updatedAt": "2026-07-04T09:49:42Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T15:57:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkVofw",
+          "name": "sprint-55",
+          "description": "Sprint 55 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 173,
+      "state": "CLOSED",
+      "title": "Rewrite case summary as cited literature-review JSON",
+      "updatedAt": "2026-07-04T09:49:33Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T15:57:21Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkVofw",
+          "name": "sprint-55",
+          "description": "Sprint 55 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 172,
+      "state": "CLOSED",
+      "title": "Add source detail modal to SourceChip click",
+      "updatedAt": "2026-07-04T09:49:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T15:57:19Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkVofw",
+          "name": "sprint-55",
+          "description": "Sprint 55 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 171,
+      "state": "CLOSED",
+      "title": "Store extracted content and summary per source",
+      "updatedAt": "2026-07-04T09:49:36Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T15:57:17Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkVofw",
+          "name": "sprint-55",
+          "description": "Sprint 55 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 170,
+      "state": "CLOSED",
+      "title": "Gate action plan provisionally on first probe verdict",
+      "updatedAt": "2026-07-04T09:49:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T15:57:15Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkVofw",
+          "name": "sprint-55",
+          "description": "Sprint 55 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 169,
+      "state": "CLOSED",
+      "title": "Render three horizon probes as grouped set in ProbeCard",
+      "updatedAt": "2026-07-04T09:49:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T15:57:14Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkVofw",
+          "name": "sprint-55",
+          "description": "Sprint 55 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 168,
+      "state": "CLOSED",
+      "title": "Add horizon enum and generate three probes per case",
+      "updatedAt": "2026-07-04T09:49:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-29T06:34:39Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkVofw",
+          "name": "sprint-55",
+          "description": "Sprint 55 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 163,
+      "state": "CLOSED",
+      "title": "[follow-up] Remove redundant dict comprehension in summary.py json.dumps call",
+      "updatedAt": "2026-07-04T09:49:41Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-29T06:34:32Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 162,
+      "state": "CLOSED",
+      "title": "[follow-up] handleAccept sets accepted=true before API call succeeds in SourceChip",
+      "updatedAt": "2026-07-05T15:28:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-29T06:34:21Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqMKsYQ",
+          "name": "sprint-56.1",
+          "description": "Re-run of sprint-56",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 161,
+      "state": "CLOSED",
+      "title": "[follow-up] Align source_verifier.py status vocabulary with Source model enum (partially_supports vs partial)",
+      "updatedAt": "2026-07-05T15:28:32Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-29T06:34:10Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 160,
+      "state": "CLOSED",
+      "title": "[follow-up] Use SQLAlchemy bindparams instead of f-string in SQL query in test_issue_153.py",
+      "updatedAt": "2026-07-05T15:28:20Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-29T06:26:28Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpWu4_w",
+          "name": "sprint-54",
+          "description": "Sprint 54 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 159,
+      "state": "CLOSED",
+      "title": "Sprint 54 Executive Summary",
+      "updatedAt": "2026-06-29T07:10:32Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-29T04:17:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpWu4_w",
+          "name": "sprint-54",
+          "description": "Sprint 54 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 158,
+      "state": "CLOSED",
+      "title": "Add unit tests for source verification and plan re-ranking",
+      "updatedAt": "2026-06-29T07:10:33Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-29T04:17:19Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpWu4_w",
+          "name": "sprint-54",
+          "description": "Sprint 54 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 157,
+      "state": "CLOSED",
+      "title": "Factor source verification status into ranking and summary",
+      "updatedAt": "2026-06-29T07:10:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-29T04:17:18Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoRfBAQ",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpWu4_w",
+          "name": "sprint-54",
+          "description": "Sprint 54 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 156,
+      "state": "CLOSED",
+      "title": "Colour SourceChip by support_status with verify actions",
+      "updatedAt": "2026-06-29T07:10:36Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-29T04:17:16Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpWu4_w",
+          "name": "sprint-54",
+          "description": "Sprint 54 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 155,
+      "state": "CLOSED",
+      "title": "Add source verification endpoints to sources router",
+      "updatedAt": "2026-06-29T07:10:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-29T04:17:15Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpWu4_w",
+          "name": "sprint-54",
+          "description": "Sprint 54 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 154,
+      "state": "CLOSED",
+      "title": "Add source verifier service to validate claims against fetched content",
+      "updatedAt": "2026-06-29T07:10:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-29T04:17:13Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoRfBAQ",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpWu4_w",
+          "name": "sprint-54",
+          "description": "Sprint 54 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 153,
+      "state": "CLOSED",
+      "title": "Add source-verification fields to Source model",
+      "updatedAt": "2026-06-29T07:10:40Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T18:29:40Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpErytg",
+          "name": "sprint-53",
+          "description": "Sprint 53 issues",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 151,
+      "state": "CLOSED",
+      "title": "Sprint 53 Executive Summary",
+      "updatedAt": "2026-06-27T05:32:11Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T16:42:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpErytg",
+          "name": "sprint-53",
+          "description": "Sprint 53 issues",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 150,
+      "state": "CLOSED",
+      "title": "Add tests for summary endpoint and gate logic",
+      "updatedAt": "2026-06-27T05:32:12Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T16:42:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpErytg",
+          "name": "sprint-53",
+          "description": "Sprint 53 issues",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 149,
+      "state": "CLOSED",
+      "title": "Display steps, duration, and decision_rule in ProbeCard",
+      "updatedAt": "2026-06-27T05:32:13Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T16:42:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpErytg",
+          "name": "sprint-53",
+          "description": "Sprint 53 issues",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 148,
+      "state": "CLOSED",
+      "title": "Split case summary from locked action plan gate",
+      "updatedAt": "2026-06-27T05:32:15Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T16:42:01Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpErytg",
+          "name": "sprint-53",
+          "description": "Sprint 53 issues",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 147,
+      "state": "CLOSED",
+      "title": "Show Case Summary section at probe stage",
+      "updatedAt": "2026-06-27T05:32:16Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T16:41:59Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpErytg",
+          "name": "sprint-53",
+          "description": "Sprint 53 issues",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 146,
+      "state": "CLOSED",
+      "title": "Add POST /api/cases/{id}/summary endpoint with caching",
+      "updatedAt": "2026-06-27T05:32:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T16:41:57Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpErytg",
+          "name": "sprint-53",
+          "description": "Sprint 53 issues",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 145,
+      "state": "CLOSED",
+      "title": "Add app/summary.py: Claude-backed case conclusion synthesiser",
+      "updatedAt": "2026-06-27T05:32:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T16:41:55Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpErytg",
+          "name": "sprint-53",
+          "description": "Sprint 53 issues",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 144,
+      "state": "CLOSED",
+      "title": "Add summary column to Case model with migration",
+      "updatedAt": "2026-06-27T05:32:19Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T10:03:31Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 142,
+      "state": "CLOSED",
+      "title": "[follow-up] Verify WeighPanel error messages don't reference 'required context' in #134",
+      "updatedAt": "2026-07-05T15:28:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T10:03:29Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqMKsYQ",
+          "name": "sprint-56.1",
+          "description": "Re-run of sprint-56",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 141,
+      "state": "CLOSED",
+      "title": "[follow-up] Improve PlanCard rationale comment in cases.js",
+      "updatedAt": "2026-07-05T15:28:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T10:03:27Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 140,
+      "state": "CLOSED",
+      "title": "[follow-up] Resolve weigh context validation mismatch in #134",
+      "updatedAt": "2026-07-05T15:28:23Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T10:03:25Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 139,
+      "state": "CLOSED",
+      "title": "[follow-up] Add explicit comment for rationale None handling in cases.py",
+      "updatedAt": "2026-07-05T15:28:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T10:03:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 138,
+      "state": "CLOSED",
+      "title": "[follow-up] Clarify rationale content requirements in weigh.py prompt",
+      "updatedAt": "2026-07-05T15:28:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T10:03:19Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 137,
+      "state": "CLOSED",
+      "title": "[follow-up] Consolidate rationale validation in weigh.py",
+      "updatedAt": "2026-07-05T15:28:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T09:57:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpA5xLg",
+          "name": "sprint-52",
+          "description": "Sprint 52 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 136,
+      "state": "CLOSED",
+      "title": "Sprint 52 Executive Summary",
+      "updatedAt": "2026-06-26T16:09:44Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T08:12:43Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpA5xLg",
+          "name": "sprint-52",
+          "description": "Sprint 52 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 135,
+      "state": "CLOSED",
+      "title": "Add tests for rerank rationale and WeighPanel regression",
+      "updatedAt": "2026-06-26T16:09:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T08:12:41Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpA5xLg",
+          "name": "sprint-52",
+          "description": "Sprint 52 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 134,
+      "state": "CLOSED",
+      "title": "Make weigh context optional in WeighPanel UI",
+      "updatedAt": "2026-06-26T16:09:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T08:12:39Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpA5xLg",
+          "name": "sprint-52",
+          "description": "Sprint 52 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 133,
+      "state": "CLOSED",
+      "title": "Render per-plan rationale text in PlanCard",
+      "updatedAt": "2026-06-26T16:09:50Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T08:12:38Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpA5xLg",
+          "name": "sprint-52",
+          "description": "Sprint 52 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 132,
+      "state": "CLOSED",
+      "title": "Persist plan rationale from Weigh rerank response",
+      "updatedAt": "2026-06-26T16:09:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T08:12:36Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpA5xLg",
+          "name": "sprint-52",
+          "description": "Sprint 52 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 131,
+      "state": "CLOSED",
+      "title": "Add rationale field to Weigh plan output",
+      "updatedAt": "2026-06-26T16:09:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T08:12:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpA5xLg",
+          "name": "sprint-52",
+          "description": "Sprint 52 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 130,
+      "state": "CLOSED",
+      "title": "Fix WeighPanel not rendering in CaseDetailScreen",
+      "updatedAt": "2026-06-26T16:09:54Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T04:52:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 126,
+      "state": "CLOSED",
+      "title": "[follow-up] Add semicolon to .chip-expanded CSS rule",
+      "updatedAt": "2026-07-05T15:28:29Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T04:52:50Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACqMKsYQ",
+          "name": "sprint-56.1",
+          "description": "Re-run of sprint-56",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 125,
+      "state": "CLOSED",
+      "title": "[follow-up] Add clarifying comment to _STAGE_ORDER definition",
+      "updatedAt": "2026-07-05T15:28:35Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T04:52:48Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACpkYF7A",
+          "name": "sprint-56",
+          "description": "Sprint 56 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 124,
+      "state": "CLOSED",
+      "title": "[follow-up] Centralize verdict validation logic",
+      "updatedAt": "2026-07-05T15:28:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T04:48:32Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 123,
+      "state": "CLOSED",
+      "title": "Sprint 13 Executive Summary",
+      "updatedAt": "2026-06-26T05:52:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-25T12:32:07Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo4XORg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 122,
+      "state": "CLOSED",
+      "title": "Sprint 12 Executive Summary",
+      "updatedAt": "2026-06-26T05:33:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-25T03:15:51Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo1fIJg",
+          "name": "sprint-11.2",
+          "description": "Re-run of sprint-11.1",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 118,
+      "state": "CLOSED",
+      "title": "Sprint 11.2 Executive Summary",
+      "updatedAt": "2026-06-25T03:58:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-24T16:34:24Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoxeR4w",
+          "name": "sprint-11.1",
+          "description": "Re-run of sprint-11",
+          "color": "006B75"
+        }
+      ],
+      "number": 116,
+      "state": "CLOSED",
+      "title": "Sprint 11.1 Executive Summary",
+      "updatedAt": "2026-06-25T03:58:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-24T15:51:10Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 115,
+      "state": "CLOSED",
+      "title": "[follow-up] Document temporary stub verifier in issue #99",
+      "updatedAt": "2026-06-26T05:52:50Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-24T15:51:08Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 114,
+      "state": "CLOSED",
+      "title": "[follow-up] Move os import to module level in routers/sources.py",
+      "updatedAt": "2026-06-26T05:52:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-24T15:50:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 113,
+      "state": "CLOSED",
+      "title": "[follow-up] Extract inline CSS styles to .chip-expanded class",
+      "updatedAt": "2026-06-26T05:52:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-24T15:50:43Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 112,
+      "state": "CLOSED",
+      "title": "[follow-up] Document override state persistence behavior for navigation",
+      "updatedAt": "2026-06-26T05:52:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-24T15:50:41Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 111,
+      "state": "CLOSED",
+      "title": "[follow-up] Add error logging to silent catch blocks in cases.js",
+      "updatedAt": "2026-06-26T05:52:55Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-24T15:46:17Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACocr1jA",
+          "name": "sprint-11",
+          "description": "Sprint 11 issues",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 110,
+      "state": "CLOSED",
+      "title": "Sprint 11 Executive Summary",
+      "updatedAt": "2026-06-25T03:59:12Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-24T11:33:53Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACocTRpw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 107,
+      "state": "CLOSED",
+      "title": "Sprint 10 Executive Summary",
+      "updatedAt": "2026-06-24T14:47:45Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-23T15:18:10Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAAConcMYQ",
+          "name": "sprint-9.4",
+          "description": "Re-run of sprint-9.3",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 105,
+      "state": "CLOSED",
+      "title": "Sprint 9.4 Executive Summary",
+      "updatedAt": "2026-06-24T06:19:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T17:12:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoeXnJw",
+          "name": "sprint-9.1",
+          "description": "Re-run of sprint-9",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 103,
+      "state": "CLOSED",
+      "title": "Sprint 9.1 Executive Summary",
+      "updatedAt": "2026-06-24T14:49:09Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T13:36:10Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACocr1jA",
+          "name": "sprint-11",
+          "description": "Sprint 11 issues",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 101,
+      "state": "CLOSED",
+      "title": "Add integration tests for source verification pipeline",
+      "updatedAt": "2026-06-25T03:59:15Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T13:36:08Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACocr1jA",
+          "name": "sprint-11",
+          "description": "Sprint 11 issues",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACow_otg",
+          "name": "size-XL",
+          "description": "Estimated size XL (>30 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 100,
+      "state": "CLOSED",
+      "title": "Colour SourceChip by support_status with Verify actions",
+      "updatedAt": "2026-06-25T03:59:16Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T13:36:07Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoRfBAQ",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACocr1jA",
+          "name": "sprint-11",
+          "description": "Sprint 11 issues",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 99,
+      "state": "CLOSED",
+      "title": "Add source verification endpoints (single & batch)",
+      "updatedAt": "2026-06-25T03:59:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T13:36:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoxeR4w",
+          "name": "sprint-11.1",
+          "description": "Re-run of sprint-11",
+          "color": "006B75"
+        }
+      ],
+      "number": 98,
+      "state": "CLOSED",
+      "title": "Add source-verifier service for claim support detection",
+      "updatedAt": "2026-06-25T03:59:20Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T13:36:03Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo1fIJg",
+          "name": "sprint-11.2",
+          "description": "Re-run of sprint-11.1",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 97,
+      "state": "CLOSED",
+      "title": "Add support_status and support_rationale to Source",
+      "updatedAt": "2026-06-25T03:59:21Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T12:50:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACocTRpw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 96,
+      "state": "CLOSED",
+      "title": "Split case gate: Summary pre-verdict, ActionPlan stays locked",
+      "updatedAt": "2026-06-24T14:47:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T12:50:04Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACocTRpw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 95,
+      "state": "CLOSED",
+      "title": "Show Case Summary section at probe stage",
+      "updatedAt": "2026-06-24T14:47:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T12:50:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACocTRpw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 94,
+      "state": "CLOSED",
+      "title": "Add AI-powered Case Summary generator",
+      "updatedAt": "2026-06-24T14:47:49Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T12:50:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACocTRpw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 93,
+      "state": "CLOSED",
+      "title": "Expand Probe into full structured experiment plan",
+      "updatedAt": "2026-06-24T14:47:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T12:49:59Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACocTRpw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 92,
+      "state": "CLOSED",
+      "title": "Make Weigh stage optional: skip context input",
+      "updatedAt": "2026-06-24T14:47:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T12:46:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAAConcMYQ",
+          "name": "sprint-9.4",
+          "description": "Re-run of sprint-9.3",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 91,
+      "state": "CLOSED",
+      "title": "Add regression tests for WeighPanel rendering and rerank API call",
+      "updatedAt": "2026-06-24T06:19:15Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T12:04:15Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 88,
+      "state": "CLOSED",
+      "title": "[follow-up] Clarify type hint for batch endpoint sources parameter",
+      "updatedAt": "2026-06-26T05:52:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T12:04:12Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 87,
+      "state": "CLOSED",
+      "title": "[follow-up] Improve relevance_score formula in gather suggest endpoint",
+      "updatedAt": "2026-06-26T05:52:57Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T12:04:09Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 86,
+      "state": "CLOSED",
+      "title": "[follow-up] Specify exception types in research_orchestrator fetch error handling",
+      "updatedAt": "2026-06-26T05:52:59Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T11:59:59Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoavPjw",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 85,
+      "state": "CLOSED",
+      "title": "Sprint 8 Executive Summary",
+      "updatedAt": "2026-06-22T12:24:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T09:23:54Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoRfBAQ",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoavPjw",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 84,
+      "state": "CLOSED",
+      "title": "Add pick-to-attach UI for suggested sources in Gather",
+      "updatedAt": "2026-06-22T12:24:49Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T09:23:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoavPjw",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 83,
+      "state": "CLOSED",
+      "title": "Add POST /api/sources/batch to attach multiple sources",
+      "updatedAt": "2026-06-22T12:24:50Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T09:23:50Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoavPjw",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 82,
+      "state": "CLOSED",
+      "title": "Add suggest endpoint for non-persisting candidate sources",
+      "updatedAt": "2026-06-22T12:24:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T09:23:49Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoavPjw",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 81,
+      "state": "CLOSED",
+      "title": "Wire real web fetchers into custom research engine",
+      "updatedAt": "2026-06-22T12:24:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T10:29:13Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTEFVg",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "F9D0C4"
+        }
+      ],
+      "number": 76,
+      "state": "CLOSED",
+      "title": "Sprint 7 Executive Summary",
+      "updatedAt": "2026-06-22T06:21:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T04:33:11Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 75,
+      "state": "CLOSED",
+      "title": "[follow-up] Standardize stage field type in PATCH /cases response",
+      "updatedAt": "2026-06-26T05:53:00Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T04:33:09Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 74,
+      "state": "CLOSED",
+      "title": "[follow-up] Add fallback for API error messages in edit modal",
+      "updatedAt": "2026-06-26T05:53:01Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T04:33:07Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 73,
+      "state": "CLOSED",
+      "title": "[follow-up] Clarify intent of open/closed stats after filtering",
+      "updatedAt": "2026-06-26T05:53:02Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T04:33:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 72,
+      "state": "CLOSED",
+      "title": "[follow-up] Verify outcome chip verdict values match API response",
+      "updatedAt": "2026-06-26T05:53:03Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T04:33:03Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 71,
+      "state": "CLOSED",
+      "title": "[follow-up] Remove or use _VALID_VERDICT_PARAMS constant",
+      "updatedAt": "2026-06-26T05:53:05Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T04:33:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo7iuMw",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 70,
+      "state": "CLOSED",
+      "title": "[follow-up] Optimize verdict outcome query in GET /api/cases",
+      "updatedAt": "2026-06-26T05:53:06Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T04:29:54Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoRdDmA",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 69,
+      "state": "CLOSED",
+      "title": "Sprint 6 Executive Summary",
+      "updatedAt": "2026-06-22T02:26:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T03:41:35Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP3g",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoRfBAQ",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTEFVg",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "F9D0C4"
+        }
+      ],
+      "number": 68,
+      "state": "CLOSED",
+      "title": "Replace TF-IDF with Claude embedding-based similarity for related cases",
+      "updatedAt": "2026-06-22T06:21:25Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T03:37:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoRdDmA",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 67,
+      "state": "CLOSED",
+      "title": "Keep case embeddings fresh and add reindex endpoint",
+      "updatedAt": "2026-06-22T02:26:25Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T03:37:20Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoRdDmA",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 66,
+      "state": "CLOSED",
+      "title": "Allow editing case sharpened statement and not-investigating list",
+      "updatedAt": "2026-06-22T02:26:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T03:37:17Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoRdDmA",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 65,
+      "state": "CLOSED",
+      "title": "Add search input and filter chips to Cases list",
+      "updatedAt": "2026-06-22T02:26:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T03:37:15Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoRdDmA",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 64,
+      "state": "CLOSED",
+      "title": "Add search and filter params to GET /api/cases",
+      "updatedAt": "2026-06-22T02:26:29Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T14:55:11Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyS5A",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        }
+      ],
+      "number": 63,
+      "state": "CLOSED",
+      "title": "Keep Case Embeddings Fresh, Expose Admin Reindex",
+      "updatedAt": "2026-06-21T11:08:21Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T14:55:09Z",
+      "labels": [],
+      "number": 62,
+      "state": "CLOSED",
+      "title": "Replace TF-IDF with Claude embedding-based related case similarity",
+      "updatedAt": "2026-06-21T09:26:05Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T14:55:07Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyS5A",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        }
+      ],
+      "number": 61,
+      "state": "CLOSED",
+      "title": "Allow Editing Case Statement and Not-Investigating List",
+      "updatedAt": "2026-06-21T11:08:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T14:55:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyS5A",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        }
+      ],
+      "number": 60,
+      "state": "CLOSED",
+      "title": "Add search input and filter chips to Cases list",
+      "updatedAt": "2026-06-21T11:08:19Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T14:05:41Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoNvIFA",
+          "name": "sprint-5.1",
+          "description": "Re-run of sprint-5",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 57,
+      "state": "CLOSED",
+      "title": "Sprint 5.1 Executive Summary",
+      "updatedAt": "2026-06-22T06:06:03Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T10:23:08Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo4XORg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 56,
+      "state": "CLOSED",
+      "title": "[follow-up] GET /api/verdicts inconsistent empty-string vs None defaults",
+      "updatedAt": "2026-06-26T05:33:50Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T10:23:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo4XORg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 55,
+      "state": "CLOSED",
+      "title": "[follow-up] GET /api/verdicts timestamp field null-handling",
+      "updatedAt": "2026-06-26T05:33:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T10:22:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo4XORg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 54,
+      "state": "CLOSED",
+      "title": "[follow-up] GET /api/verdicts keyword search should filter at database layer",
+      "updatedAt": "2026-06-26T05:33:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T08:55:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoMJYiw",
+          "name": "sprint-5",
+          "description": "Sprint 5 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 52,
+      "state": "CLOSED",
+      "title": "Build Verdicts list screen with search, filter, and grouping",
+      "updatedAt": "2026-06-22T13:24:03Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T08:55:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoMJYiw",
+          "name": "sprint-5",
+          "description": "Sprint 5 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 51,
+      "state": "CLOSED",
+      "title": "Add GET /api/verdicts list endpoint",
+      "updatedAt": "2026-06-22T13:24:00Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T08:55:03Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoNvIFA",
+          "name": "sprint-5.1",
+          "description": "Re-run of sprint-5",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 50,
+      "state": "CLOSED",
+      "title": "Add re-probe action for inconclusive verdicts",
+      "updatedAt": "2026-06-22T06:21:41Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T08:55:01Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoMJYiw",
+          "name": "sprint-5",
+          "description": "Sprint 5 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 49,
+      "state": "CLOSED",
+      "title": "Surface and edit due date on ProbeCard",
+      "updatedAt": "2026-06-22T13:23:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T08:55:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoMJYiw",
+          "name": "sprint-5",
+          "description": "Sprint 5 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 48,
+      "state": "CLOSED",
+      "title": "Add 'Mark as Running' transition for Probes",
+      "updatedAt": "2026-06-22T13:23:55Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:13:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo4XORg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 43,
+      "state": "CLOSED",
+      "title": "[follow-up] Extract UI state constants",
+      "updatedAt": "2026-06-26T05:33:54Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:13:21Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo4XORg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 42,
+      "state": "CLOSED",
+      "title": "[follow-up] Replace deprecated clipboard fallback",
+      "updatedAt": "2026-06-26T05:33:55Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:13:19Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo4XORg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 41,
+      "state": "CLOSED",
+      "title": "[follow-up] Validate plan presence before spec generation",
+      "updatedAt": "2026-06-26T05:33:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:13:11Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo4XORg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 40,
+      "state": "CLOSED",
+      "title": "[follow-up] Clarify httpx timeout semantics",
+      "updatedAt": "2026-06-26T05:33:57Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:13:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo4XORg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 39,
+      "state": "CLOSED",
+      "title": "[follow-up] Extract UI state constants",
+      "updatedAt": "2026-06-26T05:33:59Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:13:04Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo4XORg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 38,
+      "state": "CLOSED",
+      "title": "[follow-up] Replace deprecated navigator.clipboard fallback",
+      "updatedAt": "2026-06-26T05:34:00Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:13:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo4XORg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 37,
+      "state": "CLOSED",
+      "title": "[follow-up] Validate plan presence before spec generation",
+      "updatedAt": "2026-06-26T05:34:01Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:13:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACo4XORg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 36,
+      "state": "CLOSED",
+      "title": "[follow-up] Clarify httpx timeout semantics in commander spec generation",
+      "updatedAt": "2026-06-26T05:34:03Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:12:50Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTEFVg",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 35,
+      "state": "CLOSED",
+      "title": "[follow-up] Extract UI state constants to avoid string literals",
+      "updatedAt": "2026-06-22T06:21:27Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:12:47Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTEFVg",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 34,
+      "state": "CLOSED",
+      "title": "[follow-up] Replace deprecated navigator.clipboard fallback",
+      "updatedAt": "2026-06-22T06:21:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:12:46Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTEFVg",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 33,
+      "state": "CLOSED",
+      "title": "[follow-up] Validate plan presence before spec generation",
+      "updatedAt": "2026-06-22T06:21:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:12:43Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTEFVg",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 32,
+      "state": "CLOSED",
+      "title": "[follow-up] Clarify httpx timeout semantics in commander spec generation",
+      "updatedAt": "2026-06-22T06:21:31Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:12:42Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTEFVg",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 31,
+      "state": "CLOSED",
+      "title": "[follow-up] Clarify httpx timeout semantics in commander spec generation",
+      "updatedAt": "2026-06-22T06:21:32Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:09:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoGy76g",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "006B75"
+        }
+      ],
+      "number": 30,
+      "state": "CLOSED",
+      "title": "Sprint 4 Executive Summary",
+      "updatedAt": "2026-06-19T16:14:32Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T15:17:26Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoGy76g",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "006B75"
+        }
+      ],
+      "number": 29,
+      "state": "CLOSED",
+      "title": "Surface prior learnings on new Cases",
+      "updatedAt": "2026-06-19T16:14:33Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T15:17:24Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoGy76g",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "006B75"
+        }
+      ],
+      "number": 28,
+      "state": "CLOSED",
+      "title": "Build related-case matching service over Verdicts",
+      "updatedAt": "2026-06-19T16:14:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T15:17:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoGy76g",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "006B75"
+        }
+      ],
+      "number": 27,
+      "state": "CLOSED",
+      "title": "Wire 'Send to commander' on ProbeCard to display spec",
+      "updatedAt": "2026-06-19T16:14:36Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T15:17:21Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoGy76g",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "006B75"
+        }
+      ],
+      "number": 26,
+      "state": "CLOSED",
+      "title": "Generate Commander Spec for Prototype Probes via Claude API",
+      "updatedAt": "2026-06-19T16:14:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T13:37:15Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEeHew",
+          "name": "sprint-3",
+          "description": "Sprint 3 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 24,
+      "state": "CLOSED",
+      "title": "Sprint 3 Executive Summary",
+      "updatedAt": "2026-06-19T14:59:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T11:43:19Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoDwpLw",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "0052CC"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        }
+      ],
+      "number": 22,
+      "state": "CLOSED",
+      "title": "Sprint 2 Executive Summary",
+      "updatedAt": "2026-06-19T12:25:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T09:59:20Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEeHew",
+          "name": "sprint-3",
+          "description": "Sprint 3 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 21,
+      "state": "CLOSED",
+      "title": "Automate Stage 2 source gathering via research loop",
+      "updatedAt": "2026-06-19T14:59:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T09:59:17Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEeHew",
+          "name": "sprint-3",
+          "description": "Sprint 3 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 20,
+      "state": "CLOSED",
+      "title": "Implement claim extractor and citation-aware synthesiser",
+      "updatedAt": "2026-06-19T14:59:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T09:59:16Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEeHew",
+          "name": "sprint-3",
+          "description": "Sprint 3 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 19,
+      "state": "CLOSED",
+      "title": "Implement YouTube transcript fetcher for research loop",
+      "updatedAt": "2026-06-19T14:59:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T09:59:14Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEeHew",
+          "name": "sprint-3",
+          "description": "Sprint 3 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 18,
+      "state": "CLOSED",
+      "title": "Implement web-search and article-reader fetchers",
+      "updatedAt": "2026-06-19T14:59:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T09:59:12Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEeHew",
+          "name": "sprint-3",
+          "description": "Sprint 3 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 17,
+      "state": "CLOSED",
+      "title": "Scaffold research-loop module and LLM query planner",
+      "updatedAt": "2026-06-19T14:59:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T09:18:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTEFVg",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF2HQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoTF5uw",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 15,
+      "state": "CLOSED",
+      "title": "[follow-up] Narrow broad exception handler in verify_session_cookie",
+      "updatedAt": "2026-06-22T06:21:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T09:14:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyYYQ",
+          "name": "sprint-1",
+          "description": "",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJszA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "FEF2C0"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoEJtHw",
+          "name": "docs",
+          "description": "",
+          "color": "C5DEF5"
+        }
+      ],
+      "number": 14,
+      "state": "CLOSED",
+      "title": "Sprint 1 Executive Summary",
+      "updatedAt": "2026-06-19T09:39:19Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:21:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoDwpLw",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 13,
+      "state": "CLOSED",
+      "title": "Build read-only Verdict log screen",
+      "updatedAt": "2026-06-19T12:25:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:21:04Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoDwpLw",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 12,
+      "state": "CLOSED",
+      "title": "Enforce verdict gate and log verdict action (Stage 5)",
+      "updatedAt": "2026-06-19T12:25:32Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:21:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoDwpLw",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 11,
+      "state": "CLOSED",
+      "title": "Design probe type and target metric at Stage 4",
+      "updatedAt": "2026-06-19T12:25:33Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:21:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoDwpLw",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 10,
+      "state": "CLOSED",
+      "title": "Re-rank Plans Against User Data at Stage 3",
+      "updatedAt": "2026-06-19T12:25:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:20:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoDwpLw",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 9,
+      "state": "CLOSED",
+      "title": "Add manual source attachment form to Plan cards",
+      "updatedAt": "2026-06-19T12:25:35Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:20:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoDwpLw",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 8,
+      "state": "CLOSED",
+      "title": "Generate and display Plan A/B/C bake-off at Stage 1",
+      "updatedAt": "2026-06-19T12:25:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:20:54Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoDwpLw",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 7,
+      "state": "CLOSED",
+      "title": "Build Case detail page scaffold with StageBar",
+      "updatedAt": "2026-06-19T12:25:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:20:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoDwpLw",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 6,
+      "state": "CLOSED",
+      "title": "Add New Case modal with Sharpen (Stage 0)",
+      "updatedAt": "2026-06-19T12:25:40Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:20:50Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoDwpLw",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "0052CC"
+        }
+      ],
+      "number": 5,
+      "state": "CLOSED",
+      "title": "Build Cases List screen with CaseCard rows",
+      "updatedAt": "2026-06-19T12:25:41Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:14:47Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyYYQ",
+          "name": "sprint-1",
+          "description": "",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 4,
+      "state": "CLOSED",
+      "title": "Build app shell with design tokens and theme toggle",
+      "updatedAt": "2026-06-19T09:39:21Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:14:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyYYQ",
+          "name": "sprint-1",
+          "description": "",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 3,
+      "state": "CLOSED",
+      "title": "Implement single-user password auth with session cookies",
+      "updatedAt": "2026-06-19T09:39:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:14:43Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyYYQ",
+          "name": "sprint-1",
+          "description": "",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 2,
+      "state": "CLOSED",
+      "title": "Set up Neon Postgres schema and Alembic migrations",
+      "updatedAt": "2026-06-19T09:39:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T08:14:42Z",
+      "labels": [
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyP8g",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyWRw",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOS_BSEs8AAAACoCyYYQ",
+          "name": "sprint-1",
+          "description": "",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 1,
+      "state": "CLOSED",
+      "title": "Scaffold FastAPI backend and configure Render deploy",
+      "updatedAt": "2026-06-19T09:39:25Z"
+    }
+  ],
+  "prs": [
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T08:54:02Z",
+      "labels": [],
+      "number": 47,
+      "state": "OPEN",
+      "title": "Set up Cursor Cloud dev environment for crux",
+      "updatedAt": "2026-06-22T12:14:09Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T09:39:24Z",
+      "labels": [],
+      "number": 200,
+      "state": "MERGED",
+      "title": "fix: route design_probes through llm_providers.call_stage (#199)",
+      "updatedAt": "2026-07-06T09:40:27Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-06T07:52:12Z",
+      "labels": [],
+      "number": 198,
+      "state": "MERGED",
+      "title": "Fix duplicate alembic revision id q7r8s9t0u1v2 (blocks alembic upgrade)",
+      "updatedAt": "2026-07-06T08:34:15Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-05T15:28:06Z",
+      "labels": [],
+      "number": 188,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-56 \u2192 develop",
+      "updatedAt": "2026-07-05T15:28:10Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-05T04:13:12Z",
+      "labels": [],
+      "number": 185,
+      "state": "MERGED",
+      "title": "Sprint sprint-56.1 \u2192 sprint-56 \u2014 2 ticket(s) shipped",
+      "updatedAt": "2026-07-05T15:27:50Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T09:49:27Z",
+      "labels": [],
+      "number": 181,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-55 \u2192 develop",
+      "updatedAt": "2026-07-04T09:49:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T09:41:39Z",
+      "labels": [],
+      "number": 180,
+      "state": "MERGED",
+      "title": "Sprint sprint-55.1 \u2192 sprint-55 \u2014 0 ticket(s) shipped",
+      "updatedAt": "2026-07-04T09:49:06Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T07:59:37Z",
+      "labels": [],
+      "number": 165,
+      "state": "MERGED",
+      "title": "Weigh-stage: probe button, verified Tavily sources, podcast kind, NotebookLM debate podcast",
+      "updatedAt": "2026-07-06T07:41:05Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-29T07:10:11Z",
+      "labels": [],
+      "number": 164,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-54 \u2192 develop",
+      "updatedAt": "2026-06-29T07:10:15Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-27T05:32:05Z",
+      "labels": [],
+      "number": 152,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-53 \u2192 develop",
+      "updatedAt": "2026-06-27T05:32:09Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T16:09:39Z",
+      "labels": [],
+      "number": 143,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-52 \u2192 develop",
+      "updatedAt": "2026-06-26T16:09:43Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T06:05:26Z",
+      "labels": [],
+      "number": 129,
+      "state": "MERGED",
+      "title": "Merge Develop to Main",
+      "updatedAt": "2026-06-26T06:05:36Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T05:52:43Z",
+      "labels": [],
+      "number": 128,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-13 \u2192 develop",
+      "updatedAt": "2026-07-03T06:57:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-26T05:33:43Z",
+      "labels": [],
+      "number": 127,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-12 \u2192 develop",
+      "updatedAt": "2026-07-03T06:57:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-25T09:44:32Z",
+      "labels": [],
+      "number": 121,
+      "state": "MERGED",
+      "title": "fix(migrations): repair Postgres enum/uuid migration failures",
+      "updatedAt": "2026-07-03T06:57:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-25T03:59:07Z",
+      "labels": [],
+      "number": 120,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-11 \u2192 develop",
+      "updatedAt": "2026-07-03T06:57:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-25T03:15:58Z",
+      "labels": [],
+      "number": 119,
+      "state": "MERGED",
+      "title": "Sprint sprint-11.2 \u2192 sprint-11.1 \u2014 0 ticket(s) shipped",
+      "updatedAt": "2026-06-25T03:58:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-24T16:36:32Z",
+      "labels": [],
+      "number": 117,
+      "state": "MERGED",
+      "title": "Sprint sprint-11.1 \u2192 sprint-11 \u2014 1 ticket(s) shipped",
+      "updatedAt": "2026-06-25T03:58:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-24T14:49:02Z",
+      "labels": [],
+      "number": 109,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-9.1 \u2192 sprint/sprint-9",
+      "updatedAt": "2026-06-24T14:49:08Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-24T14:47:37Z",
+      "labels": [],
+      "number": 108,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-10 \u2192 develop",
+      "updatedAt": "2026-06-24T14:47:43Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-23T15:18:17Z",
+      "labels": [],
+      "number": 106,
+      "state": "MERGED",
+      "title": "Sprint sprint-9.4 \u2192 sprint-9.3 \u2014 0 ticket(s) shipped",
+      "updatedAt": "2026-06-24T05:59:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T12:24:41Z",
+      "labels": [],
+      "number": 89,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-8 \u2192 develop",
+      "updatedAt": "2026-06-22T12:24:45Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T09:07:36Z",
+      "labels": [],
+      "number": 80,
+      "state": "MERGED",
+      "title": "fix: make develop runnable end-to-end + draft M9 sprint",
+      "updatedAt": "2026-07-03T06:57:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-22T07:03:39Z",
+      "labels": [],
+      "number": 79,
+      "state": "MERGED",
+      "title": "feat: Claude CLI by default + runtime API-provider toggle with USD budget",
+      "updatedAt": "2026-07-03T06:57:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T12:11:47Z",
+      "labels": [],
+      "number": 78,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-7 \u2192 develop",
+      "updatedAt": "2026-07-03T06:57:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T12:11:05Z",
+      "labels": [],
+      "number": 77,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-6 \u2192 develop",
+      "updatedAt": "2026-06-21T12:11:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T14:29:02Z",
+      "labels": [],
+      "number": 59,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-5 \u2192 develop",
+      "updatedAt": "2026-07-03T06:57:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T14:05:48Z",
+      "labels": [],
+      "number": 58,
+      "state": "MERGED",
+      "title": "Sprint 5 \u2014 0 ticket(s) shipped",
+      "updatedAt": "2026-06-20T14:29:13Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T03:41:46Z",
+      "labels": [],
+      "number": 46,
+      "state": "MERGED",
+      "title": "docs: bulk-create specs for M5\u2013M8",
+      "updatedAt": "2026-07-03T06:57:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-20T02:40:05Z",
+      "labels": [],
+      "number": 45,
+      "state": "MERGED",
+      "title": "Merge Sprint: sprint-4 \u2192 develop",
+      "updatedAt": "2026-07-03T06:57:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T16:14:29Z",
+      "labels": [],
+      "number": 44,
+      "state": "MERGED",
+      "title": "Merge Sprint: sprint-4 \u2192 develop",
+      "updatedAt": "2026-06-20T02:28:12Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T14:59:23Z",
+      "labels": [],
+      "number": 25,
+      "state": "MERGED",
+      "title": "Merge Sprint: sprint-3 \u2192 develop",
+      "updatedAt": "2026-07-03T06:57:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T12:25:23Z",
+      "labels": [],
+      "number": 23,
+      "state": "MERGED",
+      "title": "Merge Sprint: sprint-2 \u2192 develop",
+      "updatedAt": "2026-07-03T06:57:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-19T09:39:14Z",
+      "labels": [],
+      "number": 16,
+      "state": "MERGED",
+      "title": "Merge Sprint: sprint-1 \u2192 develop",
+      "updatedAt": "2026-07-03T06:57:38Z"
+    }
+  ]
+}

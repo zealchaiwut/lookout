@@ -1,0 +1,49 @@
+{
+  "get_endpoints": [
+    {
+      "path": "/healthz",
+      "description": "{status, env}` \u2014 no auth required",
+      "source": "docs/architecture.md",
+      "example": "curl -sS http://localhost:8000/healthz",
+      "response": "200 JSON \u2014 {status, env}` \u2014 no auth required"
+    },
+    {
+      "path": "/api/cases",
+      "description": "List all cases, newest first",
+      "source": "docs/architecture.md",
+      "example": "curl -sS http://localhost:8000/api/cases",
+      "response": "200 JSON \u2014 List all cases, newest first"
+    },
+    {
+      "path": "/api/cases/{id}",
+      "description": "Full case with nested plans, sources, probe, verdict",
+      "source": "docs/architecture.md",
+      "example": "curl -sS http://localhost:8000/api/cases/example",
+      "response": "200 JSON \u2014 Full case with nested plans, sources, probe, verdict"
+    },
+    {
+      "path": "/api/cases/{id}/related",
+      "description": "Cosine similarity against closed cases",
+      "source": "docs/architecture.md",
+      "example": "curl -sS http://localhost:8000/api/cases/example/related",
+      "response": "200 JSON \u2014 Cosine similarity against closed cases"
+    },
+    {
+      "path": "/api/sources?plan_id={id}",
+      "description": "List sources for a plan",
+      "source": "docs/architecture.md",
+      "example": "curl -sS http://localhost:8000/api/sources?plan_id=example",
+      "response": "200 JSON \u2014 List sources for a plan"
+    },
+    {
+      "path": "/api/plans/{id}/gather-status",
+      "description": "Poll: `{gather_status, error, sources}",
+      "source": "docs/architecture.md",
+      "example": "curl -sS http://localhost:8000/api/plans/example/gather-status",
+      "response": "200 JSON \u2014 Poll: `{gather_status, error, sources}"
+    }
+  ],
+  "source_files": [
+    "docs/architecture.md"
+  ]
+}
