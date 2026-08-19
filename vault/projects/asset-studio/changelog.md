@@ -6,6 +6,10 @@ Merged PRs and recent git history from the latest snapshot, joined to atlas note
 
 | Date | PR | Title | Issue | Feature |
 |---|---|---|---|---|
+| 2026-08-19 | [#171](https://github.com/zealchaiwut/asset-studio/pull/171) | feat: land prompt-free asset variations on develop | — | — |
+| 2026-08-19 | [#170](https://github.com/zealchaiwut/asset-studio/pull/170) | feat: prompt-free "More like this" variations for backgrounds and logos | — | — |
+| 2026-08-19 | [#169](https://github.com/zealchaiwut/asset-studio/pull/169) | design: impeccable pass on Carousel, Asset Creation, and Accounts screens | — | — |
+| 2026-08-18 | [#168](https://github.com/zealchaiwut/asset-studio/pull/168) | Add generic per-slide image slots in the slide editor | — | — |
 | 2026-08-13 | [#147](https://github.com/zealchaiwut/asset-studio/pull/147) | Pin playwright to 1.61.0 | — | — |
 | 2026-08-13 | [#146](https://github.com/zealchaiwut/asset-studio/pull/146) | Release: Asset Creation + Accounts tabs, shared asset library, engagement tracking | — | — |
 | 2026-08-13 | [#145](https://github.com/zealchaiwut/asset-studio/pull/145) | Move Preview out of the Save split button into the Design panel | — | — |
@@ -42,12 +46,15 @@ Merged PRs and recent git history from the latest snapshot, joined to atlas note
 | 2026-07-02 | [#36](https://github.com/zealchaiwut/asset-studio/pull/36) | Merge check: sprint/sprint-1 → develop | — | — |
 | 2026-07-02 | [#35](https://github.com/zealchaiwut/asset-studio/pull/35) | Merge check: sprint/sprint-1.1 → sprint/sprint-1 | — | — |
 | 2026-07-02 | [#34](https://github.com/zealchaiwut/asset-studio/pull/34) | Merge check: sprint/sprint-1.2 → sprint/sprint-1.1 | — | — |
-| 2026-07-02 | [#25](https://github.com/zealchaiwut/asset-studio/pull/25) | Sprint sprint-1.3 → sprint-1.2 — 1 ticket(s) shipped | — | — |
+
+_Showing the 40 most recently updated PRs._
 
 ## Git history
 
 | SHA | Subject |
 |---|---|
+| `9139a30` | Merge pull request #147 from zealchaiwut/feature/pin-playwright-version |
+| `ea8f18b` | Pin playwright to 1.61.0 |
 | `6932b19` | Merge pull request #145 from zealchaiwut/feature/preview-btn-in-design-panel |
 | `ef9dba6` | Move Preview out of the Save split button into the Design panel |
 | `b3ec05f` | Merge pull request #144 from zealchaiwut/feature/assets-accounts-tabs |
@@ -76,8 +83,6 @@ Merged PRs and recent git history from the latest snapshot, joined to atlas note
 | `02e81f5` | Merge pull request #141 from zealchaiwut/feature/136-engagement-report |
 | `46c6d08` | Merge pull request #138 from zealchaiwut/feature/135-flow-performance-block |
 | `0144389` | feat: Posted tab with engagement entry and tier badges (issue #137) — [[projects/asset-studio/atlas/single-image-post-mode]] |
-| `2560551` | feat: median-relative engagement tiers and performance report (issue #136) |
-| `5d19cbd` | feat: store manual engagement numbers on a v2 flow (issue #135) — [[projects/asset-studio/atlas/batch-flow]], [[projects/asset-studio/atlas/carousel-builder-flow-v2]] |
 
 ## Decisions
 

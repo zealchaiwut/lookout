@@ -1,6 +1,6 @@
 ---
 target: asset-studio
-run: "2026-08-14T05:51:25Z"
+run: "2026-08-19T23:15:13Z"
 sources_ok: true
 ---
 
@@ -16,16 +16,16 @@ _(source: manifest.json, brief.json, issues.json)_
 
 ## Since last run
 
-_No changes detected._
+- `committed`: True → '<absent>'
 _(source: manifest.json)_
 
 ## What to do next
 
-1. #140 — [follow-up] A leaked Path.stat patch crashes pytest at session finish
-2. #139 — [follow-up] Tests write real flows into flows/ and never clean up
-3. #137 — Manual engagement log — Posted tab, entry form, tier badges
-4. #136 — Manual engagement log — median-relative tier + performance report
-5. #135 — Manual engagement log — store performance on a v2 flow
+1. #184 — Measure the Accounts screen with a width sweep the design pass could not run
+2. #183 — Native alert() and prompt() survive in the Carousel and deprecated views
+3. #182 — Asset card names show a clipped third line under the two-line clamp
+4. #181 — PRODUCT.md promises 4:5 output while the export default is 1:1
+5. #180 — Generate modal polls the jobs list every two seconds behind a collapsed disclosure
 _(source: brief.json, notion_todos.json, docs_manifest.json)_
 
 ## From the journal
@@ -41,5 +41,5 @@ _(source: issues.json, questions.json)_
 
 ## Drift
 
-_No drift signals._
+- `committed`: True → '<absent>'
 _(source: manifest.json, docs_manifest.json)_
