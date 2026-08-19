@@ -1,6 +1,6 @@
 ---
 target: viral-radar
-run: "2026-08-14T05:51:03Z"
+run: "2026-08-19T23:15:52Z"
 sources_ok: true
 ---
 
@@ -16,12 +16,16 @@ _(source: manifest.json, brief.json, issues.json)_
 
 ## Since last run
 
-_No changes detected._
+- `committed`: True → '<absent>'
 _(source: manifest.json)_
 
 ## What to do next
 
-1. #56 — [follow-up] Remove unnecessary f-string prefix in suggestions error detail
+1. #86 — Add CLAUDE.md — agents are told to follow a workflow doc that does not exist
+2. #84 — M8.5 Outcome scorecard on the Now tab
+3. #83 — M8.4 Feed verdicts back into suggestions via explicit rules
+4. #82 — M8.3 Rate attributed posts at a fixed age with pinned inputs
+5. #81 — M8.2 Attribute published self posts to template and suggestion
 _(source: brief.json, notion_todos.json, docs_manifest.json)_
 
 ## From the journal
@@ -37,5 +41,6 @@ _(source: issues.json, questions.json)_
 
 ## Drift
 
-_No drift signals._
+- `committed`: True → '<absent>'
+- 5 doc(s) changed: README.md, docs/milestones.md, docs/milestones/next-stage-bcd.md
 _(source: manifest.json, docs_manifest.json)_

@@ -1,0 +1,105 @@
+{
+  "get_endpoints": [
+    {
+      "path": "/api/digest?days=30",
+      "description": "Gold post feed filtered to the last N days (7, 30, or 90)",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/digest?days=30",
+      "response": "200 JSON \u2014 Gold post feed filtered to the last N days (7, 30, or 90)"
+    },
+    {
+      "path": "/api/posts/{post_id}",
+      "description": "Post detail including AI analysis fields",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/posts/example",
+      "response": "200 JSON \u2014 Post detail including AI analysis fields"
+    },
+    {
+      "path": "/niches/{niche_id}/recipe",
+      "description": "Niche recipe: equal-weighted signal aggregation with AI blend and example posts",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/niches/example/recipe",
+      "response": "200 JSON \u2014 Niche recipe: equal-weighted signal aggregation with AI blend and example posts"
+    },
+    {
+      "path": "/candidates/{id}/sample",
+      "description": "Return the cached quarantine scorecard for a candidate without re-scraping",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/candidates/example/sample",
+      "response": "200 JSON \u2014 Return the cached quarantine scorecard for a candidate without re-scraping"
+    },
+    {
+      "path": "/suggestions",
+      "description": "Discovery UI \u2014 `static/suggestions.html",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/suggestions",
+      "response": "200 JSON \u2014 Discovery UI \u2014 `static/suggestions.html"
+    },
+    {
+      "path": "/api/suggestions",
+      "description": "List all content suggestions",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/suggestions",
+      "response": "200 JSON \u2014 List all content suggestions"
+    },
+    {
+      "path": "/api/suggestions/{id}/export",
+      "description": "Export a kept suggestion as a prose-free skeleton Markdown draft",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/suggestions/example/export",
+      "response": "200 JSON \u2014 Export a kept suggestion as a prose-free skeleton Markdown draft"
+    },
+    {
+      "path": "/api/waves",
+      "description": "List engagement waves available as sources for AI post suggestions",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/waves",
+      "response": "200 JSON \u2014 List engagement waves available as sources for AI post suggestions"
+    },
+    {
+      "path": "/api/waves/{wave}/suggestions",
+      "description": "List previously generated suggestions for a wave",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/waves/example/suggestions",
+      "response": "200 JSON \u2014 List previously generated suggestions for a wave"
+    },
+    {
+      "path": "/api/settings/voice-notes",
+      "description": "Get the stored voice-notes guidance used to steer suggestion generation",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/settings/voice-notes",
+      "response": "200 JSON \u2014 Get the stored voice-notes guidance used to steer suggestion generation"
+    },
+    {
+      "path": "/niches/{niche_id}/gap-report?account=<name>",
+      "description": "Gap report: gold-post signals present in the niche recipe but missing from an account",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/niches/example/gap-report?account=<name>",
+      "response": "200 JSON \u2014 Gap report: gold-post signals present in the niche recipe but missing from an account"
+    },
+    {
+      "path": "/self-account",
+      "description": "Return the current self account, or null if none is registered",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/self-account",
+      "response": "200 JSON \u2014 Return the current self account, or null if none is registered"
+    },
+    {
+      "path": "/self-account/posts",
+      "description": "Return posts for the self account (powers the Self tab)",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/self-account/posts",
+      "response": "200 JSON \u2014 Return posts for the self account (powers the Self tab)"
+    },
+    {
+      "path": "/accounts",
+      "description": "List watchlist accounts, excluding the self account",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/accounts",
+      "response": "200 JSON \u2014 List watchlist accounts, excluding the self account"
+    }
+  ],
+  "source_files": [
+    "README.md"
+  ]
+}
