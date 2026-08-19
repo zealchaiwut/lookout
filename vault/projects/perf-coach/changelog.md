@@ -6,6 +6,9 @@ Merged PRs and recent git history from the latest snapshot, joined to atlas note
 
 | Date | PR | Title | Issue | Feature |
 |---|---|---|---|---|
+| 2026-08-17 | [#1758](https://github.com/zealchaiwut/perf-coach/pull/1758) | fix(sync): run incremental Sync new in-process when the worker is off | — | — |
+| 2026-08-17 | [#1757](https://github.com/zealchaiwut/perf-coach/pull/1757) | fix(ux): say which readiness signals actually scored | — | — |
+| 2026-08-14 | [#1756](https://github.com/zealchaiwut/perf-coach/pull/1756) | fix(ux): wire log and sync so readiness and status match reality | — | — |
 | 2026-08-13 | [#1755](https://github.com/zealchaiwut/perf-coach/pull/1755) | Release: worker PRD runbook + real commit SHA in /api/health | — | — |
 | 2026-08-13 | [#1754](https://github.com/zealchaiwut/perf-coach/pull/1754) | Develop | — | — |
 | 2026-08-13 | [#1753](https://github.com/zealchaiwut/perf-coach/pull/1753) | fix(perf): serve dashboard metrics from cache; worker refreshes after sync | — | — |
@@ -43,9 +46,6 @@ Merged PRs and recent git history from the latest snapshot, joined to atlas note
 | 2026-08-05 | [#1679](https://github.com/zealchaiwut/perf-coach/pull/1679) | Plan process revamp: pattern fill + Plan library admin | — | — |
 | 2026-08-04 | [#1677](https://github.com/zealchaiwut/perf-coach/pull/1677) | Merge check: sprint/sprint-127 → develop | — | — |
 | 2026-08-04 | [#1671](https://github.com/zealchaiwut/perf-coach/pull/1671) | Sprint sprint-127.1 → sprint-127 — 6 ticket(s) shipped | — | — |
-| 2026-08-04 | [#1675](https://github.com/zealchaiwut/perf-coach/pull/1675) | Sprint sprint-127.2 → sprint-127.1 — 2 ticket(s) shipped | — | — |
-| 2026-08-04 | [#1668](https://github.com/zealchaiwut/perf-coach/pull/1668) | Merge check: sprint/sprint-126 → develop | — | — |
-| 2026-08-04 | [#1664](https://github.com/zealchaiwut/perf-coach/pull/1664) | Merge check: sprint/sprint-125 → develop | — | — |
 
 _Showing the 40 most recently updated PRs._
 
@@ -53,6 +53,19 @@ _Showing the 40 most recently updated PRs._
 
 | SHA | Subject |
 |---|---|
+| `62c92d8e` | merge(develop): keep both contract-suite entries |
+| `522b433c` | Merge pull request #1757 from zealchaiwut/feature/ux-readiness-signal-copy |
+| `5805e48d` | fix(sync): run incremental Sync new in-process when the worker is off |
+| `7dc17e82` | fix(ux): say which readiness signals actually scored |
+| `cd93487a` | Merge pull request #1756 from zealchaiwut/feature/ux-readiness-sync-fixes |
+| `f15769a3` | fix(ux): wire log and sync so readiness and status match reality |
+| `42031469` | fix(deploy): report the real commit SHA in /api/health |
+| `7b7d9839` | docs(worker): correct PRD runbook to match what actually runs |
+| `dc5a3f81` | Merge pull request #1753 from zealchaiwut/feature/dashboard-precompute-reads |
+| `05819fd2` | fix(ci): use aware UTC now in plan-bundle warm; drop fixed baseline |
+| `6253cbb3` | fix(perf): serve dashboard metrics from cache; worker refreshes after sync |
+| `61e31215` | Merge pull request #1752 from zealchaiwut/fix/plan-match-apply-tss-exercises |
+| `b0ad56d5` | fix(plan): apply planned TSS and exercises on match |
 | `f88769ee` | Merge pull request #1751 from zealchaiwut/chore/ci-contract-preflight |
 | `824c6b8b` | chore(ci): add must-green contract preflight job |
 | `09081255` | Merge pull request #1750 from zealchaiwut/fix/plan-picker-show-start-time |
@@ -70,19 +83,6 @@ _Showing the 40 most recently updated PRs._
 | `2ae0ce38` | fix(perf): Phase A memory/SoT quick wins |
 | `bacd1583` | Merge pull request #1744 from zealchaiwut/hotfix/mobile |
 | `a39767b4` | fix(ci): unblock hotfix/mobile unit subset |
-| `e5c9fc91` | fix(perf): drop half-equiv from next-checkpoint card |
-| `24dcecfb` | fix(plan): prefer session pin for week TSS and add library bulk export |
-| `c4495c24` | Merge pull request #1742 from zealchaiwut/cursor/quiet-worker-coach-export-queue-c9ce |
-| `c3cec370` | fix(ci): restore coach-export stubs and nav copy contract |
-| `0f99c47f` | Quiet worker + coach export queue for thin Render dyno |
-| `c883f637` | Merge pull request #1740 from zealchaiwut/feature/home-layout-polish |
-| `689c12ae` | fix(ci): align home tests with weight-trend split |
-| `1409f21e` | Fix Home column packing and race/weigh-in discoverability. |
-| `cd7dbf08` | Merge pull request #1739 from zealchaiwut/feature/home-revamp |
-| `1ee63938` | Rebuild Home tab as CSS two-column layout with morning checklist. |
-| `78764f6f` | Merge pull request #1737 from zealchaiwut/sprint/sprint-132 |
-| `c334b228` | docs: generate code-state snapshot for sprint-132 |
-| `cbd87c94` | docs: auto-update from sprint-sprint-132 diff |
 
 ## Decisions
 
