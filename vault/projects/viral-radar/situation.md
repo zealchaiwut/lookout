@@ -1,6 +1,6 @@
 ---
 target: viral-radar
-run: "2026-08-19T23:15:52Z"
+run: "2026-09-10T07:32:15Z"
 sources_ok: true
 ---
 
@@ -17,15 +17,16 @@ _(source: manifest.json, brief.json, issues.json)_
 ## Since last run
 
 - `committed`: True → '<absent>'
+- `sources.endpoints.count`: 14 → 53
 _(source: manifest.json)_
 
 ## What to do next
 
-1. #86 — Add CLAUDE.md — agents are told to follow a workflow doc that does not exist
-2. #84 — M8.5 Outcome scorecard on the Now tab
-3. #83 — M8.4 Feed verdicts back into suggestions via explicit rules
-4. #82 — M8.3 Rate attributed posts at a fixed age with pinned inputs
-5. #81 — M8.2 Attribute published self posts to template and suggestion
+1. #192 — Now tab: retrying analysis after a failed run always re-triggers a full real-time Claude recompute
+2. #190 — [review] Keyboard users cannot select an idea or pick a template match
+3. #189 — [review] Credential scanner: duplicate console output + narrow file-type coverage
+4. #188 — [review] Two pages left out of the nav-shell migration
+5. #187 — [review] No error handling on network failure for the gold-multiplier save
 _(source: brief.json, notion_todos.json, docs_manifest.json)_
 
 ## From the journal
@@ -35,12 +36,14 @@ _(source: journal_delta.json)_
 
 ## Open questions
 
-_No open questions._
+- #116: Stage E (video) — track the trigger condition, do not build yet
+- #115: D3 — FB public groups connector (decision needed before scoping)
 
 _(source: issues.json, questions.json)_
 
 ## Drift
 
 - `committed`: True → '<absent>'
-- 5 doc(s) changed: README.md, docs/milestones.md, docs/milestones/next-stage-bcd.md
+- `sources.endpoints.count`: 14 → 53
+- 11 doc(s) changed: PRODUCT.md, README.md, SCHEMA.md
 _(source: manifest.json, docs_manifest.json)_

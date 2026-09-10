@@ -1,0 +1,378 @@
+{
+  "get_endpoints": [
+    {
+      "path": "/",
+      "description": "App home (Now tab HTML)",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/",
+      "response": "200 JSON \u2014 App home (Now tab HTML)"
+    },
+    {
+      "path": "/api/health",
+      "description": "Health check \u2014 `{\"status\": \"ok\", \"db\": \"ok\"}",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/health",
+      "response": "200 JSON \u2014 Health check \u2014 `{\"status\": \"ok\", \"db\": \"ok\"}"
+    },
+    {
+      "path": "/api/posts/{post_id}",
+      "description": "Post detail including AI analysis fields",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/posts/example",
+      "response": "200 JSON \u2014 Post detail including AI analysis fields"
+    },
+    {
+      "path": "/accounts",
+      "description": "List watchlist accounts, excluding the self account",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/accounts",
+      "response": "200 JSON \u2014 List watchlist accounts, excluding the self account"
+    },
+    {
+      "path": "/accounts/scorecard-review",
+      "description": "List accounts pending scorecard review",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/accounts/scorecard-review",
+      "response": "200 JSON \u2014 List accounts pending scorecard review"
+    },
+    {
+      "path": "/accounts/{account_id}/posts",
+      "description": "List posts for an account",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/accounts/example/posts",
+      "response": "200 JSON \u2014 List posts for an account"
+    },
+    {
+      "path": "/accounts/{account_id}/scrapes",
+      "description": "List scrape runs for an account",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/accounts/example/scrapes",
+      "response": "200 JSON \u2014 List scrape runs for an account"
+    },
+    {
+      "path": "/self-account",
+      "description": "Return the current self account, or null",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/self-account",
+      "response": "200 JSON \u2014 Return the current self account, or null"
+    },
+    {
+      "path": "/self-account/posts",
+      "description": "Return posts for the self account (powers the Self tab)",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/self-account/posts",
+      "response": "200 JSON \u2014 Return posts for the self account (powers the Self tab)"
+    },
+    {
+      "path": "/self-account/analysis",
+      "description": "Return analysis for the self account",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/self-account/analysis",
+      "response": "200 JSON \u2014 Return analysis for the self account"
+    },
+    {
+      "path": "/self-account/scrapes",
+      "description": "List scrape runs for the self account",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/self-account/scrapes",
+      "response": "200 JSON \u2014 List scrape runs for the self account"
+    },
+    {
+      "path": "/niches/default",
+      "description": "Return the default niche",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/niches/default",
+      "response": "200 JSON \u2014 Return the default niche"
+    },
+    {
+      "path": "/niches/{niche_id}/recipe",
+      "description": "Niche recipe: equal-weighted signal aggregation with AI blend and example posts",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/niches/example/recipe",
+      "response": "200 JSON \u2014 Niche recipe: equal-weighted signal aggregation with AI blend and example posts"
+    },
+    {
+      "path": "/niches/{niche_id}/gap-report",
+      "description": "Gap report: gold-post signals present in the niche recipe but missing from an account (`?account=<name>`)",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/niches/example/gap-report",
+      "response": "200 JSON \u2014 Gap report: gold-post signals present in the niche recipe but missing from an account (`?account=<name>`)"
+    },
+    {
+      "path": "/niches/{niche_id}/anti-patterns",
+      "description": "List anti-pattern findings scoped to a niche",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/niches/example/anti-patterns",
+      "response": "200 JSON \u2014 List anti-pattern findings scoped to a niche"
+    },
+    {
+      "path": "/api/gap-report/default",
+      "description": "Gap report for the default niche and self account",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/gap-report/default",
+      "response": "200 JSON \u2014 Gap report for the default niche and self account"
+    },
+    {
+      "path": "/candidates/discover/status",
+      "description": "Poll the status of the current discovery run",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/candidates/discover/status",
+      "response": "200 JSON \u2014 Poll the status of the current discovery run"
+    },
+    {
+      "path": "/candidates/settings/queries",
+      "description": "Get stored web-search queries",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/candidates/settings/queries",
+      "response": "200 JSON \u2014 Get stored web-search queries"
+    },
+    {
+      "path": "/candidates/{candidate_id}/sample",
+      "description": "Return the cached quarantine scorecard without re-scraping",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/candidates/example/sample",
+      "response": "200 JSON \u2014 Return the cached quarantine scorecard without re-scraping"
+    },
+    {
+      "path": "/api/suggestions",
+      "description": "List all post suggestions",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/suggestions",
+      "response": "200 JSON \u2014 List all post suggestions"
+    },
+    {
+      "path": "/api/suggestions/{suggestion_id}/export",
+      "description": "Export a kept suggestion as a prose-free skeleton Markdown draft",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/suggestions/example/export",
+      "response": "200 JSON \u2014 Export a kept suggestion as a prose-free skeleton Markdown draft"
+    },
+    {
+      "path": "/api/waves",
+      "description": "List engagement waves available as sources for AI post suggestions",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/waves",
+      "response": "200 JSON \u2014 List engagement waves available as sources for AI post suggestions"
+    },
+    {
+      "path": "/api/waves/{wave}/suggestions",
+      "description": "List previously generated suggestions for a wave",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/waves/example/suggestions",
+      "response": "200 JSON \u2014 List previously generated suggestions for a wave"
+    },
+    {
+      "path": "/api/waves/{wave}/suggestions/export-kept",
+      "description": "Export all kept suggestions for a wave",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/waves/example/suggestions/export-kept",
+      "response": "200 JSON \u2014 Export all kept suggestions for a wave"
+    },
+    {
+      "path": "/api/waves/live",
+      "description": "List currently live waves with lift scores",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/waves/live",
+      "response": "200 JSON \u2014 List currently live waves with lift scores"
+    },
+    {
+      "path": "/api/waves/terms",
+      "description": "Get wave search terms configuration",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/waves/terms",
+      "response": "200 JSON \u2014 Get wave search terms configuration"
+    },
+    {
+      "path": "/api/settings/voice-notes",
+      "description": "Get the voice-notes guidance used to steer suggestion generation",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/settings/voice-notes",
+      "response": "200 JSON \u2014 Get the voice-notes guidance used to steer suggestion generation"
+    },
+    {
+      "path": "/api/settings/gold-multiplier",
+      "description": "Get the configured gold-tier engagement multiplier",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/settings/gold-multiplier",
+      "response": "200 JSON \u2014 Get the configured gold-tier engagement multiplier"
+    },
+    {
+      "path": "/api/fingerprint",
+      "description": "Return the self account's voice fingerprint",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/fingerprint",
+      "response": "200 JSON \u2014 Return the self account's voice fingerprint"
+    },
+    {
+      "path": "/api/fingerprint/compare",
+      "description": "Compare the self account's voice fingerprint with niche patterns",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/fingerprint/compare",
+      "response": "200 JSON \u2014 Compare the self account's voice fingerprint with niche patterns"
+    },
+    {
+      "path": "/api/fingerprint/niche",
+      "description": "Return the niche-level voice fingerprint",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/fingerprint/niche",
+      "response": "200 JSON \u2014 Return the niche-level voice fingerprint"
+    },
+    {
+      "path": "/api/voice-fingerprint",
+      "description": "Return the raw voice fingerprint record",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/voice-fingerprint",
+      "response": "200 JSON \u2014 Return the raw voice fingerprint record"
+    },
+    {
+      "path": "/api/questions",
+      "description": "List audience questions",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/questions",
+      "response": "200 JSON \u2014 List audience questions"
+    },
+    {
+      "path": "/api/questions/{question_id}/export",
+      "description": "Export a question as a prose-free skeleton",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/questions/example/export",
+      "response": "200 JSON \u2014 Export a question as a prose-free skeleton"
+    },
+    {
+      "path": "/api/posts/{post_id}/comments",
+      "description": "List scraped comments for a post",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/posts/example/comments",
+      "response": "200 JSON \u2014 List scraped comments for a post"
+    },
+    {
+      "path": "/api/comments/gold-targets",
+      "description": "List gold posts that have unanswered audience questions",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/comments/gold-targets",
+      "response": "200 JSON \u2014 List gold posts that have unanswered audience questions"
+    },
+    {
+      "path": "/api/calendar/events",
+      "description": "List calendar events",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/calendar/events",
+      "response": "200 JSON \u2014 List calendar events"
+    },
+    {
+      "path": "/api/calendar/events/{event_id}",
+      "description": "Get a calendar event",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/calendar/events/example",
+      "response": "200 JSON \u2014 Get a calendar event"
+    },
+    {
+      "path": "/api/calendar/windows",
+      "description": "List upcoming posting windows derived from calendar events",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/calendar/windows",
+      "response": "200 JSON \u2014 List upcoming posting windows derived from calendar events"
+    },
+    {
+      "path": "/api/now",
+      "description": "Weekly Now-tab recommendation payload",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/now",
+      "response": "200 JSON \u2014 Weekly Now-tab recommendation payload"
+    },
+    {
+      "path": "/api/drafts",
+      "description": "List drafts",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/drafts",
+      "response": "200 JSON \u2014 List drafts"
+    },
+    {
+      "path": "/api/predictions/calibration",
+      "description": "Return tier-prediction calibration stats",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/predictions/calibration",
+      "response": "200 JSON \u2014 Return tier-prediction calibration stats"
+    },
+    {
+      "path": "/api/beta-drafts/latest",
+      "description": "Return the most recent AI-authored beta draft",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/beta-drafts/latest",
+      "response": "200 JSON \u2014 Return the most recent AI-authored beta draft"
+    },
+    {
+      "path": "/api/templates",
+      "description": "List active template variants",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/templates",
+      "response": "200 JSON \u2014 List active template variants"
+    },
+    {
+      "path": "/api/templates/verdict-rules",
+      "description": "List verdict rules used in template scoring",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/templates/verdict-rules",
+      "response": "200 JSON \u2014 List verdict rules used in template scoring"
+    },
+    {
+      "path": "/api/analysis",
+      "description": "Analysis feed \u2014 flagged suggestions and pattern findings",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/analysis",
+      "response": "200 JSON \u2014 Analysis feed \u2014 flagged suggestions and pattern findings"
+    },
+    {
+      "path": "/api/analysis/flags",
+      "description": "List analysis flag entries",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/analysis/flags",
+      "response": "200 JSON \u2014 List analysis flag entries"
+    },
+    {
+      "path": "/api/gold-analysis/status",
+      "description": "Poll the status of the current gold-analysis job",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/gold-analysis/status",
+      "response": "200 JSON \u2014 Poll the status of the current gold-analysis job"
+    },
+    {
+      "path": "/api/content-plan/pending-attribution",
+      "description": "List content-plan slots pending post attribution",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/content-plan/pending-attribution",
+      "response": "200 JSON \u2014 List content-plan slots pending post attribution"
+    },
+    {
+      "path": "/api/content-plan/{plan_id}/beats",
+      "description": "Return the beat inventory for a content-plan slot",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/content-plan/example/beats",
+      "response": "200 JSON \u2014 Return the beat inventory for a content-plan slot"
+    },
+    {
+      "path": "/api/criteria-audit",
+      "description": "List criteria self-audit findings",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/criteria-audit",
+      "response": "200 JSON \u2014 List criteria self-audit findings"
+    },
+    {
+      "path": "/api/crux/verdicts/{plan_id}",
+      "description": "Return the settled crux verdict for a content-plan slot",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/crux/verdicts/example",
+      "response": "200 JSON \u2014 Return the settled crux verdict for a content-plan slot"
+    },
+    {
+      "path": "/api/crux/summary",
+      "description": "Gold-caliber posts per month vs hours spent",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/crux/summary",
+      "response": "200 JSON \u2014 Gold-caliber posts per month vs hours spent"
+    }
+  ],
+  "source_files": [
+    "README.md"
+  ]
+}

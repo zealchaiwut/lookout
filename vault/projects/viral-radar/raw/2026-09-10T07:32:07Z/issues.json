@@ -1,0 +1,5116 @@
+{
+  "issues": [
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T07:29:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        }
+      ],
+      "number": 192,
+      "state": "OPEN",
+      "title": "Now tab: retrying analysis after a failed run always re-triggers a full real-time Claude recompute",
+      "updatedAt": "2026-09-10T07:29:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:35Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0ubQHQ",
+          "name": "accessibility",
+          "description": "Accessibility issue",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 190,
+      "state": "OPEN",
+      "title": "[review] Keyboard users cannot select an idea or pick a template match",
+      "updatedAt": "2026-09-10T06:13:35Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 189,
+      "state": "OPEN",
+      "title": "[review] Credential scanner: duplicate console output + narrow file-type coverage",
+      "updatedAt": "2026-09-10T06:13:23Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 188,
+      "state": "OPEN",
+      "title": "[review] Two pages left out of the nav-shell migration",
+      "updatedAt": "2026-09-10T06:13:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:19Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 187,
+      "state": "OPEN",
+      "title": "[review] No error handling on network failure for the gold-multiplier save",
+      "updatedAt": "2026-09-10T06:13:19Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:18Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 186,
+      "state": "OPEN",
+      "title": "[review] Gold-multiplier setting change doesn't refresh the Now tab",
+      "updatedAt": "2026-09-10T06:13:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:16Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 185,
+      "state": "OPEN",
+      "title": "[review] Optimistic UI writes silently swallow failures in several places",
+      "updatedAt": "2026-09-10T06:13:16Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:13Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 184,
+      "state": "OPEN",
+      "title": "[review] No double-submit guard on drafts-panel actions -- real duplicate-cost risk",
+      "updatedAt": "2026-09-10T06:13:13Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:12Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 183,
+      "state": "OPEN",
+      "title": "[review] Color-contrast regression on status tokens fails WCAG AA",
+      "updatedAt": "2026-09-10T06:13:12Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:10Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 182,
+      "state": "OPEN",
+      "title": "[review] gold_analysis_jobs_schema.latest_job mutates the caller's connection as a side effect",
+      "updatedAt": "2026-09-10T06:13:10Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:08Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 181,
+      "state": "OPEN",
+      "title": "[review] crux_claims: auth/config failures indistinguishable from transient outages",
+      "updatedAt": "2026-09-10T06:13:08Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 180,
+      "state": "OPEN",
+      "title": "[review] Gold multiplier setting not wired into the Quarantine candidate sampler",
+      "updatedAt": "2026-09-10T06:13:06Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 179,
+      "state": "OPEN",
+      "title": "[review] api.py app-level /digest, /fingerprint, /comments handlers are unreachable dead code",
+      "updatedAt": "2026-09-10T06:13:05Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:03Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 178,
+      "state": "OPEN",
+      "title": "[review] dismiss_idea never actually 404s for an unknown idea id",
+      "updatedAt": "2026-09-10T06:13:03Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:13:01Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 177,
+      "state": "OPEN",
+      "title": "[review] crux/submit endpoint: unhandled exception on malformed/unexpected response",
+      "updatedAt": "2026-09-10T06:13:01Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:12:59Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0uX5Eg",
+          "name": "sprint-16",
+          "description": "Sprint 16 \u2014 pre-production review findings",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 176,
+      "state": "OPEN",
+      "title": "[review] Gold-analysis cost estimate shown to user doesn't match the batch actually executed",
+      "updatedAt": "2026-09-10T06:12:59Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-09T10:11:54Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOVg",
+          "name": "SIT",
+          "description": "",
+          "color": "C6D2D9"
+        }
+      ],
+      "number": 175,
+      "state": "OPEN",
+      "title": "claude_posts analysis step fails: OAuth session expired and could not be refreshed",
+      "updatedAt": "2026-09-09T10:18:55Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T14:31:51Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        }
+      ],
+      "number": 173,
+      "state": "OPEN",
+      "title": "Sprint 14 \u2014 UI walkthrough hygiene (post-#160)",
+      "updatedAt": "2026-09-04T15:34:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T14:31:29Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 172,
+      "state": "OPEN",
+      "title": "Drafts panel caption overcounts saved drafts (shows \"42 saved\" for 6)",
+      "updatedAt": "2026-09-08T22:07:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T14:31:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 171,
+      "state": "OPEN",
+      "title": "Beta voice fingerprint shows \"computed from ? gold posts\"",
+      "updatedAt": "2026-09-08T21:57:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T14:30:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 170,
+      "state": "OPEN",
+      "title": "Analysis matrix marks \u00d7 on rows where You already matches Gold",
+      "updatedAt": "2026-09-08T21:43:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T14:30:55Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 169,
+      "state": "OPEN",
+      "title": "Sources \u203a Posts shows \"No scrapes yet\" while posts are listed",
+      "updatedAt": "2026-09-08T21:30:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T14:30:53Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 168,
+      "state": "OPEN",
+      "title": "Shell leaves \"Loading recommendation\u2026\" visible on Sources and Analysis tabs",
+      "updatedAt": "2026-09-08T21:15:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T10:39:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACzvTrBQ",
+          "name": "sprint-14",
+          "description": "Cross-project content pipeline",
+          "color": "5319e7"
+        }
+      ],
+      "number": 163,
+      "state": "OPEN",
+      "title": "Resolve src_hint blanks by pulling from perf-coach on demand",
+      "updatedAt": "2026-09-10T03:47:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:45Z",
+      "labels": [],
+      "number": 156,
+      "state": "OPEN",
+      "title": "Deprecate tier_classifier from production ingestion paths",
+      "updatedAt": "2026-09-04T02:52:45Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:44Z",
+      "labels": [],
+      "number": 154,
+      "state": "OPEN",
+      "title": "Now-tab bootstrap empty state for fresh installs",
+      "updatedAt": "2026-09-04T02:52:44Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:43Z",
+      "labels": [],
+      "number": 153,
+      "state": "OPEN",
+      "title": "Hide legacy standalone nav in embedded Sources iframes",
+      "updatedAt": "2026-09-04T02:52:43Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:41Z",
+      "labels": [],
+      "number": 150,
+      "state": "OPEN",
+      "title": "Persist gold-analysis job state in SQLite",
+      "updatedAt": "2026-09-04T02:52:41Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:40Z",
+      "labels": [],
+      "number": 148,
+      "state": "OPEN",
+      "title": "Align candidate_miner gold signals with engagement_tier",
+      "updatedAt": "2026-09-04T02:52:40Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:38Z",
+      "labels": [],
+      "number": 147,
+      "state": "OPEN",
+      "title": "Operator settings UI for gold_multiplier (1\u201320\u00d7)",
+      "updatedAt": "2026-09-04T02:52:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:37Z",
+      "labels": [],
+      "number": 145,
+      "state": "OPEN",
+      "title": "Discovery first-run: surface missing WEB_SEARCH_API_KEY in UI",
+      "updatedAt": "2026-09-04T02:52:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:35Z",
+      "labels": [],
+      "number": 143,
+      "state": "OPEN",
+      "title": "Wire vision pass into Run analysis UI with cost confirm",
+      "updatedAt": "2026-09-04T02:52:35Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-02T10:44:51Z",
+      "labels": [],
+      "number": 142,
+      "state": "OPEN",
+      "title": "Unify Now draft check with tier prediction (single posting flow)",
+      "updatedAt": "2026-09-02T10:44:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-24T06:38:47Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 136,
+      "state": "OPEN",
+      "title": "Voice-guard AST hardening (#113): call-resolution path is fail-open for local-variable indirection",
+      "updatedAt": "2026-09-08T20:58:27Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:10:03Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 135,
+      "state": "OPEN",
+      "title": "Improve topic-fatigue precision for very short captions",
+      "updatedAt": "2026-09-08T20:43:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:10:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 134,
+      "state": "OPEN",
+      "title": "Wire the criteria self-audit (#105) to actually run somewhere in production",
+      "updatedAt": "2026-09-08T20:34:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:10:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 133,
+      "state": "OPEN",
+      "title": "Escape draft.id and variantId in beta-draft-panel.js for consistency with the file's own XSS discipline",
+      "updatedAt": "2026-09-08T20:23:50Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbatw",
+          "name": "database",
+          "description": "Schema / migrations / models",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 132,
+      "state": "OPEN",
+      "title": "Remove the dead draft_predictions.plan_id column (always NULL in production)",
+      "updatedAt": "2026-09-08T20:15:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:57Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 131,
+      "state": "OPEN",
+      "title": "Surface archive/assign action failures in the Drafts UI instead of swallowing them",
+      "updatedAt": "2026-09-08T20:01:32Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:55Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 130,
+      "state": "OPEN",
+      "title": "Tighten all-caps-run check to tolerate consecutive running jargon acronyms",
+      "updatedAt": "2026-09-08T19:51:04Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:53Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 129,
+      "state": "OPEN",
+      "title": "Clean up malformed-carousel JSON-dump fallback in the draft normalizer",
+      "updatedAt": "2026-09-08T19:19:09Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:51Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNZQ",
+          "name": "docs",
+          "description": "",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 128,
+      "state": "OPEN",
+      "title": "Amend PRODUCT.md's 'structure only' hard constraint to document the M12 prose-draft beta exception",
+      "updatedAt": "2026-09-08T19:06:32Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:49Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 127,
+      "state": "OPEN",
+      "title": "Fix Analysis-tab empty-state check to scope to the current account/view, not the whole database",
+      "updatedAt": "2026-09-08T18:53:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:47Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 126,
+      "state": "OPEN",
+      "title": "Isolate prediction-scoring errors from rate_post()'s verdict-write path",
+      "updatedAt": "2026-09-08T18:35:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 125,
+      "state": "OPEN",
+      "title": "Surface prediction confidence in the calibration strip and align its thin-sample threshold",
+      "updatedAt": "2026-09-08T18:15:45Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:43Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 124,
+      "state": "OPEN",
+      "title": "Reject or warn on duplicate draft names within a single batch submission",
+      "updatedAt": "2026-09-08T15:57:14Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:41Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 123,
+      "state": "OPEN",
+      "title": "Enforce verbatim-quote verification in diagnosis validation, not just non-emptiness",
+      "updatedAt": "2026-09-08T15:48:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:39Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAAC0aUYzw",
+          "name": "sprint-15",
+          "description": "Sprint 15 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 122,
+      "state": "OPEN",
+      "title": "Fix word-count-band check comparing mismatched text for carousel+caption drafts",
+      "updatedAt": "2026-09-08T15:34:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:07:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNZQ",
+          "name": "docs",
+          "description": "",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxanscw",
+          "name": "sprint-11",
+          "description": "Sprint 11 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 109,
+      "state": "OPEN",
+      "title": "M12.4 Beta review checkpoint: keep, shrink, or drop",
+      "updatedAt": "2026-08-24T05:34:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T06:07:55Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 91,
+      "state": "OPEN",
+      "title": "M6.2 follow-up: run the real vision pass and record calibration agreement",
+      "updatedAt": "2026-09-08T15:15:12Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T14:30:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        }
+      ],
+      "number": 167,
+      "state": "CLOSED",
+      "title": "Drafts panel caption overcounts saved drafts (shows 42 saved for 6)",
+      "updatedAt": "2026-09-04T14:32:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T10:39:41Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WPWQ",
+          "name": "UAT-approved",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACzvTrBQ",
+          "name": "sprint-14",
+          "description": "Cross-project content pipeline",
+          "color": "5319e7"
+        }
+      ],
+      "number": 166,
+      "state": "CLOSED",
+      "title": "Log content-post engagement to crux as a verdict",
+      "updatedAt": "2026-09-10T03:47:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T10:39:10Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WPWQ",
+          "name": "UAT-approved",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACzvTrBQ",
+          "name": "sprint-14",
+          "description": "Cross-project content pipeline",
+          "color": "5319e7"
+        }
+      ],
+      "number": 165,
+      "state": "CLOSED",
+      "title": "Hand a finished plan to asset-studio and return a deep link",
+      "updatedAt": "2026-09-10T03:47:21Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T10:39:08Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WPWQ",
+          "name": "UAT-approved",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACzvTrBQ",
+          "name": "sprint-14",
+          "description": "Cross-project content pipeline",
+          "color": "5319e7"
+        }
+      ],
+      "number": 164,
+      "state": "CLOSED",
+      "title": "Verify claims against crux from the writing desk",
+      "updatedAt": "2026-09-10T03:47:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T10:37:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WPWQ",
+          "name": "UAT-approved",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNZQ",
+          "name": "docs",
+          "description": "",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACzvTrBQ",
+          "name": "sprint-14",
+          "description": "Cross-project content pipeline",
+          "color": "5319e7"
+        }
+      ],
+      "number": 162,
+      "state": "CLOSED",
+      "title": "Regenerate SCHEMA.md and the README route table, then gate drift in CI",
+      "updatedAt": "2026-09-10T03:47:31Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T10:37:42Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WPWQ",
+          "name": "UAT-approved",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACzvTrBQ",
+          "name": "sprint-14",
+          "description": "Cross-project content pipeline",
+          "color": "5319e7"
+        }
+      ],
+      "number": 161,
+      "state": "CLOSED",
+      "title": "Expose the writing-desk beats as structured JSON",
+      "updatedAt": "2026-09-10T03:47:36Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:47Z",
+      "labels": [],
+      "number": 158,
+      "state": "CLOSED",
+      "title": "Deprecate tier_classifier from production ingestion paths",
+      "updatedAt": "2026-09-04T02:56:59Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:45Z",
+      "labels": [],
+      "number": 157,
+      "state": "CLOSED",
+      "title": "Now-tab bootstrap empty state for fresh installs",
+      "updatedAt": "2026-09-04T02:56:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:44Z",
+      "labels": [],
+      "number": 155,
+      "state": "CLOSED",
+      "title": "Hide legacy standalone nav in embedded Sources iframes",
+      "updatedAt": "2026-09-04T02:56:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:42Z",
+      "labels": [],
+      "number": 152,
+      "state": "CLOSED",
+      "title": "Persist gold-analysis job state in SQLite",
+      "updatedAt": "2026-09-04T02:56:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:41Z",
+      "labels": [],
+      "number": 151,
+      "state": "CLOSED",
+      "title": "Align candidate_miner gold signals with engagement_tier",
+      "updatedAt": "2026-09-04T02:56:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:40Z",
+      "labels": [],
+      "number": 149,
+      "state": "CLOSED",
+      "title": "Operator settings UI for gold_multiplier (1\u201320\u00d7)",
+      "updatedAt": "2026-09-04T02:56:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:38Z",
+      "labels": [],
+      "number": 146,
+      "state": "CLOSED",
+      "title": "Discovery first-run: surface missing WEB_SEARCH_API_KEY in UI",
+      "updatedAt": "2026-09-04T02:56:43Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T02:52:36Z",
+      "labels": [],
+      "number": 144,
+      "state": "CLOSED",
+      "title": "Wire vision pass into Run analysis UI with cost confirm",
+      "updatedAt": "2026-09-04T02:56:41Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:37Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxokyag",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 121,
+      "state": "CLOSED",
+      "title": "Harden the wave qualification gate: calendar exemption trusts a label, and lift baseline is self-contaminated",
+      "updatedAt": "2026-08-22T16:52:45Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:36Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxokyag",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 120,
+      "state": "CLOSED",
+      "title": "Fix carousel re-check in the Drafts UI silently destroying slide content",
+      "updatedAt": "2026-08-22T16:52:43Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbatw",
+          "name": "database",
+          "description": "Schema / migrations / models",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxokyag",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 119,
+      "state": "CLOSED",
+      "title": "Enforce single-draft-per-plan-slot assignment (fixes wrong-draft prediction scoring and audit double-counting)",
+      "updatedAt": "2026-08-22T16:52:42Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:32Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxokyag",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 118,
+      "state": "CLOSED",
+      "title": "Wire voice-fingerprint distillation into production and fix its wall-clock determinism bug",
+      "updatedAt": "2026-08-22T16:52:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-22T16:09:31Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxokyag",
+          "name": "sprint-13",
+          "description": "Sprint 13 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 117,
+      "state": "CLOSED",
+      "title": "Harden the beta-draft personal-fact guardrail against fragmentation, comment contamination, and non-numeric claims",
+      "updatedAt": "2026-08-22T16:52:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:10:41Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLSQ",
+          "name": "question",
+          "description": "Further information is requested",
+          "color": "d876e3"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WPWQ",
+          "name": "UAT-approved",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxa96sg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 116,
+      "state": "CLOSED",
+      "title": "Stage E (video) \u2014 track the trigger condition, do not build yet",
+      "updatedAt": "2026-08-24T07:12:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:10:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLSQ",
+          "name": "question",
+          "description": "Further information is requested",
+          "color": "d876e3"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxa96sg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 115,
+      "state": "CLOSED",
+      "title": "D3 \u2014 FB public groups connector (decision needed before scoping)",
+      "updatedAt": "2026-08-24T05:34:21Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:10:20Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WPWQ",
+          "name": "UAT-approved",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxa96sg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 114,
+      "state": "CLOSED",
+      "title": "candidate_ingest.py's synchronous image-fetch hook adds latency to admin POST routes",
+      "updatedAt": "2026-08-24T07:12:32Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:09:55Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WPWQ",
+          "name": "UAT-approved",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxa96sg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 113,
+      "state": "CLOSED",
+      "title": "Harden #79's voice-guard forbidden-token list against aliased imports and new helper names",
+      "updatedAt": "2026-08-24T07:12:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:09:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WPWQ",
+          "name": "UAT-approved",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxa96sg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 112,
+      "state": "CLOSED",
+      "title": "viral-radar's own UAT server is configured for port 8001 \u2014 same port as the shared commander dashboard",
+      "updatedAt": "2026-08-24T07:12:20Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:09:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WPWQ",
+          "name": "UAT-approved",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxa96sg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 111,
+      "state": "CLOSED",
+      "title": "Fix list_gold_posts_needing_analysis() misnomer \u2014 it selects ALL posts, not gold",
+      "updatedAt": "2026-08-24T07:12:15Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:09:20Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WPWQ",
+          "name": "UAT-approved",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxa96sg",
+          "name": "sprint-12",
+          "description": "Sprint 12 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 110,
+      "state": "CLOSED",
+      "title": "Build scripts/check_no_live_http_in_tests.py \u2014 the no-live-HTTP rule is convention-only, not enforced",
+      "updatedAt": "2026-08-24T07:12:04Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:07:43Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxanscw",
+          "name": "sprint-11",
+          "description": "Sprint 11 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 108,
+      "state": "CLOSED",
+      "title": "M12.3 Add beta draft UI and outcome tagging",
+      "updatedAt": "2026-08-22T13:14:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:07:24Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-xWzw",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbatw",
+          "name": "database",
+          "description": "Schema / migrations / models",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxanscw",
+          "name": "sprint-11",
+          "description": "Sprint 11 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 107,
+      "state": "CLOSED",
+      "title": "M12.2 Add beta prose-draft generation service",
+      "updatedAt": "2026-08-22T13:14:45Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:07:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxanscw",
+          "name": "sprint-11",
+          "description": "Sprint 11 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 106,
+      "state": "CLOSED",
+      "title": "M12.1 Add deterministic voice fingerprint distillation",
+      "updatedAt": "2026-08-22T13:14:43Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:07:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxansNw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 105,
+      "state": "CLOSED",
+      "title": "M11.4 Add criteria self-audit loop and post-linking suggestions",
+      "updatedAt": "2026-08-22T12:50:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:06:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WNhg",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxansNw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 104,
+      "state": "CLOSED",
+      "title": "M11.3 Add deterministic self-repetition/fatigue check",
+      "updatedAt": "2026-08-22T12:50:25Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:06:36Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxaNB4w",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 103,
+      "state": "CLOSED",
+      "title": "M11.2 Disambiguate the three Analysis-tab empty states",
+      "updatedAt": "2026-08-22T11:39:09Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:06:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxaNB4w",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 102,
+      "state": "CLOSED",
+      "title": "M11.1 Add wave qualification gate (lift + freshness)",
+      "updatedAt": "2026-08-22T11:39:07Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:06:13Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxansBQ",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 101,
+      "state": "CLOSED",
+      "title": "M10.4 Add prediction calibration endpoint and Now-tab strip",
+      "updatedAt": "2026-08-22T12:02:19Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:06:11Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxansBQ",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 100,
+      "state": "CLOSED",
+      "title": "M10.3 Score predictions at T+14 via rate_post() extension",
+      "updatedAt": "2026-08-22T12:02:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:05:51Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxansBQ",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 99,
+      "state": "CLOSED",
+      "title": "M10.2 Fold tier prediction into the batch diagnosis call",
+      "updatedAt": "2026-08-22T12:02:14Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:05:49Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbatw",
+          "name": "database",
+          "description": "Schema / migrations / models",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxansBQ",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 98,
+      "state": "CLOSED",
+      "title": "M10.1 Add prediction validation schema and draft_predictions table",
+      "updatedAt": "2026-08-22T12:02:12Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:05:27Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-xWzw",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxaNB4w",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 97,
+      "state": "CLOSED",
+      "title": "M9.6 Build Drafts UI (paste, edit, check, assign, archive)",
+      "updatedAt": "2026-08-22T11:39:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:05:25Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-xWzw",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxaNB4w",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 96,
+      "state": "CLOSED",
+      "title": "M9.5 Add LLM batch diagnosis pass with voice flags (Stage 1)",
+      "updatedAt": "2026-08-22T11:39:16Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:05:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxaNB4w",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 95,
+      "state": "CLOSED",
+      "title": "M9.4 Add mechanical draft-check pass (Stage 0)",
+      "updatedAt": "2026-08-22T11:39:14Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:04:57Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxaNB4w",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 94,
+      "state": "CLOSED",
+      "title": "M9.3 Add draft batch normalizer (JSON array, format auto-detect)",
+      "updatedAt": "2026-08-22T11:39:11Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:04:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbatw",
+          "name": "database",
+          "description": "Schema / migrations / models",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxaNB4w",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 93,
+      "state": "CLOSED",
+      "title": "M9.2 Add drafts and draft_checks tables",
+      "updatedAt": "2026-08-22T11:39:05Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-21T07:04:54Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxaNB4w",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 92,
+      "state": "CLOSED",
+      "title": "M9.1 Add draft-diagnosis validation schema",
+      "updatedAt": "2026-08-22T11:39:03Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T17:28:27Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNZQ",
+          "name": "docs",
+          "description": "",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxaNB4w",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 86,
+      "state": "CLOSED",
+      "title": "Add CLAUDE.md \u2014 agents are told to follow a workflow doc that does not exist",
+      "updatedAt": "2026-08-21T06:40:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T10:09:54Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGh_BQ",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 84,
+      "state": "CLOSED",
+      "title": "M8.5 Outcome scorecard on the Now tab",
+      "updatedAt": "2026-08-21T06:57:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T10:09:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGh_BQ",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 83,
+      "state": "CLOSED",
+      "title": "M8.4 Feed verdicts back into suggestions via explicit rules",
+      "updatedAt": "2026-08-21T06:57:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T10:09:50Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGh_BQ",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 82,
+      "state": "CLOSED",
+      "title": "M8.3 Rate attributed posts at a fixed age with pinned inputs",
+      "updatedAt": "2026-08-21T06:57:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T10:09:48Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGh_BQ",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 81,
+      "state": "CLOSED",
+      "title": "M8.2 Attribute published self posts to template and suggestion",
+      "updatedAt": "2026-08-21T06:57:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T10:09:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbatw",
+          "name": "database",
+          "description": "Schema / migrations / models",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGh_BQ",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 80,
+      "state": "CLOSED",
+      "title": "M8.1 Capture per-post engagement snapshots (forward-only, cannot backfill)",
+      "updatedAt": "2026-08-21T06:57:45Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T09:53:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmMA",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 79,
+      "state": "CLOSED",
+      "title": "M7.3 Voice guard: assert beat evidence is never LLM-generated",
+      "updatedAt": "2026-08-21T05:58:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T09:53:54Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmMA",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmqw",
+          "name": "frontend",
+          "description": "Frontend / UI work",
+          "color": "D4C5F9"
+        }
+      ],
+      "number": 78,
+      "state": "CLOSED",
+      "title": "M7.2 Show gold sentence evidence under each beat in the writing desk",
+      "updatedAt": "2026-08-21T05:58:55Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T09:53:53Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWmMA",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 77,
+      "state": "CLOSED",
+      "title": "M7.1 Beat evidence index across all niche gold posts",
+      "updatedAt": "2026-08-21T05:58:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T09:53:51Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWlwA",
+          "name": "sprint-5",
+          "description": "Sprint 5 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 76,
+      "state": "CLOSED",
+      "title": "M6.3 Surface visual drivers as rows in the analysis matrix",
+      "updatedAt": "2026-08-21T05:58:49Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T09:53:49Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-xWzw",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbatw",
+          "name": "database",
+          "description": "Schema / migrations / models",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWlwA",
+          "name": "sprint-5",
+          "description": "Sprint 5 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 75,
+      "state": "CLOSED",
+      "title": "M6.2 Vision analysis pass: post_visuals with closed vocabulary",
+      "updatedAt": "2026-08-21T05:58:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T09:53:35Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbatw",
+          "name": "database",
+          "description": "Schema / migrations / models",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxGWlwA",
+          "name": "sprint-5",
+          "description": "Sprint 5 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 74,
+      "state": "CLOSED",
+      "title": "M6.1 Cache post image bytes at ingest (URLs expire in ~3-5 days)",
+      "updatedAt": "2026-08-21T05:58:44Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T13:59:30Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNAw",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNZQ",
+          "name": "docs",
+          "description": "",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqIe7wg",
+          "name": "sprint-4.1",
+          "description": "Re-run of sprint-4",
+          "color": "5319E7"
+        }
+      ],
+      "number": 57,
+      "state": "CLOSED",
+      "title": "Sprint 4.1 Executive Summary",
+      "updatedAt": "2026-07-04T14:27:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T11:12:26Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaNQ",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACxaNB4w",
+          "name": "sprint-8",
+          "description": "Sprint 8 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 56,
+      "state": "CLOSED",
+      "title": "[follow-up] Remove unnecessary f-string prefix in suggestions error detail",
+      "updatedAt": "2026-08-21T06:09:16Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T11:07:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNAw",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNZQ",
+          "name": "docs",
+          "description": "",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqGxPaQ",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 55,
+      "state": "CLOSED",
+      "title": "Sprint 4 Executive Summary",
+      "updatedAt": "2026-07-04T14:28:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T04:50:27Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaNQ",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbatw",
+          "name": "database",
+          "description": "Schema / migrations / models",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqGxPaQ",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 53,
+      "state": "CLOSED",
+      "title": "[follow-up] Rename near-identical suggestion schema modules to avoid confusion",
+      "updatedAt": "2026-07-04T14:28:41Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T04:50:25Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaNQ",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqGxPaQ",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "BFDADC"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 52,
+      "state": "CLOSED",
+      "title": "[follow-up] Remove dead _ALLOWED_DAYS constant and unused days param in suggestions service",
+      "updatedAt": "2026-07-04T14:28:42Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T04:50:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-xWzw",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaNQ",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqGxPaQ",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 51,
+      "state": "CLOSED",
+      "title": "[follow-up] Enforce a 'meaningful' threshold on gap-report strength selection",
+      "updatedAt": "2026-07-04T14:28:44Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T04:50:07Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaNQ",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqGxPaQ",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 50,
+      "state": "CLOSED",
+      "title": "[follow-up] Source suggestion format/hook-type options from the niche recipe",
+      "updatedAt": "2026-07-04T14:28:45Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T04:50:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaNQ",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqGxPaQ",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 49,
+      "state": "CLOSED",
+      "title": "[follow-up] Exclude synthetic 'none' bucket from gap report top-gaps and strength",
+      "updatedAt": "2026-07-04T14:28:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T04:50:04Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-xWzw",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaNQ",
+          "name": "follow-up",
+          "description": "Follow-up work from review",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbaXw",
+          "name": "code-review",
+          "description": "Raised during code review",
+          "color": "D4C5F9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFbamg",
+          "name": "backend",
+          "description": "Backend / Python server",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqGxPaQ",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 48,
+      "state": "CLOSED",
+      "title": "[follow-up] Surface Anthropic API failures instead of returning empty suggestions",
+      "updatedAt": "2026-07-04T14:28:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T04:42:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNAw",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNZQ",
+          "name": "docs",
+          "description": "",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFP8vA",
+          "name": "sprint-3.1",
+          "description": "Re-run of sprint-3",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 46,
+      "state": "CLOSED",
+      "title": "Sprint 3.1 Executive Summary",
+      "updatedAt": "2026-07-04T06:33:16Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T17:01:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNAw",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNZQ",
+          "name": "docs",
+          "description": "",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp99lsA",
+          "name": "sprint-3",
+          "description": "Sprint 3 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 44,
+      "state": "CLOSED",
+      "title": "Sprint 3 Executive Summary",
+      "updatedAt": "2026-07-04T07:35:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T12:45:49Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNAw",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNZQ",
+          "name": "docs",
+          "description": "",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp_0Ihw",
+          "name": "sprint-2.1",
+          "description": "Re-run of sprint-2",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 41,
+      "state": "CLOSED",
+      "title": "Sprint 2.1 Executive Summary",
+      "updatedAt": "2026-07-03T15:06:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T12:09:29Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNAw",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNZQ",
+          "name": "docs",
+          "description": "",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp9IBtQ",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "006B75"
+        }
+      ],
+      "number": 40,
+      "state": "CLOSED",
+      "title": "Sprint 2 Executive Summary",
+      "updatedAt": "2026-07-03T15:07:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T09:49:26Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp9IBtQ",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-r5Bw",
+          "name": "split-child",
+          "description": "Created by XL ticket split",
+          "color": "c5def5"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-xWzw",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 39,
+      "state": "CLOSED",
+      "title": "Frontend: niche recipe report UI",
+      "updatedAt": "2026-07-03T15:07:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T09:49:24Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp9IBtQ",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-r5Bw",
+          "name": "split-child",
+          "description": "Created by XL ticket split",
+          "color": "c5def5"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-xWzw",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 38,
+      "state": "CLOSED",
+      "title": "Backend: representative example posts selection for niche recipe",
+      "updatedAt": "2026-07-03T15:07:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T09:49:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-r5Bw",
+          "name": "split-child",
+          "description": "Created by XL ticket split",
+          "color": "c5def5"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-xWzw",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp_0Ihw",
+          "name": "sprint-2.1",
+          "description": "Re-run of sprint-2",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 37,
+      "state": "CLOSED",
+      "title": "Backend: GET /niches/:nicheId/recipe endpoint with equal-weighted aggregation",
+      "updatedAt": "2026-07-03T15:07:32Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T09:41:18Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp9IBtQ",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-r5Bw",
+          "name": "split-child",
+          "description": "Created by XL ticket split",
+          "color": "c5def5"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 36,
+      "state": "CLOSED",
+      "title": "Implement Export as Markdown action for the digest view",
+      "updatedAt": "2026-07-03T15:07:27Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T09:41:16Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp9IBtQ",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-r5Bw",
+          "name": "split-child",
+          "description": "Created by XL ticket split",
+          "color": "c5def5"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-xWzw",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 35,
+      "state": "CLOSED",
+      "title": "Add AI why-summary and niche-based suggested angle to each digest item",
+      "updatedAt": "2026-07-03T15:07:29Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T09:41:14Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-r5Bw",
+          "name": "split-child",
+          "description": "Created by XL ticket split",
+          "color": "c5def5"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp_0Ihw",
+          "name": "sprint-2.1",
+          "description": "Re-run of sprint-2",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 34,
+      "state": "CLOSED",
+      "title": "Add Digest page with time-window filter and gold post list",
+      "updatedAt": "2026-07-03T15:07:33Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T08:11:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNAw",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNZQ",
+          "name": "docs",
+          "description": "",
+          "color": "C2E0C6"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp95Xcw",
+          "name": "sprint-1.3",
+          "description": "Re-run of sprint-1.2",
+          "color": "B60205"
+        }
+      ],
+      "number": 30,
+      "state": "CLOSED",
+      "title": "Sprint 1.3 Executive Summary",
+      "updatedAt": "2026-07-03T09:10:49Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T08:09:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp99lsA",
+          "name": "sprint-3",
+          "description": "Sprint 3 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 29,
+      "state": "CLOSED",
+      "title": "Export kept suggestions as prose-free skeleton drafts",
+      "updatedAt": "2026-07-04T07:35:19Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T08:09:50Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFP8vA",
+          "name": "sprint-3.1",
+          "description": "Re-run of sprint-3",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 28,
+      "state": "CLOSED",
+      "title": "Add AI post suggestion generator from watchlist waves",
+      "updatedAt": "2026-07-04T07:35:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T08:09:48Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFP8vA",
+          "name": "sprint-3.1",
+          "description": "Re-run of sprint-3",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 27,
+      "state": "CLOSED",
+      "title": "Build niche gold gap report for nerdysteps recipe",
+      "updatedAt": "2026-07-04T07:35:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T08:09:47Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqFP8vA",
+          "name": "sprint-3.1",
+          "description": "Re-run of sprint-3",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 26,
+      "state": "CLOSED",
+      "title": "Add self-account ingestion for nerdysteps profile",
+      "updatedAt": "2026-07-04T07:35:29Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T08:09:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp99lsA",
+          "name": "sprint-3",
+          "description": "Sprint 3 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 25,
+      "state": "CLOSED",
+      "title": "Add Discovery Tab with Candidate Review Queue UI",
+      "updatedAt": "2026-07-04T07:35:20Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T08:09:44Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp99lsA",
+          "name": "sprint-3",
+          "description": "Sprint 3 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 24,
+      "state": "CLOSED",
+      "title": "Add auto-profile sampler for candidate evaluation",
+      "updatedAt": "2026-07-04T07:35:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T08:09:42Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp99lsA",
+          "name": "sprint-3",
+          "description": "Sprint 3 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 23,
+      "state": "CLOSED",
+      "title": "Add keyword-driven web-search candidate discovery",
+      "updatedAt": "2026-07-04T07:35:23Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T08:09:40Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp99lsA",
+          "name": "sprint-3",
+          "description": "Sprint 3 issues",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 22,
+      "state": "CLOSED",
+      "title": "Mine candidate accounts from stored posts",
+      "updatedAt": "2026-07-04T07:35:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T06:18:21Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        }
+      ],
+      "number": 21,
+      "state": "CLOSED",
+      "title": "Add on-demand digest view for watchlist gold posts",
+      "updatedAt": "2026-07-03T09:41:23Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T06:18:18Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        }
+      ],
+      "number": 20,
+      "state": "CLOSED",
+      "title": "Add niche recipe report aggregating all watched accounts",
+      "updatedAt": "2026-07-03T09:49:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T06:18:16Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp_0Ihw",
+          "name": "sprint-2.1",
+          "description": "Re-run of sprint-2",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 19,
+      "state": "CLOSED",
+      "title": "Blend AI judgments into Batch 1 recipe card",
+      "updatedAt": "2026-07-03T15:07:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T06:18:15Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp9IBtQ",
+          "name": "sprint-2",
+          "description": "Sprint 2 issues",
+          "color": "006B75"
+        }
+      ],
+      "number": 18,
+      "state": "CLOSED",
+      "title": "Analyze gold posts via Anthropic API with structured JSON output",
+      "updatedAt": "2026-07-03T15:07:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T05:29:21Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqGxPaQ",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "BFDADC"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 17,
+      "state": "CLOSED",
+      "title": "[follow-up] collector-banner.js optional chaining compatibility",
+      "updatedAt": "2026-07-04T14:28:49Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T05:29:19Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqGxPaQ",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "BFDADC"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqG7VOQ",
+          "name": "size-S",
+          "description": "Estimated size S (1\u20135 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 16,
+      "state": "CLOSED",
+      "title": "[follow-up] paste endpoint boolean-to-int conversion inconsistency",
+      "updatedAt": "2026-07-04T14:28:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T05:29:18Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-xWzw",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqIe7wg",
+          "name": "sprint-4.1",
+          "description": "Re-run of sprint-4",
+          "color": "5319E7"
+        }
+      ],
+      "number": 15,
+      "state": "CLOSED",
+      "title": "[follow-up] Migration script brittleness: raw ALTER TABLE without versioning",
+      "updatedAt": "2026-07-04T14:28:54Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T05:29:17Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp-y1DA",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACqGxPaQ",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 14,
+      "state": "CLOSED",
+      "title": "[follow-up] HTTPError response body read twice in Apify integration",
+      "updatedAt": "2026-07-04T14:28:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T05:24:07Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp7zJHg",
+          "name": "sprint-1.1",
+          "description": "Re-run of sprint-1",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNAw",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp8xNZQ",
+          "name": "docs",
+          "description": "",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 12,
+      "state": "CLOSED",
+      "title": "Sprint 1.1 Executive Summary",
+      "updatedAt": "2026-07-03T09:29:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:56:16Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp7zJHg",
+          "name": "sprint-1.1",
+          "description": "Re-run of sprint-1",
+          "color": "5319E7"
+        }
+      ],
+      "number": 11,
+      "state": "CLOSED",
+      "title": "Add cost guard, failure banner, and watchlist row actions",
+      "updatedAt": "2026-07-03T09:30:08Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:56:14Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp7zJHg",
+          "name": "sprint-1.1",
+          "description": "Re-run of sprint-1",
+          "color": "5319E7"
+        }
+      ],
+      "number": 10,
+      "state": "CLOSED",
+      "title": "Add refresh mode to fetch only new posts",
+      "updatedAt": "2026-07-03T09:30:09Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:56:12Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp7zJHg",
+          "name": "sprint-1.1",
+          "description": "Re-run of sprint-1",
+          "color": "5319E7"
+        }
+      ],
+      "number": 9,
+      "state": "CLOSED",
+      "title": "Add resumable backfill mode for watched accounts",
+      "updatedAt": "2026-07-03T09:30:11Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:56:10Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp7zJHg",
+          "name": "sprint-1.1",
+          "description": "Re-run of sprint-1",
+          "color": "5319E7"
+        }
+      ],
+      "number": 8,
+      "state": "CLOSED",
+      "title": "Integrate Apify Facebook Posts actor for data ingestion",
+      "updatedAt": "2026-07-03T09:30:13Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:56:08Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp7zJHg",
+          "name": "sprint-1.1",
+          "description": "Re-run of sprint-1",
+          "color": "5319E7"
+        }
+      ],
+      "number": 7,
+      "state": "CLOSED",
+      "title": "Add Collector abstraction layer for ingestion backends",
+      "updatedAt": "2026-07-03T09:30:14Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:20:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp9FX7A",
+          "name": "sprint-1.2",
+          "description": "Re-run of sprint-1.1",
+          "color": "5319E7"
+        }
+      ],
+      "number": 6,
+      "state": "CLOSED",
+      "title": "Build single-page watchlist and post analyzer UI",
+      "updatedAt": "2026-07-03T09:30:19Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:20:04Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp7zJHg",
+          "name": "sprint-1.1",
+          "description": "Re-run of sprint-1",
+          "color": "5319E7"
+        }
+      ],
+      "number": 5,
+      "state": "CLOSED",
+      "title": "Add recipe card generator for tier-separating features",
+      "updatedAt": "2026-07-03T09:30:15Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:20:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp7zJHg",
+          "name": "sprint-1.1",
+          "description": "Re-run of sprint-1",
+          "color": "5319E7"
+        }
+      ],
+      "number": 4,
+      "state": "CLOSED",
+      "title": "Add per-account post engagement tier classifier",
+      "updatedAt": "2026-07-03T09:30:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:20:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp7zJHg",
+          "name": "sprint-1.1",
+          "description": "Re-run of sprint-1",
+          "color": "5319E7"
+        }
+      ],
+      "number": 3,
+      "state": "CLOSED",
+      "title": "Add account/post data models and paste-batch parser",
+      "updatedAt": "2026-07-03T09:30:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:19:59Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLHg",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp95Xcw",
+          "name": "sprint-1.3",
+          "description": "Re-run of sprint-1.2",
+          "color": "B60205"
+        }
+      ],
+      "number": 2,
+      "state": "CLOSED",
+      "title": "Scaffold viral-radar FastAPI app with SQLite and health endpoint",
+      "updatedAt": "2026-07-03T09:30:21Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:19:46Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WLAA",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WOvA",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4WQ9g",
+          "name": "sprint-1",
+          "description": "",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOTLwy-c8AAAACp4mh8g",
+          "name": "size-XL",
+          "description": "Estimated size XL (>30 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 1,
+      "state": "CLOSED",
+      "title": "Add deterministic nine-feature extractor for posts",
+      "updatedAt": "2026-07-03T09:30:06Z"
+    }
+  ],
+  "prs": [
+    {
+      "assignees": [],
+      "createdAt": "2026-09-10T06:46:34Z",
+      "labels": [],
+      "number": 191,
+      "state": "MERGED",
+      "title": "Promote develop to main",
+      "updatedAt": "2026-09-10T07:22:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-08T09:02:35Z",
+      "labels": [],
+      "number": 174,
+      "state": "MERGED",
+      "title": "Sprint 14: docs for tickets #161-#166",
+      "updatedAt": "2026-09-08T09:59:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T10:05:53Z",
+      "labels": [],
+      "number": 160,
+      "state": "MERGED",
+      "title": "Backlog hardening: #91, #109, #122\u2013#136",
+      "updatedAt": "2026-09-04T10:39:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-04T04:42:01Z",
+      "labels": [],
+      "number": 159,
+      "state": "MERGED",
+      "title": "Operator readiness sprint: Now check, bootstrap, Discovery, vision, tiers",
+      "updatedAt": "2026-09-04T09:55:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-02T10:34:46Z",
+      "labels": [],
+      "number": 141,
+      "state": "MERGED",
+      "title": "DESIGN polish: tokens, Thai wrap, podium rail, zero-median",
+      "updatedAt": "2026-09-04T03:48:21Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-02T10:32:33Z",
+      "labels": [],
+      "number": 140,
+      "state": "MERGED",
+      "title": "IA cleanup: Digest in Sources, shell nav, cache-bust",
+      "updatedAt": "2026-09-04T04:18:19Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-02T10:29:08Z",
+      "labels": [],
+      "number": 139,
+      "state": "MERGED",
+      "title": "Operator safety: paste fallback, cost confirms, voice skeletons",
+      "updatedAt": "2026-09-04T03:48:15Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-09-02T10:23:23Z",
+      "labels": [],
+      "number": 138,
+      "state": "MERGED",
+      "title": "Fix trust-the-numbers scoring (quarantine, Thai, is_self)",
+      "updatedAt": "2026-09-04T03:48:10Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-28T13:57:42Z",
+      "labels": [],
+      "number": 137,
+      "state": "MERGED",
+      "title": "NOW-v9: restructure Now tab \u2014 same features, one screen",
+      "updatedAt": "2026-09-02T02:34:05Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-20T03:51:13Z",
+      "labels": [],
+      "number": 90,
+      "state": "MERGED",
+      "title": "feat: M8.5 outcome scorecard on the Now tab (#84)",
+      "updatedAt": "2026-08-20T03:51:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T18:56:12Z",
+      "labels": [],
+      "number": 89,
+      "state": "MERGED",
+      "title": "feat: feed verdicts back into suggestions via explicit rules (#83)",
+      "updatedAt": "2026-08-20T03:44:12Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T18:10:46Z",
+      "labels": [],
+      "number": 88,
+      "state": "MERGED",
+      "title": "feat: M8.3 Rate attributed posts at a fixed age with pinned inputs (#82)",
+      "updatedAt": "2026-08-19T18:40:19Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T17:33:06Z",
+      "labels": [],
+      "number": 87,
+      "state": "MERGED",
+      "title": "feat: M8.2 Attribute published self posts to template and suggestion (#81)",
+      "updatedAt": "2026-08-19T17:53:32Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T17:11:47Z",
+      "labels": [],
+      "number": 85,
+      "state": "MERGED",
+      "title": "feat: M8.1 capture per-post engagement snapshots (issue #80)",
+      "updatedAt": "2026-08-19T17:49:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T03:58:34Z",
+      "labels": [],
+      "number": 73,
+      "state": "MERGED",
+      "title": "Develop",
+      "updatedAt": "2026-08-19T04:56:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T09:34:39Z",
+      "labels": [],
+      "number": 72,
+      "state": "MERGED",
+      "title": "UX/UI revamp across Now, Sources and Analysis",
+      "updatedAt": "2026-08-19T03:55:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T07:58:36Z",
+      "labels": [],
+      "number": 71,
+      "state": "MERGED",
+      "title": "Unify gold/you/bronze comparison component",
+      "updatedAt": "2026-08-18T07:59:42Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-17T16:37:31Z",
+      "labels": [],
+      "number": 70,
+      "state": "MERGED",
+      "title": "Merge Develop -> Main",
+      "updatedAt": "2026-08-17T16:37:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-17T16:36:37Z",
+      "labels": [],
+      "number": 69,
+      "state": "MERGED",
+      "title": "Rebuild Now and Analysis writing desk UX",
+      "updatedAt": "2026-08-17T16:37:12Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-14T18:00:18Z",
+      "labels": [],
+      "number": 68,
+      "state": "MERGED",
+      "title": "feat: annotated template anatomy and writing-desk Now cards",
+      "updatedAt": "2026-08-14T18:01:03Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-14T16:12:50Z",
+      "labels": [],
+      "number": 67,
+      "state": "MERGED",
+      "title": "feat: Gold vs Bronze anti-patterns on Analysis",
+      "updatedAt": "2026-08-14T16:15:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-14T15:59:03Z",
+      "labels": [],
+      "number": 66,
+      "state": "MERGED",
+      "title": "feat: Cerebras post-brief A/B/C generation API",
+      "updatedAt": "2026-08-14T15:59:44Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-14T08:09:21Z",
+      "labels": [],
+      "number": 65,
+      "state": "MERGED",
+      "title": "feat: Now weekly plan, wave signal, and operator UX polish",
+      "updatedAt": "2026-08-14T09:58:40Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-14T05:40:50Z",
+      "labels": [],
+      "number": 64,
+      "state": "MERGED",
+      "title": "feat: three-tab UI shell with Now API, Sources embeds, and analysis compare views",
+      "updatedAt": "2026-08-14T05:42:35Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-13T17:39:12Z",
+      "labels": [],
+      "number": 63,
+      "state": "MERGED",
+      "title": "feat: candidate hygiene, replicability scorecard, and dual approve paths",
+      "updatedAt": "2026-08-13T17:42:05Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-13T17:19:53Z",
+      "labels": [],
+      "number": 62,
+      "state": "MERGED",
+      "title": "Digest self-gap loop, Claude analysis pipeline, and unified shell",
+      "updatedAt": "2026-08-13T17:20:23Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-13T13:53:26Z",
+      "labels": [],
+      "number": 61,
+      "state": "MERGED",
+      "title": "feat: Analyzer UI revamp + Apify mapping fixes",
+      "updatedAt": "2026-08-13T13:53:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-13T08:07:28Z",
+      "labels": [],
+      "number": 60,
+      "state": "MERGED",
+      "title": "feat: next-stage B\u2013D extras (discovery, waves, questions, fingerprints)",
+      "updatedAt": "2026-08-13T08:38:33Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T14:28:34Z",
+      "labels": [],
+      "number": 59,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-4 \u2192 develop",
+      "updatedAt": "2026-07-04T14:28:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T13:59:35Z",
+      "labels": [],
+      "number": 58,
+      "state": "MERGED",
+      "title": "Sprint sprint-4.1 \u2192 sprint-4 \u2014 0 ticket(s) shipped",
+      "updatedAt": "2026-07-04T14:27:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T07:35:12Z",
+      "labels": [],
+      "number": 54,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-3 \u2192 develop",
+      "updatedAt": "2026-07-04T07:35:16Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T04:46:34Z",
+      "labels": [],
+      "number": 47,
+      "state": "MERGED",
+      "title": "Sprint sprint-3.1 \u2192 sprint-3 \u2014 2 ticket(s) shipped",
+      "updatedAt": "2026-07-04T06:33:15Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-04T04:05:10Z",
+      "labels": [],
+      "number": 45,
+      "state": "MERGED",
+      "title": "Hotfix: move server/UAT port from 8000/8001 to 8642",
+      "updatedAt": "2026-07-04T04:07:40Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T15:07:15Z",
+      "labels": [],
+      "number": 43,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-2 \u2192 develop",
+      "updatedAt": "2026-07-03T15:07:20Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T12:50:09Z",
+      "labels": [],
+      "number": 42,
+      "state": "MERGED",
+      "title": "Sprint sprint-2.1 \u2192 sprint-2 \u2014 1 ticket(s) shipped",
+      "updatedAt": "2026-07-03T15:06:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T09:30:00Z",
+      "labels": [],
+      "number": 33,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-1 \u2192 develop",
+      "updatedAt": "2026-07-03T09:30:05Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T09:10:58Z",
+      "labels": [],
+      "number": 32,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-1.2 \u2192 sprint/sprint-1.1",
+      "updatedAt": "2026-07-03T09:29:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T08:11:12Z",
+      "labels": [],
+      "number": 31,
+      "state": "MERGED",
+      "title": "Sprint sprint-1.3 \u2192 sprint-1.2 \u2014 0 ticket(s) shipped",
+      "updatedAt": "2026-07-03T09:10:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T05:27:36Z",
+      "labels": [],
+      "number": 13,
+      "state": "MERGED",
+      "title": "Sprint sprint-1.1 \u2192 sprint-1 \u2014 8 ticket(s) shipped",
+      "updatedAt": "2026-07-03T09:29:38Z"
+    }
+  ]
+}

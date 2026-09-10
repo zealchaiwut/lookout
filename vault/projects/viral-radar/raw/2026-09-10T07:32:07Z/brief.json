@@ -1,0 +1,22 @@
+{
+  "brief": {
+    "project": "viral-radar",
+    "date": "2026-09-10",
+    "shipped": [],
+    "in_progress": null,
+    "up_next": null,
+    "blocked": [],
+    "kpis": {
+      "sprints_shipped": 0,
+      "tickets_done": 0,
+      "in_progress": false,
+      "in_progress_percent": 0,
+      "needs_you": 0
+    },
+    "recent_activity": [],
+    "ran_overnight": [],
+    "waiting_on_you": [],
+    "suggested_next": []
+  },
+  "sprints_history": []
+}

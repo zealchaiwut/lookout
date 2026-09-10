@@ -74,10 +74,12 @@ Docs recorded in the latest snapshot:
 - `docs/bulk-create/2026-07-02-5-viral-radar-self-analysis.md`
 - `docs/bulk-create/README.md`
 - `docs/changelog/sprint-1.1.md`
+- `docs/changelog/sprint-14.md`
 - `docs/features/README.md`
+- `docs/five-stage-plan.md`
+- `docs/m12-beta-checkpoint.md`
+- `docs/milestones/five-stage-diagnosis-prediction.md`
 - `docs/milestones/next-stage-bcd.md`
-- `docs/milestones/outcome-feedback-loop.md`
-- `docs/milestones/visual-and-beat-evidence.md`
 - `docs/milestones.md`
 - `docs/quickstart.md`
 - `docs/tutorial.md`
