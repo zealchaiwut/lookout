@@ -15,7 +15,7 @@ Seven sections:
   ## One-liner       — single sentence summarising current state
   ## Capacity        — verdict from brief + health
   ## Since last run  — changed fields vs prior snapshot
-  ## What to do next — up to 5 ordered wikilinked items
+  ## What to do next — up to 5 items; wikilinked only when the page exists
   ## From the journal — entries from journal snapshot
   ## Open questions  — unresolved question items
   ## Drift           — top 3 drift signals
@@ -199,14 +199,47 @@ def _plain(text: str) -> str:
     return f"{_PLAIN_ITEM_PREFIX}{text}"
 
 
-def _to_wikilink(title: str) -> str:
+def _vault_page_index(vault_dir: Path | None) -> dict[str, str]:
+    """Map lowercase names to a canonical wikilink target lint can resolve."""
+    index: dict[str, str] = {}
+    if vault_dir is None or not vault_dir.is_dir():
+        return index
+    for path in vault_dir.rglob("*.md"):
+        stem = path.stem
+        rel = str(path.relative_to(vault_dir).with_suffix(""))
+        index.setdefault(stem.lower(), stem)
+        index.setdefault(rel.lower(), rel)
+        index.setdefault(rel.replace("/", " ").lower(), rel)
+    for path in vault_dir.rglob("*"):
+        if path.is_dir() and path != vault_dir:
+            index.setdefault(path.name.lower(), path.name)
+    return index
+
+
+def _to_wikilink(title: str, known_pages: dict[str, str] | None = None) -> str:
+    """Link a next-item only when it names a real vault page.
+
+    Arbitrary titles used to be title-cased into `[[Readme]]` / `[[Docs Todo]]`
+    which lint then rejected. `_plain()` items never link. Unmarked items link
+    only when `known_pages` contains a matching vault note.
+    """
     if title.startswith(_PLAIN_ITEM_PREFIX):
         return title[len(_PLAIN_ITEM_PREFIX):]
-    clean = re.sub(r"[`*_#\[\]]", "", title)
-    clean = re.sub(r"\.(md|json|txt|py|yaml|yml)$", "", clean, flags=re.IGNORECASE)
-    parts = re.split(r"[/\-_\s]+", clean)
-    page = " ".join(p.capitalize() for p in parts if p)
-    return f"[[{page}]]"
+    if known_pages:
+        already = re.fullmatch(r"\[\[([^\]|]+)(?:\|[^\]]*)?\]\]", title.strip())
+        if already:
+            target = already.group(1).strip()
+            canonical = known_pages.get(target.lower())
+            return f"[[{canonical}]]" if canonical else target
+        clean = re.sub(r"[`*_#\[\]]", "", title)
+        clean = re.sub(r"\.(md|json|txt|py|yaml|yml)$", "", clean, flags=re.IGNORECASE)
+        parts = re.split(r"[/\-_\s]+", clean)
+        page = " ".join(p.capitalize() for p in parts if p)
+        for key in (page, title, clean):
+            canonical = known_pages.get(key.lower())
+            if canonical:
+                return f"[[{canonical}]]"
+    return title
 
 
 # Keys a Commander brief may carry forward work under. The first five are the
@@ -280,7 +313,7 @@ def _collect_next_items(
             if status not in ("done", "completed", "archived", "closed"):
                 title = todo.get("title", "")
                 if title:
-                    items.append(title)
+                    items.append(_plain(title))
 
     # From changed doc files. These are paths in the *target* repo
     # (README.md, docs/todo.md, …), not vault notes — wikilinking them
@@ -657,7 +690,9 @@ def synthesize(target_name: str, vault_dir: Path | None = None) -> Path:
     capacity = _capacity_verdict(manifest, brief_json, issues_data)
     since_last_run = _diff_manifests(manifest, prev_manifest) if prev_manifest else []
     next_raw = _collect_next_items(brief_data, notion_todos, docs_manifest, issues_data)
-    what_to_do_next = [_to_wikilink(item) for item in next_raw]
+    what_to_do_next = [
+        _to_wikilink(item, _vault_page_index(vault_dir)) for item in next_raw
+    ]
     journal = _build_journal_lines(journal_entries)
     open_questions = _build_open_questions(issues_data, journal_entries)
     drift_md_path = project_dir / "drift.md"

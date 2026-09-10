@@ -25,6 +25,7 @@ The following file types are owned and written by the agent pipeline. Human cont
 - **ideas ledger** — aggregated idea entries across targets
 - **assessment blocks** — scored evaluation blocks for capabilities
 - **packs** — bundled export sets for downstream consumption
+- **sweep-status** — last `lookout --all` result per target, including consecutive failure counts
 
 ## Human-Owned File Types
 

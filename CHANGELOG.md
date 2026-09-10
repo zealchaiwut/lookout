@@ -5,6 +5,10 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
 
 ## Unreleased
 
+- #99: Stop inventing vault wikilinks from doc paths, and record consecutive
+  `--all` failures in `vault/sweep-status.md` so a dropped target is visible
+  without reading the log.
+
 - Render Read surfaces as a 3-column table (API name, API, example → documented response).
 - Per-project `flow.md` (lifecycle from `docs/workflow.md`, sitemap from atlas + docs) and `changelog.md` (merged PRs joined to atlas issues).
 - Ideas ledger shows which project an idea belongs to; sidebar groups Ideas and Journal under Fleet.
