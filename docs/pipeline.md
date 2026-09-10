@@ -27,7 +27,9 @@ targets.yaml ─┐
                                                   └───────────┘
 ```
 
-**gather writes evidence. derive writes notes. Nothing else writes to the vault.**
+**gather writes evidence. derive writes notes.** `lookout --all` also writes
+`vault/sweep-status.md` after the fleet run so a repeating per-target failure
+is visible without opening the log.
 
 Evidence lives under `vault/projects/<target>/raw/<timestamp>/` and is the sole
 source of truth for machine notes (`vault/agents.md`). Derived notes sit one
@@ -76,7 +78,7 @@ the exit code.
 | Command | Runs | Commits |
 |---|---|---|
 | `bin/lookout <target>` | gather → derive (per-target + vault-wide) → lint → commit | yes |
-| `bin/lookout --all` | the above for every target in `targets.yaml`, vault-wide once at the end | yes, per target |
+| `bin/lookout --all` | the above for every target in `targets.yaml`, vault-wide once at the end, then `vault/sweep-status.md` | yes, per target; sweep-status committed separately |
 | `python derive.py <target>` | derive only, per-target + vault-wide | no |
 | `python derive.py <target> --skip-vault-wide` | per-target derive only | no |
 | `python derive.py --vault-only` | vault-wide derive only | no |
@@ -128,14 +130,23 @@ every target. There is no retention policy yet.
 
 **Machine vs human ownership** is defined in `vault/agents.md` and enforced by
 `lint.py`. Machine-owned: situation, capability body, drift, todo-view, flow,
-changelog, discovery, atlas, indexes, ideas ledger, assessment blocks, packs.
+changelog, discovery, atlas, indexes, ideas ledger, assessment blocks, packs,
+sweep-status.
 Human-owned: notes, learning, decisions, `agents.md`, idea freeform tops, and
 `map.md`'s Pipelines section.
 
 **Lint gates the commit.** `lint.py` runs after derive so it validates this run's
 output. Ten check families; a wikilink that cannot resolve is a hard failure.
 This is why issue-sourced "What to do next" items render as plain `#N — title`
-references rather than wikilinks: an issue has no page in the vault.
+references rather than wikilinks: an issue has no page in the vault. Doc paths
+and other titles that do not name a vault note stay plain text for the same
+reason — `_to_wikilink` only emits `[[...]]` when the page exists.
+
+`--all` records the per-target outcome in `vault/sweep-status.md` (and
+`vault/sweep-status.json`) after every fleet run, including consecutive failure
+counts, and prints a `repeating failures` block when any target has failed twice
+or more in a row. A lint failure also prints the linter's own output rather
+than collapsing to `lint failed (exit 1)`.
 
 ---
 

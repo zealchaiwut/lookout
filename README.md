@@ -73,7 +73,9 @@ version: register it in `targets.yaml`, add it to `vault/index.md`, run
 ## Nightly runner
 
 `lookout --all` iterates every registered target, tolerates per-target failures,
-and prints a status summary. Exit code is non-zero if any target failed.
+and prints a status summary. Exit code is non-zero if any target failed. Repeated
+failures are counted in `vault/sweep-status.md` so a target that has been
+dropping out of the nightly sweep is visible without reading the log.
 
 Install the launchd job (fires 06:15 local, `StartOnMount` for wake catch-up):
 

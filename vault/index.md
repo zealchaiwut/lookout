@@ -20,3 +20,4 @@
 
 - [map.md](map.md) — machine-generated capability map (producer→consumer edges)
 - [atlas-coverage.md](atlas-coverage.md) — which atlas features are traced, and what blocks the rest
+- [sweep-status.md](sweep-status.md) — last `--all` result and consecutive per-target failures
