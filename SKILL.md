@@ -657,12 +657,12 @@ with no open questions, used by tests to verify end-to-end tracing correctness.
 ## `atlas-seed` — Atlas Seeding Bootstrap
 
 **Module:** `atlas_seed.py`  
-**Public API:** `extract_features(readme_text, docs_features_text)` → `list[dict]`  
-**Seeder:** `seed(target, vault_dir, readme_text, docs_features_text)` → `None`
+**Public API:** `extract_features(readme_text, docs_features_text, product_text=None)` → `list[dict]`  
+**Seeder:** `seed(target, vault_dir, readme_text, docs_features_text, product_text=None)` → `None`
 
 ### What it does
 
-Derives the initial feature list for a named target from two source texts and
+Derives the initial feature list for a named target from source texts and
 bootstraps the atlas directory so tracing can begin from a single command
 rather than a blank page:
 
@@ -672,11 +672,18 @@ rather than a blank page:
 | README `## Features` — subheadings | `### Feature Name (issue #N)`; the issue suffix is stripped |
 | README `## Features` — table rows | `\| **Feature Name** \| what it does \| docs \|` |
 | `docs/features/` headings | `## Heading` lines (skips generic titles like "Overview") |
+| `PRODUCT.md` — core concepts | `- **Watchlist** — …` under `## Core concepts` |
+| `PRODUCT.md` — priority jobs | `1. **Find the wave.** …` under `## What this tool must do` |
+| `PRODUCT.md` — milestones | Batch column of the milestones table |
 
-The section ends at the next sibling `## ` heading — a `###` inside it is a
-feature, not a terminator.
+PRODUCT.md is the fallback for targets that never grew a README Features section
+(viral-radar). The local clone is preferred when `targets.yaml` has a `local:`
+path; otherwise content is fetched via `gh api`.
 
-Features appearing in both sources are deduplicated by their kebab-case slug.
+The README Features section ends at the next sibling `## ` heading — a `###`
+inside it is a feature, not a terminator.
+
+Features appearing in multiple sources are deduplicated by their kebab-case slug.
 
 ### Output
 

@@ -5,6 +5,13 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
 
 ## Unreleased
 
+- Seed atlas features from `PRODUCT.md` (core concepts, jobs, milestones) when
+  a target has no README Features section; prefer the local clone over GitHub.
+- Prefer a feature-named source file when the matching test walks the whole app
+  past the diagram file limit (unlocks niche-recipe / wave-signal traces).
+- Seeded viral-radar atlas from PRODUCT.md + code-aligned human features;
+  coverage 0% → 48% (11 of 23 traced).
+
 - #99: Stop inventing vault wikilinks from doc paths, and record consecutive
   `--all` failures in `vault/sweep-status.md` so a dropped target is visible
   without reading the log.

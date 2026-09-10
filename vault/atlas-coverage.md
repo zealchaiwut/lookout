@@ -12,8 +12,8 @@ A feature is traceable when the target repository has a test or source file name
 | commander | 8 | 30 | 38 | 21% |
 | crux | 0 | 0 | 0 | — |
 | perf-coach | 34 | 85 | 119 | 29% |
-| viral-radar | 0 | 0 | 0 | — |
-| **Fleet** | **44** | **141** | **185** | **24%** |
+| viral-radar | 11 | 12 | 23 | 48% |
+| **Fleet** | **55** | **153** | **208** | **26%** |
 
 ## Blocked features
 
@@ -61,7 +61,7 @@ Each row names what would give tracing a way in. Most need a feature-named test;
 | Concurrent multi-coder dispatch | no entry point | add `tests/test_concurrent_multi_coder_dispatch.py` |
 | Cost tab | entry imports nothing local | make `tests/test_689__replace_bare_except_token_cost.py` import the modules it exercises |
 | Cross-run log search | no entry point | add `tests/test_cross_run_log_search.py` |
-| Daily Brief | entry imports nothing local | make `tests/test_842__home_daily_brief.py` import the modules it exercises |
+| Daily Brief | entry imports nothing local | make `tests/test_2257__delete_brief_caching_daily_report.py` import the modules it exercises |
 | Dashboard | entry imports nothing local | make `tests/test_629__instrument_dashboard_routes_events.py` import the modules it exercises |
 | Editable env paths | entry imports nothing local | make `tests/test_643__editable_env_paths.py` import the modules it exercises |
 | Env-var editor | entry imports nothing local | make `tests/test_727__env_var_editor.py` import the modules it exercises |
@@ -79,7 +79,7 @@ Each row names what would give tracing a way in. Most need a feature-named test;
 | Project To-Dos | no entry point | add `tests/test_project_to_dos.py` |
 | Run Browser | entry imports nothing local | make `tests/test_783__run_browser.py` import the modules it exercises |
 | Sprint file archive | no entry point | add `tests/test_sprint_file_archive.py` |
-| Sprint Manager | entry imports nothing local | make `tests/test_1275__extract_sprint_manager_event_emission.py` import the modules it exercises |
+| Sprint Manager | entry imports nothing local | make `tests/test_sprint_manager_dual_write.py` import the modules it exercises |
 | Sprint Workspace | no entry point | add `tests/test_sprint_workspace.py` |
 | Structured Logging | entry imports nothing local | make `tests/test_unify_structured_logging__784.py` import the modules it exercises |
 | Unified structured logging | no entry point | add `tests/test_unified_structured_logging.py` |
@@ -174,4 +174,21 @@ Each row names what would give tracing a way in. Most need a feature-named test;
 | Weekly habits widget | entry imports nothing local | make `tests/test_weekly_habits_progress_widget__391.py` import the modules it exercises |
 | Weight-trend rate with a confidence interval | no entry point | add `tests/test_weight_trend_rate_with_a_confidence_interval.py` |
 | Zone 2 tracking | no entry point | add `tests/test_zone_2_tracking.py` |
+
+### viral-radar
+
+| Feature | Why | What would unlock it |
+|---|---|---|
+| AI "why" layer | no entry point | add `tests/test_ai_why_layer.py` |
+| Apify collector | no entry point | add `tests/test_apify_collector.py` |
+| Core engine (multi-account, paste-fed) | no entry point | add `tests/test_core_engine_multi_account_paste_fed.py` |
+| Discovery | entry imports nothing local | make `tests/test_discovery_queries_antimodel__b1b3.py` import the modules it exercises |
+| Find the wave | no entry point | add `tests/test_find_the_wave.py` |
+| Protect the voice | no entry point | add `tests/test_protect_the_voice.py` |
+| Prove the recipe | no entry point | add `tests/test_prove_the_recipe.py` |
+| Quarantine | no entry point | add `tests/test_quarantine.py` |
+| Recipe card | no entry point | add `tests/test_recipe_card.py` |
+| Self-analysis | no entry point | add `tests/test_self_analysis.py` |
+| Tiers | no entry point | add `tests/test_tiers.py` |
+| watchlist-analyzer | entry imports nothing local | make `tests/test_watchlist_analyzer__6.py` import the modules it exercises |
 

@@ -634,27 +634,32 @@ def _find_entry_point_for_feature(
 
     Candidates are tried most-specific first (see _candidate_entry_points) and
     each is *evaluated* rather than trusted: a candidate is accepted only if
-    tracing it reaches at least one non-test implementation file.
-
-    That check matters. A test driving the app through FastAPI's TestClient
-    imports nothing local, so it resolves as an entry point and then traces to
-    nothing — `test_content_queue__101.py` does exactly this. Without
-    evaluation the note would claim an origin and show an empty diagram.
-
-    When no candidate traces to anything, the first candidate is returned so the
-    note can name what was attempted; generate_note records the open question.
+    tracing it reaches at least one non-test implementation file *and* stays
+    under `_MAX_DIAGRAM_FILES`. An over-broad test that imports the whole app
+    used to win here and then produce an empty diagram in `generate_note`;
+    skipping it lets a source file named for the feature (e.g.
+    `services/niche_recipe.py`) take over.
     """
     source_dir = Path(source_dir)
     candidates = _candidate_entry_points(feature_slug, feature_name, source_dir)
     if not candidates:
         return None
 
+    first_with_real: Path | None = None
     for candidate in candidates:
         traced, _routes, _tables = _trace_imports(candidate, source_dir)
         real = [f for f in traced if not _is_test_path(f, source_dir)]
-        if real:
+        if not real:
+            continue
+        if first_with_real is None:
+            first_with_real = candidate
+        if len(real) <= _MAX_DIAGRAM_FILES:
             return str(candidate.relative_to(source_dir))
 
+    # Every candidate that reached real files was over-broad. Name the first so
+    # generate_note can record the open question against something concrete.
+    if first_with_real is not None:
+        return str(first_with_real.relative_to(source_dir))
     return str(candidates[0].relative_to(source_dir))
 
 

@@ -107,12 +107,22 @@ def test_entry_point_that_imports_nothing_local_yields_no_diagram(repo):
     assert "OPEN QUESTION" in note
 
 
-def test_selection_prefers_a_candidate_that_reaches_real_files(repo):
-    ep = atlas_trace._find_entry_point_for_feature("widget-flow", "Widget Flow", repo)
-    assert ep == "tests/test_widget_flow.py"
+def test_selection_skips_over_broad_test_for_named_source(tmp_path, monkeypatch):
+    """A test that pulls in the whole app must lose to a feature-named source."""
+    repo = tmp_path / "proj"
+    (repo / "tests").mkdir(parents=True)
+    (repo / "services").mkdir(parents=True)
+    (repo / "services" / "niche_recipe.py").write_text("import settings\n")
+    (repo / "settings.py").write_text("X = 1\n")
+    # Over-broad test: imports many modules so the walk exceeds the limit.
+    fat = "\n".join(f"import m{i}" for i in range(10))
+    for i in range(10):
+        (repo / f"m{i}.py").write_text("pass\n")
+    (repo / "tests" / "test_niche_recipe__37.py").write_text(fat + "\n")
+    monkeypatch.setattr(atlas_trace, "_MAX_DIAGRAM_FILES", 3)
+    ep = atlas_trace._find_entry_point_for_feature("niche-recipe", "niche-recipe", repo)
+    assert ep == "services/niche_recipe.py"
 
-
-# --- output rules ----------------------------------------------------------
 
 def test_test_files_do_not_appear_in_the_diagram_or_key_files(repo):
     note = atlas_trace.generate_note(
