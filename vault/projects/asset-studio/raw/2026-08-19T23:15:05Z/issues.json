@@ -1,0 +1,4919 @@
+{
+  "issues": [
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6snRg",
+          "name": "size-S",
+          "description": "Estimated size S (1-5 min)",
+          "color": "0075CA"
+        }
+      ],
+      "number": 184,
+      "state": "OPEN",
+      "title": "Measure the Accounts screen with a width sweep the design pass could not run",
+      "updatedAt": "2026-08-19T11:35:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:54Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 183,
+      "state": "OPEN",
+      "title": "Native alert() and prompt() survive in the Carousel and deprecated views",
+      "updatedAt": "2026-08-19T11:35:54Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6snRg",
+          "name": "size-S",
+          "description": "Estimated size S (1-5 min)",
+          "color": "0075CA"
+        }
+      ],
+      "number": 182,
+      "state": "OPEN",
+      "title": "Asset card names show a clipped third line under the two-line clamp",
+      "updatedAt": "2026-08-19T11:35:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:51Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6snRg",
+          "name": "size-S",
+          "description": "Estimated size S (1-5 min)",
+          "color": "0075CA"
+        }
+      ],
+      "number": 181,
+      "state": "OPEN",
+      "title": "PRODUCT.md promises 4:5 output while the export default is 1:1",
+      "updatedAt": "2026-08-19T11:35:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:40Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6snRg",
+          "name": "size-S",
+          "description": "Estimated size S (1-5 min)",
+          "color": "0075CA"
+        }
+      ],
+      "number": 180,
+      "state": "OPEN",
+      "title": "Generate modal polls the jobs list every two seconds behind a collapsed disclosure",
+      "updatedAt": "2026-08-19T11:35:40Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:38Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 179,
+      "state": "OPEN",
+      "title": "Hard-coded colours in the Magnific and chart-editor modals ignore the theme",
+      "updatedAt": "2026-08-19T11:35:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:36Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 178,
+      "state": "OPEN",
+      "title": "Slide filmstrip rebuilds its markup on every selection and drops keyboard focus",
+      "updatedAt": "2026-08-19T11:35:36Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 177,
+      "state": "OPEN",
+      "title": "Decide the caption step: restore it or remove its hidden markup",
+      "updatedAt": "2026-08-19T11:35:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:32Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVKOSQ",
+          "name": "size-XL",
+          "description": "Estimated size XL (>30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 176,
+      "state": "OPEN",
+      "title": "One account record has two editors that validate differently",
+      "updatedAt": "2026-08-19T11:35:32Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6snRg",
+          "name": "size-S",
+          "description": "Estimated size S (1-5 min)",
+          "color": "0075CA"
+        }
+      ],
+      "number": 175,
+      "state": "OPEN",
+      "title": "Modal title and close glyph sit off the shared type scale",
+      "updatedAt": "2026-08-19T11:35:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:20Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrctPsg",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 174,
+      "state": "OPEN",
+      "title": "Replace the raw JSON action-preset editor with a structured row editor",
+      "updatedAt": "2026-08-19T11:35:20Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:17Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrctPsg",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 173,
+      "state": "OPEN",
+      "title": "Serve library thumbnails instead of full-resolution originals",
+      "updatedAt": "2026-08-19T11:35:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:35:15Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrctPsg",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 172,
+      "state": "OPEN",
+      "title": "App shell has no h1 and no landmark structure",
+      "updatedAt": "2026-08-19T11:35:15Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:46:18Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smtg",
+          "name": "sprint-12",
+          "description": "Sprint 12 - UX review P1",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6snRg",
+          "name": "size-S",
+          "description": "Estimated size S (1-5 min)",
+          "color": "0075CA"
+        }
+      ],
+      "number": 167,
+      "state": "OPEN",
+      "title": "Add ARIA tab semantics to the main nav and the Asset Creation subtabs",
+      "updatedAt": "2026-08-19T11:33:54Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:46:16Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smtg",
+          "name": "sprint-12",
+          "description": "Sprint 12 - UX review P1",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 166,
+      "state": "OPEN",
+      "title": "Button hierarchy is inverted and 13 icon buttons have no accessible name",
+      "updatedAt": "2026-08-18T08:46:16Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:46:13Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smtg",
+          "name": "sprint-12",
+          "description": "Sprint 12 - UX review P1",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6snRg",
+          "name": "size-S",
+          "description": "Estimated size S (1-5 min)",
+          "color": "0075CA"
+        }
+      ],
+      "number": 165,
+      "state": "OPEN",
+      "title": "Show binding state on the Asset Creation tab",
+      "updatedAt": "2026-08-18T08:46:13Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:46:11Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smtg",
+          "name": "sprint-12",
+          "description": "Sprint 12 - UX review P1",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 164,
+      "state": "OPEN",
+      "title": "Carousel asset strips rebuild and re-download full-size images on every slide switch",
+      "updatedAt": "2026-08-19T11:36:12Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:46:09Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smtg",
+          "name": "sprint-12",
+          "description": "Sprint 12 - UX review P1",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6snRg",
+          "name": "size-S",
+          "description": "Estimated size S (1-5 min)",
+          "color": "0075CA"
+        }
+      ],
+      "number": 163,
+      "state": "OPEN",
+      "title": "Remove or restore the dead in-Carousel background upload path",
+      "updatedAt": "2026-08-18T08:46:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:46:07Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smtg",
+          "name": "sprint-12",
+          "description": "Sprint 12 - UX review P1",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 162,
+      "state": "OPEN",
+      "title": "Support multi-file, drag-and-drop and paste upload into asset sets",
+      "updatedAt": "2026-08-18T08:46:07Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:46:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smtg",
+          "name": "sprint-12",
+          "description": "Sprint 12 - UX review P1",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 161,
+      "state": "OPEN",
+      "title": "Background and logo sets cannot be deleted",
+      "updatedAt": "2026-08-18T08:46:05Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:46:03Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smtg",
+          "name": "sprint-12",
+          "description": "Sprint 12 - UX review P1",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 160,
+      "state": "OPEN",
+      "title": "Persist and reuse generation prompts",
+      "updatedAt": "2026-08-19T11:33:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:46:01Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smtg",
+          "name": "sprint-12",
+          "description": "Sprint 12 - UX review P1",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 159,
+      "state": "OPEN",
+      "title": "Allow cancelling a running Magnific generation job",
+      "updatedAt": "2026-08-18T08:46:49Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:46:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smtg",
+          "name": "sprint-12",
+          "description": "Sprint 12 - UX review P1",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6snRg",
+          "name": "size-S",
+          "description": "Estimated size S (1-5 min)",
+          "color": "0075CA"
+        }
+      ],
+      "number": 158,
+      "state": "OPEN",
+      "title": "Asset panel empty states are dead sentences, not calls to action",
+      "updatedAt": "2026-08-19T11:33:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:45:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smtg",
+          "name": "sprint-12",
+          "description": "Sprint 12 - UX review P1",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 157,
+      "state": "OPEN",
+      "title": "Replace window.prompt() set creation with an in-app modal",
+      "updatedAt": "2026-08-19T11:33:49Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:45:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smtg",
+          "name": "sprint-12",
+          "description": "Sprint 12 - UX review P1",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 156,
+      "state": "OPEN",
+      "title": "Asset panel status messages are destroyed by their own re-render and announced to no one",
+      "updatedAt": "2026-08-19T11:33:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:45:55Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smOw",
+          "name": "sprint-11",
+          "description": "Sprint 11 - UX review P0",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 155,
+      "state": "OPEN",
+      "title": "Contrast token pass: borders, disabled states, and the light theme fail WCAG AA",
+      "updatedAt": "2026-08-19T11:33:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:45:53Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrctPsg",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smOw",
+          "name": "sprint-11",
+          "description": "Sprint 11 - UX review P0",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 154,
+      "state": "OPEN",
+      "title": "Make asset selection keyboard-operable and give focus a visible style",
+      "updatedAt": "2026-08-19T11:33:45Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:45:51Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrctPsg",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smOw",
+          "name": "sprint-11",
+          "description": "Sprint 11 - UX review P0",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 153,
+      "state": "OPEN",
+      "title": "Background uploads: validate dimensions client-side and show the 4:5 crop that will be applied",
+      "updatedAt": "2026-08-18T08:45:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:45:49Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smOw",
+          "name": "sprint-11",
+          "description": "Sprint 11 - UX review P0",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 152,
+      "state": "OPEN",
+      "title": "Carousel asset pickers show stale bindings, dead empty states, and the wrong set's contents",
+      "updatedAt": "2026-08-18T08:46:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:45:47Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrctPsg",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smOw",
+          "name": "sprint-11",
+          "description": "Sprint 11 - UX review P0",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 151,
+      "state": "OPEN",
+      "title": "Bind asset sets without leaving the Carousel: add a Bindings tab to the Edit account modal",
+      "updatedAt": "2026-08-18T08:46:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:45:46Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrctPsg",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smOw",
+          "name": "sprint-11",
+          "description": "Sprint 11 - UX review P0",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 150,
+      "state": "OPEN",
+      "title": "Make library asset deletion safe: verify the response, warn on usage, stop hard-unlinking",
+      "updatedAt": "2026-08-18T08:45:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:45:44Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lIg",
+          "name": "bug",
+          "description": "Something isn't working",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrctPsg",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smOw",
+          "name": "sprint-11",
+          "description": "Sprint 11 - UX review P0",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 149,
+      "state": "OPEN",
+      "title": "Generate jobs must survive modal close, block double-submit, and report partial failures",
+      "updatedAt": "2026-08-18T08:46:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T10:14:14Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 140,
+      "state": "OPEN",
+      "title": "[follow-up] A leaked Path.stat patch crashes pytest at session finish",
+      "updatedAt": "2026-07-30T10:14:14Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T10:13:57Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 139,
+      "state": "OPEN",
+      "title": "[follow-up] Tests write real flows into flows/ and never clean up",
+      "updatedAt": "2026-07-30T11:07:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T09:57:41Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 137,
+      "state": "OPEN",
+      "title": "Manual engagement log \u2014 Posted tab, entry form, tier badges",
+      "updatedAt": "2026-07-30T10:42:40Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T09:57:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 136,
+      "state": "OPEN",
+      "title": "Manual engagement log \u2014 median-relative tier + performance report",
+      "updatedAt": "2026-07-30T10:42:38Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T09:57:03Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 135,
+      "state": "OPEN",
+      "title": "Manual engagement log \u2014 store performance on a v2 flow",
+      "updatedAt": "2026-07-30T10:42:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-19T17:02:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 134,
+      "state": "OPEN",
+      "title": "Sprint 9 Executive Summary",
+      "updatedAt": "2026-07-19T17:02:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-13T13:38:46Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 125,
+      "state": "OPEN",
+      "title": "[follow-up] stat.html dark background contradicts pastel brand framing in AC",
+      "updatedAt": "2026-07-13T13:38:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-12T04:41:31Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 111,
+      "state": "OPEN",
+      "title": "[follow-up] Unused account param in build_character_prompt",
+      "updatedAt": "2026-07-19T16:39:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T18:10:41Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 106,
+      "state": "OPEN",
+      "title": "[follow-up] Hoist repeated inner 'import json' to module level in characters_cutouts",
+      "updatedAt": "2026-07-19T16:39:20Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T18:10:39Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 105,
+      "state": "OPEN",
+      "title": "[follow-up] Remove unused slot_map in validate_texts",
+      "updatedAt": "2026-07-19T16:39:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T18:10:36Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6nug",
+          "name": "needs-rework",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 103,
+      "state": "OPEN",
+      "title": "[follow-up] Slide-editor state not restored on browser refresh (AC6)",
+      "updatedAt": "2026-07-19T17:02:23Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T11:28:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6nug",
+          "name": "needs-rework",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 62,
+      "state": "OPEN",
+      "title": "[follow-up] /api/suggest slides field has no server-side upper bound",
+      "updatedAt": "2026-07-19T16:51:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:29:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 33,
+      "state": "OPEN",
+      "title": "[follow-up] Log swallowed exception when logo compositing fails",
+      "updatedAt": "2026-07-19T16:39:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:29:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 32,
+      "state": "OPEN",
+      "title": "[follow-up] Declare python-dotenv explicitly in requirements.txt",
+      "updatedAt": "2026-07-19T16:33:16Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:28:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 31,
+      "state": "OPEN",
+      "title": "[follow-up] Reconcile server default port (7001 vs 8000) across code, docs, and UAT test",
+      "updatedAt": "2026-07-19T16:27:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:28:54Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6nug",
+          "name": "needs-rework",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 29,
+      "state": "OPEN",
+      "title": "[follow-up] Validate hex colors in compose request to avoid HTTP 500 on invalid input",
+      "updatedAt": "2026-07-19T16:23:22Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:28:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 28,
+      "state": "OPEN",
+      "title": "[follow-up] Enforce vertical safe margins / prevent bottom-edge content clipping in compositor",
+      "updatedAt": "2026-07-19T16:05:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:28:50Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6nug",
+          "name": "needs-rework",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 27,
+      "state": "OPEN",
+      "title": "[follow-up] Surface an error/warning when requested font is unavailable (no silent default fallback)",
+      "updatedAt": "2026-07-19T15:49:57Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:28:49Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 26,
+      "state": "OPEN",
+      "title": "[follow-up] Cache resolved fonts in compositor to protect <5s render budget",
+      "updatedAt": "2026-07-19T16:39:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:26Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 16,
+      "state": "OPEN",
+      "title": "[follow-up] Add API key validation to MysticClient constructor",
+      "updatedAt": "2026-07-19T16:39:28Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:25Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsZ0_QA",
+          "name": "sprint-9",
+          "description": "Sprint 9 issues",
+          "color": "BFDADC"
+        }
+      ],
+      "number": 15,
+      "state": "OPEN",
+      "title": "[follow-up] Improve exception handling in Magnific pipeline subprocess calls",
+      "updatedAt": "2026-07-19T15:41:03Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:21Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACsaRStw",
+          "name": "sprint-10",
+          "description": "Sprint 10 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 13,
+      "state": "OPEN",
+      "title": "[follow-up] Improve file upload error feedback in settings modal",
+      "updatedAt": "2026-07-19T16:39:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T08:45:42Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6mZQ",
+          "name": "backlog",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACw6smOw",
+          "name": "sprint-11",
+          "description": "Sprint 11 - UX review P0",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 148,
+      "state": "CLOSED",
+      "title": "Show Magnific credit cost before generating logos or backgrounds",
+      "updatedAt": "2026-08-19T11:34:02Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-14T08:35:35Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrolmuQ",
+          "name": "sprint-8.1",
+          "description": "Re-run of sprint-8",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 127,
+      "state": "CLOSED",
+      "title": "Sprint 8.1 Executive Summary",
+      "updatedAt": "2026-07-14T08:39:31Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-14T08:21:40Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrnRfFg",
+          "name": "sprint-8",
+          "description": "Sprint 8",
+          "color": "006B75"
+        }
+      ],
+      "number": 126,
+      "state": "CLOSED",
+      "title": "Sprint 8 Executive Summary",
+      "updatedAt": "2026-07-14T08:39:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-13T13:38:44Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrnRfFg",
+          "name": "sprint-8",
+          "description": "Sprint 8",
+          "color": "006B75"
+        }
+      ],
+      "number": 124,
+      "state": "CLOSED",
+      "title": "[follow-up] Slide image upload slot_key is unvalidated in filesystem path",
+      "updatedAt": "2026-07-14T08:39:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-13T13:38:42Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrolmuQ",
+          "name": "sprint-8.1",
+          "description": "Re-run of sprint-8",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 123,
+      "state": "CLOSED",
+      "title": "[follow-up] Import engine _MAX_CHARS diverges from template manifests",
+      "updatedAt": "2026-07-14T08:40:01Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-13T13:38:40Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrnRfFg",
+          "name": "sprint-8",
+          "description": "Sprint 8",
+          "color": "006B75"
+        }
+      ],
+      "number": 122,
+      "state": "CLOSED",
+      "title": "[follow-up] Import engine duplicate-slot-key detection never fires",
+      "updatedAt": "2026-07-14T08:39:50Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-13T13:30:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrgcCxA",
+          "name": "sprint-7.2",
+          "description": "Re-run of sprint-7.1",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 120,
+      "state": "CLOSED",
+      "title": "Sprint 7.2 Executive Summary",
+      "updatedAt": "2026-07-14T03:50:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-13T12:00:46Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrdfK3w",
+          "name": "sprint-7.1",
+          "description": "Re-run of sprint-7",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 119,
+      "state": "CLOSED",
+      "title": "Sprint 7.1 Executive Summary",
+      "updatedAt": "2026-07-14T04:03:55Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-12T13:43:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 117,
+      "state": "CLOSED",
+      "title": "[follow-up] Remove unused account parameter from build_character_prompt",
+      "updatedAt": "2026-07-14T05:48:34Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-12T13:42:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrnRfFg",
+          "name": "sprint-8",
+          "description": "Sprint 8",
+          "color": "006B75"
+        }
+      ],
+      "number": 116,
+      "state": "CLOSED",
+      "title": "[follow-up] Guard against raising None when run_op returns None",
+      "updatedAt": "2026-07-14T08:39:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-12T13:42:57Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrnRfFg",
+          "name": "sprint-8",
+          "description": "Sprint 8",
+          "color": "006B75"
+        }
+      ],
+      "number": 115,
+      "state": "CLOSED",
+      "title": "[follow-up] Bound / persist in-memory CHAR_JOBS store",
+      "updatedAt": "2026-07-14T08:39:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-12T13:42:55Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 114,
+      "state": "CLOSED",
+      "title": "[follow-up] Log (don't silently swallow) character metadata write failures",
+      "updatedAt": "2026-07-19T15:23:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-12T13:37:07Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXt3yQ",
+          "name": "sprint-6.2",
+          "description": "Re-run of sprint-6.1",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 112,
+      "state": "CLOSED",
+      "title": "Sprint 6.2 Executive Summary",
+      "updatedAt": "2026-07-12T14:01:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-12T04:41:28Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrnRfFg",
+          "name": "sprint-8",
+          "description": "Sprint 8",
+          "color": "006B75"
+        }
+      ],
+      "number": 110,
+      "state": "CLOSED",
+      "title": "[follow-up] /accounts static mount exposes account.json and raw assets",
+      "updatedAt": "2026-07-14T08:39:54Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-12T04:41:24Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 109,
+      "state": "CLOSED",
+      "title": "[follow-up] Legacy preview path drops assigned character cutout",
+      "updatedAt": "2026-07-14T05:48:31Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-12T04:35:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrUtgig",
+          "name": "sprint-6.1",
+          "description": "Re-run of sprint-6",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 107,
+      "state": "CLOSED",
+      "title": "Sprint 6.1 Executive Summary",
+      "updatedAt": "2026-07-13T03:04:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T18:10:38Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrnRfFg",
+          "name": "sprint-8",
+          "description": "Sprint 8",
+          "color": "006B75"
+        }
+      ],
+      "number": 104,
+      "state": "CLOSED",
+      "title": "[follow-up] Cutout download errors not retried nor surfaced as actionable (AC5)",
+      "updatedAt": "2026-07-14T08:39:55Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T18:02:51Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrRC6uQ",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 102,
+      "state": "CLOSED",
+      "title": "Sprint 6 Executive Summary",
+      "updatedAt": "2026-07-13T03:04:44Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T16:03:57Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrctPsg",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrdfK3w",
+          "name": "sprint-7.1",
+          "description": "Re-run of sprint-7",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 101,
+      "state": "CLOSED",
+      "title": "Content queue: draft \u2192 ready \u2192 posted status on flows with list view",
+      "updatedAt": "2026-07-14T04:03:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T16:03:49Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrctPsg",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrdfK3w",
+          "name": "sprint-7.1",
+          "description": "Re-run of sprint-7",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 100,
+      "state": "CLOSED",
+      "title": "Import fixtures + golden tests: sample payloads and validation edge cases",
+      "updatedAt": "2026-07-14T04:03:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T16:03:30Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrctPsg",
+          "name": "size-L",
+          "description": "Estimated size L (~30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrdfK3w",
+          "name": "sprint-7.1",
+          "description": "Re-run of sprint-7",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 99,
+      "state": "CLOSED",
+      "title": "Metric-of-week import: paste perf stats JSON \u2192 1-slide stat draft (or mini-carousel)",
+      "updatedAt": "2026-07-14T04:03:59Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T16:03:22Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrgcCxA",
+          "name": "sprint-7.2",
+          "description": "Re-run of sprint-7.1",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 98,
+      "state": "CLOSED",
+      "title": "Import\u2192draft engine + crux verdict import: paste case summary, LLM drafts the carousel",
+      "updatedAt": "2026-07-14T03:50:59Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T16:02:53Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrgcCxA",
+          "name": "sprint-7.2",
+          "description": "Re-run of sprint-7.1",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 97,
+      "state": "CLOSED",
+      "title": "Stat/data layout with chart image slot; manifests gain generic image_slots",
+      "updatedAt": "2026-07-14T03:51:00Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T16:02:42Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrgcCxA",
+          "name": "sprint-7.2",
+          "description": "Re-run of sprint-7.1",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 96,
+      "state": "CLOSED",
+      "title": "Single-image post mode: 1-slide flows with direct PNG export",
+      "updatedAt": "2026-07-14T03:51:01Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:52:37Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrcVNtg",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 95,
+      "state": "CLOSED",
+      "title": "Multi-ratio rendering: 1:1 feed + 9:16 story variants from the same templates",
+      "updatedAt": "2026-07-14T04:03:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:52:29Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrcVNtg",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 94,
+      "state": "CLOSED",
+      "title": "Remove legacy carousel code paths (three parallel implementations)",
+      "updatedAt": "2026-07-14T04:03:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:52:21Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrcVNtg",
+          "name": "sprint-7",
+          "description": "Sprint 7 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 93,
+      "state": "CLOSED",
+      "title": "Caption + hashtags generation (Thai) bundled into carousel v2 export",
+      "updatedAt": "2026-07-14T04:03:54Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:52:02Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrRC6uQ",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 92,
+      "state": "CLOSED",
+      "title": "Carousel builder flow v2: per-slide layout choice, 2\u20135 slides, final render + ZIP export",
+      "updatedAt": "2026-07-13T03:04:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:51:53Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrRC6uQ",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 91,
+      "state": "CLOSED",
+      "title": "Slide text editing bound to template slots: content-only editing with live preview",
+      "updatedAt": "2026-07-13T03:04:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:51:24Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVKOSQ",
+          "name": "size-XL",
+          "description": "Estimated size XL (>30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrUtgig",
+          "name": "sprint-6.1",
+          "description": "Re-run of sprint-6",
+          "color": "FBCA04"
+        }
+      ],
+      "number": 90,
+      "state": "CLOSED",
+      "title": "Character picker UI: browse cutouts by action, pick per slide, preview in template slot",
+      "updatedAt": "2026-07-13T03:04:57Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:51:13Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrRC6uQ",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 89,
+      "state": "CLOSED",
+      "title": "Background removal \u2192 transparent character cutout library tagged by action",
+      "updatedAt": "2026-07-13T03:04:50Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:50:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVKOSQ",
+          "name": "size-XL",
+          "description": "Estimated size XL (>30 min)",
+          "color": "0075ca"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXt3yQ",
+          "name": "sprint-6.2",
+          "description": "Re-run of sprint-6.1",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 88,
+      "state": "CLOSED",
+      "title": "Character action generation: pose presets + variations via Magnific character/style lock",
+      "updatedAt": "2026-07-13T03:04:59Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:50:44Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrRC6uQ",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 87,
+      "state": "CLOSED",
+      "title": "Template pack v1: cover / content / cta / quote HTML layouts for nerdysteps with slot manifests",
+      "updatedAt": "2026-07-13T03:04:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:50:19Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrRC6uQ",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 86,
+      "state": "CLOSED",
+      "title": "Per-account asset tree: accounts/&lt;handle&gt;/ owning templates, characters, cutouts \u2014 seed nerdysteps",
+      "updatedAt": "2026-07-13T03:04:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:50:10Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXt3yQ",
+          "name": "sprint-6.2",
+          "description": "Re-run of sprint-6.1",
+          "color": "BFD4F2"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrXuOIQ",
+          "name": "size-M",
+          "description": "Estimated size M (~15 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 85,
+      "state": "CLOSED",
+      "title": "Bundle Thai brand fonts locally (Prompt, Noto Sans Thai, Mitr) for template rendering",
+      "updatedAt": "2026-07-13T03:05:01Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:50:01Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrRC6uQ",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 84,
+      "state": "CLOSED",
+      "title": "HTML template render engine: template + content \u2192 1080\u00d71350 PNG via headless Chromium",
+      "updatedAt": "2026-07-13T03:04:54Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-11T14:49:36Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrRC6uQ",
+          "name": "sprint-6",
+          "description": "Sprint 6 issues",
+          "color": "5319E7"
+        }
+      ],
+      "number": 83,
+      "state": "CLOSED",
+      "title": "Docs: rewrite PRODUCT.md + DESIGN.md for carousel v2 pipeline (character cutouts + HTML templates)",
+      "updatedAt": "2026-07-13T03:04:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T17:10:24Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_yhCQ",
+          "name": "sprint-5.5",
+          "description": "Re-run of sprint-5.3",
+          "color": "006B75"
+        }
+      ],
+      "number": 77,
+      "state": "CLOSED",
+      "title": "Sprint 5.5 Executive Summary",
+      "updatedAt": "2026-07-09T17:49:49Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T16:56:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_xcsg",
+          "name": "frontend",
+          "description": "Frontend / UI",
+          "color": "BFD4F2"
+        }
+      ],
+      "number": 76,
+      "state": "CLOSED",
+      "title": "[follow-up] Surface pre-spend cost confirmation in the operator UI (AC6)",
+      "updatedAt": "2026-07-14T05:48:29Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T16:55:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 75,
+      "state": "CLOSED",
+      "title": "[follow-up] Avoid loading template JSON twice per generate request",
+      "updatedAt": "2026-07-14T05:48:27Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T16:55:49Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 74,
+      "state": "CLOSED",
+      "title": "[follow-up] Reuse #46 batch machinery and move concurrency cap to config",
+      "updatedAt": "2026-07-14T05:48:25Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T16:55:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 73,
+      "state": "CLOSED",
+      "title": "[follow-up] Apply template seed_policy to Magnific generation calls",
+      "updatedAt": "2026-07-14T05:48:23Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T16:49:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_RG2Q",
+          "name": "sprint-5.4",
+          "description": "Re-run of sprint-5.3",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 71,
+      "state": "CLOSED",
+      "title": "Sprint 5.4 Executive Summary",
+      "updatedAt": "2026-07-09T17:49:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T14:16:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq9BbOg",
+          "name": "sprint-5.3",
+          "description": "Re-run of sprint-5.2",
+          "color": "B60205"
+        }
+      ],
+      "number": 70,
+      "state": "CLOSED",
+      "title": "Sprint 5.3 Executive Summary",
+      "updatedAt": "2026-07-09T17:50:09Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T12:05:05Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq8R4vw",
+          "name": "sprint-4.2",
+          "description": "Re-run of sprint-4.1",
+          "color": "F9D0C4"
+        }
+      ],
+      "number": 67,
+      "state": "CLOSED",
+      "title": "Sprint 4.2 Executive Summary",
+      "updatedAt": "2026-07-09T13:46:36Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T11:46:52Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq8G0Tg",
+          "name": "sprint-4.1",
+          "description": "Re-run of sprint-4",
+          "color": "B60205"
+        }
+      ],
+      "number": 65,
+      "state": "CLOSED",
+      "title": "Sprint 4.1 Executive Summary",
+      "updatedAt": "2026-07-09T13:46:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T11:29:00Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 64,
+      "state": "CLOSED",
+      "title": "[follow-up] Unused import: BASE_DIR as _SVC_BASE_DIR in server.py",
+      "updatedAt": "2026-07-14T05:48:21Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T11:28:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 63,
+      "state": "CLOSED",
+      "title": "[follow-up] Unused import: from typing import Optional in routers/interesting.py",
+      "updatedAt": "2026-07-14T05:48:18Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T11:28:54Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 61,
+      "state": "CLOSED",
+      "title": "[follow-up] Per-slide compose lives at /api/interesting-compose, not /api/compose (AC3 drift)",
+      "updatedAt": "2026-07-14T05:48:04Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T11:28:53Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrnRfFg",
+          "name": "sprint-8",
+          "description": "Sprint 8",
+          "color": "006B75"
+        }
+      ],
+      "number": 60,
+      "state": "CLOSED",
+      "title": "[follow-up] Batch input filenames can collide and overwrite each other",
+      "updatedAt": "2026-07-14T08:39:57Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T11:28:51Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        }
+      ],
+      "number": 59,
+      "state": "CLOSED",
+      "title": "[follow-up] Batch local compose lives at /api/batch/compose, not /api/compose (AC7 drift)",
+      "updatedAt": "2026-07-14T05:48:02Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T11:22:39Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq6eUqw",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 58,
+      "state": "CLOSED",
+      "title": "Sprint 4 Executive Summary",
+      "updatedAt": "2026-07-09T13:56:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T09:49:58Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq9BbOg",
+          "name": "sprint-5.3",
+          "description": "Re-run of sprint-5.2",
+          "color": "B60205"
+        }
+      ],
+      "number": 57,
+      "state": "CLOSED",
+      "title": "Manual per-slide text entry without Suggest \u2014 no LLM call unless asked",
+      "updatedAt": "2026-07-09T17:51:01Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T09:49:51Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_yhCQ",
+          "name": "sprint-5.5",
+          "description": "Re-run of sprint-5.3",
+          "color": "006B75"
+        }
+      ],
+      "number": 56,
+      "state": "CLOSED",
+      "title": "Carousel tab: end-to-end text-in \u2192 carousel-out flow",
+      "updatedAt": "2026-07-09T17:51:07Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T09:49:42Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq9BbOg",
+          "name": "sprint-5.3",
+          "description": "Re-run of sprint-5.2",
+          "color": "B60205"
+        }
+      ],
+      "number": 55,
+      "state": "CLOSED",
+      "title": "Variation picker: K options per slide, click to pick, regenerate",
+      "updatedAt": "2026-07-09T17:51:03Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T09:49:33Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_RG2Q",
+          "name": "sprint-5.4",
+          "description": "Re-run of sprint-5.3",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 54,
+      "state": "CLOSED",
+      "title": "Text-to-image slide backgrounds: generate N images from operator text via template image_style",
+      "updatedAt": "2026-07-09T17:51:04Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T09:49:21Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq_RG2Q",
+          "name": "sprint-5.4",
+          "description": "Re-run of sprint-5.3",
+          "color": "FEF2C0"
+        }
+      ],
+      "number": 53,
+      "state": "CLOSED",
+      "title": "Template config system: template.json schema, Pillow renderer, mock template",
+      "updatedAt": "2026-07-09T17:51:06Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T09:48:59Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq7Ar8g",
+          "name": "sprint-5",
+          "description": "Sprint 5 issues",
+          "color": "0075ca"
+        }
+      ],
+      "number": 52,
+      "state": "CLOSED",
+      "title": "Direct Magnific MCP client \u2014 replace headless-Claude for image ops",
+      "updatedAt": "2026-07-09T17:51:00Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T08:59:33Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq6eUqw",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 51,
+      "state": "CLOSED",
+      "title": "QoL: 9:16 export size, batch cost rollup, job persistence across restarts",
+      "updatedAt": "2026-07-09T13:56:49Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T08:59:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq8G0Tg",
+          "name": "sprint-4.1",
+          "description": "Re-run of sprint-4",
+          "color": "B60205"
+        }
+      ],
+      "number": 50,
+      "state": "CLOSED",
+      "title": "Carousel export: zip bundle with ordered slide files + manifest",
+      "updatedAt": "2026-07-09T13:56:55Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T08:59:14Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq8R4vw",
+          "name": "sprint-4.2",
+          "description": "Re-run of sprint-4.1",
+          "color": "F9D0C4"
+        }
+      ],
+      "number": 49,
+      "state": "CLOSED",
+      "title": "Slide rail UI: thumbnail strip with drag-to-reorder and carousel preview",
+      "updatedAt": "2026-07-09T13:56:57Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T08:59:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq6eUqw",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 48,
+      "state": "CLOSED",
+      "title": "Consistency lock: shared visual style across all slides in a batch",
+      "updatedAt": "2026-07-09T13:56:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T08:58:55Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq6eUqw",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 47,
+      "state": "CLOSED",
+      "title": "Per-slide text: N slide-specific hooks/captions for carousel compose",
+      "updatedAt": "2026-07-09T13:56:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T08:58:36Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACq6eUqw",
+          "name": "sprint-4",
+          "description": "Sprint 4 issues",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 46,
+      "state": "CLOSED",
+      "title": "Batch flow: run one op/style across N images in a single action",
+      "updatedAt": "2026-07-09T13:56:54Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T05:12:13Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp8XvFg",
+          "name": "sprint-3.1",
+          "description": "Re-run of sprint-3",
+          "color": "E99695"
+        }
+      ],
+      "number": 43,
+      "state": "CLOSED",
+      "title": "Sprint 3.1 Executive Summary",
+      "updatedAt": "2026-07-03T05:27:11Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T03:13:49Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp72yqw",
+          "name": "sprint-2.3",
+          "description": "Re-run of sprint-2.2",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 38,
+      "state": "CLOSED",
+      "title": "Sprint 2.3 Executive Summary",
+      "updatedAt": "2026-07-03T03:22:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:50:44Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVJ4GA",
+          "name": "sprint-2",
+          "description": "",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 37,
+      "state": "CLOSED",
+      "title": "Sprint 2 Executive Summary",
+      "updatedAt": "2026-07-03T03:28:59Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:28:56Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4px-A",
+          "name": "follow-up",
+          "description": "Follow-up work from a review",
+          "color": "0e8a16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyKA",
+          "name": "code-review",
+          "description": "Raised by automated code review",
+          "color": "5319e7"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4pyQw",
+          "name": "backend",
+          "description": "Backend / Python server code",
+          "color": "1d76db"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrnRfFg",
+          "name": "sprint-8",
+          "description": "Sprint 8",
+          "color": "006B75"
+        }
+      ],
+      "number": 30,
+      "state": "CLOSED",
+      "title": "[follow-up] Restrict base_image fetch to mitigate SSRF / arbitrary local file read",
+      "updatedAt": "2026-07-14T08:39:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:21:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4cPqA",
+          "name": "sprint-1.3",
+          "description": "Re-run of sprint-1.2",
+          "color": "F9D0C4"
+        }
+      ],
+      "number": 24,
+      "state": "CLOSED",
+      "title": "Sprint 1.3 Executive Summary",
+      "updatedAt": "2026-07-02T17:40:12Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-25T07:31:15Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACo3DgTA",
+          "name": "sprint-1.2",
+          "description": "Re-run of sprint-1.1",
+          "color": "E99695"
+        }
+      ],
+      "number": 23,
+      "state": "CLOSED",
+      "title": "Sprint 1.2 Executive Summary",
+      "updatedAt": "2026-07-02T17:40:27Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-24T15:01:09Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoYEuWA",
+          "name": "sprint-1.1",
+          "description": "Re-run of sprint-1",
+          "color": "C2E0C6"
+        }
+      ],
+      "number": 22,
+      "state": "CLOSED",
+      "title": "Sprint 1.1 Executive Summary",
+      "updatedAt": "2026-07-02T17:40:40Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:43Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        }
+      ],
+      "number": 21,
+      "state": "CLOSED",
+      "title": "[follow-up] Catch specific exception in atomic profile write",
+      "updatedAt": "2026-07-14T05:48:00Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:33Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        }
+      ],
+      "number": 20,
+      "state": "CLOSED",
+      "title": "[follow-up] Catch specific exception in atomic profile write",
+      "updatedAt": "2026-07-14T05:47:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:31Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        }
+      ],
+      "number": 19,
+      "state": "CLOSED",
+      "title": "[follow-up] Clarify async contract for slide visual regeneration",
+      "updatedAt": "2026-07-14T05:47:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:29Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        }
+      ],
+      "number": 18,
+      "state": "CLOSED",
+      "title": "[follow-up] Clean up debounce timers on carousel page unload",
+      "updatedAt": "2026-07-14T05:47:54Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:28Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        }
+      ],
+      "number": 17,
+      "state": "CLOSED",
+      "title": "[follow-up] Validate carousel caption input more strictly",
+      "updatedAt": "2026-07-14T05:47:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACrnRfFg",
+          "name": "sprint-8",
+          "description": "Sprint 8",
+          "color": "006B75"
+        }
+      ],
+      "number": 14,
+      "state": "CLOSED",
+      "title": "[follow-up] Add concurrency limits to Magnific pipeline subprocess spawning",
+      "updatedAt": "2026-07-14T08:39:59Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T17:00:19Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        }
+      ],
+      "number": 12,
+      "state": "CLOSED",
+      "title": "[follow-up] Fix missing escapeHtml() function in asset_studio.html",
+      "updatedAt": "2026-07-14T05:47:50Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T16:55:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6oBA",
+          "name": "sprint-1",
+          "description": "",
+          "color": "0E8A16"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSSA",
+          "name": "sprint-summary",
+          "description": "Sprint executive summary issues",
+          "color": "006B75"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVrSVA",
+          "name": "docs",
+          "description": "",
+          "color": "D93F0B"
+        }
+      ],
+      "number": 11,
+      "state": "CLOSED",
+      "title": "Sprint 1 Executive Summary",
+      "updatedAt": "2026-07-02T17:44:49Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T15:26:32Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoVKOSQ",
+          "name": "size-XL",
+          "description": "Estimated size XL (>30 min)",
+          "color": "0075ca"
+        }
+      ],
+      "number": 10,
+      "state": "CLOSED",
+      "title": "Add data-slide type with metric chart and stat card",
+      "updatedAt": "2026-07-10T04:15:14Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T15:25:31Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp72yqw",
+          "name": "sprint-2.3",
+          "description": "Re-run of sprint-2.2",
+          "color": "1D76DB"
+        }
+      ],
+      "number": 9,
+      "state": "CLOSED",
+      "title": "Generate SEO Caption Alongside Carousel in Builder",
+      "updatedAt": "2026-07-03T03:29:01Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T15:25:30Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp8XvFg",
+          "name": "sprint-3.1",
+          "description": "Re-run of sprint-3",
+          "color": "E99695"
+        }
+      ],
+      "number": 8,
+      "state": "CLOSED",
+      "title": "Add Make Reel: image-to-video vertical clip export",
+      "updatedAt": "2026-07-03T05:27:29Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T15:25:28Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp8XvFg",
+          "name": "sprint-3.1",
+          "description": "Re-run of sprint-3",
+          "color": "E99695"
+        }
+      ],
+      "number": 7,
+      "state": "CLOSED",
+      "title": "Add batch mode to queue and process multiple images",
+      "updatedAt": "2026-07-03T05:27:30Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T15:22:34Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6oBA",
+          "name": "sprint-1",
+          "description": "",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 6,
+      "state": "CLOSED",
+      "title": "Export Carousel to Dated Folder with Platform-Ready Sizes",
+      "updatedAt": "2026-07-02T17:44:51Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T15:22:33Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6oBA",
+          "name": "sprint-1",
+          "description": "",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 5,
+      "state": "CLOSED",
+      "title": "Add carousel builder workspace with live slide editing",
+      "updatedAt": "2026-07-02T17:44:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T15:22:30Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6oBA",
+          "name": "sprint-1",
+          "description": "",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 4,
+      "state": "CLOSED",
+      "title": "Source and prepare base visuals for outline slides",
+      "updatedAt": "2026-07-02T17:44:54Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T15:22:29Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4cPqA",
+          "name": "sprint-1.3",
+          "description": "Re-run of sprint-1.2",
+          "color": "F9D0C4"
+        }
+      ],
+      "number": 3,
+      "state": "CLOSED",
+      "title": "Build slide compositing layer for crisp PNG output",
+      "updatedAt": "2026-07-02T17:44:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T15:22:27Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACp4cPqA",
+          "name": "sprint-1.3",
+          "description": "Re-run of sprint-1.2",
+          "color": "F9D0C4"
+        }
+      ],
+      "number": 2,
+      "state": "CLOSED",
+      "title": "Add POST /api/outline for AI carousel outline generation",
+      "updatedAt": "2026-07-02T17:44:57Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-06-21T15:22:26Z",
+      "labels": [
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6lSQ",
+          "name": "enhancement",
+          "description": "New feature or request",
+          "color": "a2eeef"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6ngQ",
+          "name": "UAT",
+          "description": "",
+          "color": "C6D2D9"
+        },
+        {
+          "id": "LA_kwDOTA_ZLs8AAAACoU6oBA",
+          "name": "sprint-1",
+          "description": "",
+          "color": "0E8A16"
+        }
+      ],
+      "number": 1,
+      "state": "CLOSED",
+      "title": "Add Style Profile with Brand Tokens to Asset Studio",
+      "updatedAt": "2026-07-02T17:44:55Z"
+    }
+  ],
+  "prs": [
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T11:19:35Z",
+      "labels": [],
+      "number": 171,
+      "state": "MERGED",
+      "title": "feat: land prompt-free asset variations on develop",
+      "updatedAt": "2026-08-19T15:12:21Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T10:47:18Z",
+      "labels": [],
+      "number": 170,
+      "state": "MERGED",
+      "title": "feat: prompt-free \"More like this\" variations for backgrounds and logos",
+      "updatedAt": "2026-08-19T10:59:43Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-19T07:54:58Z",
+      "labels": [],
+      "number": 169,
+      "state": "MERGED",
+      "title": "design: impeccable pass on Carousel, Asset Creation, and Accounts screens",
+      "updatedAt": "2026-08-19T09:42:59Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-18T13:47:48Z",
+      "labels": [],
+      "number": 168,
+      "state": "MERGED",
+      "title": "Add generic per-slide image slots in the slide editor",
+      "updatedAt": "2026-08-18T16:40:37Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-13T17:01:21Z",
+      "labels": [],
+      "number": 147,
+      "state": "MERGED",
+      "title": "Pin playwright to 1.61.0",
+      "updatedAt": "2026-08-13T17:18:04Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-13T15:54:47Z",
+      "labels": [],
+      "number": 146,
+      "state": "MERGED",
+      "title": "Release: Asset Creation + Accounts tabs, shared asset library, engagement tracking",
+      "updatedAt": "2026-08-13T15:55:07Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-08-13T15:54:22Z",
+      "labels": [],
+      "number": 145,
+      "state": "MERGED",
+      "title": "Move Preview out of the Save split button into the Design panel",
+      "updatedAt": "2026-08-13T15:54:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-31T07:31:50Z",
+      "labels": [],
+      "number": 144,
+      "state": "MERGED",
+      "title": "Asset Creation + Accounts tabs (shared library & carousel pick-only)",
+      "updatedAt": "2026-08-01T15:28:00Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T11:05:56Z",
+      "labels": [],
+      "number": 143,
+      "state": "MERGED",
+      "title": "Make the test suite clean up its own artifacts (issue #139)",
+      "updatedAt": "2026-07-30T11:07:52Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T10:29:02Z",
+      "labels": [],
+      "number": 142,
+      "state": "MERGED",
+      "title": "Posted tab with engagement entry and tier badges (issue #137)",
+      "updatedAt": "2026-07-30T10:45:57Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T10:18:02Z",
+      "labels": [],
+      "number": 141,
+      "state": "MERGED",
+      "title": "Median-relative engagement tiers and performance report (issue #136)",
+      "updatedAt": "2026-07-30T10:45:55Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-30T10:13:30Z",
+      "labels": [],
+      "number": 138,
+      "state": "MERGED",
+      "title": "Store manual engagement numbers on a v2 flow (issue #135)",
+      "updatedAt": "2026-07-30T10:45:53Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-17T12:31:43Z",
+      "labels": [],
+      "number": 133,
+      "state": "MERGED",
+      "title": "Bulk JSON carousel import with LLM prompt template",
+      "updatedAt": "2026-07-17T12:35:56Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-17T12:15:51Z",
+      "labels": [],
+      "number": 132,
+      "state": "MERGED",
+      "title": "Carousel editor redesign, 1:1 canvas, and local accounts config",
+      "updatedAt": "2026-07-17T12:17:08Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-17T06:17:25Z",
+      "labels": [],
+      "number": 131,
+      "state": "MERGED",
+      "title": "feat: Carousel UX improvements (Carousel-only)",
+      "updatedAt": "2026-07-17T06:18:00Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-15T11:38:58Z",
+      "labels": [],
+      "number": 130,
+      "state": "MERGED",
+      "title": "fix: carousel v2 account-list bug + caption budget cap",
+      "updatedAt": "2026-07-17T16:55:29Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-14T08:39:41Z",
+      "labels": [],
+      "number": 129,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-8 \u2192 develop",
+      "updatedAt": "2026-07-14T08:39:45Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-14T08:35:41Z",
+      "labels": [],
+      "number": 128,
+      "state": "MERGED",
+      "title": "Sprint sprint-8.1 \u2192 sprint-8 \u2014 0 ticket(s) shipped",
+      "updatedAt": "2026-07-14T08:39:31Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-13T13:33:19Z",
+      "labels": [],
+      "number": 121,
+      "state": "MERGED",
+      "title": "Sprint sprint-7.2 \u2192 sprint-7.1 \u2014 2 ticket(s) shipped",
+      "updatedAt": "2026-07-14T03:50:57Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-13T03:04:39Z",
+      "labels": [],
+      "number": 118,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-6 \u2192 develop",
+      "updatedAt": "2026-07-13T03:04:43Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-12T13:39:17Z",
+      "labels": [],
+      "number": 113,
+      "state": "MERGED",
+      "title": "Sprint sprint-6.2 \u2192 sprint-6.1 \u2014 1 ticket(s) shipped",
+      "updatedAt": "2026-07-12T14:01:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-12T04:37:29Z",
+      "labels": [],
+      "number": 108,
+      "state": "MERGED",
+      "title": "Sprint sprint-6.1 \u2192 sprint-6 \u2014 1 ticket(s) shipped",
+      "updatedAt": "2026-07-13T03:04:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T17:50:53Z",
+      "labels": [],
+      "number": 82,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-5 \u2192 develop",
+      "updatedAt": "2026-07-09T17:50:57Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T17:50:35Z",
+      "labels": [],
+      "number": 81,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-5.1 \u2192 sprint/sprint-5",
+      "updatedAt": "2026-07-09T17:50:41Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T17:50:18Z",
+      "labels": [],
+      "number": 80,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-5.2 \u2192 sprint/sprint-5.1",
+      "updatedAt": "2026-07-09T17:50:24Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T17:50:02Z",
+      "labels": [],
+      "number": 79,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-5.3 \u2192 sprint/sprint-5.2",
+      "updatedAt": "2026-07-09T17:50:08Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T17:10:29Z",
+      "labels": [],
+      "number": 78,
+      "state": "MERGED",
+      "title": "Sprint sprint-5.5 \u2192 sprint-5.3 \u2014 0 ticket(s) shipped",
+      "updatedAt": "2026-07-09T17:49:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T16:51:48Z",
+      "labels": [],
+      "number": 72,
+      "state": "MERGED",
+      "title": "Sprint sprint-5.4 \u2192 sprint-5.3 \u2014 1 ticket(s) shipped",
+      "updatedAt": "2026-07-09T17:49:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T13:56:41Z",
+      "labels": [],
+      "number": 69,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-4 \u2192 develop",
+      "updatedAt": "2026-07-09T13:56:46Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T12:05:10Z",
+      "labels": [],
+      "number": 68,
+      "state": "MERGED",
+      "title": "Sprint sprint-4.2 \u2192 sprint-4.1 \u2014 0 ticket(s) shipped",
+      "updatedAt": "2026-07-09T13:46:35Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-09T11:46:57Z",
+      "labels": [],
+      "number": 66,
+      "state": "MERGED",
+      "title": "Sprint sprint-4.1 \u2192 sprint-4 \u2014 0 ticket(s) shipped",
+      "updatedAt": "2026-07-09T13:46:48Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T05:27:22Z",
+      "labels": [],
+      "number": 45,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-3 \u2192 develop",
+      "updatedAt": "2026-07-03T05:27:27Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T05:16:55Z",
+      "labels": [],
+      "number": 44,
+      "state": "MERGED",
+      "title": "Sprint sprint-3.1 \u2192 sprint-3 \u2014 1 ticket(s) shipped",
+      "updatedAt": "2026-07-03T05:27:11Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T03:28:54Z",
+      "labels": [],
+      "number": 42,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-2 \u2192 develop",
+      "updatedAt": "2026-07-03T03:28:58Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T03:23:13Z",
+      "labels": [],
+      "number": 41,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-2.1 \u2192 sprint/sprint-2",
+      "updatedAt": "2026-07-03T03:23:17Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T03:23:02Z",
+      "labels": [],
+      "number": 40,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-2.2 \u2192 sprint/sprint-2.1",
+      "updatedAt": "2026-07-03T03:23:07Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-03T03:13:53Z",
+      "labels": [],
+      "number": 39,
+      "state": "MERGED",
+      "title": "Sprint sprint-2.3 \u2192 sprint-2.2 \u2014 0 ticket(s) shipped",
+      "updatedAt": "2026-07-03T03:22:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:44:43Z",
+      "labels": [],
+      "number": 36,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-1 \u2192 develop",
+      "updatedAt": "2026-07-02T17:44:47Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:40:34Z",
+      "labels": [],
+      "number": 35,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-1.1 \u2192 sprint/sprint-1",
+      "updatedAt": "2026-07-02T17:40:39Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:40:20Z",
+      "labels": [],
+      "number": 34,
+      "state": "MERGED",
+      "title": "Merge check: sprint/sprint-1.2 \u2192 sprint/sprint-1.1",
+      "updatedAt": "2026-07-02T17:40:26Z"
+    },
+    {
+      "assignees": [],
+      "createdAt": "2026-07-02T17:23:45Z",
+      "labels": [],
+      "number": 25,
+      "state": "MERGED",
+      "title": "Sprint sprint-1.3 \u2192 sprint-1.2 \u2014 1 ticket(s) shipped",
+      "updatedAt": "2026-07-02T17:40:11Z"
+    }
+  ]
+}

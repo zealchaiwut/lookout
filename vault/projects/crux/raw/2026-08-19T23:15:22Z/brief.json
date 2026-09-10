@@ -1,0 +1,59 @@
+{
+  "brief": {
+    "project": "crux",
+    "date": "2026-08-19",
+    "shipped": [],
+    "in_progress": null,
+    "up_next": null,
+    "blocked": [],
+    "kpis": {
+      "sprints_shipped": 0,
+      "tickets_done": 0,
+      "in_progress": false,
+      "in_progress_percent": 0,
+      "needs_you": 0
+    },
+    "recent_activity": [],
+    "ran_overnight": [],
+    "waiting_on_you": [
+      {
+        "label": "sprint-57",
+        "ticket_count": 1,
+        "estimated_hours": 0.08,
+        "project": null
+      },
+      {
+        "label": "sprint-9",
+        "ticket_count": 2,
+        "estimated_hours": 0.0,
+        "project": null
+      },
+      {
+        "label": "sprint-9.1",
+        "ticket_count": 2,
+        "estimated_hours": 0.0,
+        "project": null
+      },
+      {
+        "label": "sprint-9.2",
+        "ticket_count": 1,
+        "estimated_hours": 0.0,
+        "project": null
+      },
+      {
+        "label": "sprint-9.3",
+        "ticket_count": 1,
+        "estimated_hours": 0.0,
+        "project": null
+      },
+      {
+        "label": "sprint-9.4",
+        "ticket_count": 1,
+        "estimated_hours": 0.0,
+        "project": null
+      }
+    ],
+    "suggested_next": []
+  },
+  "sprints_history": []
+}

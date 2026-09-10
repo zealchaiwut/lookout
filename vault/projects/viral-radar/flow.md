@@ -76,6 +76,8 @@ Docs recorded in the latest snapshot:
 - `docs/changelog/sprint-1.1.md`
 - `docs/features/README.md`
 - `docs/milestones/next-stage-bcd.md`
+- `docs/milestones/outcome-feedback-loop.md`
+- `docs/milestones/visual-and-beat-evidence.md`
 - `docs/milestones.md`
 - `docs/quickstart.md`
 - `docs/tutorial.md`

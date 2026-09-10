@@ -1,0 +1,126 @@
+{
+  "get_endpoints": [
+    {
+      "path": "/",
+      "description": "Main asset studio UI",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/",
+      "response": "200 JSON \u2014 Main asset studio UI"
+    },
+    {
+      "path": "/api/job/{id}",
+      "description": "Poll a job's status",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/job/example",
+      "response": "200 JSON \u2014 Poll a job's status"
+    },
+    {
+      "path": "/api/jobs",
+      "description": "List all jobs (session-scoped)",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/jobs",
+      "response": "200 JSON \u2014 List all jobs (session-scoped)"
+    },
+    {
+      "path": "/api/profile",
+      "description": "Load brand profile",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/profile",
+      "response": "200 JSON \u2014 Load brand profile"
+    },
+    {
+      "path": "/api/profile/instruction-context",
+      "description": "Profile fields for generation prompts",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/profile/instruction-context",
+      "response": "200 JSON \u2014 Profile fields for generation prompts"
+    },
+    {
+      "path": "/api/templates",
+      "description": "List available slide templates",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/templates",
+      "response": "200 JSON \u2014 List available slide templates"
+    },
+    {
+      "path": "/api/batch/{id}",
+      "description": "Aggregated batch status: per-job state, counts, and `total_cost_usd` rollup",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/batch/example",
+      "response": "200 JSON \u2014 Aggregated batch status: per-job state, counts, and `total_cost_usd` rollup"
+    },
+    {
+      "path": "/api/accounts",
+      "description": "List registered accounts",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/accounts",
+      "response": "200 JSON \u2014 List registered accounts"
+    },
+    {
+      "path": "/api/accounts/{handle}/templates",
+      "description": "List an account's layouts with their slot manifests",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/accounts/example/templates",
+      "response": "200 JSON \u2014 List an account's layouts with their slot manifests"
+    },
+    {
+      "path": "/api/accounts/{handle}/characters/jobs/{id}",
+      "description": "Poll a character-generation job",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/accounts/example/characters/jobs/example",
+      "response": "200 JSON \u2014 Poll a character-generation job"
+    },
+    {
+      "path": "/api/accounts/{handle}/characters/cutouts",
+      "description": "List cutouts (optional `action` filter)",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/accounts/example/characters/cutouts",
+      "response": "200 JSON \u2014 List cutouts (optional `action` filter)"
+    },
+    {
+      "path": "/api/slide-editor/flows/{id}",
+      "description": "Get slide-editor flow state",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/slide-editor/flows/example",
+      "response": "200 JSON \u2014 Get slide-editor flow state"
+    },
+    {
+      "path": "/api/slide-editor/flows/{id}/slides/{i}/slots",
+      "description": "Slot manifest + current text for a slide",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/slide-editor/flows/example/slides/example/slots",
+      "response": "200 JSON \u2014 Slot manifest + current text for a slide"
+    },
+    {
+      "path": "/api/slide-editor/flows/{id}/slides/{i}/preview",
+      "description": "Render a slide preview PNG",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/slide-editor/flows/example/slides/example/preview",
+      "response": "200 JSON \u2014 Render a slide preview PNG"
+    },
+    {
+      "path": "/api/v2/flows",
+      "description": "List all flows (queue view: status, title, timestamps)",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/v2/flows",
+      "response": "200 JSON \u2014 List all flows (queue view: status, title, timestamps)"
+    },
+    {
+      "path": "/api/v2/flows/{id}",
+      "description": "Get v2 flow state",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/v2/flows/example",
+      "response": "200 JSON \u2014 Get v2 flow state"
+    },
+    {
+      "path": "/api/v2/flows/{id}/slides/{i}/preview",
+      "description": "Preview a v2 slide PNG",
+      "source": "README.md",
+      "example": "curl -sS http://localhost:8000/api/v2/flows/example/slides/example/preview",
+      "response": "200 JSON \u2014 Preview a v2 slide PNG"
+    }
+  ],
+  "source_files": [
+    "README.md"
+  ]
+}

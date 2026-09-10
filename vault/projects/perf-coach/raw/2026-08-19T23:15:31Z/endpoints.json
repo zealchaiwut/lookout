@@ -1,0 +1,217 @@
+{
+  "get_endpoints": [
+    {
+      "path": "/api/health",
+      "description": "Service health status",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/health",
+      "response": "200 JSON \u2014 Service health status"
+    },
+    {
+      "path": "/api/env",
+      "description": "Current environment (short)",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/env",
+      "response": "200 JSON \u2014 Current environment (short)"
+    },
+    {
+      "path": "/api/environment",
+      "description": "Current environment (alias)",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/environment",
+      "response": "200 JSON \u2014 Current environment (alias)"
+    },
+    {
+      "path": "/api/users",
+      "description": "List all users",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/users",
+      "response": "200 JSON \u2014 List all users"
+    },
+    {
+      "path": "/api/weight",
+      "description": "List weight entries for a user",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/weight",
+      "response": "200 JSON \u2014 List weight entries for a user"
+    },
+    {
+      "path": "/api/habits",
+      "description": "List active habits for a user",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/habits",
+      "response": "200 JSON \u2014 List active habits for a user"
+    },
+    {
+      "path": "/api/habits/logs",
+      "description": "Get habit logs for a date range",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/habits/logs",
+      "response": "200 JSON \u2014 Get habit logs for a date range"
+    },
+    {
+      "path": "/api/habits/stats",
+      "description": "Get habit statistics",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/habits/stats",
+      "response": "200 JSON \u2014 Get habit statistics"
+    },
+    {
+      "path": "/api/stats/active-streak",
+      "description": "Get cross-resource active streak",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/stats/active-streak",
+      "response": "200 JSON \u2014 Get cross-resource active streak"
+    },
+    {
+      "path": "/api/calendar/month",
+      "description": "Get per-day summary for a calendar month",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/calendar/month",
+      "response": "200 JSON \u2014 Get per-day summary for a calendar month"
+    },
+    {
+      "path": "/api/workouts",
+      "description": "List workouts for a date range",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/workouts",
+      "response": "200 JSON \u2014 List workouts for a date range"
+    },
+    {
+      "path": "/api/workouts/{workout_id}",
+      "description": "Get a single workout with exercises",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/workouts/example",
+      "response": "200 JSON \u2014 Get a single workout with exercises"
+    },
+    {
+      "path": "/api/workouts/{workout_id}/splits",
+      "description": "Get splits for a workout",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/workouts/example/splits",
+      "response": "200 JSON \u2014 Get splits for a workout"
+    },
+    {
+      "path": "/api/daily-metrics",
+      "description": "List daily metrics for a date range",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/daily-metrics",
+      "response": "200 JSON \u2014 List daily metrics for a date range"
+    },
+    {
+      "path": "/api/daily-metrics/{user_id}/{metric_date}",
+      "description": "Get a single daily metric",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/daily-metrics/example/example",
+      "response": "200 JSON \u2014 Get a single daily metric"
+    },
+    {
+      "path": "/api/daily-metrics/trend",
+      "description": "Get trend values for the last N days",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/daily-metrics/trend",
+      "response": "200 JSON \u2014 Get trend values for the last N days"
+    },
+    {
+      "path": "/trends/summary",
+      "description": "Get trends summary with series and deltas",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/trends/summary",
+      "response": "200 JSON \u2014 Get trends summary with series and deltas"
+    },
+    {
+      "path": "/api/readiness/today",
+      "description": "Get today's readiness record",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/readiness/today",
+      "response": "200 JSON \u2014 Get today's readiness record"
+    },
+    {
+      "path": "/api/readiness",
+      "description": "Get readiness scores for a date range",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/readiness",
+      "response": "200 JSON \u2014 Get readiness scores for a date range"
+    },
+    {
+      "path": "/api/training-log",
+      "description": "Get training log grouped by week",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/training-log",
+      "response": "200 JSON \u2014 Get training log grouped by week"
+    },
+    {
+      "path": "/api/personal-records",
+      "description": "List personal records for a user",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/personal-records",
+      "response": "200 JSON \u2014 List personal records for a user"
+    },
+    {
+      "path": "/api/strava/connect",
+      "description": "Initiate Strava OAuth flow",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/strava/connect",
+      "response": "200 JSON \u2014 Initiate Strava OAuth flow"
+    },
+    {
+      "path": "/api/strava/callback",
+      "description": "Strava OAuth redirect callback",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/strava/callback",
+      "response": "200 JSON \u2014 Strava OAuth redirect callback"
+    },
+    {
+      "path": "/api/strava/status",
+      "description": "Get Strava connection status",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/strava/status",
+      "response": "200 JSON \u2014 Get Strava connection status"
+    },
+    {
+      "path": "/api/stryd/status",
+      "description": "Get Stryd connection status",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/stryd/status",
+      "response": "200 JSON \u2014 Get Stryd connection status"
+    },
+    {
+      "path": "/api/sync/strava/status",
+      "description": "Poll SyncJob by job_id",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/sync/strava/status",
+      "response": "200 JSON \u2014 Poll SyncJob by job_id"
+    },
+    {
+      "path": "/api/sync/strava/latest",
+      "description": "Most recent Strava sync info",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/sync/strava/latest",
+      "response": "200 JSON \u2014 Most recent Strava sync info"
+    },
+    {
+      "path": "/api/sync/strava/dry-run",
+      "description": "Read-only reconcile preview",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/sync/strava/dry-run",
+      "response": "200 JSON \u2014 Read-only reconcile preview"
+    },
+    {
+      "path": "/api/sync/strava/data-quality",
+      "description": "Data quality counts for Strava/workout sync state",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/sync/strava/data-quality",
+      "response": "200 JSON \u2014 Data quality counts for Strava/workout sync state"
+    },
+    {
+      "path": "/api/sync/history",
+      "description": "Paginated SyncJob history for session user",
+      "source": "docs/api-reference.md",
+      "example": "curl -sS http://localhost:8000/api/sync/history",
+      "response": "200 JSON \u2014 Paginated SyncJob history for session user"
+    }
+  ],
+  "source_files": [
+    "docs/api-reference.md"
+  ]
+}

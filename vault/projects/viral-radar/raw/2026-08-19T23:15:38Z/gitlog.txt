@@ -1,0 +1,41 @@
+=== branch ===
+develop
+
+=== log ===
+3404410 Merge branch 'main' into develop
+d2e544a Merge pull request #72 from zealchaiwut/feature/ux-revamp-three-tabs
+33a4b63 feat: UX/UI revamp across Now, Sources and Analysis tabs
+dd721e7 Merge pull request #71 from zealchaiwut/feature/cmp-gold-you-bronze
+3d9926c Unify gold/you/bronze comparison component
+d6c8b99 Merge pull request #70 from zealchaiwut/develop
+79e9222 Merge pull request #69 from zealchaiwut/feature/now-writing-desk-unify
+dd93b4a Keep hidden suggestion topics as greyscale chips on the right.
+449f014 Tweak Analysis filters and let operators hide suggestion topics for a week.
+dda7a07 Polish Now/Analysis UX and collapse near-duplicate waves.
+64c1c1e feat: rebuild Analysis tab from the approved mock
+4ab9d33 feat: rebuild Now tab from the v4 mock
+b156eb0 Merge pull request #68 from zealchaiwut/feature/now-active-templates-revise
+c9a6939 feat: writing-desk template card with sticky beats and tabs
+50014b7 feat: restore post-brief builder and polish numbers panel
+fbf44f4 feat: niche/self anatomy toggle, metric candidates, provenance chips
+a7d82d6 feat: promote Now plan with template deep-links
+5384dd8 feat: annotated template anatomy with always-on C and niche samples
+438b242 Merge pull request #67 from zealchaiwut/feature/anti-patterns-gold-bronze
+113afc6 feat: surface Gold vs Bronze anti-patterns on Analysis
+d89a33e Merge pull request #66 from zealchaiwut/feature/fix-template-generate
+96b2626 feat: add Cerebras post-brief A/B/C generation API
+8a62031 Merge pull request #65 from zealchaiwut/feature/next
+6e3c128 feat: polish Now and Analysis UX for weekly operator flow
+fdcdff6 feat: wave signal, template library, and 4-week content plan for Now
+2e4d130 Merge pull request #64 from zealchaiwut/feature/gap-report-ui
+e4e1644 feat: three-tab UI shell with Now API, Sources embeds, and analysis compare views
+a1e742c Merge pull request #63 from zealchaiwut/feature/candidate-hygiene-scorecard
+dae2996 feat: candidate hygiene, replicability scorecard, and dual approve paths
+e57ff3e Merge pull request #62 from zealchaiwut/feature/digest-self-gap
+
+=== status ===
+M docs/milestones.md
+ M viral-radar.db
+?? docs/milestones/outcome-feedback-loop.md
+?? docs/milestones/visual-and-beat-evidence.md
+?? viral-radar.db.bak-empty-224744

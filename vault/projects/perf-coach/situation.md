@@ -1,6 +1,6 @@
 ---
 target: perf-coach
-run: "2026-08-14T05:51:53Z"
+run: "2026-08-19T23:15:38Z"
 sources_ok: true
 ---
 
@@ -16,7 +16,7 @@ _(source: manifest.json, brief.json, issues.json)_
 
 ## Since last run
 
-_No changes detected._
+- `committed`: True → '<absent>'
 _(source: manifest.json)_
 
 ## What to do next
@@ -41,5 +41,6 @@ _(source: issues.json, questions.json)_
 
 ## Drift
 
-_No drift signals._
+- `committed`: True → '<absent>'
+- 5 doc(s) changed: docs/api-reference.md, docs/calculations/plan-matching.md, docs/calculations/readiness.md
 _(source: manifest.json, docs_manifest.json)_

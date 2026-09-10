@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-08-14T05:51:47Z",
-  "target": "perf-coach",
+  "timestamp": "2026-08-19T23:15:13Z",
+  "target": "commander",
   "health": {
     "status": "degraded",
-    "uptime_seconds": 13171,
+    "uptime_seconds": 74436,
     "gh_auth_scopes": {
       "authorized": true,
       "scopes": [
@@ -15,7 +15,7 @@
     },
     "disk": {
       "partition": "/Users/chaiwutchaianuchittrakul/dev/commander/.commander",
-      "free_percent": 7.5
+      "free_percent": 5.1
     },
     "sprints": {
       "running_count": 0
@@ -51,7 +51,7 @@
         "target": "zealchaiwut/commander/sprint-1003.2"
       }
     ],
-    "checked_at": "2026-08-14T05:51:41Z"
+    "checked_at": "2026-08-19T23:15:05Z"
   },
   "sources": {
     "brief": {
@@ -65,13 +65,13 @@
     "github": {
       "status": "ok",
       "error": "",
-      "pinned_requested": 1,
-      "pinned_resolved": 1
+      "pinned_requested": 0,
+      "pinned_resolved": 0
     },
     "endpoints": {
       "status": "ok",
       "error": "",
-      "count": 30
+      "count": 126
     }
   },
   "committed": true

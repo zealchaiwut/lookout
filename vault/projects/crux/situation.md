@@ -1,6 +1,6 @@
 ---
 target: crux
-run: "2026-08-14T05:51:46Z"
+run: "2026-08-19T23:15:30Z"
 sources_ok: true
 ---
 
@@ -16,7 +16,7 @@ _(source: manifest.json, brief.json, issues.json)_
 
 ## Since last run
 
-_No changes detected._
+- `committed`: True → '<absent>'
 _(source: manifest.json)_
 
 ## What to do next
@@ -41,5 +41,5 @@ _(source: issues.json, questions.json)_
 
 ## Drift
 
-_No drift signals._
+- `committed`: True → '<absent>'
 _(source: manifest.json, docs_manifest.json)_
