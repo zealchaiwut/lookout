@@ -49,7 +49,7 @@ REPO_ROOT = Path(__file__).parent
 # reader wants them, and the order the derive stages produce them in.
 _PROJECT_NOTE_ORDER = [
     "discovery", "spec", "decisions-view", "situation", "capability", "flow",
-    "changelog", "drift", "todo-view", "notes", "decisions",
+    "changelog", "notes", "decisions",
 ]
 
 _FM_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
@@ -919,20 +919,26 @@ def _project_note_sort_key(note):
         return (1, 0, note.stem)
 
 
-def _sidebar_hidden_project_note(note) -> bool:
-    """Hide pack workspace / raw decision files from the project sidebar.
+_SIDEBAR_HIDDEN_STEMS = frozenset({
+    "spec-view",
+    "drift",
+    "todo-view",
+})
 
-    Spec Hub and Decisions Hub already present that content; listing PRODUCT.md,
-    plan.md, TEMPLATE.md, etc. next to discovery/spec clutters the tree.
+
+def _sidebar_hidden_project_note(note) -> bool:
+    """Hide clutter from the project sidebar (pages still render if linked).
+
+    Pack workspace (spec/, decisions/, raw/), legacy stubs, and secondary
+    derive notes the operator asked off the tree (drift, todo-view).
     """
     parts = note.rel.parts
-    if len(parts) < 3 or parts[0] != "projects":
+    if not parts or parts[0] != "projects":
         return False
-    # projects/<target>/spec/...  or projects/<target>/decisions/...
-    if parts[2] in ("spec", "decisions", "raw"):
+    if note.stem in _SIDEBAR_HIDDEN_STEMS:
         return True
-    # Legacy stub
-    if note.stem == "spec-view":
+    # projects/<target>/spec/...  or decisions/... or raw/...
+    if len(parts) >= 3 and parts[2] in ("spec", "decisions", "raw"):
         return True
     return False
 
