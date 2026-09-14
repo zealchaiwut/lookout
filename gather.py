@@ -55,6 +55,9 @@ from dotenv import load_dotenv
 
 from collectors.notion import collect_notion_todos as _collect_notion_todos
 from collectors.spec import collect_spec as _collect_spec
+from collectors.api import collect_endpoints as _collect_endpoints_impl
+from collectors.api import parse_endpoint_tables as _parse_endpoint_tables
+from collectors.api import fill_path_params as _fill_path_params
 
 REPO_ROOT = Path(__file__).parent
 TARGETS_YAML = REPO_ROOT / "targets.yaml"
@@ -371,115 +374,14 @@ def _collect_docs_manifest(
 # Endpoint collection
 # ---------------------------------------------------------------------------
 
-# Matches a Markdown table row of the form:
-#   | `GET` | `/api/jobs` | List all jobs |
-# Method and path may or may not be wrapped in backticks.
-_ENDPOINT_ROW_RE = re.compile(
-    r"^\|\s*`?(?P<method>GET|POST|PUT|PATCH|DELETE)`?\s*"
-    r"\|\s*`?(?P<path>/[^`|]*?)`?\s*"
-    r"\|(?P<description>[^|]*)\|?\s*$",
-    re.IGNORECASE,
-)
-
-
-_PATH_PARAM_DEFAULTS = {
-    "slug": None,  # filled per-target
-    "project": None,
-    "sprint_label": "sprint-1",
-    "issue_id": "1",
-    "issue_num": "1",
-    "path": "README.md",
-}
-
-
-def _fill_path_params(path: str, target: str) -> str:
-    """Replace `{param}` placeholders with a concrete value for the example."""
-    filled = path
-    for name, default in _PATH_PARAM_DEFAULTS.items():
-        value = target if name in ("slug", "project") else default
-        filled = filled.replace("{" + name + "}", str(value))
-    # Any leftover {param} gets a short placeholder so the curl is copyable.
-    filled = re.sub(r"\{[^}]+\}", "example", filled)
-    return filled
-
-
-def _parse_endpoint_tables(text: str) -> list:
-    """Extract GET endpoints from Markdown method/path tables in `text`.
-
-    Only GET rows are returned — capability cards document read surfaces. Rows
-    are deduplicated by path, keeping the first description seen.
-    """
-    seen: set[str] = set()
-    endpoints: list = []
-    for line in text.splitlines():
-        m = _ENDPOINT_ROW_RE.match(line.strip())
-        if not m:
-            continue
-        if m.group("method").upper() != "GET":
-            continue
-        path = m.group("path").strip()
-        if not path.startswith("/") or path in seen:
-            continue
-        seen.add(path)
-        endpoints.append({
-            "path": path,
-            "description": m.group("description").strip().strip("`"),
-            "source": "readme-table",
-        })
-    return endpoints
-
-
 def _collect_endpoints(local_path: Path, out_dir: Path, target: str = "") -> dict:
-    """Scan the target's README and docs/ for API endpoint tables.
+    """Collect read surfaces: OpenAPI YAML preferred, Markdown tables as fallback.
 
-    Writes endpoints.json in the schema capability_card.py expects:
-        {"get_endpoints": [{"path", "description", "example", "response"}],
-         "source_files": [...]}
-
-    Doc tables are the evidence source rather than live introspection: Lookout is
-    read-only against targets and must not start or call a target's server.
-    The `response` field is the documented return (status + what the description
-    says comes back), not a captured body.
+    Writes endpoints.json in the schema capability_card.py expects.
+    Delegates to collectors.api so the OpenAPI path and the table scrape share
+    one implementation.
     """
-    try:
-        endpoints: list = []
-        source_files: list = []
-        seen: set[str] = set()
-        name = target or local_path.name
-
-        candidates = [local_path / "README.md"]
-        docs_dir = local_path / "docs"
-        if docs_dir.exists() and docs_dir.is_dir():
-            candidates.extend(sorted(docs_dir.rglob("*.md")))
-
-        for p in candidates:
-            if not p.is_file():
-                continue
-            found = _parse_endpoint_tables(p.read_text(encoding="utf-8", errors="replace"))
-            fresh = [e for e in found if e["path"] not in seen]
-            if not fresh:
-                continue
-            rel = str(p.relative_to(local_path))
-            for e in fresh:
-                seen.add(e["path"])
-                e["source"] = rel
-                filled = _fill_path_params(e["path"], name)
-                e["example"] = f"curl -sS http://localhost:8000{filled}"
-                desc = e.get("description") or "JSON body"
-                e["response"] = f"200 JSON — {desc}"
-            endpoints.extend(fresh)
-            source_files.append(rel)
-
-        with open(out_dir / "endpoints.json", "w") as fh:
-            json.dump(
-                {"get_endpoints": endpoints, "source_files": source_files},
-                fh,
-                indent=2,
-            )
-        return {"status": "ok" if endpoints else "absent", "error": "", "count": len(endpoints)}
-
-    except Exception as exc:
-        return {"status": "absent", "error": str(exc), "count": 0}
+    return _collect_endpoints_impl(local_path, out_dir, target=target)
 
 
 # ---------------------------------------------------------------------------

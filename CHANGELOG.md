@@ -5,6 +5,10 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
 
 ## Unreleased
 
+- Prefer `api.yaml` / `openapi.yaml` for endpoint collection; Markdown tables
+  remain the fallback. Draft viral-radar OpenAPI lives at
+  `vault/projects/viral-radar/spec/api.yaml` (promote into the clone to flip API ✓).
+
 - Spec pack completeness (SDD): gather writes `spec.json` for PRODUCT / DESIGN /
   SCHEMA / API / docs presence; situation and discovery show a completeness badge.
   See `docs/hermes-contract.md` §1b.
