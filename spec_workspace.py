@@ -79,13 +79,16 @@ def read_status(directory: Path) -> dict:
     status = data.get("status", "draft")
     if status not in VALID_STATUSES:
         status = "draft"
-    return {
+    out = {
         "status": status,
         "updated": data.get("updated") or _now_iso(),
         "history": list(data.get("history") or []),
         "files": dict(data.get("files") or {}),
         "notes": data.get("notes") or "",
     }
+    if data.get("last_validated"):
+        out["last_validated"] = data["last_validated"]
+    return out
 
 
 def write_status(directory: Path, data: dict) -> Path:
@@ -98,6 +101,8 @@ def write_status(directory: Path, data: dict) -> Path:
         "files": data.get("files") or {},
         "notes": data.get("notes") or "",
     }
+    if data.get("last_validated"):
+        payload["last_validated"] = data["last_validated"]
     path.write_text(yaml.dump(payload, default_flow_style=False, sort_keys=False))
     return path
 

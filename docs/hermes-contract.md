@@ -180,6 +180,11 @@ Allowed transitions: `draft`→`in-review`; `in-review`→`draft|approved`;
 `approved`→`in-review|promoted`; `promoted`→`draft` (next cycle). Invalid
 transitions raise `SpecWorkspaceError`. Additive — no `contract_version` bump.
 
+**CLI (Step 5):** `lookout spec validate|submit|approve <target>` —
+`spec_validate` checks `api.yaml` OpenAPI shape (+ optional `mock/*.json`)
+without calling live APIs. `submit` requires `draft` and flips to `in-review`;
+`approve` requires `in-review` and flips to `approved`. Both gate on validate.
+
 ---
 
 ### 2. `vault/projects/<target>/situation.md`

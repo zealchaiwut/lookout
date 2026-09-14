@@ -23,6 +23,8 @@ The following file types are owned and written by the agent pipeline. Human cont
 - **spec workspace** — `vault/projects/<target>/spec/` with `status.yaml`
   (`draft` → `in-review` → `approved` → `promoted`); promote is the only
   outbound write to the target clone
+- **spec CLI** — `lookout spec validate|submit|approve <target>` (mock-validate
+  OpenAPI + fixtures; submit/approve flip status after validate passes)
 - **atlas** — cross-target structural map
 - **index** — vault master registry (e.g. `vault/index.md`)
 - **journal index** — chronological index of journal entries

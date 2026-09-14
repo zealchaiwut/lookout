@@ -5,6 +5,10 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
 
 ## Unreleased
 
+- Spec CLI: `lookout spec validate|submit|approve <target>` mock-validates
+  OpenAPI (+ optional `mock/*.json`) and flips `draft`→`in-review`→`approved`
+  after validation passes.
+
 - Spec workspace under `vault/projects/<target>/spec/` with `status.yaml`
   lifecycle (`draft` → `in-review` → `approved` → `promoted`). Derive stage
   `spec_workspace` mirrors missing pack files from the clone without

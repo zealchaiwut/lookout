@@ -115,6 +115,11 @@ def main():
             sys.exit(1)
         sys.exit(0)
 
+    # Dispatch spec subcommand (validate / submit / approve)
+    if len(sys.argv) >= 2 and sys.argv[1] == "spec":
+        import spec_validate as spec_validate_module
+        sys.exit(spec_validate_module.main(sys.argv[2:]))
+
     # Dispatch pack subcommand before any other processing
     if len(sys.argv) >= 2 and sys.argv[1] == "pack":
         if len(sys.argv) < 3:
