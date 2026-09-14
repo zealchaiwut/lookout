@@ -1,0 +1,14 @@
+status: draft
+updated: '2026-09-14T03:47:54Z'
+history:
+- status: draft
+  at: '2026-09-14T03:47:54Z'
+  note: workspace created
+files:
+  PRODUCT.md: present
+  DESIGN.md: present
+  SCHEMA.md: present
+  api.yaml: present
+  plan.md: present
+  mock/: present
+notes: ''

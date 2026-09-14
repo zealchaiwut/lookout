@@ -5,6 +5,11 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
 
 ## Unreleased
 
+- Spec workspace under `vault/projects/<target>/spec/` with `status.yaml`
+  lifecycle (`draft` → `in-review` → `approved` → `promoted`). Derive stage
+  `spec_workspace` mirrors missing pack files from the clone without
+  overwriting vault copies.
+
 - Human-readable `spec-view.md` per target: PRODUCT jobs/concepts and DESIGN
   tokens/layout for the Lookout site (derive stage `project_spec_view`).
 

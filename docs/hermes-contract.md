@@ -140,6 +140,46 @@ required — a missing file is recorded as `absent` and the run continues.
 The badge is rendered on `situation.md` (`## Spec pack`) and `discovery.md`.
 This is an **additive** contract change — `contract_version` is not bumped.
 
+### 1c. Spec workspace (Lookout-authored pack)
+
+**Path pattern:** `vault/projects/<target>/spec/`
+
+**Purpose:** Working Spec pack that lives in Lookout until an explicit
+`lookout promote-spec` copies approved files into the target clone. Nightly
+gather remains read-only against targets; only this vault tree is written
+during Spec authoring.
+
+| Path | Role |
+|---|---|
+| `PRODUCT.md`, `DESIGN.md`, `SCHEMA.md`, `api.yaml` | Portable pack (mirrored from the clone when absent; vault wins once present) |
+| `plan.md` | Human plan / acceptance checklist |
+| `mock/` | Fixtures / OpenAPI examples for mock validate |
+| `status.yaml` | Lifecycle: `draft` → `in-review` → `approved` → `promoted` |
+| `README.md` | Workspace orientation |
+
+**`status.yaml` shape** (written by `spec_workspace.ensure_workspace`):
+
+```yaml
+status: draft
+updated: 2026-09-14T00:00:00Z
+history:
+  - status: draft
+    at: 2026-09-14T00:00:00Z
+    note: workspace created
+files:
+  PRODUCT.md: present
+  DESIGN.md: present
+  SCHEMA.md: absent
+  api.yaml: present
+  plan.md: present
+  mock/: present
+notes: ""
+```
+
+Allowed transitions: `draft`→`in-review`; `in-review`→`draft|approved`;
+`approved`→`in-review|promoted`; `promoted`→`draft` (next cycle). Invalid
+transitions raise `SpecWorkspaceError`. Additive — no `contract_version` bump.
+
 ---
 
 ### 2. `vault/projects/<target>/situation.md`
