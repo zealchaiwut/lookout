@@ -5,6 +5,9 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
 
 ## Unreleased
 
+- Human-readable `spec-view.md` per target: PRODUCT jobs/concepts and DESIGN
+  tokens/layout for the Lookout site (derive stage `project_spec_view`).
+
 - Prefer `api.yaml` / `openapi.yaml` for endpoint collection; Markdown tables
   remain the fallback. Draft viral-radar OpenAPI lives at
   `vault/projects/viral-radar/spec/api.yaml` (promote into the clone to flip API ✓).
