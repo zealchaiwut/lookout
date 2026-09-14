@@ -927,18 +927,16 @@ _SIDEBAR_HIDDEN_STEMS = frozenset({
 
 
 def _sidebar_hidden_project_note(note) -> bool:
-    """Hide clutter from the project sidebar (pages still render if linked).
-
-    Pack workspace (spec/, decisions/, raw/), legacy stubs, and secondary
-    derive notes the operator asked off the tree (drift, todo-view).
-    """
+    """Hide clutter from the project sidebar (pages still render if linked)."""
     parts = note.rel.parts
     if not parts or parts[0] != "projects":
         return False
     if note.stem in _SIDEBAR_HIDDEN_STEMS:
         return True
-    # projects/<target>/spec/...  or decisions/... or raw/...
-    if len(parts) >= 3 and parts[2] in ("spec", "decisions", "raw"):
+    # Pack workspace markdown (PRODUCT/DESIGN/…) — Spec Hub covers these
+    if len(parts) >= 3 and parts[2] == "spec":
+        return True
+    if len(parts) >= 3 and parts[2] == "raw":
         return True
     return False
 
@@ -951,9 +949,17 @@ def build_tree(notes: list) -> dict:
     for note in notes:
         parts = note.rel.parts
         if parts[0] == "projects" and len(parts) >= 2:
-            proj = projects.setdefault(parts[1], {"notes": [], "atlas": [], "ideas": []})
+            proj = projects.setdefault(
+                parts[1],
+                {"notes": [], "atlas": [], "decisions": [], "ideas": []},
+            )
             if "atlas" in parts:
                 proj["atlas"].append(note)
+            elif len(parts) >= 3 and parts[2] == "decisions":
+                # Individual ADR files — nested under Decisions, not the main list
+                if note.stem.upper() in ("README", "TEMPLATE"):
+                    continue
+                proj["decisions"].append(note)
             elif _sidebar_hidden_project_note(note):
                 continue
             else:
@@ -975,6 +981,7 @@ def build_tree(notes: list) -> dict:
     for proj in projects.values():
         proj["notes"].sort(key=_project_note_sort_key)
         proj["atlas"].sort(key=lambda n: ("" if n.stem == "index" else n.stem))
+        proj["decisions"].sort(key=lambda n: n.stem, reverse=True)
         proj["ideas"].sort(key=lambda n: n.stem)
 
     return {
@@ -1024,10 +1031,23 @@ def render_sidebar(tree: dict, current, from_note) -> str:
     for name, proj in tree["projects"].items():
         proj_notes = proj["notes"]
         atlas = proj["atlas"]
+        decisions = proj.get("decisions") or []
         proj_ideas = proj.get("ideas") or []
-        active_here = current in proj_notes or current in atlas or current in proj_ideas
+        active_here = (
+            current in proj_notes
+            or current in atlas
+            or current in decisions
+            or current in proj_ideas
+        )
         any_project = any_project or active_here
         body = items(proj_notes)
+        if decisions:
+            body += _details(
+                "decisions",
+                items(decisions),
+                current in decisions,
+                count=len(decisions),
+            )
         if atlas:
             feature_count = sum(1 for n in atlas if n.stem != "index")
             body += _details(
