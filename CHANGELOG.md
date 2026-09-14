@@ -5,6 +5,11 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
 
 ## Unreleased
 
+- Decision Hub (`decisions-view.md`): human ADR-lite files under
+  `decisions/` joined to GitHub issue/PR/sprint status from the snapshot,
+  with three timelines (decided / issue created / implemented). CLI:
+  `lookout decide`. Sample viral-radar decisions VR-D1 / VR-D2.
+
 - Spec Hub (`spec.md`): Product · Requirements · Design · API · Plan with
   status chrome, TOC anchors, palette swatches on the site. Thin `spec-view`
   is a redirect stub. Discovery points at the Hub instead of dumping jobs.

@@ -198,17 +198,30 @@ def generate_changelog(target: str, vault_dir: Path | None = None) -> Path:
         lines.append("_No git log in the latest snapshot._\n")
 
     lines.append("## Decisions\n")
-    decisions = vault_dir / "decisions.md"
-    body = ""
-    if decisions.exists():
-        body = decisions.read_text(encoding="utf-8", errors="replace").strip()
-    if body and body not in ("# Decisions", "# Decisions\n"):
+    view = project_dir / "decisions-view.md"
+    ddir = project_dir / "decisions"
+    has_files = ddir.is_dir() and any(
+        p.suffix == ".md" and p.stem.upper() not in ("README", "TEMPLATE")
+        for p in ddir.glob("*.md")
+    )
+    fleet = vault_dir / "decisions.md"
+    fleet_body = ""
+    if fleet.exists():
+        fleet_body = fleet.read_text(encoding="utf-8", errors="replace").strip()
+
+    if has_files:
+        lines.append(
+            f"Project decisions: [[projects/{target}/decisions-view|Decisions Hub]] "
+            "(timelines by decided / issue created / implemented).\n"
+        )
+    elif fleet_body and fleet_body not in ("# Decisions", "# Decisions\n"):
         lines.append("Fleet decisions: [[decisions]].\n")
     else:
         lines.append(
-            "No decisions recorded yet. That file is human-owned "
-            "(`vault/decisions.md`) — the pipeline will not fill it in from "
-            "PR titles.\n"
+            "No decisions recorded yet. Author files under "
+            f"`vault/projects/{target}/decisions/` "
+            "(or run `bin/lookout decide`) — the pipeline will not invent "
+            "them from PR titles.\n"
         )
 
     out = project_dir / "changelog.md"

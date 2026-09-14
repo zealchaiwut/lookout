@@ -18,12 +18,13 @@ Two groups, run in this order:
     7. project_discovery — discovery.md     (start-here: flow + API + modules)
     8. project_spec_view — spec.md         (Spec Hub: Product/Reqs/Design/API/Plan)
     9. spec_workspace — vault/.../spec/     (status.yaml + pack workspace)
+   10. project_decisions_view — decisions-view.md (Decision Hub timelines)
 
   Vault-wide (derive_vault), once after every target
-   10. capability_map
-   11. ideas_ledger
-   12. assessment_pass
-   13. ship_pass
+   11. capability_map
+   12. ideas_ledger
+   13. assessment_pass
+   14. ship_pass
 
 Ordering is load-bearing: capability.md must exist before synthesize reads its
 description, and drift.md must exist before situation.md cites it.
@@ -146,6 +147,14 @@ def derive_target(target: str, vault_dir: Path | None = None) -> list[dict]:
     results.append(_run_stage(
         "spec_workspace",
         lambda: str(spec_workspace.generate_workspace(target, vault_dir).name),
+    ))
+
+    import project_decisions_view
+    results.append(_run_stage(
+        "project_decisions_view",
+        lambda: str(
+            project_decisions_view.generate_decisions_view(target, vault_dir).name
+        ),
     ))
 
     return results

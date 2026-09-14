@@ -21,6 +21,8 @@ The following file types are owned and written by the agent pipeline. Human cont
 - **discovery** — start-here page (Spec link, API map, shallow module map, atlas)
 - **spec** — Spec Hub: Product · Requirements · Design · API · Plan (planning SoT)
 - **spec-view** — stub redirect to Spec Hub (legacy)
+- **decisions-view** — Decision Hub: timelines (decided / issue created /
+  implemented) + cards with GitHub issue/PR/sprint status from the snapshot
 - **spec workspace** — `vault/projects/<target>/spec/` with `status.yaml`
   (`draft` → `in-review` → `approved` → `promoted`); promote is the only
   outbound write to the target clone
@@ -42,7 +44,8 @@ The following file types are owned by human contributors. The agent pipeline mus
 
 - **notes** — freeform personal or project notes
 - **learning** — learning logs and retrospectives
-- **decisions** — architectural and product decision records
+- **decisions** — ADR-lite files under `vault/projects/<t>/decisions/`
+  (and fleet `vault/decisions.md`); never invent from PR titles
 - **agents.md** — this control note (human-maintained)
 - **idea freeform tops** — top-of-mind idea entries written by humans
 

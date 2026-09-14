@@ -203,20 +203,32 @@ def _parse_decisions_refs(decisions_path: Path) -> dict:
     return refs
 
 
+def _iter_decision_paths(project_dir: Path, vault_dir: Path) -> list:
+    """Fleet + project decisions.md plus per-file decisions/*.md."""
+    paths = [vault_dir / "decisions.md", project_dir / "decisions.md"]
+    ddir = project_dir / "decisions"
+    if ddir.is_dir():
+        for p in sorted(ddir.glob("*.md")):
+            if p.stem.upper() in ("README", "TEMPLATE"):
+                continue
+            paths.append(p)
+    return paths
+
+
 def resolve_questions(
     project_dir: Path,
     vault_dir: Path,
     target_name: str,
 ) -> list:
     """
-    Parse vault and project decisions.md; mark matching open questions as resolved.
+    Parse vault and project decisions; mark matching open questions as resolved.
     Returns the list of questions resolved in this pass.
     """
     registry = load_registry(project_dir)
     questions = registry.get("questions", {})
 
     resolved_by: dict = {}
-    for path in (vault_dir / "decisions.md", project_dir / "decisions.md"):
+    for path in _iter_decision_paths(project_dir, vault_dir):
         for qid, heading in _parse_decisions_refs(path).items():
             if qid not in resolved_by:
                 resolved_by[qid] = heading
@@ -266,7 +278,7 @@ def detect_decision_contradictions(
     Returns a list of drift flag dicts in the same format used by detect_drift().
     """
     deprecated_items: list = []
-    for decisions_path in (vault_dir / "decisions.md", project_dir / "decisions.md"):
+    for decisions_path in _iter_decision_paths(project_dir, vault_dir):
         if not decisions_path.exists():
             continue
         text = decisions_path.read_text(encoding='utf-8')

@@ -48,8 +48,8 @@ REPO_ROOT = Path(__file__).parent
 # Project notes read in pipeline order, not alphabetical — that is the order a
 # reader wants them, and the order the derive stages produce them in.
 _PROJECT_NOTE_ORDER = [
-    "discovery", "spec", "situation", "capability", "flow", "changelog",
-    "drift", "todo-view", "notes", "decisions",
+    "discovery", "spec", "decisions-view", "situation", "capability", "flow",
+    "changelog", "drift", "todo-view", "notes", "decisions",
 ]
 
 _FM_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
@@ -83,7 +83,7 @@ _SENTINEL_HUMAN_RE = re.compile(r"<!--\s*BEGIN HUMAN ([A-Z][A-Z ]+?)\s*-->")
 # File stems that vault/agents.md lists as machine-owned types
 _MACHINE_STEMS = frozenset([
     "situation", "drift", "todo-view", "index", "flow", "changelog", "discovery",
-    "spec", "spec-view",
+    "spec", "spec-view", "decisions-view",
 ])
 
 # File stems / path conditions that agents.md lists as human-owned types

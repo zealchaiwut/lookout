@@ -75,13 +75,13 @@ Merged PRs and recent git history from the latest snapshot, joined to atlas note
 | `4eb994a` | fix: give carousel null-content degrade a clear 'null' warning (issue #129) |
 | `4bfd5c5` | Merge feature/128-product-voice-m12-carve-out into develop (issue #128) |
 | `9152f49` | test: verify PRODUCT.md M12 beta carve-out satisfies acceptance criteria (issue #128) |
-| `0aa9589` | Merge feature/127-scope-analysis-empty-state into develop (issue #127) |
-| `a9adff0` | test: add _run_meta scoping test for issue #127 (criterion 2) |
+| `0aa9589` | Merge feature/127-scope-analysis-empty-state into develop (issue #127) — [[projects/viral-radar/atlas/self-account]] |
+| `a9adff0` | test: add _run_meta scoping test for issue #127 (criterion 2) — [[projects/viral-radar/atlas/self-account]] |
 | `0682bfc` | Merge feature/126-isolate-prediction-scoring-errors into develop (issue #126) |
 | `c1d6648` | feat: isolate prediction-scoring errors from rate_post() verdict path (issue #126) |
 | `30469ec` | Merge feature/125-calibration-confidence-strip into develop (issue #125) |
 
 ## Decisions
 
-No decisions recorded yet. That file is human-owned (`vault/decisions.md`) — the pipeline will not fill it in from PR titles.
+Project decisions: [[projects/viral-radar/decisions-view|Decisions Hub]] (timelines by decided / issue created / implemented).
 

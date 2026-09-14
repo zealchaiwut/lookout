@@ -199,6 +199,34 @@ status to `promoted`. This is the only outbound write into a tracked project.
 pack badge, lifecycle status, and TOC anchors for mid-sprint lookup. Written
 by `project_spec_view.generate_spec`. Legacy `spec-view.md` is a redirect stub.
 
+### 1e. Decision records (human-authored) + Decision Hub
+
+**Writable path:** `vault/projects/<target>/decisions/YYYY-MM-DD-slug.md`
+
+**Readable path:** `vault/projects/<target>/decisions-view.md` (machine-owned)
+
+**Purpose:** Planning/architecture decisions with links to GitHub issues, PRs,
+and sprints. Lookout never invents decisions from PR titles. The Hub joins
+snapshot `issues.json` for open/closed/merged status and offers three
+timelines: decided date, issue created, implemented.
+
+**Frontmatter (required):**
+
+| Field | Type | Notes |
+|---|---|---|
+| `id` | string | e.g. `VR-D1` |
+| `date` | string (YYYY-MM-DD) | When decided (planning) |
+| `status` | string | `proposed` \| `active` \| `superseded` \| `reverted` |
+| `targets` | list[string] | Target slugs |
+| `issues` | list[int] | GitHub issue numbers |
+| `prs` | list[int] | GitHub PR numbers |
+| `sprints` | list[string] | e.g. `sprint-14` |
+| `supersedes` / `superseded_by` | string or null | History links |
+| `questions` | list[string] | Optional question-registry IDs |
+
+Body sections: Context, Decision, Consequences, Links. Additive — no
+`contract_version` bump. CLI: `lookout decide`.
+
 ---
 
 ### 2. `vault/projects/<target>/situation.md`

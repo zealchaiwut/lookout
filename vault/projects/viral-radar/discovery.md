@@ -114,6 +114,8 @@ Sample features:
 
 - [[projects/viral-radar/spec|Spec Hub]] — Product · Requirements · Design
 
+- [[projects/viral-radar/decisions-view|Decisions Hub]] — history + GitHub status
+
 - [[projects/viral-radar/situation|Situation]] — current state
 
 - [[projects/viral-radar/capability|Capability]] — full API card

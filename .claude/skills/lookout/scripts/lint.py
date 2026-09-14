@@ -242,6 +242,12 @@ def check_decision_question_refs(vault_path: Path) -> tuple[list[str], int]:
                 except Exception:
                     pass
             decisions_paths.append(proj_dir / "decisions.md")
+            ddir = proj_dir / "decisions"
+            if ddir.is_dir():
+                for p in sorted(ddir.glob("*.md")):
+                    if p.stem.upper() in ("README", "TEMPLATE"):
+                        continue
+                    decisions_paths.append(p)
 
     files_scanned = sum(1 for p in decisions_paths if p.exists())
     warnings: list[str] = []

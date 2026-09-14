@@ -355,6 +355,7 @@ def _read_next(target: str) -> list[str]:
     return [
         "## Read next\n",
         f"- [[projects/{target}/spec|Spec Hub]] — Product · Requirements · Design\n",
+        f"- [[projects/{target}/decisions-view|Decisions Hub]] — history + GitHub status\n",
         f"- [[projects/{target}/situation|Situation]] — current state\n",
         f"- [[projects/{target}/capability|Capability]] — full API card\n",
         f"- [[projects/{target}/flow|Flow]] — product lifecycle + how work ships\n",
