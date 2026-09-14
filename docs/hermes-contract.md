@@ -197,7 +197,8 @@ status to `promoted`. This is the only outbound write into a tracked project.
 **Purpose:** Human-readable planning view derived from the Spec workspace
 (or clone fallback). Panes: Product, Requirements, Design, API, Plan — with
 pack badge, lifecycle status, and TOC anchors for mid-sprint lookup. Written
-by `project_spec_view.generate_spec`. Legacy `spec-view.md` is a redirect stub.
+by `project_spec_view.generate_spec`. Panes: Product, Requirements, Design, API
+(no Plan pane — planning stays in Decision Hub / GitHub).
 
 ### 1e. Decision records (human-authored) + Decision Hub
 

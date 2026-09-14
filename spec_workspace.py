@@ -155,7 +155,6 @@ def _inventory_files(directory: Path) -> dict:
     for canonical, _cands in _PACK_CANDIDATES:
         path = directory / canonical
         inv[canonical] = "present" if path.is_file() else "absent"
-    inv["plan.md"] = "present" if (directory / "plan.md").is_file() else "absent"
     inv["mock/"] = "present" if (directory / "mock").is_dir() else "absent"
     return inv
 
@@ -215,7 +214,6 @@ def ensure_workspace(target: str, vault_dir: Path | None = None) -> Path:
     (directory / "mock").mkdir(exist_ok=True)
 
     _ensure_readme(directory, target)
-    _ensure_plan(directory, target)
 
     local = _load_local(target)
     _sync_missing_from_local(directory, local)

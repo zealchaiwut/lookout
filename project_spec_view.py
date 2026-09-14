@@ -1,8 +1,8 @@
 """project_spec_view.py — Spec Hub (planning SoT readable view).
 
-Writes vault/projects/<target>/spec.md: Product, Requirements, Design, API,
-and Plan panes with stable heading anchors for lookup. Prefers the vault Spec
-workspace over the clone. Also writes a thin spec-view.md stub that points here.
+Writes vault/projects/<target>/spec.md: Product, Requirements, Design, and API
+panes with stable heading anchors for lookup. Prefers the vault Spec
+workspace over the clone.
 """
 from __future__ import annotations
 
@@ -215,14 +215,11 @@ def _chrome(
     lines.append("## Contents\n")
     lines.extend([
         "- [Product](#product) — problem, jobs, concepts, non-goals",
-        "- [Requirements](#requirements) — hard constraints, milestones",
+        "- [Requirements](#requirements) — hard constraints",
         "- [Design](#design) — direction, signature, palette, type, layout",
         "- [API](#api) — OpenAPI pack",
-        "- [Plan](#plan) — checklist + status history",
         "",
     ])
-    # Keep history for Plan pane
-    lines.append("<!-- history_count:" + str(len(history)) + " -->\n")
     return lines, history
 
 
@@ -303,21 +300,9 @@ def _requirements_pane(product_text: str) -> list[str]:
     else:
         lines.append("_Absent in PRODUCT.md._\n")
 
-    milestones = _section(
-        product_text, "milestones", "milestones and exit", "exit tests"
-    )
-    lines.append("### Milestones and exit tests\n")
-    if milestones:
-        table = _milestone_table(milestones)
-        if table:
-            lines.extend(table)
-            lines.append("")
-        else:
-            bullets = _bullet_lines(milestones)
-            lines.extend(bullets if bullets else [_first_paragraph(milestones) or _ABSENT])
-            lines.append("")
-    else:
-        lines.append("_Absent in PRODUCT.md._\n")
+    # Milestones intentionally omitted: PRODUCT.md batch table drifts from
+    # GitHub issues/sprints. Re-introduce when Lookout can join milestone
+    # progress from the issues snapshot (separate ticket).
 
     lines.append("_(source: PRODUCT.md)_\n")
     return lines
@@ -490,42 +475,8 @@ def _api_pane(target: str, vault_spec: Path, local: Path | None) -> list[str]:
     return lines
 
 
-def _plan_pane(vault_spec: Path, history: list) -> list[str]:
-    lines = ["## Plan\n"]
-    plan_path = vault_spec / "plan.md"
-    if plan_path.is_file():
-        body = plan_path.read_text(encoding="utf-8", errors="replace").strip()
-        # Drop the H1 if present — Hub already titles Plan
-        body = re.sub(r"^#\s+.+\n+", "", body)
-        lines.append(body)
-        lines.append("")
-    else:
-        lines.append("_No `plan.md` in the Spec workspace yet._\n")
-
-    lines.append("### Status history\n")
-    if history:
-        for entry in history:
-            if not isinstance(entry, dict):
-                continue
-            st = entry.get("status", "?")
-            at = entry.get("at", "")
-            note = entry.get("note", "")
-            bit = f"- `{st}`"
-            if at:
-                bit += f" · {at}"
-            if note:
-                bit += f" — {note}"
-            lines.append(bit)
-        lines.append("")
-    else:
-        lines.append("_No status transitions recorded yet._\n")
-
-    lines.append("_(source: plan.md + status.yaml)_\n")
-    return lines
-
-
 def generate_spec(target: str, vault_dir: Path | None = None) -> Path:
-    """Write spec.md (Spec Hub) and a redirect stub at spec-view.md."""
+    """Write spec.md (Spec Hub). Does not write spec-view.md."""
     if vault_dir is None:
         vault_dir = REPO_ROOT / "vault"
     project_dir = vault_dir / "projects" / target
@@ -534,9 +485,7 @@ def generate_spec(target: str, vault_dir: Path | None = None) -> Path:
     vault_spec.mkdir(parents=True, exist_ok=True)
     local = _load_local(target)
 
-    chrome, history = _chrome(target, project_dir, vault_spec)
-    # Strip the HTML comment helper from chrome output
-    chrome = [ln for ln in chrome if not ln.startswith("<!-- history_count")]
+    chrome, _history = _chrome(target, project_dir, vault_spec)
 
     product_path = _resolve_pack_file(vault_spec, local, "PRODUCT.md")
     design_path = _resolve_pack_file(vault_spec, local, "DESIGN.md")
@@ -549,17 +498,14 @@ def generate_spec(target: str, vault_dir: Path | None = None) -> Path:
     lines.extend(_requirements_pane(product_text))
     lines.extend(_design_pane(design_text))
     lines.extend(_api_pane(target, vault_spec, local))
-    lines.extend(_plan_pane(vault_spec, history))
 
     out = project_dir / "spec.md"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-    stub = (
-        f"# {target} — Spec view (moved)\n\n"
-        f"This page moved to the Spec Hub: [[projects/{target}/spec|Spec]].\n\n"
-        "Open that note for Product, Requirements, Design, API, and Plan.\n"
-    )
-    (project_dir / "spec-view.md").write_text(stub, encoding="utf-8")
+    # Drop legacy stub if present
+    stub = project_dir / "spec-view.md"
+    if stub.is_file():
+        stub.unlink()
     return out
 
 

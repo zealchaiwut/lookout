@@ -36,7 +36,6 @@ def test_ensure_workspace_creates_status_and_mirrors(tmp_path, monkeypatch):
     out = sw.ensure_workspace("demo", vault)
     assert out == vault / "projects" / "demo" / "spec"
     assert (out / "status.yaml").is_file()
-    assert (out / "plan.md").is_file()
     assert (out / "mock").is_dir()
     assert (out / "PRODUCT.md").read_text().startswith("# PRODUCT")
     assert (out / "DESIGN.md").is_file()
@@ -45,6 +44,7 @@ def test_ensure_workspace_creates_status_and_mirrors(tmp_path, monkeypatch):
     assert status["status"] == "draft"
     assert status["files"]["PRODUCT.md"] == "present"
     assert status["files"]["api.yaml"] == "absent"
+    assert "plan.md" not in status["files"]
 
 
 def test_ensure_workspace_does_not_overwrite_vault_copy(tmp_path, monkeypatch):

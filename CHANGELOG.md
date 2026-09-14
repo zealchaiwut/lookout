@@ -5,6 +5,11 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
 
 ## Unreleased
 
+- Site cleanup: drop `spec-view` stub; hide `spec/` and `decisions/` pack
+  files from the project sidebar; remove Spec Hub Plan pane and PRODUCT
+  milestones table (stale vs GitHub — rejoin later). API map + capability
+  Read surfaces grouped by path category; atlas/handler sparsity explained.
+
 - Decision Hub (`decisions-view.md`): human ADR-lite files under
   `decisions/` joined to GitHub issue/PR/sprint status from the snapshot,
   with three timelines (decided / issue created / implemented). CLI:

@@ -11,10 +11,9 @@ Planning-stage source of truth (readable). Portable files live under `vault/proj
 ## Contents
 
 - [Product](#product) — problem, jobs, concepts, non-goals
-- [Requirements](#requirements) — hard constraints, milestones
+- [Requirements](#requirements) — hard constraints
 - [Design](#design) — direction, signature, palette, type, layout
 - [API](#api) — OpenAPI pack
-- [Plan](#plan) — checklist + status history
 
 ## Product
 
@@ -52,16 +51,6 @@ _(source: PRODUCT.md)_
 - **Scale honesty:** 5–15 watched accounts, thousands of posts total, one user, one machine. No infrastructure beyond FastAPI + SQLite. Apify free/Starter tier covers collection; text LLM analysis runs only on gold posts. Exception (issue #75): the vision pass over cached post images runs on gold + a bronze sample (~100 posts) + all self posts, because downstream comparison views need a bronze/self visual baseline or they render empty.
 - **Cost guards:** no paid collection run starts without an estimated-cost confirm; scraper failure degrades loudly to the paste path.
 - **Legal posture:** collect only logged-out-accessible public page data via the official Apify actors; never log in to scrape.
-
-### Milestones and exit tests
-
-| # | Batch | Exit test |
-|---|-------|-----------|
-| 1 | Core engine (multi-account, paste-fed) | Paste ~20 posts each from 3 admired accounts; correct tiers + a coherent recipe card |
-| 2 | Apify collector | Backfill one real account ~1 year for under ~$2, zero hand-pasting |
-| 3 | AI "why" layer | One digest read changes what the user would post that week |
-| 4 | Discovery | Surfaces ≥1 genuinely unknown running account whose gold posts rate as good |
-| 5 | Self-analysis | Produces one suggestion the user actually posts |
 
 _(source: PRODUCT.md)_
 
@@ -157,24 +146,4 @@ _(source: DESIGN.md)_
 
 - Path table on [[projects/viral-radar/discovery#api-map|Discovery → API map]]
 
-
-## Plan
-
-## Intent
-
-_What changes and why._
-
-## Acceptance
-
-- [ ] Spec pack files reviewed
-- [ ] Mock validate passes
-- [ ] Approved in status.yaml
-
-## Notes
-
-### Status history
-
-- `draft` · 2026-09-14T03:47:54Z — workspace created
-
-_(source: plan.md + status.yaml)_
 

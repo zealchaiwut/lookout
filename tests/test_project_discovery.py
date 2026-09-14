@@ -145,10 +145,12 @@ def test_api_map_joins_atlas_when_path_cited(tmp_path):
         _restore_targets(originals)
 
     assert "## API map" in text
+    assert "### Health" in text or "Health" in text
     assert "`GET /api/health`" in text
     assert "[[projects/alpha/atlas/health]]" in text
     assert "`routers/health.py`" in text
     assert "`GET /api/orphan`" in text
+    assert "atlas join" in text.lower() or "Atlas / Handler" in text
     # Orphan row should show em dashes for atlas/handler
     orphan_line = [ln for ln in text.splitlines() if "/api/orphan" in ln][0]
     assert orphan_line.count("—") >= 2

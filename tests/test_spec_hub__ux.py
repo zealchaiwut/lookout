@@ -1,4 +1,4 @@
-"""Tests for Spec Hub (spec.md) — Product / Requirements / Design / API / Plan."""
+"""Tests for Spec Hub (spec.md) — Product / Requirements / Design / API."""
 import sys
 from pathlib import Path
 
@@ -90,7 +90,6 @@ def _setup(tmp_path, monkeypatch, *, in_vault=False):
             "openapi: '3.0.3'\ninfo: {title: demo, version: '0'}\n"
             "paths: {'/x': {get: {responses: {'200': {description: ok}}}}}\n"
         )
-        (spec / "plan.md").write_text("# Spec plan — demo\n\n- [ ] Review\n")
         (spec / "status.yaml").write_text(
             "status: draft\nupdated: '2026-09-14T00:00:00Z'\n"
             "history:\n- status: draft\n  at: '2026-09-14T00:00:00Z'\n"
@@ -113,8 +112,8 @@ def test_spec_hub_panes_from_clone(tmp_path, monkeypatch):
     assert "## Requirements" in text
     assert "Hard constraints" in text
     assert "Thai" in text
-    assert "Milestones" in text
-    assert "Core engine" in text
+    assert "Milestones" not in text
+    assert "Core engine" not in text
     assert "## Design" in text
     assert "podium rail" in text
     assert "```palette" in text
@@ -122,14 +121,12 @@ def test_spec_hub_panes_from_clone(tmp_path, monkeypatch):
     assert "IBM Plex" in text
     assert "┌───┬────┐" in text
     assert "## API" in text
-    assert "## Plan" in text
-    stub = (vault / "projects" / "demo" / "spec-view.md").read_text()
-    assert "Spec Hub" in stub or "projects/demo/spec" in stub
+    assert "## Plan" not in text
+    assert not (vault / "projects" / "demo" / "spec-view.md").exists()
 
 
 def test_spec_hub_prefers_vault_and_shows_status(tmp_path, monkeypatch):
     vault = _setup(tmp_path, monkeypatch, in_vault=True)
-    # Clone has different (should be ignored) product
     local = tmp_path / "clone"
     (local / "PRODUCT.md").write_text("# PRODUCT\n\n## Core concepts\n\n- **CloneOnly**\n")
     text = project_spec_view.generate_spec("demo", vault).read_text()
@@ -137,7 +134,9 @@ def test_spec_hub_prefers_vault_and_shows_status(tmp_path, monkeypatch):
     assert "CloneOnly" not in text
     assert "**Status:** `draft`" in text
     assert "documented path" in text
-    assert "workspace created" in text
+    assert "## Plan" not in text
+    assert "Milestones" not in text
+    assert not (vault / "projects" / "demo" / "spec-view.md").exists()
 
 
 def test_heading_slug_and_palette_render():

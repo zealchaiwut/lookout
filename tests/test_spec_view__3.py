@@ -82,3 +82,5 @@ def test_generate_spec_view_extracts_product_and_design(tmp_path, monkeypatch):
     assert "## Design" in text
     assert "--track" in text
     assert "┌───┬────┐" in text
+    assert "## Plan" not in text
+    assert "Milestones" not in text

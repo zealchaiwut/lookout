@@ -527,6 +527,9 @@ def _render_situation(
         f"sources_ok: {'true' if sources_ok else 'false'}",
         "---",
         "",
+        "_Live pulse after the latest gather: health, capacity, what changed, "
+        "and what to do next. Not Spec (intent) and not Changelog (what shipped)._",
+        "",
         "## One-liner",
         "",
         one_liner,

@@ -2,17 +2,13 @@
 
 Working Spec pack living in Lookout. Portable files here are meant to be
 promoted into `~/dev/viral-radar/` when approved (`lookout promote-spec`).
+Readable view: [[projects/viral-radar/spec|Spec Hub]] (sidebar hides this folder).
 
 | File | Status |
 |------|--------|
-| `api.yaml` | Draft — generated from README endpoint tables (53 GET paths) |
-| `PRODUCT.md` / `DESIGN.md` | Mirrored from the clone when absent; vault wins once present |
-| `plan.md` | Acceptance checklist stub |
-| `mock/` | Fixtures for mock validate |
+| `api.yaml` | Draft — generated from README endpoint tables |
+| `PRODUCT.md` / `DESIGN.md` / `SCHEMA.md` | Mirrored from the clone when absent; vault wins once present |
 | `status.yaml` | Lifecycle: `draft` → `in-review` → `approved` → `promoted` |
-
-Until `api.yaml` is copied into the viral-radar clone root, gather still
-reports `API ✗` on the Spec pack badge.
 
 ```bash
 bin/lookout spec validate viral-radar

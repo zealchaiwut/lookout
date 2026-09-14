@@ -12,15 +12,15 @@ No tool run from this repo may write to any target project, GitHub, Notion, or t
 
 The following file types are owned and written by the agent pipeline. Human contributors must not manually edit these files.
 
-- **situation** — current-state summary for a target project
+- **situation** — live pulse after gather (capacity, deltas, next actions);
+  not Spec and not Changelog
 - **capability body** — structured capability assessment content
 - **drift** — delta between last snapshot and current state
 - **todo-view** — filtered, ranked view of open todos for a target
 - **flow** — lifecycle and sitemap extracted from the target's own docs
 - **changelog** — merged PRs, git history, and atlas-joined issue links
 - **discovery** — start-here page (Spec link, API map, shallow module map, atlas)
-- **spec** — Spec Hub: Product · Requirements · Design · API · Plan (planning SoT)
-- **spec-view** — stub redirect to Spec Hub (legacy)
+- **spec** — Spec Hub: Product · Requirements · Design · API (planning SoT)
 - **decisions-view** — Decision Hub: timelines (decided / issue created /
   implemented) + cards with GitHub issue/PR/sprint status from the snapshot
 - **spec workspace** — `vault/projects/<target>/spec/` with `status.yaml`

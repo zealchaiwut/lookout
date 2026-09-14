@@ -172,27 +172,77 @@ def _example_cell(ep: dict, target: str = "") -> str:
     )
 
 
-def _build_read_surfaces_section(endpoints: list, target: str = "") -> str:
-    """Build the Read surfaces section as a 3-column table.
+def _api_category(path: str) -> str:
+    """Bucket a GET path for readable API maps (deterministic prefixes)."""
+    p = (path or "").strip() or "/"
+    if p == "/" or p == "":
+        return "App shell"
+    if p.startswith("/api/health") or p == "/health":
+        return "Health"
+    if p.startswith("/self-account") or p.startswith("/api/fingerprint"):
+        return "Self account"
+    if p.startswith("/accounts"):
+        return "Watchlist accounts"
+    if p.startswith("/niches") or p.startswith("/api/gap-report"):
+        return "Niches & gaps"
+    if p.startswith("/candidates"):
+        return "Discovery / quarantine"
+    if p.startswith("/api/waves") or p.startswith("/api/suggestions"):
+        return "Waves & suggestions"
+    if p.startswith("/api/posts"):
+        return "Posts"
+    if p.startswith("/api/settings") or p.startswith("/api/"):
+        return "Settings & misc API"
+    if p.startswith("/api"):
+        return "Settings & misc API"
+    return "Other"
 
-    Columns: API name (the human description), API (method + path), Example
-    (curl request plus the documented response, not a live call — Lookout
-    never hits a target's server).
-    """
+
+def _group_endpoints_by_category(endpoints: list) -> list[tuple[str, list]]:
+    """Return [(category, endpoints)] in stable category order."""
+    order = [
+        "App shell",
+        "Health",
+        "Watchlist accounts",
+        "Self account",
+        "Niches & gaps",
+        "Discovery / quarantine",
+        "Posts",
+        "Waves & suggestions",
+        "Settings & misc API",
+        "Other",
+    ]
+    buckets: dict[str, list] = {c: [] for c in order}
+    for ep in endpoints:
+        cat = _api_category(ep.get("path", ""))
+        buckets.setdefault(cat, []).append(ep)
+    out = []
+    for c in order:
+        if buckets.get(c):
+            out.append((c, buckets[c]))
+    for c, eps in buckets.items():
+        if c not in order and eps:
+            out.append((c, eps))
+    return out
+
+
+def _build_read_surfaces_section(endpoints: list, target: str = "") -> str:
+    """Build the Read surfaces section as categorized 3-column tables."""
     if not endpoints:
         return "_No read surfaces discovered in snapshot evidence._"
 
-    lines = [
-        "| API name | API | Example |",
-        "|---|---|---|",
-    ]
-    for ep in endpoints:
-        path = ep.get("path", "")
-        name = _md_cell(ep.get("description", "") or path)
-        api = f"`GET {_md_cell(path)}`"
-        lines.append(f"| {name} | {api} | {_example_cell(ep, target)} |")
-
-    return "\n".join(lines)
+    blocks: list[str] = []
+    for cat, eps in _group_endpoints_by_category(endpoints):
+        blocks.append(f"### {cat}\n")
+        blocks.append("| API name | API | Example |")
+        blocks.append("|---|---|---|")
+        for ep in eps:
+            path = ep.get("path", "")
+            name = _md_cell(ep.get("description", "") or path)
+            api = f"`GET {_md_cell(path)}`"
+            blocks.append(f"| {name} | {api} | {_example_cell(ep, target)} |")
+        blocks.append("")
+    return "\n".join(blocks).rstrip()
 
 
 _GENERIC_MARKER = "is a project tracked by Lookout"

@@ -83,7 +83,7 @@ _SENTINEL_HUMAN_RE = re.compile(r"<!--\s*BEGIN HUMAN ([A-Z][A-Z ]+?)\s*-->")
 # File stems that vault/agents.md lists as machine-owned types
 _MACHINE_STEMS = frozenset([
     "situation", "drift", "todo-view", "index", "flow", "changelog", "discovery",
-    "spec", "spec-view", "decisions-view",
+    "spec", "decisions-view",
 ])
 
 # File stems / path conditions that agents.md lists as human-owned types
@@ -919,6 +919,24 @@ def _project_note_sort_key(note):
         return (1, 0, note.stem)
 
 
+def _sidebar_hidden_project_note(note) -> bool:
+    """Hide pack workspace / raw decision files from the project sidebar.
+
+    Spec Hub and Decisions Hub already present that content; listing PRODUCT.md,
+    plan.md, TEMPLATE.md, etc. next to discovery/spec clutters the tree.
+    """
+    parts = note.rel.parts
+    if len(parts) < 3 or parts[0] != "projects":
+        return False
+    # projects/<target>/spec/...  or projects/<target>/decisions/...
+    if parts[2] in ("spec", "decisions", "raw"):
+        return True
+    # Legacy stub
+    if note.stem == "spec-view":
+        return True
+    return False
+
+
 def build_tree(notes: list) -> dict:
     """Group notes into the sidebar's sections."""
     overview, ideas, journal = [], [], []
@@ -930,6 +948,8 @@ def build_tree(notes: list) -> dict:
             proj = projects.setdefault(parts[1], {"notes": [], "atlas": [], "ideas": []})
             if "atlas" in parts:
                 proj["atlas"].append(note)
+            elif _sidebar_hidden_project_note(note):
+                continue
             else:
                 proj["notes"].append(note)
         elif parts[0] == "ideas":

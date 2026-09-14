@@ -139,39 +139,56 @@ def _api_map_section(
         )
         return lines
 
+    joined = 0
+    for ep in endpoints:
+        path = ep.get("path", "")
+        key = _normalize_join_path(path)
+        if atlas_index.get(key) or atlas_index.get(path):
+            joined += 1
+            continue
+        bare = re.sub(r"\{[^}]+\}", "", path)
+        for k in atlas_index:
+            if re.sub(r"\{[^}]+\}", "", k) == bare:
+                joined += 1
+                break
+
     lines.append(
-        "Documented GET surfaces from the latest snapshot. Atlas / Handler "
-        "columns fill when an atlas note cites the path (deterministic join — "
-        "no live server calls).\n"
+        "Documented GET surfaces from the latest snapshot, grouped by path "
+        "prefix. **Atlas / Handler** fill only when an atlas note cites that "
+        f"path (deterministic join — no live server calls). Currently "
+        f"**{joined}/{len(endpoints)}** paths have an atlas join — the rest "
+        "show `—` until `atlas_trace` / feature notes cover them.\n"
     )
-    lines.append("| API name | API | Example | Atlas | Handler |")
-    lines.append("|---|---|---|---|---|")
 
     shown = endpoints[:_API_ROW_CAP]
-    for ep in shown:
-        path = ep.get("path", "")
-        name = _md_cell(ep.get("description", "") or path)
-        api = f"`GET {_md_cell(path)}`"
-        example = capability_card._example_cell(ep, target)
-        key = _normalize_join_path(path)
-        join = atlas_index.get(key) or atlas_index.get(path)
-        # Soft match: strip {param} segments for comparison
-        if not join:
-            bare = re.sub(r"\{[^}]+\}", "", path)
-            for k, v in atlas_index.items():
-                if re.sub(r"\{[^}]+\}", "", k) == bare:
-                    join = v
-                    break
-        if join:
-            atlas_cell = f"[[{join['atlas']}]]"
-            handler_cell = f"`{join['handler']}`" if join.get("handler") else "—"
-        else:
-            atlas_cell = "—"
-            handler_cell = "—"
-        lines.append(
-            f"| {name} | {api} | {example} | {atlas_cell} | {handler_cell} |"
-        )
-    lines.append("")
+    for cat, eps in capability_card._group_endpoints_by_category(shown):
+        lines.append(f"### {cat}\n")
+        lines.append("| API name | API | Example | Atlas | Handler |")
+        lines.append("|---|---|---|---|---|")
+        for ep in eps:
+            path = ep.get("path", "")
+            name = _md_cell(ep.get("description", "") or path)
+            api = f"`GET {_md_cell(path)}`"
+            example = capability_card._example_cell(ep, target)
+            key = _normalize_join_path(path)
+            join = atlas_index.get(key) or atlas_index.get(path)
+            if not join:
+                bare = re.sub(r"\{[^}]+\}", "", path)
+                for k, v in atlas_index.items():
+                    if re.sub(r"\{[^}]+\}", "", k) == bare:
+                        join = v
+                        break
+            if join:
+                atlas_cell = f"[[{join['atlas']}]]"
+                handler_cell = f"`{join['handler']}`" if join.get("handler") else "—"
+            else:
+                atlas_cell = "—"
+                handler_cell = "—"
+            lines.append(
+                f"| {name} | {api} | {example} | {atlas_cell} | {handler_cell} |"
+            )
+        lines.append("")
+
     if len(endpoints) > _API_ROW_CAP:
         lines.append(
             f"_Showing {_API_ROW_CAP} of {len(endpoints)} endpoints. "
