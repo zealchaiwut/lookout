@@ -1,27 +1,23 @@
 # viral-radar — Discovery
 
-Start-here page for this project: product flow, API map, shallow module map, and atlas. Machine-generated from docs, the latest snapshot, and the local clone. Lookout does not invent edges.
+Start-here page for this project: Spec link, API map, shallow module map, and atlas. Machine-generated from docs, the latest snapshot, and the local clone. Lookout does not invent edges.
 
 ## One-liner
 
 Viral-Radar is a Facebook content analytics service for creators and marketers that ingests posts, classifies engagement tiers per account, and identifies the features distinguishing high-performing content. It discovers candidate creator accounts, generates AI-powered post suggestions tailored to niche-specific engagement patterns, and surfaces content strategy gaps.
 
-## Product flow
+## Spec pack
 
-From `viral-radar` `PRODUCT.md` (3 step(s)). Full detail: [[projects/viral-radar/flow]].
+Full Spec: [[projects/viral-radar/spec|Spec Hub]] (Product · Requirements · Design · API · Plan).
 
-```mermaid
-flowchart LR
-  Findthewave[Find the wave]
-  Provetherecipe[Prove the recipe]
-  Protectthevoice[Protect the voice]
-  Findthewave --> Provetherecipe
-  Provetherecipe --> Protectthevoice
-```
+_No `spec.json` in the latest snapshot. Run `bin/lookout <target>` to collect PRODUCT / DESIGN / SCHEMA / API / docs presence._
 
-- **Find the wave** — Surface which races/events/topics currently have an
-- **Prove the recipe** — Replace hunches with data: what structurally
-- **Protect the voice** — Any generated output is structure only (angles,
+## Product
+
+Jobs, requirements, and design live in the [[projects/viral-radar/spec|Spec Hub]] (planning SoT). Lifecycle diagram: [[projects/viral-radar/flow]].
+
+**Jobs:** Find the wave · Prove the recipe · Protect the voice
+
 
 ## API map
 
@@ -32,10 +28,10 @@ Documented GET surfaces from the latest snapshot. Atlas / Handler columns fill w
 | App home (Now tab HTML) | `GET /` | `curl -sS http://localhost:8000/` → `200 JSON — App home (Now tab HTML)` | — | — |
 | Health check — '{"status": "ok", "db": "ok"} | `GET /api/health` | `curl -sS http://localhost:8000/api/health` → `200 JSON — Health check — '{"status": "ok", "db": "ok"}` | — | — |
 | Post detail including AI analysis fields | `GET /api/posts/{post_id}` | `curl -sS http://localhost:8000/api/posts/example` → `200 JSON — Post detail including AI analysis fields` | — | — |
-| List watchlist accounts, excluding the self account | `GET /accounts` | `curl -sS http://localhost:8000/accounts` → `200 JSON — List watchlist accounts, excluding the self account` | — | — |
-| List accounts pending scorecard review | `GET /accounts/scorecard-review` | `curl -sS http://localhost:8000/accounts/scorecard-review` → `200 JSON — List accounts pending scorecard review` | — | — |
-| List posts for an account | `GET /accounts/{account_id}/posts` | `curl -sS http://localhost:8000/accounts/example/posts` → `200 JSON — List posts for an account` | — | — |
-| List scrape runs for an account | `GET /accounts/{account_id}/scrapes` | `curl -sS http://localhost:8000/accounts/example/scrapes` → `200 JSON — List scrape runs for an account` | — | — |
+| List watchlist accounts, excluding the self account | `GET /accounts` | `curl -sS http://localhost:8000/accounts` → `200 JSON — List watchlist accounts, excluding the self account` | [[projects/viral-radar/atlas/self-account]] | `routers/self_account.py` |
+| List accounts pending scorecard review | `GET /accounts/scorecard-review` | `curl -sS http://localhost:8000/accounts/scorecard-review` → `200 JSON — List accounts pending scorecard review` | [[projects/viral-radar/atlas/self-account]] | `routers/self_account.py` |
+| List posts for an account | `GET /accounts/{account_id}/posts` | `curl -sS http://localhost:8000/accounts/example/posts` → `200 JSON — List posts for an account` | [[projects/viral-radar/atlas/self-account]] | `routers/self_account.py` |
+| List scrape runs for an account | `GET /accounts/{account_id}/scrapes` | `curl -sS http://localhost:8000/accounts/example/scrapes` → `200 JSON — List scrape runs for an account` | [[projects/viral-radar/atlas/self-account]] | `routers/self_account.py` |
 | Return the current self account, or null | `GET /self-account` | `curl -sS http://localhost:8000/self-account` → `200 JSON — Return the current self account, or null` | — | — |
 | Return posts for the self account (powers the Self tab) | `GET /self-account/posts` | `curl -sS http://localhost:8000/self-account/posts` → `200 JSON — Return posts for the self account (powers the Self tab)` | — | — |
 | Return analysis for the self account | `GET /self-account/analysis` | `curl -sS http://localhost:8000/self-account/analysis` → `200 JSON — Return analysis for the self account` | — | — |
@@ -101,9 +97,22 @@ flowchart LR
 
 ## Feature atlas
 
-[[projects/viral-radar/atlas/index|Atlas index]] — **0** traced / **0** features.
+[[projects/viral-radar/atlas/index|Atlas index]] — **11** traced / **23** features.
+
+Sample features:
+
+- [[projects/viral-radar/atlas/ai-why-layer|ai-why-layer]]
+- [[projects/viral-radar/atlas/apify-collector|apify-collector]]
+- [[projects/viral-radar/atlas/apify-facebook|apify-facebook]]
+- [[projects/viral-radar/atlas/candidate-miner|candidate-miner]]
+- [[projects/viral-radar/atlas/candidate-sampler|candidate-sampler]]
+- [[projects/viral-radar/atlas/core-engine-multi-account-paste-fed|core-engine-multi-account-paste-fed]]
+- [[projects/viral-radar/atlas/discovery|discovery]]
+- [[projects/viral-radar/atlas/engagement-tier|engagement-tier]]
 
 ## Read next
+
+- [[projects/viral-radar/spec|Spec Hub]] — Product · Requirements · Design
 
 - [[projects/viral-radar/situation|Situation]] — current state
 

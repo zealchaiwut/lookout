@@ -5,6 +5,34 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
 
 ## Unreleased
 
+- Spec Hub (`spec.md`): Product · Requirements · Design · API · Plan with
+  status chrome, TOC anchors, palette swatches on the site. Thin `spec-view`
+  is a redirect stub. Discovery points at the Hub instead of dumping jobs.
+
+- `lookout promote-spec <target>` copies an approved Spec pack into the target
+  clone (PRODUCT/DESIGN/SCHEMA/api.yaml) and flips status to `promoted`.
+  Supports `--dry-run`.
+
+- Spec CLI: `lookout spec validate|submit|approve <target>` mock-validates
+  OpenAPI (+ optional `mock/*.json`) and flips `draft`→`in-review`→`approved`
+  after validation passes.
+
+- Spec workspace under `vault/projects/<target>/spec/` with `status.yaml`
+  lifecycle (`draft` → `in-review` → `approved` → `promoted`). Derive stage
+  `spec_workspace` mirrors missing pack files from the clone without
+  overwriting vault copies.
+
+- Prefer `api.yaml` / `openapi.yaml` for endpoint collection; Markdown tables
+  remain the fallback. Draft viral-radar OpenAPI lives at
+  `vault/projects/viral-radar/spec/api.yaml` (promote into the clone to flip API ✓).
+
+- Spec pack completeness: gather writes `spec.json`; discovery/situation show
+  the PRODUCT · DESIGN · SCHEMA · API · docs badge (`docs/hermes-contract.md` §1b).
+
+- Spec pack completeness (SDD): gather writes `spec.json` for PRODUCT / DESIGN /
+  SCHEMA / API / docs presence; situation and discovery show a completeness badge.
+  See `docs/hermes-contract.md` §1b.
+
 - Seed atlas features from `PRODUCT.md` (core concepts, jobs, milestones) when
   a target has no README Features section; prefer the local clone over GitHub.
 - Prefer a feature-named source file when the matching test walks the whole app

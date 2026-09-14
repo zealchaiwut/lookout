@@ -101,6 +101,106 @@ targets:
 
 ---
 
+### 1b. Target Spec pack (recommended SDD files)
+
+**Path pattern:** files under the target's `local:` checkout
+
+**Purpose:** Spec-Driven Development pack that Lookout mirrors into
+`vault/projects/<target>/raw/<ts>/spec.json`. Presence is recommended, not
+required — a missing file is recorded as `absent` and the run continues.
+
+| Key in `spec.json` | Candidate paths (first existing wins) | Role |
+|---|---|---|
+| `PRODUCT.md` | `PRODUCT.md` | What & why, jobs, concepts, milestones |
+| `DESIGN.md` | `DESIGN.md` | UX/UI tokens, layout, interaction |
+| `SCHEMA.md` | `SCHEMA.md`, `schema.yaml`, `schema.yml` | Data model |
+| `api.yaml` | `api.yaml`, `openapi.yaml`, `openapi.yml` | Machine-readable API (OpenAPI subset) |
+| `docs/` | `docs/` directory | Architecture, workflow, features, milestones |
+
+**`spec.json` shape** (written by `collectors.spec.collect_spec`):
+
+```json
+{
+  "files": {
+    "PRODUCT.md": {"present": true, "path": "PRODUCT.md", "sha256": "...", "bytes": 1234},
+    "DESIGN.md": {"present": true, "path": "DESIGN.md", "sha256": "...", "bytes": 800},
+    "SCHEMA.md": {"present": true, "path": "SCHEMA.md", "sha256": "...", "bytes": 4000},
+    "api.yaml": {"present": false, "path": "api.yaml", "sha256": null, "bytes": 0},
+    "docs/": {"present": true, "path": "docs", "file_count": 12}
+  },
+  "completeness": {
+    "present": ["PRODUCT.md", "DESIGN.md", "SCHEMA.md", "docs/"],
+    "absent": ["api.yaml"],
+    "score": "4/5",
+    "badge": "PRODUCT ✓ · DESIGN ✓ · SCHEMA ✓ · API ✗ · docs ✓"
+  }
+}
+```
+
+The badge is rendered on `situation.md` (`## Spec pack`) and `discovery.md`
+(with a link to the Spec Hub). Additive — no `contract_version` bump.
+
+### 1c. Spec workspace (Lookout-authored pack)
+
+**Path pattern:** `vault/projects/<target>/spec/`
+
+**Purpose:** Working Spec pack that lives in Lookout until an explicit
+`lookout promote-spec` copies approved files into the target clone. Nightly
+gather remains read-only against targets; only this vault tree is written
+during Spec authoring.
+
+| Path | Role |
+|---|---|
+| `PRODUCT.md`, `DESIGN.md`, `SCHEMA.md`, `api.yaml` | Portable pack (mirrored from the clone when absent; vault wins once present) |
+| `plan.md` | Human plan / acceptance checklist |
+| `mock/` | Fixtures / OpenAPI examples for mock validate |
+| `status.yaml` | Lifecycle: `draft` → `in-review` → `approved` → `promoted` |
+| `README.md` | Workspace orientation |
+
+**`status.yaml` shape** (written by `spec_workspace.ensure_workspace`):
+
+```yaml
+status: draft
+updated: 2026-09-14T00:00:00Z
+history:
+  - status: draft
+    at: 2026-09-14T00:00:00Z
+    note: workspace created
+files:
+  PRODUCT.md: present
+  DESIGN.md: present
+  SCHEMA.md: absent
+  api.yaml: present
+  plan.md: present
+  mock/: present
+notes: ""
+```
+
+Allowed transitions: `draft`→`in-review`; `in-review`→`draft|approved`;
+`approved`→`in-review|promoted`; `promoted`→`draft` (next cycle). Invalid
+transitions raise `SpecWorkspaceError`. Additive — no `contract_version` bump.
+
+**CLI (Step 5):** `lookout spec validate|submit|approve <target>` —
+`spec_validate` checks `api.yaml` OpenAPI shape (+ optional `mock/*.json`)
+without calling live APIs. `submit` requires `draft` and flips to `in-review`;
+`approve` requires `in-review` and flips to `approved`. Both gate on validate.
+
+**Promote (Step 6):** `lookout promote-spec <target> [--dry-run]` —
+requires `status=approved`, copies `PRODUCT.md` / `DESIGN.md` / `SCHEMA.md` /
+`api.yaml` from the workspace into the target `local:` clone, then flips
+status to `promoted`. This is the only outbound write into a tracked project.
+
+### 1d. Spec Hub (readable SoT)
+
+**Path:** `vault/projects/<target>/spec.md`
+
+**Purpose:** Human-readable planning view derived from the Spec workspace
+(or clone fallback). Panes: Product, Requirements, Design, API, Plan — with
+pack badge, lifecycle status, and TOC anchors for mid-sprint lookup. Written
+by `project_spec_view.generate_spec`. Legacy `spec-view.md` is a redirect stub.
+
+---
+
 ### 2. `vault/projects/<target>/situation.md`
 
 **Path pattern:** `vault/projects/<target>/situation.md`

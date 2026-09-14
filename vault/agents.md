@@ -18,7 +18,16 @@ The following file types are owned and written by the agent pipeline. Human cont
 - **todo-view** — filtered, ranked view of open todos for a target
 - **flow** — lifecycle and sitemap extracted from the target's own docs
 - **changelog** — merged PRs, git history, and atlas-joined issue links
-- **discovery** — start-here page (product flow, API map, shallow module map, atlas)
+- **discovery** — start-here page (Spec link, API map, shallow module map, atlas)
+- **spec** — Spec Hub: Product · Requirements · Design · API · Plan (planning SoT)
+- **spec-view** — stub redirect to Spec Hub (legacy)
+- **spec workspace** — `vault/projects/<target>/spec/` with `status.yaml`
+  (`draft` → `in-review` → `approved` → `promoted`); promote is the only
+  outbound write to the target clone
+- **spec CLI** — `lookout spec validate|submit|approve <target>` (mock-validate
+  OpenAPI + fixtures; submit/approve flip status after validate passes)
+- **promote-spec** — `lookout promote-spec <target>` copies an **approved** Spec
+  pack into the target clone (only outbound write); then status → `promoted`
 - **atlas** — cross-target structural map
 - **index** — vault master registry (e.g. `vault/index.md`)
 - **journal index** — chronological index of journal entries

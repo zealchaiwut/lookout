@@ -14,6 +14,7 @@ YAML frontmatter:
 Seven sections:
   ## One-liner       — single sentence summarising current state
   ## Capacity        — verdict from brief + health
+  ## Spec pack       — SDD completeness badge (when spec.json exists)
   ## Since last run  — changed fields vs prior snapshot
   ## What to do next — up to 5 items; wikilinked only when the page exists
   ## From the journal — entries from journal snapshot
@@ -517,6 +518,7 @@ def _render_situation(
     snapshot_name: str,
     registry_open: list | None = None,
     registry_resolved: list | None = None,
+    spec_badge: str = "",
 ) -> str:
     lines = [
         "---",
@@ -535,9 +537,21 @@ def _render_situation(
         capacity,
         "_(source: manifest.json, brief.json, issues.json)_",
         "",
+    ]
+
+    if spec_badge:
+        lines.extend([
+            "## Spec pack",
+            "",
+            spec_badge,
+            "_(source: spec.json)_",
+            "",
+        ])
+
+    lines.extend([
         "## Since last run",
         "",
-    ]
+    ])
 
     if since_last_run:
         for item in since_last_run:
@@ -698,6 +712,11 @@ def synthesize(target_name: str, vault_dir: Path | None = None) -> Path:
     drift_md_path = project_dir / "drift.md"
     drift = _build_drift_signals(manifest, prev_manifest, docs_manifest, drift_md_path=drift_md_path)
 
+    spec_badge = ""
+    if snapshot_dir and (snapshot_dir / "spec.json").exists():
+        from collectors.spec import format_badge_line
+        spec_badge = format_badge_line(_load_json(snapshot_dir / "spec.json"))
+
     # Question generation and read-back pass
     registry_open: list = []
     registry_resolved: list = []
@@ -733,6 +752,7 @@ def synthesize(target_name: str, vault_dir: Path | None = None) -> Path:
         snapshot_name=snapshot_dir.name if snapshot_dir else "",
         registry_open=registry_open,
         registry_resolved=registry_resolved,
+        spec_badge=spec_badge,
     )
 
     project_dir.mkdir(parents=True, exist_ok=True)
