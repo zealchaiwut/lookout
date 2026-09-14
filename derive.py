@@ -16,7 +16,7 @@ Two groups, run in this order:
     5. project_flow     — flow.md           (workflow.md + atlas sitemap)
     6. project_changelog — changelog.md     (merged PRs + git log)
     7. project_discovery — discovery.md     (start-here: flow + API + modules)
-    8. project_spec_view — spec-view.md     (human PRODUCT/DESIGN extracts)
+    8. project_spec_view — spec.md         (Spec Hub: Product/Reqs/Design/API/Plan)
     9. spec_workspace — vault/.../spec/     (status.yaml + pack workspace)
 
   Vault-wide (derive_vault), once after every target

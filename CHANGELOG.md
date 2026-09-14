@@ -5,6 +5,10 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
 
 ## Unreleased
 
+- Spec Hub (`spec.md`): Product · Requirements · Design · API · Plan with
+  status chrome, TOC anchors, palette swatches on the site. Thin `spec-view`
+  is a redirect stub. Discovery points at the Hub instead of dumping jobs.
+
 - `lookout promote-spec <target>` copies an approved Spec pack into the target
   clone (PRODUCT/DESIGN/SCHEMA/api.yaml) and flips status to `promoted`.
   Supports `--dry-run`.
@@ -17,9 +21,6 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
   lifecycle (`draft` → `in-review` → `approved` → `promoted`). Derive stage
   `spec_workspace` mirrors missing pack files from the clone without
   overwriting vault copies.
-
-- Human-readable `spec-view.md` per target: PRODUCT jobs/concepts and DESIGN
-  tokens/layout for the Lookout site (derive stage `project_spec_view`).
 
 - Prefer `api.yaml` / `openapi.yaml` for endpoint collection; Markdown tables
   remain the fallback. Draft viral-radar OpenAPI lives at

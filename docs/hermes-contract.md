@@ -137,8 +137,8 @@ required — a missing file is recorded as `absent` and the run continues.
 }
 ```
 
-The badge is rendered on `situation.md` (`## Spec pack`) and `discovery.md`.
-This is an **additive** contract change — `contract_version` is not bumped.
+The badge is rendered on `situation.md` (`## Spec pack`) and `discovery.md`
+(with a link to the Spec Hub). Additive — no `contract_version` bump.
 
 ### 1c. Spec workspace (Lookout-authored pack)
 
@@ -189,6 +189,15 @@ without calling live APIs. `submit` requires `draft` and flips to `in-review`;
 requires `status=approved`, copies `PRODUCT.md` / `DESIGN.md` / `SCHEMA.md` /
 `api.yaml` from the workspace into the target `local:` clone, then flips
 status to `promoted`. This is the only outbound write into a tracked project.
+
+### 1d. Spec Hub (readable SoT)
+
+**Path:** `vault/projects/<target>/spec.md`
+
+**Purpose:** Human-readable planning view derived from the Spec workspace
+(or clone fallback). Panes: Product, Requirements, Design, API, Plan — with
+pack badge, lifecycle status, and TOC anchors for mid-sprint lookup. Written
+by `project_spec_view.generate_spec`. Legacy `spec-view.md` is a redirect stub.
 
 ---
 

@@ -65,13 +65,20 @@ def test_discovery_shows_product_steps_not_commander_template(tmp_path):
     finally:
         _restore_targets(originals)
 
-    assert "## Product flow" in text
+    assert "## Product" in text
     assert "Pick account" in text
     assert "Build carousel" in text
     assert "Bulk Create" not in text
     assert "Run Sprint" not in text
     assert "A carousel studio." in text
+    assert "[[projects/alpha/spec|Spec Hub]]" in text
     assert "[[projects/alpha/flow]]" in text
+    # No long product-flow dump / mermaid on discovery anymore
+    assert "## Product flow" not in text
+    product_block = text.split("## API map")[0]
+    assert "flowchart" not in product_block
+    assert "Bulk Create" not in product_block
+    assert "Run Sprint" not in product_block
 
 
 def test_commander_template_alone_is_not_sold_as_product_flow(tmp_path):
@@ -94,7 +101,8 @@ def test_commander_template_alone_is_not_sold_as_product_flow(tmp_path):
 
     flow_section = text.split("## API map")[0]
     assert "Bulk Create" not in flow_section
-    assert "How work ships" in flow_section or "Commander sprint template" in flow_section
+    assert "Spec Hub" in flow_section
+    assert "[[projects/alpha/spec|Spec Hub]]" in flow_section
 
 
 def test_api_map_joins_atlas_when_path_cited(tmp_path):
@@ -194,10 +202,11 @@ def test_missing_local_has_honest_empty_sections(tmp_path):
     finally:
         _restore_targets(originals)
 
-    assert "## Product flow" in text
+    assert "## Product" in text
     assert "## API map" in text
     assert "## Module map" in text
-    assert "No local clone" in text or "No entry files" in text or "No product flow" in text
+    assert "Spec Hub" in text
+    assert "No local clone" in text or "No entry files" in text or "Spec Hub" in text
     assert "No GET endpoints" in text
     assert "[[projects/ghost/situation|Situation]]" in text
 

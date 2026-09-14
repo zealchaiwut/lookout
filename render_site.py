@@ -48,7 +48,7 @@ REPO_ROOT = Path(__file__).parent
 # Project notes read in pipeline order, not alphabetical — that is the order a
 # reader wants them, and the order the derive stages produce them in.
 _PROJECT_NOTE_ORDER = [
-    "discovery", "spec-view", "situation", "capability", "flow", "changelog",
+    "discovery", "spec", "situation", "capability", "flow", "changelog",
     "drift", "todo-view", "notes", "decisions",
 ]
 
@@ -64,6 +64,16 @@ _BULLET_RE = re.compile(r"^(\s*)[-*]\s+(.*)$")
 _ORDERED_RE = re.compile(r"^(\s*)\d+\.\s+(.*)$")
 _TABLE_SEP_RE = re.compile(r"^\s*\|[\s:|-]+\|\s*$")
 _COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
+_HEX_RE = re.compile(r"#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})\b")
+
+
+def _slugify_heading(text: str) -> str:
+    """Stable HTML id from a heading (matches Spec Hub TOC anchors)."""
+    plain = re.sub(r"[*_`\[\]()]", "", text)
+    plain = plain.strip().lower()
+    plain = re.sub(r"[^a-z0-9]+", "-", plain)
+    return plain.strip("-") or "section"
+
 
 # Ownership sentinel patterns (from vault/agents.md conventions)
 _SENTINEL_MACHINE_ASSESS_RE = re.compile(r"<!--\s*BEGIN MACHINE ASSESSMENT\s*-->")
@@ -73,7 +83,7 @@ _SENTINEL_HUMAN_RE = re.compile(r"<!--\s*BEGIN HUMAN ([A-Z][A-Z ]+?)\s*-->")
 # File stems that vault/agents.md lists as machine-owned types
 _MACHINE_STEMS = frozenset([
     "situation", "drift", "todo-view", "index", "flow", "changelog", "discovery",
-    "spec-view",
+    "spec", "spec-view",
 ])
 
 # File stems / path conditions that agents.md lists as human-owned types
@@ -699,6 +709,33 @@ def _render_table(rows: list, note, link_index) -> str:
             line = line[:-1]
         return [c.strip() for c in line.split("|")]
 
+    def cell_html(c: str) -> str:
+        inner = render_inline(c, note, link_index)
+        # Color swatch before hex values (DESIGN palette tables).
+        if _HEX_RE.search(c):
+            def _swatch(m):
+                hx = m.group(0)
+                return (
+                    f'<span class="swatch" style="background:{html.escape(hx)}" '
+                    f'title="{html.escape(hx)}"></span> '
+                    f"<code>{html.escape(hx)}</code>"
+                )
+            # Replace escaped hex codes that render_inline wrapped in nothing special
+            # Re-build from raw cell for hex detection only.
+            parts = []
+            last = 0
+            for m in _HEX_RE.finditer(c):
+                before = c[last:m.start()]
+                if before:
+                    parts.append(render_inline(before, note, link_index))
+                parts.append(_swatch(m))
+                last = m.end()
+            after = c[last:]
+            if after:
+                parts.append(render_inline(after, note, link_index))
+            return "".join(parts) if parts else inner
+        return inner
+
     head = cells(rows[0])
     body = [cells(r) for r in rows[1:]]
     out = ['<div class="table-wrap"><table><thead><tr>']
@@ -706,10 +743,36 @@ def _render_table(rows: list, note, link_index) -> str:
     out.append("</tr></thead><tbody>")
     for row in body:
         out.append("<tr>")
-        out += [f"<td>{render_inline(c, note, link_index)}</td>" for c in row]
+        out += [f"<td>{cell_html(c)}</td>" for c in row]
         out.append("</tr>")
     out.append("</tbody></table></div>")
     return "".join(out)
+
+
+def _render_palette_fence(raw: str) -> str:
+    """Render ```palette lines of token|hex|use as a swatch strip."""
+    chips = []
+    for line in raw.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) < 2:
+            continue
+        token, hx = parts[0], parts[1]
+        use = parts[2] if len(parts) > 2 else ""
+        if not _HEX_RE.match(hx):
+            continue
+        title = html.escape(f"{token} {hx}" + (f" — {use}" if use else ""))
+        chips.append(
+            f'<span class="palette-chip" title="{title}">'
+            f'<span class="swatch swatch-lg" style="background:{html.escape(hx)}"></span>'
+            f'<span class="palette-label"><code>{html.escape(token)}</code></span>'
+            f"</span>"
+        )
+    if not chips:
+        return ""
+    return '<div class="palette-strip">' + "".join(chips) + "</div>"
 
 
 def render_markdown(text: str, note=None, link_index=None) -> str:
@@ -768,6 +831,11 @@ def render_markdown(text: str, note=None, link_index=None) -> str:
                 if svg is not None:
                     parts.append(svg)
                     continue
+            if lang == "palette":
+                strip = _render_palette_fence(raw)
+                if strip:
+                    parts.append(strip)
+                    continue
             cls = f' class="lang-{html.escape(lang)}"' if lang else ""
             parts.append(
                 f"<pre{cls}><code>{html.escape(raw)}</code></pre>"
@@ -789,8 +857,11 @@ def render_markdown(text: str, note=None, link_index=None) -> str:
             # The page <h1> is the note title, so note headings start at <h2>.
             # Clamping rather than shifting avoids skipping a level.
             level = min(max(len(m.group(1)), 2), 6)
+            title = m.group(2).strip()
+            slug = _slugify_heading(title)
             parts.append(
-                f"<h{level}>{render_inline(m.group(2), note, link_index)}</h{level}>"
+                f'<h{level} id="{html.escape(slug)}">'
+                f"{render_inline(title, note, link_index)}</h{level}>"
             )
             i += 1
             continue
@@ -1066,6 +1137,23 @@ th, td {
 }
 th { background: var(--surface); font-weight: 600; }
 td code, th code { white-space: pre-wrap; word-break: break-word; }
+.swatch {
+  display: inline-block; width: 0.85em; height: 0.85em;
+  border-radius: 2px; border: 1px solid var(--border);
+  vertical-align: -0.1em; margin-right: 0.25em;
+}
+.swatch-lg { width: 1.4em; height: 1.4em; border-radius: 3px; margin-right: 0; }
+.palette-strip {
+  display: flex; flex-wrap: wrap; gap: 0.65rem 1rem;
+  margin: 0.8rem 0 1rem; padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.palette-chip {
+  display: inline-flex; flex-direction: column; align-items: center;
+  gap: 0.3rem; min-width: 4.5rem;
+}
+.palette-label { font-size: 11.5px; color: var(--text-muted); }
+.palette-label code { font-size: 11px; background: transparent; padding: 0; }
 .idea-belongs {
   background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
   padding: .6rem .8rem; font-size: 14px; margin: 0 0 1.25rem;

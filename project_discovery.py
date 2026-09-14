@@ -61,58 +61,32 @@ def _one_liner(project_dir: Path, target: str) -> str:
     return f"`{target}` is a Lookout-tracked project."
 
 
-def _product_flow_section(target: str, local: Path | None) -> list[str]:
-    lines = ["## Product flow\n"]
+def _product_flow_section(
+    target: str,
+    local: Path | None,
+    project_dir: Path | None = None,
+) -> list[str]:
+    """Short pointer to Spec Hub — full jobs/requirements live there."""
+    lines = [
+        "## Product\n",
+        f"Jobs, requirements, and design live in the "
+        f"[[projects/{target}/spec|Spec Hub]] (planning SoT). "
+        f"Lifecycle diagram: [[projects/{target}/flow]].\n",
+    ]
     product_text = ""
-    workflow_text = ""
-    if local:
+    if project_dir is not None:
+        vault_product = project_dir / "spec" / "PRODUCT.md"
+        if vault_product.is_file():
+            product_text = vault_product.read_text(encoding="utf-8", errors="replace")
+    if not product_text and local:
         product_path = local / "PRODUCT.md"
         if product_path.is_file():
             product_text = product_path.read_text(encoding="utf-8", errors="replace")
-        workflow_path = local / "docs" / "workflow.md"
-        if workflow_path.is_file():
-            workflow_text = workflow_path.read_text(encoding="utf-8", errors="replace")
-
-    steps = project_flow._extract_product_steps(product_text)
-    stages = project_flow._extract_stages(workflow_text) if workflow_text else []
-    commander_template = project_flow._is_commander_pipeline(workflow_text)
-    is_commander = target == "commander"
-
+    steps = project_flow._extract_product_steps(product_text) if product_text else []
     if steps:
-        titles = [t for t, _ in steps]
-        mermaid = project_flow._lifecycle_mermaid(titles)
-        lines.append(
-            f"From `{target}` `PRODUCT.md` ({len(steps)} step(s)). "
-            f"Full detail: [[projects/{target}/flow]].\n"
-        )
-        if mermaid:
-            lines.append(mermaid + "\n")
-        for title, detail in steps[:8]:
-            short = detail[:160] + ("…" if len(detail) > 160 else "")
-            lines.append(f"- **{title}** — {short}" if short else f"- **{title}**")
-        lines.append("")
-    elif stages and (is_commander or not commander_template):
-        mermaid = project_flow._lifecycle_mermaid(stages)
-        lines.append(
-            f"From `{target}` `docs/workflow.md` ({len(stages)} stage(s)). "
-            f"Full detail: [[projects/{target}/flow]].\n"
-        )
-        if mermaid:
-            lines.append(mermaid + "\n")
-        for stage in stages:
-            lines.append(f"- **{project_flow._short_label(stage)}**")
-        lines.append("")
-    elif commander_template and not is_commander:
-        lines.append(
-            f"_No product user-flow list in `{target}` `PRODUCT.md`. "
-            f"The Commander sprint template lives under "
-            f"[[projects/{target}/flow|How work ships]] on the flow page._\n"
-        )
-    else:
-        lines.append(
-            f"_No product flow extracted. See [[projects/{target}/flow]] "
-            "once PRODUCT.md or docs/workflow.md has numbered steps._\n"
-        )
+        titles = [t for t, _ in steps[:8]]
+        lines.append("**Jobs:** " + " · ".join(titles) + "\n")
+    lines.append("")
     return lines
 
 
@@ -380,6 +354,7 @@ def _atlas_coverage(project_dir: Path, target: str) -> list[str]:
 def _read_next(target: str) -> list[str]:
     return [
         "## Read next\n",
+        f"- [[projects/{target}/spec|Spec Hub]] — Product · Requirements · Design\n",
         f"- [[projects/{target}/situation|Situation]] — current state\n",
         f"- [[projects/{target}/capability|Capability]] — full API card\n",
         f"- [[projects/{target}/flow|Flow]] — product lifecycle + how work ships\n",
@@ -388,9 +363,13 @@ def _read_next(target: str) -> list[str]:
     ]
 
 
-def _spec_pack_section(snapshot: Path | None) -> list[str]:
+def _spec_pack_section(snapshot: Path | None, target: str) -> list[str]:
     """Human-readable Spec pack completeness from the latest snapshot."""
     lines = ["## Spec pack\n"]
+    lines.append(
+        f"Full Spec: [[projects/{target}/spec|Spec Hub]] "
+        "(Product · Requirements · Design · API · Plan).\n"
+    )
     if snapshot is None or not (snapshot / "spec.json").exists():
         lines.append(
             "_No `spec.json` in the latest snapshot. Run `bin/lookout <target>` "
@@ -431,14 +410,14 @@ def generate_discovery(target: str, vault_dir: Path | None = None) -> Path:
 
     lines = [
         f"# {target} — Discovery\n",
-        "Start-here page for this project: product flow, API map, shallow "
+        "Start-here page for this project: Spec link, API map, shallow "
         "module map, and atlas. Machine-generated from docs, the latest "
         "snapshot, and the local clone. Lookout does not invent edges.\n",
         "## One-liner\n",
         _one_liner(project_dir, target) + "\n",
     ]
-    lines.extend(_spec_pack_section(snapshot))
-    lines.extend(_product_flow_section(target, local))
+    lines.extend(_spec_pack_section(snapshot, target))
+    lines.extend(_product_flow_section(target, local, project_dir))
     lines.extend(_api_map_section(target, endpoints, atlas_index))
     lines.extend(_module_map_section(target, local))
     lines.extend(_atlas_coverage(project_dir, target))
