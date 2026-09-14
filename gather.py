@@ -54,6 +54,7 @@ import yaml
 from dotenv import load_dotenv
 
 from collectors.notion import collect_notion_todos as _collect_notion_todos
+from collectors.spec import collect_spec as _collect_spec
 
 REPO_ROOT = Path(__file__).parent
 TARGETS_YAML = REPO_ROOT / "targets.yaml"
@@ -803,6 +804,14 @@ def gather(target_name):
             "status": endpoints_result["status"],
             "error": endpoints_result["error"],
             "count": endpoints_result["count"],
+        }
+        spec_result = _collect_spec(local_path, out_dir)
+        sources["spec"] = {
+            "status": spec_result["status"],
+            "error": spec_result.get("error", ""),
+            "score": spec_result.get("score", ""),
+            "present": spec_result.get("present", 0),
+            "absent": spec_result.get("absent", 0),
         }
 
     # Notion and journal collectors

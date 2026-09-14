@@ -101,6 +101,47 @@ targets:
 
 ---
 
+### 1b. Target Spec pack (recommended SDD files)
+
+**Path pattern:** files under the target's `local:` checkout
+
+**Purpose:** Spec-Driven Development pack that Lookout mirrors into
+`vault/projects/<target>/raw/<ts>/spec.json`. Presence is recommended, not
+required — a missing file is recorded as `absent` and the run continues.
+
+| Key in `spec.json` | Candidate paths (first existing wins) | Role |
+|---|---|---|
+| `PRODUCT.md` | `PRODUCT.md` | What & why, jobs, concepts, milestones |
+| `DESIGN.md` | `DESIGN.md` | UX/UI tokens, layout, interaction |
+| `SCHEMA.md` | `SCHEMA.md`, `schema.yaml`, `schema.yml` | Data model |
+| `api.yaml` | `api.yaml`, `openapi.yaml`, `openapi.yml` | Machine-readable API (OpenAPI subset) |
+| `docs/` | `docs/` directory | Architecture, workflow, features, milestones |
+
+**`spec.json` shape** (written by `collectors.spec.collect_spec`):
+
+```json
+{
+  "files": {
+    "PRODUCT.md": {"present": true, "path": "PRODUCT.md", "sha256": "...", "bytes": 1234},
+    "DESIGN.md": {"present": true, "path": "DESIGN.md", "sha256": "...", "bytes": 800},
+    "SCHEMA.md": {"present": true, "path": "SCHEMA.md", "sha256": "...", "bytes": 4000},
+    "api.yaml": {"present": false, "path": "api.yaml", "sha256": null, "bytes": 0},
+    "docs/": {"present": true, "path": "docs", "file_count": 12}
+  },
+  "completeness": {
+    "present": ["PRODUCT.md", "DESIGN.md", "SCHEMA.md", "docs/"],
+    "absent": ["api.yaml"],
+    "score": "4/5",
+    "badge": "PRODUCT ✓ · DESIGN ✓ · SCHEMA ✓ · API ✗ · docs ✓"
+  }
+}
+```
+
+The badge is rendered on `situation.md` (`## Spec pack`) and `discovery.md`.
+This is an **additive** contract change — `contract_version` is not bumped.
+
+---
+
 ### 2. `vault/projects/<target>/situation.md`
 
 **Path pattern:** `vault/projects/<target>/situation.md`

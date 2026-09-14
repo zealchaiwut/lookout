@@ -11,6 +11,7 @@ Usage:
     python project_discovery.py <target> [--vault <dir>]
 """
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -387,6 +388,35 @@ def _read_next(target: str) -> list[str]:
     ]
 
 
+def _spec_pack_section(snapshot: Path | None) -> list[str]:
+    """Human-readable Spec pack completeness from the latest snapshot."""
+    lines = ["## Spec pack\n"]
+    if snapshot is None or not (snapshot / "spec.json").exists():
+        lines.append(
+            "_No `spec.json` in the latest snapshot. Run `bin/lookout <target>` "
+            "to collect PRODUCT / DESIGN / SCHEMA / API / docs presence._\n"
+        )
+        return lines
+    try:
+        from collectors.spec import format_badge_line
+        data = json.loads((snapshot / "spec.json").read_text(encoding="utf-8"))
+    except Exception:
+        lines.append("_`spec.json` could not be read._\n")
+        return lines
+    badge = format_badge_line(data)
+    completeness = data.get("completeness") or {}
+    absent = completeness.get("absent") or []
+    lines.append(f"{badge}\n" if badge else "_No completeness data._\n")
+    if absent:
+        lines.append(
+            "Missing (recommended for SDD): "
+            + ", ".join(f"`{a}`" for a in absent)
+            + "\n"
+        )
+    lines.append("_(source: spec.json)_\n")
+    return lines
+
+
 def generate_discovery(target: str, vault_dir: Path | None = None) -> Path:
     if vault_dir is None:
         vault_dir = REPO_ROOT / "vault"
@@ -407,6 +437,7 @@ def generate_discovery(target: str, vault_dir: Path | None = None) -> Path:
         "## One-liner\n",
         _one_liner(project_dir, target) + "\n",
     ]
+    lines.extend(_spec_pack_section(snapshot))
     lines.extend(_product_flow_section(target, local))
     lines.extend(_api_map_section(target, endpoints, atlas_index))
     lines.extend(_module_map_section(target, local))

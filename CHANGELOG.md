@@ -5,6 +5,10 @@ sprint finishes. Dated per-sprint files live under [docs/changelog/](docs/change
 
 ## Unreleased
 
+- Spec pack completeness (SDD): gather writes `spec.json` for PRODUCT / DESIGN /
+  SCHEMA / API / docs presence; situation and discovery show a completeness badge.
+  See `docs/hermes-contract.md` §1b.
+
 - Seed atlas features from `PRODUCT.md` (core concepts, jobs, milestones) when
   a target has no README Features section; prefer the local clone over GitHub.
 - Prefer a feature-named source file when the matching test walks the whole app
