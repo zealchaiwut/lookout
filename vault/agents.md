@@ -25,6 +25,8 @@ The following file types are owned and written by the agent pipeline. Human cont
   outbound write to the target clone
 - **spec CLI** — `lookout spec validate|submit|approve <target>` (mock-validate
   OpenAPI + fixtures; submit/approve flip status after validate passes)
+- **promote-spec** — `lookout promote-spec <target>` copies an **approved** Spec
+  pack into the target clone (only outbound write); then status → `promoted`
 - **atlas** — cross-target structural map
 - **index** — vault master registry (e.g. `vault/index.md`)
 - **journal index** — chronological index of journal entries

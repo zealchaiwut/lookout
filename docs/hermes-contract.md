@@ -185,6 +185,11 @@ transitions raise `SpecWorkspaceError`. Additive — no `contract_version` bump.
 without calling live APIs. `submit` requires `draft` and flips to `in-review`;
 `approve` requires `in-review` and flips to `approved`. Both gate on validate.
 
+**Promote (Step 6):** `lookout promote-spec <target> [--dry-run]` —
+requires `status=approved`, copies `PRODUCT.md` / `DESIGN.md` / `SCHEMA.md` /
+`api.yaml` from the workspace into the target `local:` clone, then flips
+status to `promoted`. This is the only outbound write into a tracked project.
+
 ---
 
 ### 2. `vault/projects/<target>/situation.md`

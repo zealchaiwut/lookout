@@ -13,3 +13,10 @@ promoted into `~/dev/viral-radar/` when approved (`lookout promote-spec`).
 
 Until `api.yaml` is copied into the viral-radar clone root, gather still
 reports `API ✗` on the Spec pack badge.
+
+```bash
+bin/lookout spec validate viral-radar
+bin/lookout spec submit viral-radar
+bin/lookout spec approve viral-radar
+bin/lookout promote-spec viral-radar          # or --dry-run first
+```

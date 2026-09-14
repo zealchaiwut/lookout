@@ -90,6 +90,11 @@ def main():
         )
         sys.exit(1 if any_failed else 0)
 
+    # Dispatch promote-spec subcommand (Spec pack → target clone)
+    if len(sys.argv) >= 2 and sys.argv[1] == "promote-spec":
+        import promote_spec as promote_spec_module
+        sys.exit(promote_spec_module.main(sys.argv[2:]))
+
     # Dispatch promote subcommand
     if len(sys.argv) >= 2 and sys.argv[1] == "promote":
         import argparse
